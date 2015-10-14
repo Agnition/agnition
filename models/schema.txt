@@ -1,0 +1,39 @@
+expierment : {
+  metric: {
+    metric : '<hypothesis here>' // this is unsatisfying
+    measures : {
+      mes_a : {
+        type    : '<distrecte>',
+        scale   : '<not | hot>',
+        samples : [{value: hot, time: new Date()}, {value: not, time: new Date()}]
+      },
+
+      mes_b : {
+        type    : '<continious>',
+        scale   : '<1-5>',
+        samples : [{value: 4, time: new Date()}, {value: 2, time: new Date()}]
+      }
+    }
+  },
+  behaviors : {
+    behavior_a : {
+      interval : <time period>
+      min_duration : <time period>
+      options : [<opt_1_text description>, <opt_2_text description>, <opt_3_text description>];
+    }
+  },
+  touchPoints : [
+    {
+      interval : 'time period/ function/ something', 
+      measure  : <name_of_measure>, 
+      question : "how do you ___ on this fine ____?" 
+    },
+    {
+      interval : 'time period/ function/ something', 
+      measure  : <name_of_measure>, 
+      question : "how do you ___ on this fine ____?" 
+    }
+  ]
+}
+
+docs: https://docs.google.com/spreadsheets/d/19P2zBtY1ptM979DXdc0hSCLh5Hrs3Bq-XV-FcSq9MZQ/edit#gid=0
