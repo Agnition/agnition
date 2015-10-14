@@ -1,6 +1,8 @@
-expierment : {
+expirement : {
+  type : <interval | episode>
+  hypothesis : 'plain text hypothesis'
   metric: {
-    metric : '<hypothesis here>' // this is unsatisfying
+    metric : '<thing/ concept you are trying to affect>',
     measures : {
       mes_a : {
         type    : '<distrecte>',
@@ -24,7 +26,7 @@ expierment : {
   },
   touchPoints : [
     {
-      interval : 'time period/ function/ something', 
+      interval : 'time period/ function/ something' --> this depends on implementation, 
       measure  : <name_of_measure>, 
       question : "how do you ___ on this fine ____?" 
     },
@@ -36,4 +38,5 @@ expierment : {
   ]
 }
 
-docs: https://docs.google.com/spreadsheets/d/19P2zBtY1ptM979DXdc0hSCLh5Hrs3Bq-XV-FcSq9MZQ/edit#gid=0
+
+spreadsheet form: https://docs.google.com/spreadsheets/d/19P2zBtY1ptM979DXdc0hSCLh5Hrs3Bq-XV-FcSq9MZQ/edit#gid=0
