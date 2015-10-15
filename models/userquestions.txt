@@ -6,9 +6,12 @@ From your hypothesis, what is the effect you are interested in ?
       how do you want to measure it ?
       when do you want us to take the measurement ?
 
-What is the causaul action you are interested in ?
-  when do you the action?
+What is the causaul action you are interested in ?    
   what are the different ways you could do the action ?
+
+  when do you the action? (eg. fridays at 5.)
+    how much advance notice do you need to change it ?
+  
   how many consecutive times do you need to do the action before you will have meaningful data ?
 
 
