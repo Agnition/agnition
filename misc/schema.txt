@@ -1,0 +1,35 @@
+expirement : {
+  hypothesis : 'plain text hypothesis to help user think'
+  dependent_variable: {
+    name : < description of variable >
+    type : < continious | planned | ad_hoc >
+    occurences_of_event : [date1, date2, date3] | null -- if continious | ad hoc
+    measures : {
+      1 : {
+        name    : '<description of measure>'
+        type    : '< qualitative_scale | list | numeric >',
+        scale   : '<[1,2,3,4,5] | null>',
+        list    : '<[rainy, sunny, humid] | null>',
+        samples : [{value: 1, time: new Date()}, {value: 5, time: new Date()}]
+        request : {
+          freq     : 'some date/time pattern -- changes based dependent_variable type', 
+          question : 'some user submitted question w/ default'
+        }
+      },
+    }
+  },
+  
+  independent_vars : {
+    1 : {
+      name: '<plain text description of name>'
+      action_performed_at : <some date time expression>
+      req_consecutive_actions : <number>
+      options : [<opt_1_text description>, <opt_2_text description>, <opt_3_text description>];
+      remind : {
+          freq : 'some date/time pattern -- changes on when action is performed', 
+      }
+    }
+  },
+}
+
+spreadsheet form: https://docs.google.com/spreadsheets/d/19P2zBtY1ptM979DXdc0hSCLh5Hrs3Bq-XV-FcSq9MZQ/edit#gid=0
