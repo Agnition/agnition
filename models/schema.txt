@@ -1,42 +1,32 @@
 expirement : {
-  type : <interval | episode>
-  hypothesis : 'plain text hypothesis'
-  metric: {
-    metric : '<thing/ concept you are trying to affect>',
+  hypothesis : 'plain text hypothesis to help user think'
+  dependent_variable: {
+    name : <description of variable>
+    type : < continious | planned | ad_hoc>
+    occurences_of_event : [date1, date2, date3] | null -- if continious | ad hoc
     measures : {
-      mes_a : {
-        type    : '<distrecte>',
-        scale   : '<not | hot>',
-        samples : [{value: hot, time: new Date()}, {value: not, time: new Date()}]
+      1 : {
+        name    : '<description of measure>'
+        type    : '< scale | list | numeric >',
+        scale   : '<[1,2,3,4,5] | null>',
+        list    : '<[rainy, sunny, humid] | null>',
+        samples : [{value: 1, time: new Date()}, {value: 5, time: new Date()}]
+        request : {
+          freq     : 'some date/time pattern -- changes based dependent_variable type', 
+          question : 'some user submitted question w/ default'
+        }
       },
-
-      mes_b : {
-        type    : '<continious>',
-        scale   : '<1-5>',
-        samples : [{value: 4, time: new Date()}, {value: 2, time: new Date()}]
-      }
     }
   },
-  behaviors : {
-    behavior_a : {
-      interval : <time period>
-      min_duration : <time period>
+  
+  independent_vars : {
+    1 : {
+      name: '<plain text description of name>'
+      action_performed_at : <some date time expression>
+      req_consecutive_actions : <number>
       options : [<opt_1_text description>, <opt_2_text description>, <opt_3_text description>];
     }
   },
-  touchPoints : [
-    {
-      interval : 'time period/ function/ something' --> this depends on implementation, 
-      measure  : <name_of_measure>, 
-      question : "how do you ___ on this fine ____?" 
-    },
-    {
-      interval : 'time period/ function/ something', 
-      measure  : <name_of_measure>, 
-      question : "how do you ___ on this fine ____?" 
-    }
-  ]
-}
 
 
 spreadsheet form: https://docs.google.com/spreadsheets/d/19P2zBtY1ptM979DXdc0hSCLh5Hrs3Bq-XV-FcSq9MZQ/edit#gid=0

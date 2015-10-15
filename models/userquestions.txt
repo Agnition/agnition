@@ -1,0 +1,14 @@
+What is your hypothesis ?
+
+From your hypothesis, what is the effect you are interested in ? 
+  what ways will you to measure that effect ?
+    forEach measure...
+      how do you want to measure it ?
+      when do you want us to take the measurement ?
+
+What is the causaul action you are interested in ?
+  when do you the action?
+  what are the different ways you could do the action ?
+  how many consecutive times do you need to do the action before you will have meaningful data ?
+
+
