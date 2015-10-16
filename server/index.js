@@ -7,7 +7,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var userRouter = require('./users/routes');
-var expRouter = require('./exps/routes');
 
 // db
 var mongoose = require('mongoose');
@@ -21,8 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 app.use(express.static(path.join(__dirname,'/public')));
 app.use('/users', userRouter);
-app.use('/exps', expRouter);
-
 
 
 // start it up

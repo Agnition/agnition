@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 // declare schema
 var userSchema = new mongoose.Schema({
-  username : String
+  username : String,
+  exps : [{ type: mongoose.Schema.ObjectId, ref: 'Exp' }]
 });
 
 // export model

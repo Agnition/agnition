@@ -3,16 +3,18 @@ var mongoose = require('mongoose');
 
 // declare schema
 var expSchema = new mongoose.Schema({
+  name : { type: String, required: true },
   hypothesis : { type: String, required: true },
-  dependentVariable: {
+  kind : {
+    type: String,
+    required : true, 
+    validate : { 
+      validator: expKindValidator,
+      message: 'Invalid experiment kind'
+    } 
+  },
+  dependentVar: {
     name : { type: String, required: true },
-    kind : {
-      type: String,
-      required : true, 
-      validate : { 
-        validator: depKindValidator 
-      } 
-    },
     measures : [{
       name : { type: String, required: true },
       kind : {
@@ -60,25 +62,25 @@ var expSchema = new mongoose.Schema({
   }]
 });
 
-var depKindValidator = function (val) {
+function expKindValidator (val) {
   return val === 'continious' ||  val === 'planned' || val === 'ad_hoc'; 
-};
+}
 
-var mesKindValidator = function (val) {
+function mesKindValidator (val) {
   return val === 'qualitative' ||  val === 'list' || val === 'numeric'; 
-};
+}
 
-var mesScaleValidator = function (val) {
+function mesScaleValidator (val) {
   // what is this?
   // null values do not call validator functions.. so case is not considered
-  return (this.type === 'qualitative' && typeof val === 'array');
-};
+  return ((this.kind !== 'qualitative' && val === null) || (this.kind === 'qualitative' &&  val instanceof Array));
+}
 
-var mesListValidator = function (val) {
+function mesListValidator (val) {
   // what is this?
   // null values do not call validator functions.. so case is not considered
-  return (this.type === 'list' && typeof val === 'array');
-};
+  return ((this.kind !== 'list' && val === null) || (this.kind === 'list' &&  val instanceof Array));
+}
 
 
 // export model
