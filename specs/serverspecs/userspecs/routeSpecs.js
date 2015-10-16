@@ -6,6 +6,7 @@ var app = require('../../../server/index.js');
 var sinon = require('sinon');
 
 describe('The User Router', function () {
+  var exampleUser = require('../../../server/users/example.js');
 
   beforeEach(function(){
 
@@ -16,16 +17,13 @@ describe('The User Router', function () {
   });
 
   it('responds to POST requests at `/users/`', function (done) {
-    var data = {
-      username: 'johnsmith'
-    };
 
     request(app)
       .post('/users/')
-      .send(data)
+      .send(exampleUser)
       .expect(200)
       .expect(function(res){
-        if(res.body.username === 'johnsmith') {
+        if(res.body.username === exampleUser.username) {
           return done();
         }
       })
@@ -37,13 +35,9 @@ describe('The User Router', function () {
   it('responds to GET requests at `/users/:ID`', function (done) {
     var userId;
 
-    var data = {
-      username: 'johnsmith'
-    };
-
     request(app)
       .post('/users/')
-      .send(data)
+      .send(exampleUser)
       .end(function(err, res) {
         userId = res.body._id;
         request(app)
@@ -55,7 +49,7 @@ describe('The User Router', function () {
           .expect(200, {
             __v: 0,
             _id: userId,
-            username: 'johnsmith',
+            username: exampleUser.username,
             exps: ''
           }, done);
       });
@@ -65,13 +59,9 @@ describe('The User Router', function () {
   it('responds to DELETE requests at `/users/:ID`', function (done) {
     var userId;
 
-    var data = {
-      username: 'johnsmith'
-    };
-
     request(app)
       .post('/users/')
-      .send(data)
+      .send(exampleUser)
       .end(function(err, res) {
         userId = res.body._id;
         request(app)
