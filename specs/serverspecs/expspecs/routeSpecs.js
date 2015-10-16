@@ -3,7 +3,7 @@
 var expect = require('chai').expect;
 var sinon = require('sinon');
 
-describe('The User Router', function () {
+describe('The Experiment Router', function () {
   beforeEach(function(){
 
   });
@@ -12,15 +12,19 @@ describe('The User Router', function () {
 
   });
 
-  it('should call ctrl.getUser on GET /user/:ID', function () {
+  it('should call ctrl.getAllExps on GET /user/:userId/experiments/', function () {
   
   });
 
-  it('should call ctrl.addUser on POST /user/', function () {
+  it('should call ctrl.addExp on POST /user/:userId/experiments/', function () {
   
   });
 
-  it('should call ctrl.deleteUser on DELETE /user/:ID', function () {
+  it('should call ctrl.deleteExp on DELETE /user/:userId/experiments/:expId', function () {
+  
+  });
+
+  it('should call ctrl.getExp on GET /user/:userId/experiments/:expId', function () {
   
   });
 
