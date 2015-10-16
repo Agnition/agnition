@@ -33,3 +33,5 @@ var example = {
     }
   }]
 };
+
+module.exports = example;
