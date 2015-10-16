@@ -15,7 +15,7 @@ var expKindValidator = function (val) {
 var expSchema = new Schema ({
   name : { type: String, required: true },
   hypothesis : { type: String },
-  type : {
+  kind : {
     type: String,
     required : true, 
     validate : { 

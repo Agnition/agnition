@@ -1,35 +1,43 @@
 module.exports = {
-      name : 'Paper chaser',
-      hypothesis : '5g is the best weight for planes',
-      kind : 'ad_hoc',
-      dependentVar: {
-        name : 'Flight length',
-        measures : [{
-          name : 'Distance',
-          kind : 'numeric',
-          scale : null,
-          list : null,
-          samples : [{
-            value: 3.2
-          },
-          {
-            value: 2.5
-          }],
-          request : {
-            freq : null, 
-            question : 'how far did it fly?'
-          }
-        }]
-      }, 
-      independentVars : [{
-        name: 'Weight',
-        actionStart : null,
-        actionWarning : null, //should likely be some datetime thing....
-        consecutiveActions : 1,
-        options : ['3.4','6.0'],
-        remind : {
-          freq : null, // whatever datetime thing we decide on
-          reminder: 'Put this amount of weight in your plane'
+  name : 'paper chaser',
+  hypothesis : 'something',
+  kind : 'ad_hoc',
+  dependentVars : [{
+    name : 'distance',
+    measures : [
+      {
+      kind  : 'numeric',
+      scale : null,
+      list  : null,
+      unit  : 'feet', 
+      samples : [{
+        value: 1,
+        // time: using defualt,
+        independentVars : [{
+          name : 'weight',
+          optionIndex : 0,
+          }]
+        },
+        { value: 2,
+        // time: using defualt,
+        independentVars : [{
+          name : 'weight',
+          optionIndex : 1,
+          }]
         }
-      }]
-    };
+      ]
+    }]
+  }],
+  independentVars : [{
+      name: 'Weight',
+      options : ['1g','2g'],
+      numTrials : 1,
+      // actionsPerTrial : { type: Number, required: true, default: 1 },
+      randomized : true,
+      reminder : [{
+        freq : null,
+        reminder: null,
+      }],
+    },
+  ] 
+};

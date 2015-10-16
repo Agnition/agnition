@@ -24,7 +24,7 @@ var mesListValidator = function (val) {
 var mesUnitValidator = function (val) {
   // what is this?
   // null values do not call validator functions.. so case is not considered
-  return ((this.kind !== 'numeric' && val === null) || (this.kind === 'numeric' &&  val instanceof Number));
+  return ((this.kind !== 'numeric' && val === null) || (this.kind === 'numeric' &&  typeof val === 'string'));
 };
 
 
@@ -56,7 +56,7 @@ var measureSchema = new Schema({
     }
   },
   samples : [sampleSchema],
-  request : requestSchema
+  requests : [requestSchema]
 });
 
 module.exports = measureSchema;

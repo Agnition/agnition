@@ -9,8 +9,8 @@ var independentVarSchema = new Schema({
     options : [String],
     numTrials : Number,
     actionsPerTrial : { type: Number, required: true, default: 1 },
-    randomized : true,
-    remind : remindSchema
+    randomized : Boolean,
+    reminder : [remindSchema]
 });
 
 module.exports = independentVarSchema;
