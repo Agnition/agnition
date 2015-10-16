@@ -1,10 +1,16 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var freqValidator = require('./freqValidator');
 
 //remind
 var remindSchema = new Schema({
-  freq : String, // whatever datetime thing we decide on
+  freq : {
+    type: String, 
+    validate : {
+      validator : freqValidator
+    }
+  },
   reminder: String 
 });
 

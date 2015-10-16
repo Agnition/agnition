@@ -1,12 +1,14 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
+//required modelCompents
 var dependentVarSchema = require('./modelComponents/dependentVarSchema');
 var independentVarSchema = require('./modelComponents/independentVarSchema');
 
 //validator
 var expKindValidator = function (val) {
-  return val === 'continious' ||  val === 'planned' || val === 'ad_hoc'; 
+  return val === 'continious' || val === 'ad_hoc'; 
 };
 
 //exp
