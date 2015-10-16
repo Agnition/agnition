@@ -2,14 +2,13 @@
 
 var Exp = require('../../../server/exps/model');
 var expect = require('chai').expect;
-var sinon = require('sinon');
-var mongoose = require('mongoose');
 var _ = require('underscore');
+var expObj = require('./exampleExp');
 
-describe('Experiment Document', function () {
+describe('Experiment Model', function () {
   var example;
   beforeEach(function() {
-    example = require('./exampleExp');
+    example = _.extend({}, expObj);
   });
 
   it('should have the right keys', function () {
@@ -23,61 +22,116 @@ describe('Experiment Document', function () {
                               'name']);
   });
 
-  describe('validators', function () {
-    it('should check experiment kind for valid input', function () {
-      example.kind = 'pokemon';
-      var exp = new Exp(example);
-      var error = exp.validateSync().toString();
-      expect(error).to.eql('ValidationError: Validator failed for path `kind` with value `pokemon`');
-    });
-    it('should check measure kind for valid input', function () {
-      example.dependentVars[0].measures[0].kind = 'cow';
-      var exp = new Exp(example);
-      var error = exp.validateSync().toString();
-      console.log("-------------------------------------------",error);
-      expect(error).to.contain('Validator failed for path `kind` with value `pokemon`');
-    });
+  it('should validate experiment.kind', function () {
+    example.kind = 'pokemon';
+    var exp = new Exp(example);
+    var error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `kind` with value `pokemon`');
+  });
 
+  it('should validate measure.kind', function () {
+    example.dependentVars[0].measures[0].kind = 'cow';
+    example.dependentVars[0].measures[0].unit = null;
+    var exp = new Exp(example);
+    var error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `kind` with value `cow`');
+  });
+  
+  it('should validate measure.scale', function () {
+    //POSITIVE CASE -- lets in good input
+    //if kind = scale, scale should be valid, list should be null, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'qualitative';
+    example.dependentVars[0].measures[0].scale = [0];
+    example.dependentVars[0].measures[0].list  = null;
+    example.dependentVars[0].measures[0].unit  = null;
+    var exp = new Exp(example);
+    var error = exp.validateSync();
+    expect(error).to.eql(undefined);
+    
+
+    //NEGATIVE CASE -- Stops garbage
+    //if kind = list, scale should be null, list should be valid, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'list';
+    example.dependentVars[0].measures[0].scale = [1];
+    example.dependentVars[0].measures[0].list  = [2];
+    example.dependentVars[0].measures[0].unit  = null;
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `scale` with value `1`');
+    
+    //if kind = numeric, scale should be null, list should be null, unit should be valid
+    example.dependentVars[0].measures[0].kind  = 'numeric';
+    example.dependentVars[0].measures[0].scale = [3];
+    example.dependentVars[0].measures[0].list  = null;
+    example.dependentVars[0].measures[0].unit  = 'foot';
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `scale` with value `3`');
+  });
+
+  it('should validate measure.list', function () {
+    //POSITIVE CASE -- lets in good input
+    //if kind = list, scale should be null, list should be valid, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'list';
+    example.dependentVars[0].measures[0].scale = null;
+    example.dependentVars[0].measures[0].list  = [0];
+    example.dependentVars[0].measures[0].unit  = null;
+    var exp = new Exp(example);
+    var error = exp.validateSync();
+    expect(error).to.eql(undefined);
+    
+
+    //NEGATIVE CASE -- Stops garbage
+    //if kind = scale, scale should be valid, list should be null, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'qualitative';
+    example.dependentVars[0].measures[0].scale = [1];
+    example.dependentVars[0].measures[0].list  = [2];
+    example.dependentVars[0].measures[0].unit  = null;
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `list` with value `2`');
+    
+    //if kind = numeric, scale should be null, list should be null, unit should be valid
+    example.dependentVars[0].measures[0].kind  = 'numeric';
+    example.dependentVars[0].measures[0].scale = null;
+    example.dependentVars[0].measures[0].list  = [3];
+    example.dependentVars[0].measures[0].unit  = 'foot';
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `list` with value `3`');
+  });
+
+  it('should validate measure.unit', function () {
+    //POSITIVE CASE -- lets in good input
+    //if kind = numeric, scale should be null, list should be null, unit should be valid
+    example.dependentVars[0].measures[0].kind  = 'numeric';
+    example.dependentVars[0].measures[0].scale = null;
+    example.dependentVars[0].measures[0].list  = null;
+    example.dependentVars[0].measures[0].unit  = 'foot';
+    var exp = new Exp(example);
+    var error = exp.validateSync();
+    expect(error).to.eql(undefined);
+    
+
+    //NEGATIVE CASE -- Stops garbage
+    //if kind = scale, scale should be valid, list should be null, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'qualitative';
+    example.dependentVars[0].measures[0].scale = [1];
+    example.dependentVars[0].measures[0].list  = null;
+    example.dependentVars[0].measures[0].unit  = 'foot';
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `unit` with value `foot`');
+    
+    //if kind = list, scale should be null, list should be null, unit should be null
+    example.dependentVars[0].measures[0].kind  = 'list';
+    example.dependentVars[0].measures[0].scale = null;
+    example.dependentVars[0].measures[0].list  = [3];
+    example.dependentVars[0].measures[0].unit  = 'pokemon';
+    exp = new Exp(example);
+    error = exp.validateSync().toString();
+    expect(error).to.eql('ValidationError: Validator failed for path `unit` with value `pokemon`');
   });
 
 
 });
-
-//   describe('expKindValidator', function() {
-//   });
-
-  // describe('mesKindValidator', function() {
-  // });
-
-//   describe('mesScaleValidator', function() {
-//     it('should check measure scale for valid input', function () {
-//       example.dependentVar.measures[0].kind = 'numeric';
-//       example.dependentVar.measures[0].scale = [];
-//       var exp = new Exp(example);
-//       expect(exp.validateSync()).to.not.eql(undefined);
-//       example.dependentVar.measures[0].kind = 'list';
-//       example.dependentVar.measures[0].scale = [];
-//       var exp = new Exp(example);
-//       expect(exp.validateSync()).to.not.eql(undefined);
-//     });
-//   });
-
-//   describe('mesListValidator', function() {
-//     it('should check measure list for valid input', function () {
-//       example.dependentVar.measures[0].kind = 'numeric';
-//       example.dependentVar.measures[0].list = [];
-//       var exp = new Exp(example);
-//       expect(exp.validateSync()).to.not.eql(undefined);
-//       example.dependentVar.measures[0].kind = 'qualitative';
-//       example.dependentVar.measures[0].list = [];
-//       var exp = new Exp(example);
-//       expect(exp.validateSync()).to.not.eql(undefined);
-//     });
-//   });
-
-//   describe('freqValidator', function() {
-//     it('should error if freq is not a string', function () {
-     
-//     });
-//   });
-// });
