@@ -8,7 +8,7 @@ var independentVarSchema = require('./modelComponents/independentVarSchema');
 
 //validator
 var expKindValidator = function (val) {
-  return val === 'continious' || val === 'ad_hoc'; 
+  return val === 'continuous' || val === 'ad_hoc'; 
 };
 
 //exp

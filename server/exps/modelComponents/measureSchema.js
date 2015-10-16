@@ -21,6 +21,12 @@ var mesListValidator = function (val) {
   return ((this.kind !== 'list' && val === null) || (this.kind === 'list' &&  val instanceof Array));
 };
 
+var mesUnitValidator = function (val) {
+  // what is this?
+  // null values do not call validator functions.. so case is not considered
+  return ((this.kind !== 'numeric' && val === null) || (this.kind === 'numeric' &&  val instanceof Number));
+};
+
 
 //mesuare schema
 var measureSchema = new Schema({
@@ -41,6 +47,12 @@ var measureSchema = new Schema({
     type: Array,
     validate : { 
      validator: mesListValidator 
+    }
+  },
+  unit : {
+    type: String,
+    validate : { 
+     validator: mesUnitValidator 
     }
   },
   samples : [sampleSchema],
