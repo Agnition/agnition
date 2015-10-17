@@ -5,5 +5,10 @@
   },
     "rules": {
       "semi": 2
+      "no-undef": 2,
+      "semi": 2
+    },
+  "env": {
+      "node": true
     }
 }
