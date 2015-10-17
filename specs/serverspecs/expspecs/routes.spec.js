@@ -1,11 +1,11 @@
 'use strict';
 /*jshint undef:false, unused: false*/ 
 
-var expect = require('chai').expect;
 var request = require('supertest');
-var app = require('../../../server/index.js');
+var expect = require('chai').expect;
 var sinon = require('sinon');
 var Exp = require('../../../server/exps/model');
+var app;
 
 describe('The Experiment Router', function () {
   var exampleExp = require('./exampleExp.js');
@@ -14,6 +14,7 @@ describe('The Experiment Router', function () {
   var expId;
   
   beforeEach(function(done){
+    app = require('../../../server/index.js');
     request(app)
       .post('/users/')
       .send(exampleUser)
@@ -28,13 +29,15 @@ describe('The Experiment Router', function () {
       .delete('/users/'+userId)
       .end(function(err, res) {
         done();
+        // app.close(done);
       });
+
   });
 
   describe('/users/:userId/experiments/', function () {
     it('responds to POST requests', function (done) {
       request(app)
-        .post('/users/'+userId+'/experiments/')
+        .post('/users/' + userId + '/experiments/')
         .send(exampleExp)
         .expect(200)
         .expect(function(res){
