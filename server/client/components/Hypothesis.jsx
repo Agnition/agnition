@@ -25,10 +25,10 @@ var Hypothesis = React.createClass({
 
     this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
     this.refs.hypothesisInput.value = '';
-    this.props.actions.setIV(this.refs.causeInput.value);
+    this.props.actions.setCause(this.refs.causeInput.value);
     this.refs.causeInput.value = '';
-    this.props.actions.setDV(this.refs.effectInput.value);
-    this.refs.effectInput.value = '';
+    this.props.actions.setEffect(this.refs.effectInput.value);
+    this.refs.effectInput.value x= '';
   },
 
   render: function () {

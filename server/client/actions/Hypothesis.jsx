@@ -7,16 +7,16 @@ module.exports.setHypothesis = function (hypothesis) {
   };
 };
 
-module.exports.setIV = function (iv) {
+module.exports.setCause = function (iv) {
   return { 
-    type: 'SET_IV',
+    type: 'SET_CAUSE',
     iv: iv
   };
 };
 
-module.exports.setDV = function (dv) {
+module.exports.setEffect = function (dv) {
   return {
-    type: 'SET_DV',
+    type: 'SET_EFFECT',
     dv: dv
   };
 };
