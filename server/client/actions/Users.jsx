@@ -1,8 +1,9 @@
-module.exports.setUser = function(username) {
+'use strict';
+
+module.exports.setUser = function(username, name) {
   return {
     type: 'SET_USER',
-    username: username
+    username: username,
+    name: name
   };
 };
-
-module.exports.test = {matt:'hew'};

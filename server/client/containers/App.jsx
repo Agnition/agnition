@@ -1,8 +1,9 @@
+'use strict';
+
 var React = require('react');
 var connect = require('react-redux').connect;
-var ReactDOM = require('react-dom');
 var LandingPage = require('../components/LandingPage.jsx');
-var UserActions = require('../actions/Users.jsx')
+var UserActions = require('../actions/Users.jsx');
 var bindActionCreators = require('redux').bindActionCreators;
 
 function mapStateToProps(state) {
@@ -18,16 +19,12 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-console.log(UserActions);
-
-
 var App = React.createClass({
+
   render: function() {
-    console.log(this);
     return (
       <div>
         <LandingPage />
-        {this.props.user}
       </div>
     );
   }
