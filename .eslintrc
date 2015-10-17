@@ -1,0 +1,9 @@
+{
+  "ecmaFeatures": {
+    "forOf": true,
+    "jsx": true
+  },
+    "rules": {
+      "semi": 2
+    }
+}
