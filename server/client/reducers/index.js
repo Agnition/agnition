@@ -1,7 +1,9 @@
-// var hReducer = require('hReducer');
-module.exports = function(state, action) {
-  if (action.type === 'inc') {
-    return state + 1;
-  }
-  return state;
-};
+var Redux = require('Redux');
+var CreateExp= require('./CreateExp.jsx');
+var Users = require('./Users.jsx'); // TODO : Rename to match verb convention
+var Greeter = require('./Greeter.jsx'); // TODO : Rename to match verb convention
+module.exports = Redux.combineReducers({ 
+  // CreateExp : CreateExp, 
+  Users : Users,
+  // Greeter : Greeter
+});
