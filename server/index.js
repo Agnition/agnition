@@ -24,6 +24,6 @@ app.use('/users', userRouter);
 
 // start it up
 app.listen(config.port);
-console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);
+console.log('agnition is listening on port ' + config.port + ' ' + process.env.ENV);
 
 module.exports = app;
