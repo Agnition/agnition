@@ -12,7 +12,6 @@ var LandingPage = React.createClass({
           <h1>Agnition</h1>
         </header>
           <About />
-          <Hypothesis />
       </div>
     );
   }

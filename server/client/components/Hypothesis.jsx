@@ -23,10 +23,10 @@ var Hypothesis = React.createClass({
 
     this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
     this.refs.hypothesisInput.value = '';
-    this.props.actions.setCause(this.refs.causeInput.value);
-    this.refs.causeInput.value = '';
-    this.props.actions.setEffect(this.refs.effectInput.value);
-    this.refs.effectInput.value x= '';
+    this.props.actions.setInVar(this.refs.inVarInput.value);
+    this.refs.inVarInput.value = '';
+    this.props.actions.setDepVar(this.refs.depVarInput.value);
+    this.refs.depVarInput.value = '';
   },
 
   render: function () {
@@ -40,15 +40,16 @@ var Hypothesis = React.createClass({
           <label>hypothesis</label>
           <input ref="hypothesisInput" type="text" />
           <label>cause</label>
-          <input ref="causeInput" type="text" />
+          <input ref="inVarInput" type="text" />
           <label>effect</label>
-          <input ref="effectInput" type="text" />
+          <input ref="depVarInput" type="text" />
           <button onClick={this.handleClick}>next</button>
         </section>
         <section>
+          <p>"Let's rephrase your cause and effect here."</p>
+          <p>"If this doesn't make sense, try to rephrase your causes and effects."</p>  
           <p>{this.props.hypothesis}</p>
-          <p>{this.props.iv}</p>
-          <p>{this.props.dv}</p>
+          <p>Question: How does {this.props.inVar} affect {this.props.depVar}?</p>
         </section>
       </div>
       );

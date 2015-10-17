@@ -3,9 +3,10 @@ var connect = require('react-redux').connect;
 var LandingPage = require('../components/LandingPage.jsx');
 var UserActions = require('../actions/Users.jsx');
 var bindActionCreators = require('redux').bindActionCreators;
+var CreateExperiment = require('../components/CreateExperiment.jsx');
+
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     user : state.Users.get('username')
   };
@@ -23,6 +24,7 @@ var App = React.createClass({
     return (
       <div>
         <LandingPage />
+        <CreateExperiment />
       </div>
     );
   }
