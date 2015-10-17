@@ -1,5 +1,5 @@
 var example = {
-  username: "johnsmith"
+  username: 'johnsmith'
 };
 
 module.exports = example;

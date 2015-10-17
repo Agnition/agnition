@@ -3,6 +3,8 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var mocha = require('gulp-mocha');
 var through2 = require('through2');
+var jshint = require('gulp-jshint');
+var runSequence = require('run-sequence');
 
 gulp.task('buildJS', function () {
   // return bundler.bundle()
@@ -23,7 +25,23 @@ gulp.task('buildJS', function () {
     .pipe(gulp.dest('./server/client/public/scripts'));
 });
 
-gulp.task('test', function(){
+gulp.task('mocha', function(){
   return gulp.src('./specs/**/*.spec.js')
-
+    .pipe(mocha({
+      reporter: 'spec',
+    }));
 });
+
+gulp.task('jshint', function(){
+  return gulp.src(['./server/**/*.js','!./server/client/*.js'])
+    .pipe(mocha({reporter: 'spec'}))
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jshint.reporter('fail'));
+});
+
+gulp.task('test', function(){
+  runSequence('mocha','jshint');
+});
+
+
