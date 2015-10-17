@@ -15,7 +15,7 @@ var getExp = function (req, res) {
 };
 
 var getAllExps = function (req, res) {
-  User.findOne({id: req.params.user_id})
+  User.findOne({_id: req.params.user_id})
     .populate('exps')
     .exec(function(err, user) {
       res.send(user.exps);
@@ -29,12 +29,20 @@ var addExp = function (req, res) {
       res.send(err);
       throw err; 
     }
-    res.send(exp);
+    User.update({_id: req.params.user_id}, {
+      $push: {exps: exp._id}
+    }, function(err, mongoRes) {
+      if(err) { 
+        res.send(err);
+        throw err; 
+      }
+      res.send(exp);
+    })
   });
 };
 
 var deleteExp = function (req, res) {
-  Exp.remove({_id: req.params.id }, function(err) {
+  Exp.remove({_id: req.params.exp_id }, function(err) {
     if(err) { 
       res.send(err);
       throw err; 

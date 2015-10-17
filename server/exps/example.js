@@ -2,7 +2,7 @@ var example = {
   name : 'Paper chaser',
   hypothesis : '5g is the best weight for planes',
   kind : 'ad_hoc',
-  dependentVariable: {
+  dependentVar: {
     name : 'Flight length',
     measures : [{
       name : 'Distance',
@@ -33,3 +33,5 @@ var example = {
     }
   }]
 };
+
+module.exports = example;
