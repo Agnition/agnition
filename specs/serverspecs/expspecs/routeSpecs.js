@@ -6,26 +6,29 @@ var app = require('../../../server/index.js');
 var sinon = require('sinon');
 
 describe('The Experiment Router', function () {
-  var exampleExp = require('../../../server/exps/example.js');
+  var exampleExp = require('./exampleExp.js');
   var exampleUser = require('../../../server/users/example.js');
   var userId;
   
-  beforeEach(function(){
+  beforeEach(function(done){
     request(app)
       .post('/users/')
       .send(exampleUser)
       .end(function(err, res) {
         userId = res.body._id;
+        done();
       });
   });
 
-  afterEach(function(){
+  afterEach(function(done){
     request(app)
-      .delete('/users/'+userId);
+      .delete('/users/'+userId)
+      .end(function(err, res) {
+        done();
+      });
   });
 
   it('responds to POST requests at `/users/:userId/experiments/`', function (done) {
-
     request(app)
       .post('/users/'+userId+'/experiments/')
       .send(exampleExp)
@@ -45,6 +48,7 @@ describe('The Experiment Router', function () {
       .get('/users/'+userId+'/experiments/')
       .expect(200)
       .expect(function(res){
+
         if(Array.isArray(res.body)){
           return done();
         }
@@ -87,15 +91,7 @@ describe('The Experiment Router', function () {
         expId = res.body._id;
         request(app)
           .delete('/users/'+userId+'/experiments/'+expId)
-          .expect(200)
-          .expect(function(res){
-            if(res.body.name === exampleExp.name) {
-              return done();
-            }
-          })
-          .end(function (err, res) {
-            if (err) return done(err);
-          });
+          .expect(200, 'removed exp', done);
       });
   });
 
@@ -109,7 +105,15 @@ describe('The Experiment Router', function () {
         expId = res.body._id;
         request(app)
           .get('/users/'+userId+'/experiments/'+expId)
-          .expect(200, 'removed exp', done);
+          .expect(200)
+          .expect(function(res){
+            if(res.body.name === exampleExp.name) {
+              return done();
+            }
+          })
+          .end(function (err, res) {
+            if (err) return done(err);
+          });
       });
 
   });
