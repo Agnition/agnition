@@ -1,9 +1,38 @@
 'use strict';
 
 var React = require('react');
+var connect = require('react-redux').connect;
+var HypothesisActions = require('../actions/Hypothesis.jsx');
+var bindActionCreators = require('redux').bindActionCreators;
+
+function mapStatetoProps (state) {
+  return {
+    hypothesis: state.Hypothesis.get('hypothesis'),
+    iv: state.Hypothesis.get('iv'),
+    dv: state.Hypothesis.get('dv')
+  };
+}
+
+function mapDispatchtoProps (dispatch) {
+  return {
+    actions: bindActionCreators(HypothesisActions, dispatch)
+  };
+}
 
 var Hypothesis = React.createClass({
+
+  handleClick: function (event) {
+
+    this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
+    this.refs.hypothesisInput.value = '';
+    this.props.actions.setIV(this.refs.causeInput.value);
+    this.refs.causeInput.value = '';
+    this.props.actions.setDV(this.refs.effectInput.value);
+    this.refs.effectInput.value = '';
+  },
+
   render: function () {
+    console.log(this);
     return (
       <div>
         <section>
@@ -11,15 +40,21 @@ var Hypothesis = React.createClass({
             Please enter your hypothesis here.
           </div>
           <label>hypothesis</label>
-          <input type="text" name="hypothesis" />
+          <input ref="hypothesisInput" type="text" />
           <label>cause</label>
-          <input type="text" name="cause" />
+          <input ref="causeInput" type="text" />
           <label>effect</label>
-          <input type="text" name="effect" />
+          <input ref="effectInput" type="text" />
+          <button onClick={this.handleClick}>next</button>
+        </section>
+        <section>
+          <p>{this.props.hypothesis}</p>
+          <p>{this.props.iv}</p>
+          <p>{this.props.dv}</p>
         </section>
       </div>
       );
   }
 });
 
-module.exports = Hypothesis;
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Hypothesis);
