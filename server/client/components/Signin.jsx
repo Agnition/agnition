@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -14,5 +12,3 @@ var Signin = React.createClass({
 });
 
 module.exports = Signin;
-
-

@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 var connect = require('react-redux').connect;
 var LandingPage = require('../components/LandingPage.jsx');

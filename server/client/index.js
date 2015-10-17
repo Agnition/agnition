@@ -1,8 +1,8 @@
-var App            = require('./containers/App.jsx');
-var React          = require('react');
-var Provider       = require('react-redux').Provider;
+var App = require('./containers/App.jsx');
+var React = require('react');
+var Provider = require('react-redux').Provider;
 var configureStore = require('./stores/configureStore.jsx');
-var ReactDOM       = require('react-dom');
+var ReactDOM = require('react-dom');
 // var ReduxRouter    = require('redux-router').ReduxRouter;
 // var Link           = require('redux-router').Link;
 //TODO: Implement DevTools and Browser History

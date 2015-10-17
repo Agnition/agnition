@@ -1,5 +1,3 @@
-'use strict';
-
 var Immutable = require('immutable');
 var initialState = Immutable.Map({});
 

@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports.setHypothesis = function (hypothesis) {
   return {
     type: 'SET_HYPOTHESIS',

@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 
 var About = React.createClass({
@@ -18,5 +16,3 @@ var About = React.createClass({
 });
 
 module.exports = About;
-
-

@@ -1,8 +1,6 @@
-'use strict';
-
-var React      = require('react');
-var About      = require('./About.jsx');
-var Signin     = require('./Signin.jsx');
+var React = require('react');
+var About = require('./About.jsx');
+var Signin = require('./Signin.jsx');
 var Hypothesis = require('./Hypothesis.jsx');
 
 var LandingPage = React.createClass({
