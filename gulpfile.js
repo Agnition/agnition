@@ -22,3 +22,8 @@ gulp.task('buildJS', function () {
     }))
     .pipe(gulp.dest('./server/client/public/scripts'));
 });
+
+gulp.task('test', function(){
+  return gulp.src('./specs/**/*.spec.js')
+
+});
