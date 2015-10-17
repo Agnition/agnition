@@ -1,9 +1,10 @@
-var Redux = require('Redux');
-var CreateExp= require('./CreateExp.jsx');
-var Users = require('./Users.jsx'); // TODO : Rename to match verb convention
-var Greeter = require('./Greeter.jsx'); // TODO : Rename to match verb convention
+var Redux      = require('Redux');
+// var CreateExp  = require('./CreateExp.jsx');
+var Users      = require('./Users.jsx');
+var Hypothesis = require('./Hypothesis.jsx');
 module.exports = Redux.combineReducers({ 
-  // CreateExp : CreateExp, 
+
   Users : Users,
-  // Greeter : Greeter
+  Hypothesis: Hypothesis,
+
 });

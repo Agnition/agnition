@@ -5,12 +5,10 @@ var Signin = React.createClass({
   render: function() {
     return (
       <div className="signin">
-        <button>Signin!</button>
+        <button>sign in</button>
       </div>
     );
   }
 });
 
 module.exports = Signin;
-
-
