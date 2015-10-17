@@ -4,7 +4,6 @@ var Header = require('./Header.jsx');
 var About = require('./About.jsx');
 var Signin = require('./Signin.jsx');
 
-
 var LandingPage = React.createClass({
   render: function() {
     return (
