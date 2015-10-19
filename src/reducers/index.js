@@ -6,5 +6,6 @@ import { routerStateReducer as router } from 'redux-router';
 module.exports = combineReducers({
   Users: Users,
   Dashboard: Dashboard,
-  router: router
+  Router: router, //make capitalized
+  MyExperiments : MyExperiments
 });

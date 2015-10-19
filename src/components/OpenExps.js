@@ -23,6 +23,8 @@ var OpenExpRow = React.createClass({
         //number of samples taken thus far
         <td>{this.props.exp.depVar[0].samples.length}</td>
 
+        <EditExp exp = {this.props.exp} key={this.props.key}>
+
       </tr>
     );
   }
@@ -33,10 +35,8 @@ var OpenExps = React.createClass({
   render: function() {
     var rows = [];
     // STATE LOGIC -- figure out how to interact with immutable store..
-    this.props.myExperiments.filter({function(exp) {
-          return exp.get('active');
-        }}).forEach(function(exp) {
-      rows.push(<OpenExpRow exp={exp} />)
+    this.props.openExps.forEach(function(exp,i) {
+      rows.push(<OpenExpRow exp={exp} key={i} />)
     });
     return (
       <table className='open-exps'>
@@ -47,6 +47,7 @@ var OpenExps = React.createClass({
             <th>Dependent Variable</th>
             <th>Independent Variable</th>
             <th>Samples Taken</th>
+            <th>Edit Exp</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
