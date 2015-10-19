@@ -13,7 +13,7 @@ var OpenExpRow = React.createClass({
     return (
       <tr>
         //expierment name
-        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page
+        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page, passing in the expierment....
         //hypothesis
         <td>{this.props.exp.hypothesis}</td>
         //dependent var

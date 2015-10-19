@@ -12,7 +12,7 @@ var ClosedExpRow = React.createClass({
     return (
       <tr>
         //expierment name
-        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page
+        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page, passing in the expierment....
         //conclusion
         <td>{this.props.exp.conclusion}</td>
         //dependent var
@@ -28,7 +28,7 @@ var ClosedExpRow = React.createClass({
 });
 
 
-var OpenExps = React.createClass({
+var ClosedExps = React.createClass({
   render: function() {
     var rows = [];
     // STATE LOGIC -- figure out how to interact with immutable store..
@@ -54,4 +54,4 @@ var OpenExps = React.createClass({
   }
 });
 
-module.exports = OpenExps;
+module.exports = ClosedExps;
