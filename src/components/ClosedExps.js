@@ -35,7 +35,7 @@ var OpenExps = React.createClass({
     this.props.myExperiments.filter({function(exp) {
           return !(exp.get('active'));
         }}).forEach(function(exp) {
-      rows.push(<OpenExpRow exp={exp} />)
+      rows.push(<ClosedExpRow exp={exp} />)
     });
     return (
       <table className='open-exps'>

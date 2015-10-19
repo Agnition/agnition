@@ -5,15 +5,17 @@ var Hypothesis = require('./Hypothesis');
 var OpenExps = require('./OpenExps');
 
 // STATELOGIC logic to add in state properties
-
+// STATELOGIC create the my exps variable
 
 var MyExps = React.createClass({
   render: function() {
     return (
       <div>
-      //how to pass in the correct set of exps?
-      <OpenExps />
-      <ClosedExps />
+      //STATELOGIC ROUTING how to pass in the correct set of exps?
+      //currently setup to just filter my expierments...
+      <OpenExps myExperiments = {myExperiments} />
+      <ClosedExps myExperiments = {myExperiments} />
+
       </div>
     );
   }
