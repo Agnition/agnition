@@ -5,16 +5,16 @@ module.exports.setHypothesis = function (hypothesis) {
   };
 };
 
-module.exports.setCause = function (iv) {
+module.exports.setInVar = function (inVar) {
   return { 
     type: 'SET_CAUSE',
-    iv: iv
+    inVar: inVar
   };
 };
 
-module.exports.setEffect = function (dv) {
+module.exports.setDepVar = function (depVar) {
   return {
     type: 'SET_EFFECT',
-    dv: dv
+    depVar: depVar
   };
 };

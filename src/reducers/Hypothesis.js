@@ -6,11 +6,11 @@ module.exports = function(state, action) {
   if (action.type === 'SET_HYPOTHESIS') {
     return state.set('hypothesis', action.hypothesis);
   }
-  if (action.type === 'SET_IV') {
-    return state.set('iv', action.iv);
+  if (action.type === 'SET_CAUSE') {
+    return state.set('cause', action.cause);
   }
-  if (action.type === 'SET_DV') {
-    return state.set('dv', action.dv);
+  if (action.type === 'SET_EFFECT') {
+    return state.set('effect', action.effect);
   }
   else {
     return state;
