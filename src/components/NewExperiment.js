@@ -1,7 +1,7 @@
-var React = require('react');
-var connect = require('react-redux').connect;
-var Hypothesis = require('./Hypothesis.jsx');
-var bindActionCreators = require('redux').bindActionCreators;
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+import React from 'react';
+import Hypothesis from './Hypothesis';
 
 // function mapStatetoProps (state) {
 //   return {
@@ -15,10 +15,9 @@ var bindActionCreators = require('redux').bindActionCreators;
 //   };
 // }
 
-var NewExperiment = React.createClass ({
+const NewExperiment = React.createClass ({
 
   render: function () {
-  console.log('trying to render new experiment');
     return (
       <div className="new-experiment">
         <Hypothesis/>
