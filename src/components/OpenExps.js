@@ -17,13 +17,13 @@ var OpenExpRow = React.createClass({
         //hypothesis
         <td>{this.props.exp.hypothesis}</td>
         //dependent var
-        <td>{this.props.exp.depVar[0]}</td>
+        <td>{this.props.exp.depVar[0].name}</td>
         //independent var
-        <td>{this.props.exp.indVar[0]}</td>
+        <td>{this.props.exp.indVar[0].name}</td>
         //number of samples taken thus far
         <td>{this.props.exp.depVar[0].samples.length}</td>
-
-        <EditExp exp = {this.props.exp} key={this.props.key}>
+        
+        // <EditExp exp = {this.props.exp} key={this.props.key}>
 
       </tr>
     );
@@ -38,8 +38,9 @@ var OpenExps = React.createClass({
     this.props.openExps.forEach(function(exp,i) {
       rows.push(<OpenExpRow exp={exp} key={i} />)
     });
+    
     return (
-      <table className='open-exps'>
+      <table className='exps open-exps'>
         <thead>
           <tr>
             <th>Name</th>
@@ -47,7 +48,7 @@ var OpenExps = React.createClass({
             <th>Dependent Variable</th>
             <th>Independent Variable</th>
             <th>Samples Taken</th>
-            <th>Edit Exp</th>
+            // <th>Edit Exp</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>

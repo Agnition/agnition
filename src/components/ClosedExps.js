@@ -1,11 +1,5 @@
 var React = require('react');
 
-// STATELOGIC some logic here to load store from DB
-// ROUTER or pass in through routing...?
-// NOTE this is same as open exps -- except for the changing of conclusion with hypothesis
-  // and the filtering for inactive exps
-
-
 // Made choice to keep in same file given tight linking..
 var ClosedExpRow = React.createClass({
   render: function() {
@@ -32,13 +26,11 @@ var ClosedExps = React.createClass({
   render: function() {
     var rows = [];
     // STATE LOGIC -- figure out how to interact with immutable store..
-    this.props.myExperiments.filter({function(exp) {
-          return !(exp.get('active'));
-        }}).forEach(function(exp) {
+    this.props.closedExps.forEach(function(exp) {
       rows.push(<ClosedExpRow exp={exp} />)
     });
     return (
-      <table className='open-exps'>
+      <table className='exps closed-exps'>
         <thead>
           <tr>
             <th>Name</th>
