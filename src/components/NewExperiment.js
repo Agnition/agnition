@@ -20,7 +20,7 @@ const NewExperiment = React.createClass ({
   render: function () {
     return (
       <div className="new-experiment">
-        <Hypothesis/>
+        <Hypothesis />
       </div>
     );
   }

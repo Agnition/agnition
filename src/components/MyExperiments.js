@@ -1,22 +1,20 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-
-var OpenExps = require('./OpenExps');
-var ClosedExps = require('./ClosedExps');
+var Exps = require('./Exps');
 
 
-// STATELOGIC logic to add in state properties
+// creates two seperate lists of exps that will be seperately rendered
 function mapStatetoProps (state) {
   return {
     openExps: state
-      .MyExperiments
+      .Experiments
       .filter(function(exp) 
         { return exp.get('active') 
       })
       .toJS(),
 
     closedExps: state
-      .MyExperiments
+      .Experiments
       .filterNot(function(exp) 
         { return exp.get('active') 
       })
@@ -28,14 +26,14 @@ var MyExps = React.createClass({
   render: function() {
     return (
       <div>
-      //STATELOGIC ROUTING how to pass in the correct set of exps?
-      //currently setup to just filter my expierments inside open and closed exp components...
-      <h2>Open Experiments</h2>
-      <OpenExps openExps = {this.props.openExps} />
-      
-      <h2>Closed Experiments</h2>
-      <ClosedExps closedExps = {this.props.closedExps} />
-
+        <div>
+          <h2>Open Experiments</h2>
+          <Exps exps = {this.props.openExps} />
+        </div>
+        <div>
+          <h2>Closed Experiments</h2>
+          <Exps exps = {this.props.closedExps} />
+        </div>
       </div>
     );
   }

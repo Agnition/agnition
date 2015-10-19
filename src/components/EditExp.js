@@ -12,8 +12,8 @@ var IndVar = require('./IndVar');
 //   };
 // }
 
-// function mapDispatchtoProps (dispatch) {
-//   return {
-//     actions: bindActionCreators(HypothesisActions, dispatch)
-//   };
-// }
+function mapDispatchtoProps (dispatch) {
+  return {
+    actions: bindActionCreators(HypothesisActions, dispatch)
+  };
+}

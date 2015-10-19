@@ -4,9 +4,7 @@ var ClosedExps = require('./ClosedExps');
 var DepVar = require('./DepVar');
 var IndVar = require('./IndVar');
 
-// STATELOGIC logic to add in state properties
-// STATELOGIC create the the EXP variable
-// STATELOGIC loadDB here...
+// STATELOGIC logic to add in state properties?
 
 var ViewExp = React.createClass({
   render: function() {
@@ -22,7 +20,7 @@ var ViewExp = React.createClass({
       <DepVar depVar = {exp.depVar[0]} />
 
       <h2>Independent Variables</h2>
-      <IndVar IndVar = {exp.IndVar[0]} />
+      <IndVar indVar = {exp.IndVar[0]} />
 
       </div>
     );
