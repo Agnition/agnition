@@ -26,6 +26,8 @@ const Dashboard = React.createClass({
       <h1>Hello World</h1>
         <li><Link to="/new-experiment">Create Experiment</Link></li>
       </ul>
+        <h3>dashboard</h3>
+        <li><Link to="/new-experiment">New Experiment</Link></li>
       </div>
     );
   }
