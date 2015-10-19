@@ -32,9 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res) {
   res.sendFile(__dirname + '/client/public/index.html');
 });
-// app.use(express.static(path.join(__dirname,'/public')));
-// app.use('/users', userRouter);
-// app.get('/', express.static(path.join(__dirname, '/index.html')));
+app.use(express.static(path.join(__dirname,'/public')));
+app.use('/users', userRouter);
+app.get('/', express.static(path.join(__dirname, '/index.html')));
 
 
 // start it up
