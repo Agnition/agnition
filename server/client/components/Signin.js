@@ -16,6 +16,8 @@ var bindActionCreators = require('redux').bindActionCreators;
 
 
 function mapStatetoProps (state) {
+  console.log("-------------------------------------------STATE",state.Experiments.toJS());
+  console.log("-------------------------------------------STATEDEP",state.DepVars.toJS());
   return {};
 }
 

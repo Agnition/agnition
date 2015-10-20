@@ -6,15 +6,15 @@ var _ = require('underscore');
 
 function mapStateToProps (state, ownProps) {
   return {
-    depVars: function () {
+    depVars: (function () {
       var depVars = [];
-      ownProps.depVarIds.forEach(function( id ){
-        console.log("-------------------------------------------id",id);
+      _.each(ownProps.depVarIds, function(id){
+        console.log("-------------------------------------------id", id);
         depVars.push(state.DepVars.get(id).toJS());
       });
-      console.log("-------------------------------------------state Prop",depVars);
+      console.log("-------------------------------------------state Prop", this.props.depVars);
       return depVars;
-    }
+    })()
   };
 }
 
