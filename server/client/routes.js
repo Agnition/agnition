@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router';
-import App from './containers/App';
-import Dashboard from './containers/Dashboard';
-import NewExperiment from './components/NewExperiment';
+import App from './screens/App';
+import Dashboard from './screens/Dashboard';
+import NewExperiment from './screens/NewExperiment';
 import About from './components/About';
 
 export default (
