@@ -11,10 +11,13 @@ var babelify = require('babelify');
 var mocha = require('gulp-mocha');
 var eslint = require('gulp-eslint');
 
+var rebuildDB = require('./dummyData/index');
+
 function compile(watch) {
   var bundler = watchify(browserify('./server/client/index.js', { debug: true }).transform(babelify));
 
   function rebundle() {
+    rebuildDB();
     bundler.bundle()
       .on('error', function(err) { console.error(err); this.emit('end'); })
       .pipe(source('index.js'))
