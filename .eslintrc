@@ -1,0 +1,13 @@
+{
+  "ecmaFeatures": {
+    "forOf": true,
+    "jsx": true
+  },
+    "rules": {
+      "no-undef": 2,
+      "semi": 2
+    },
+  "env": {
+      "node": true
+    }
+}

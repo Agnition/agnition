@@ -1,6 +1,5 @@
-'use strict';
-
 var React = require('react');
+import {Link } from 'react-router';
 
 var About = React.createClass({
   render: function() {
@@ -12,11 +11,10 @@ var About = React.createClass({
         vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
         no sea takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
+        <li><Link to="/new-experiment">back to experiment</Link></li>
       </div>
     );
   }
 });
 
 module.exports = About;
-
-

@@ -6,7 +6,7 @@ var babelify = require('babelify');
 // var mocha = require('gulp-mocha');
 var through2 = require('through2');
 
-gulp.task('buildJS', function () {
+gulp.task('bundle', function () {
   // return bundler.bundle()
           // .pipe(gulp.dest('./client/public/scripts'));
   return gulp

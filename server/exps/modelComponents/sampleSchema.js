@@ -7,9 +7,9 @@ var sampleSchema = new Schema({
   value: { type: mongoose.Schema.Types.Mixed, required: true },
   // occurence : Number,
   time: { type: Date, default: Date.now, required: true },
-  independentVars : [{
+  independentVarStates : [{
     name : { type: String, required: true },
-    optionIndex : { type: Number, required: true },
+    value : { type: mongoose.Schema.Types.Mixed, required: true },
   }]
 });
 
