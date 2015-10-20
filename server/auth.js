@@ -10,9 +10,9 @@ var GOOGLE_CALLBACK = 'http://localhost:3000/auth/google/callback';
 
 module.exports = function(app) {
   passport.serializeUser(function(user, done) {
-    User.findOne({username : user.username}, function(err, user) {
+    User.findOne({googleId : user.googleId}, function(err, user) {
       if (user) {
-        done(null, user.id);
+        done(null, user.googleId);
       }
       else {
         if (err) {
@@ -26,7 +26,7 @@ module.exports = function(app) {
 
   passport.deserializeUser(function(obj, done) {
 
-    User.findOne({_id: obj}, function(err, user) {
+    User.findOne({googleId: obj}, function(err, user) {
       if (err) {
         done(err, null);
       } 
@@ -45,8 +45,10 @@ module.exports = function(app) {
     function(accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
         var newUser = new User({
-          username : profile.displayName
+          username : profile.displayName,
+          googleId : profile.id
         });
+        console.log(profile);
         User.findOne(newUser, function(err, user) {
           if (err) {
             done(err, null);

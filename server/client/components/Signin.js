@@ -37,25 +37,27 @@ function mapDispatchtoProps (dispatch) {
 var Signin = React.createClass({
   handleClick: function() {
     // need to set this to be a dynamic user id-- will break on you in dev
-    $.get('/users/' + userId + '/experiments', function(data) {
-      //normalize
-      var normData = normalize({ exps : data });
-      console.log("------------------------------------ NORM DATA -------", normData);
-      //set all the normalized attributes to the appropriate state attribute
-      //likely should refactor this out
-      this.props.expActions.setExperiments(normData.entities.experiments);
-      this.props.depVarActions.setDepVars(normData.entities.dependentVars);
-      this.props.indVarActions.setIndVars(normData.entities.independentVars);
-      this.props.mesActions.setMeasures(normData.entities.measures);
-      this.props.reqActions.setRequests(normData.entities.requests);
-      this.props.remActions.setReminders(normData.entities.reminders);
+    // $.get('/users/' + userId + '/experiments', function(data) {
+      // //normalize
+      // var normData = normalize({ exps : data });
+      // console.log("------------------------------------ NORM DATA -------", normData);
+      // //set all the normalized attributes to the appropriate state attribute
+      // //likely should refactor this out
+      // this.props.expActions.setExperiments(normData.entities.experiments);
+      // this.props.depVarActions.setDepVars(normData.entities.dependentVars);
+      // this.props.indVarActions.setIndVars(normData.entities.independentVars);
+      // this.props.mesActions.setMeasures(normData.entities.measures);
+      // this.props.reqActions.setRequests(normData.entities.requests);
+      // this.props.remActions.setReminders(normData.entities.reminders);
 
-    }.bind(this));
+    // }.bind(this));
   },
   render: function() {
     return (
       <div className="signin">
-        <button onClick={this.handleClick} >sign in</button>
+        <a href="/auth/google">
+          <button>sign in</button>
+        </a>
       </div>
     );
   }

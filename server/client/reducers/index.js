@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import Users from './Users';
+import User from './User';
 import Dashboard from './Dashboard';
 import Experiments from './Experiments';
 import DepVars from './DependentVars';
@@ -14,7 +14,7 @@ import Hypothesis from './Hypothesis';
 
 module.exports = combineReducers({
   Router: Router,
-  Users: Users,
+  User: User,
   Dashboard: Dashboard,
   Hypothesis: Hypothesis,
   Experiments : Experiments,
