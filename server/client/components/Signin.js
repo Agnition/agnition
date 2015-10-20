@@ -37,10 +37,8 @@ var Signin = React.createClass({
     $.get('/users/5625837d9d64345698bfa700/experiments', function(data) {
       //normalize
       var normData = normalize({ exps : data });
-      console.log("===========================================");
-      console.log(normData);
-
       //set all the normalized attributes to the appropriate state attribute
+      //likely should refactor this out
       this.props.expActions.setExperiments(normData.entities.experiments);
       this.props.depVarActions.setDepVars(normData.entities.dependentVars);
       this.props.indVarActions.setIndVars(normData.entities.independentVars);
