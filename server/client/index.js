@@ -26,7 +26,7 @@ render((
           {/* <Route path='/:userid/run/:expid' component={RunExperiment} /> */}
           {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
         <Route path='/:userid/newexp' component={NewExperiment} />
-        <Route path='about' / component={About}>
+        <Route path='about' component={About} />
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>
