@@ -4,14 +4,21 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
-// Import Routes
-import App from './containers/App';
-import Dashboard from './containers/Dashboard';
-import NewExperiment from './components/NewExperiment';
-import ViewExperiment from './components/viewexperiment/ViewExperiment';
-// import RunExperiment from './components/RunExperiment';
-import About from './components/About';
+//Import All Non-Auth Routes
+import App from './screens/App';
+import Dashboard from './screens/Dashboard';
+// import About from './components/About';
+
+// Import All New Experiment Routes
+import NewExperiment from './screens/NewExperiment';
+import Hypothesis from './containers/NewExperiment/Hypothesis';
+import MeasureInput from './containers/NewExperiment/MeasureInput';
 import MyExps from './components/myexperiments/MyExperiments';
+
+//Import All View Experiments Routes
+import ViewExperiment from './components/ViewExperiment';
+// import RunExperiment from './components/RunExperiment';
+import EditExperiment from './components/EditExperiment';
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 

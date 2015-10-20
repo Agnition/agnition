@@ -13,7 +13,7 @@ var rebuildDB = require('./dummyData/index');
 
 function compile(watch) {
   var bundler = watchify(browserify('./server/client/index.js', { debug: true }).transform(babelify));
-
+  
   function rebundle() {
     // rebuildDB();
     bundler.bundle()
