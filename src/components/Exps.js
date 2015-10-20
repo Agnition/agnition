@@ -9,12 +9,13 @@ var ExpRow = React.createClass({
   render: function() {
     return (
       <tr class=this.props.type>
-        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page, passing in the expierment....
+        <td>{this.props.exp.name}</td> 
+        {/* //ROUTER -- make this a link to exp page, passing in the expierment.... */}
         <td>{this.props.exp.hypothesis}</td>
         <td>{this.props.exp.conclusion}</td>
         <td>{this.props.exp.depVar[0]}</td>
         <td>{this.props.exp.indVar[0]}</td>
-        //number of samples taken thus far
+        {/* //number of samples taken thus far */}
         <td>{this.props.exp.depVar[0].samples.length}</td>
       </tr>
     );

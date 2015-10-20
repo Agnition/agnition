@@ -1,6 +1,6 @@
 var React = require('react');
-var About = require('./About.jsx');
-var Signin = require('./Signin.jsx');
+var About = require('./About');
+var Signin = require('./Signin');
 var Hypothesis = require('./Hypothesis');
 
 // STATELOGIC some logic here to load store from DB
@@ -12,19 +12,19 @@ var OpenExpRow = React.createClass({
   render: function() {
     return (
       <tr>
-        //expierment name
-        <td>{this.props.exp.name}</td> //ROUTER -- make this a link to exp page, passing in the expierment....
-        //hypothesis
-        <td>{this.props.exp.hypothesis}</td>
-        //dependent var
-        <td>{this.props.exp.depVar[0].name}</td>
-        //independent var
-        <td>{this.props.exp.indVar[0].name}</td>
-        //number of samples taken thus far
-        <td>{this.props.exp.depVar[0].samples.length}</td>
+      {/* //expierment name */}
+      <td>{this.props.exp.name}</td> 
+      {/* //ROUTER -- make this a link to exp page, passing in the expierment.... */}
+      {/* //hypothesis */}
+      <td>{this.props.exp.hypothesis}</td>
+      {/* //dependent var */}
+      <td>{this.props.exp.depVar[0].name}</td>
+      {/* //independent var */}
+      <td>{this.props.exp.indVar[0].name}</td>
+      {/* //number of samples taken thus far */}
+      <td>{this.props.exp.depVar[0].samples.length}</td>
         
-        // <EditExp exp = {this.props.exp} key={this.props.key}>
-
+      {/* // <EditExp exp = {this.props.exp} key={this.props.key} /> */}
       </tr>
     );
   }
@@ -36,7 +36,7 @@ var OpenExps = React.createClass({
     var rows = [];
     // STATE LOGIC -- figure out how to interact with immutable store..
     this.props.openExps.forEach(function(exp,i) {
-      rows.push(<OpenExpRow exp={exp} key={i} />)
+      rows.push(<OpenExpRow exp={exp} key={i} />);
     });
     
     return (
