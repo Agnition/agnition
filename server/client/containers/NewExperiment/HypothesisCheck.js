@@ -1,6 +1,9 @@
 import React from 'react';
 var connect = require('react-redux').connect;
 
+var NewExperimentActions = require('../../actions/NewExperiment');
+var bindActionCreators = require('redux').bindActionCreators;
+
 function mapStatetoProps (state) {
   return {
     cause: state.NewExperiment.get('cause'),
@@ -18,6 +21,7 @@ function mapDispatchtoProps (dispatch) {
 var HypothesisCheck = React.createClass({
 
   handleBack: function () {
+    console.log(this.props.actions);
     this.props.actions.goToPrevQuestion(this.props.questionIndex);
   },
 
@@ -41,4 +45,4 @@ var HypothesisCheck = React.createClass({
   }
 });
 
-module.exports = connect(mapStatetoProps)(HypothesisCheck);
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(HypothesisCheck);
