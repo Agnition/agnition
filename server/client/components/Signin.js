@@ -37,10 +37,10 @@ function mapDispatchtoProps (dispatch) {
 var Signin = React.createClass({
   handleClick: function() {
     // need to set this to be a dynamic user id-- will break on you in dev
-    console.log("-------------------------------------------",userId);
     $.get('/users/' + userId + '/experiments', function(data) {
       //normalize
       var normData = normalize({ exps : data });
+      console.log("------------------------------------ NORM DATA -------", normData);
       //set all the normalized attributes to the appropriate state attribute
       //likely should refactor this out
       this.props.expActions.setExperiments(normData.entities.experiments);

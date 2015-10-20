@@ -35,19 +35,22 @@ module.exports = function() {
   mongoose.connect(dbPath, function(){
     mongoose.connection.db.dropDatabase();
 
-    new User({username: 'hdh3000'}).save();
-    new User({username: 'mdboop'}).save();
-    new User({username: 'stevenlundy'}).save();
-    new User({username: 'marcusbuffett'}).save();
+    new User({username: 'hdh3000'}).save(function(err){
+      new User({username: 'mdboop'}).save(function(err){
+        new User({username: 'stevenlundy'}).save(function(err){
+          new User({username: 'marcusbuffett'}).save(function(err){
+            User.findOne({username: 'hdh3000'}, function (err, user) {
+              console.log(err);
+              console.log("-------------------------------------------userID", user._id);
+              fs.writeFileSync(__dirname +'/userid.json',JSON.stringify({"userId" : user._id},'utf8'));
+              addExp(qualitative,'hdh3000');
+              addExp(list,'hdh3000');
+              addExp(numeric,'hdh3000');
+            });
 
-    User.findOne({username: 'hdh3000'}, function (err, user) {
-      console.log(err);
-      console.log("-------------------------------------------userID", user._id);
-      fs.writeFileSync(__dirname +'/userid.json',JSON.stringify({"userId" : user._id},'utf8'));
+          });
+        });
+      });
     });
-
-    addExp(qualitative,'hdh3000');
-    addExp(list,'hdh3000');
-    addExp(numeric,'hdh3000');
   });
 };
