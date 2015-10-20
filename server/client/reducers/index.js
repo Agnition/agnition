@@ -8,15 +8,14 @@ import Measures from './Measures';
 import Samples from './Samples';
 import Reminders from './Reminders';
 import Requests from './Requests';
-
+import NewExperiment from './NewExperiment';
 import { routerStateReducer as Router } from 'redux-router';
-import Hypothesis from './Hypothesis';
 
 module.exports = combineReducers({
   Router: Router,
   Users: Users,
   Dashboard: Dashboard,
-  Hypothesis: Hypothesis,
+  NewExperiment: NewExperiment,
   Experiments : Experiments,
   DepVars : DepVars,
   IndVars : IndVars,
