@@ -4,19 +4,25 @@ var connect = require('react-redux').connect;
 function mapStatetoProps (state) {
   return {
     cause: state.NewExperiment.get('cause'),
-    effect: state.NewExperiment.get('effect')
+    effect: state.NewExperiment.get('effect'),
+    questionIndex: state.NewExperiment.get('questionIndex')
   };
-};
+}
 
+function mapDispatchtoProps (dispatch) {
+  return {
+    actions: bindActionCreators(NewExperimentActions, dispatch)
+  };
+}
 
 var HypothesisCheck = React.createClass({
 
-  reject: function () {
-
+  handleBack: function () {
+    this.props.actions.goToPrevQuestion(this.props.questionIndex);
   },
 
-  confirm: function () {
-
+  handleNext: function () {
+    this.props.actions.goToNextQuestion(this.props.questionIndex);
   },
 
   render: function () {
@@ -27,12 +33,8 @@ var HypothesisCheck = React.createClass({
         <p>"If this doesn't make sense, try to rephrase your causes and effects."</p>  
         <p>Here is your hypothesis: {this.props.hypothesis}</p>
         <p>Question: How does {this.props.cause} affect {this.props.effect}?</p>
-        <button ref="reject">Redo</button><button ref="confirm">Makes Sense!</button>
-      </section>
-      <section ref="measures" style={{display: 'none'}}>
-        <div>
-          <MeasureInput/>
-        </div>
+        <button onClick={this.handleBack}>Redo</button>
+        <button onClick={this.handleNext}>Makes Sense!</button>
       </section>
       </div>
     );

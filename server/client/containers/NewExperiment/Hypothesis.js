@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 var NewExperimentActions = require('../../actions/NewExperiment');
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
-import MeasureInput from './MeasureInput';
-import HypothesisCheck from './HypothesisCheck';
 
 function mapStatetoProps (state) {
   return {
     hypothesis: state.NewExperiment.get('hypothesis'),
     cause: state.NewExperiment.get('cause'),
-    effect: state.NewExperiment.get('effect')
+    effect: state.NewExperiment.get('effect'),
+    questionIndex: state.NewExperiment.get('questionIndex')
   };
 }
 
@@ -23,16 +22,20 @@ function mapDispatchtoProps (dispatch) {
 
 var Hypothesis = React.createClass({
 
-  handleClick: function (event) {
+  handleBack: function () {
+    this.props.actions.goToPrevQuestion(this.props.questionIndex);
+  },
 
-    this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
-    this.refs.hypothesisInput.value = '';
-    this.props.actions.setCause(this.refs.causeInput.value);
-    this.refs.causeInput.value = '';
-    this.props.actions.setEffect(this.refs.effectInput.value);
-    this.refs.effectInput.value = '';
+  handleNext: function (e) {
+    this.submitHypothesis(e);
+    this.props.actions.goToNextQuestion(this.props.questionIndex);
+  },
 
-    this.showMeasures();
+  submitHypothesis: function (event) {
+    var hypothesis = this.refs.hypothesisInput.value;
+    var cause = this.refs.causeInput.value;
+    var effect = this.refs.effectInput.value;
+    this.props.actions.setOverview(hypothesis, cause, effect);
   },
 
   showMeasures: function () {
@@ -54,10 +57,9 @@ var Hypothesis = React.createClass({
           <input ref="causeInput" type="text" />
           <label>effect</label>
           <input ref="effectInput" type="text" />
-          <button onClick={this.handleClick}>next</button>
+          <button onClick={this.handleBack}>back</button>
+          <button onClick={this.handleNext}>next</button>
         </section>
-        <HypothesisCheck />
-        
       </div>
       );
   }

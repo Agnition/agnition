@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import rootReducer from '../reducers/index.js';
 import { applyMiddleware, compose } from 'redux';
-import { reduxReactRouter } from 'redux-router';
+var reduxReactRouter = require('redux-router').reduxReactRouter;
 import { devTools } from 'redux-devtools';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from '../routes';
