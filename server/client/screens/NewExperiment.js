@@ -1,16 +1,23 @@
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-import React from 'react';
-import Hypothesis from '../containers/NewExperiment/Hypothesis';
-import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import NewExperimentProgress from '../containers/NewExperiment/components/NewExperimentProgress';
+//import React and Redux dependencies
+var React = require('react');
+var Link = require('react-router').Link;
+var connect = require('react-redux').connect;
+var bindActionCreators = require('redux').bindActionCreators;
+
+//import actions
 var NewExperimentActions = require('../actions/NewExperiment');
 
+//import child containers
+var Name = require('../containers/NewExperiment/Name');
+var Hypothesis = require('../containers/NewExperiment/Hypothesis');
+var MeasureInput = require('../containers/NewExperiment/MeasureInput');
+var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
+
+//import child components
+var NewExperimentProgress = require('../containers/NewExperiment/components/NewExperimentProgress');
 function mapStatetoProps (state) {
   return {
-    name: state.NewExperiment.get('name'),
+    questionIndex: state.NewExperiment.get('questionIndex')
   };
 }
 
@@ -20,30 +27,26 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-const NewExperiment = React.createClass ({
+var NewExperiment = React.createClass ({
 
-  setName: function () {
-    this.props.actions.setName(this.refs.name.value);
-  },
+  questions: [(<Name />), (<Hypothesis />), (<HypothesisCheck />)],
 
   render: function () {
-    const { pathname } = this.props.location;
-    const key = pathname.split('/')[1] || 'root';
-
+    console.log(this.props.questionIndex);
     return (
       <div className="new-experiment">
-        <label>Experiment Name</label>
-        <input ref="name" type="text" />
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
+        <h3>Create a new experiment.</h3>
+        {this.questions[this.props.questionIndex]}
         <NewExperimentProgress />
-        {React.cloneElement(this.props.children || <div />, { key: key })}
       </div>
     );
   }
 
 });
-
+/*
+<label>Experiment Name</label>
+<input ref="name" type="text" />
+*/
 module.exports = NewExperiment;
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(NewExperiment);
