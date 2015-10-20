@@ -8,15 +8,14 @@ function mapStatetoProps (state) {
   return {
     openExps: state
       .Experiments
-      .filter(function(exp) 
-        { return exp.get('active') 
+      .filter(function(exp) {
+        return exp.get('kind') === 'ad_hoc'; 
       })
       .toJS(),
-
     closedExps: state
       .Experiments
-      .filterNot(function(exp) 
-        { return exp.get('active') 
+      .filterNot(function(exp){ 
+        return exp.get('kind') === 'ad_hoc'; 
       })
       .toJS(),
   };
