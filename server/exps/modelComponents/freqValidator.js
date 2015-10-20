@@ -4,5 +4,5 @@
 module.exports = function (val) {
   //accepts strings for now, 
   //but in future will need to validate our recurring strings
-  return (val instanceof String || val === null); 
+  return (typeof val === 'string' || val === null); 
 };
