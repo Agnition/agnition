@@ -6,6 +6,7 @@ var User = require('./users/model.js')
 
 var GOOGLE_CLIENT_ID = '856288792446-meq4vh55g23locbvru0f6oj23n2hbvm0.apps.googleusercontent.com';
 var GOOGLE_CLIENT_SECRET = '9SMPjAEi3MHIirClQrp2chSN';
+var GOOGLE_CALLBACK = 'http://localhost:3000/auth/google/callback';
 
 module.exports = function(app) {
   passport.serializeUser(function(user, done) {
@@ -39,7 +40,7 @@ module.exports = function(app) {
   passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/google/callback'
+    callbackURL: GOOGLE_CALLBACK
   },
     function(accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
