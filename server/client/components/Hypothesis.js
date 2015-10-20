@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { PropTypes } from 'react';
 import connect from 'react-redux';
-import { setHypothesis, setInVar, setDepVar } from '../actions/Hypothesis';
+import * as HypothesisActions from '../actions/Hypothesis';
 import bindActionCreators from 'redux';
 
 function mapStatetoProps (state) {
   return {
-    hypothesis: state.Hypothesis.get('hypothesis'),
+    hypothesis: state.Hypothesis.get('hypothesis').toJS(),
     iv: state.Hypothesis.get('iv').toJS(),
     dv: state.Hypothesis.get('dv').toJS()
   };
@@ -18,9 +18,9 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-const Hypothesis = React.createClass({
+class Hypothesis extends Component {
 
-  handleClick: function (event) {
+  handleClick(event) {
 
     this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
     this.refs.hypothesisInput.value = '';
@@ -28,9 +28,9 @@ const Hypothesis = React.createClass({
     this.refs.inVarInput.value = '';
     this.props.actions.setDepVar(this.refs.depVarInput.value);
     this.refs.depVarInput.value = '';
-  },
+  }
 
-  render: function () {
+  render() {
     return (
       <div>
         <section>
@@ -54,6 +54,7 @@ const Hypothesis = React.createClass({
       </div>
       );
   }
-});
+}
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Hypothesis);
+// module.exports = Hypothesis;

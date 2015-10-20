@@ -1,6 +1,6 @@
-module.exports.login = function (loggedIn) {
-  return {
-    type: 'LOGIN',
-    loggedIn: loggedIn
-  };
-};
+export function login(loggedIn) {
+    return {
+      type: 'LOGIN',
+      loggedIn: loggedIn
+    };
+  }

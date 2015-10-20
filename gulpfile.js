@@ -10,7 +10,7 @@ gulp.task('bundle', function () {
   // return bundler.bundle()
           // .pipe(gulp.dest('./client/public/scripts'));
   return gulp
-    .src('./server/client/index.js')
+    .src('./src/index.js')
     .pipe(through2.obj(function (file, enc, next) {
       browserify(file.path, {debug : true})
         .transform(babelify)
@@ -22,7 +22,7 @@ gulp.task('bundle', function () {
           next(null, file);
         });
     }))
-    .pipe(gulp.dest('./server/client/public/scripts'));
+    .pipe(gulp.dest('./server/public'));
 });
 
 gulp.task('test', function (){

@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'./client/public')));
 app.use('/users', userRouter);
 
+
 // start it up
 app.listen(config.port);
 console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);
