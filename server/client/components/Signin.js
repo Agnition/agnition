@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
+var userId = require('../../../dummyData/userid.json').userId;
 
 var ExperimentActions = require('../actions/Experiments.js');
 var IndependentVariableActions = require('../actions/IndependentVars.js');
@@ -16,6 +17,8 @@ var bindActionCreators = require('redux').bindActionCreators;
 
 
 function mapStatetoProps (state) {
+  console.log("-------------------------------------------STATE",state.Experiments.toJS());
+  console.log("-------------------------------------------STATEDEP",state.DepVars.toJS());
   return {};
 }
 
@@ -34,9 +37,10 @@ function mapDispatchtoProps (dispatch) {
 var Signin = React.createClass({
   handleClick: function() {
     // need to set this to be a dynamic user id-- will break on you in dev
-    $.get('/users/5625833b53f5cc52989c8ce9/experiments', function(data) {
+    $.get('/users/' + userId + '/experiments', function(data) {
       //normalize
       var normData = normalize({ exps : data });
+      console.log("------------------------------------ NORM DATA -------", normData);
       //set all the normalized attributes to the appropriate state attribute
       //likely should refactor this out
       this.props.expActions.setExperiments(normData.entities.experiments);

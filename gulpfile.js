@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
@@ -17,7 +15,7 @@ function compile(watch) {
   var bundler = watchify(browserify('./server/client/index.js', { debug: true }).transform(babelify));
 
   function rebundle() {
-    rebuildDB();
+    // rebuildDB();
     bundler.bundle()
       .on('error', function(err) { console.error(err); this.emit('end'); })
       .pipe(source('index.js'))
@@ -62,3 +60,6 @@ gulp.task('lint', function () {
 });
 
 gulp.task('test', ['mocha', 'lint']);
+gulp.task('cleanDB', function(){
+  rebuildDB();
+});

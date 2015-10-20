@@ -3,7 +3,7 @@ const initialState = new Immutable.List();
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_REMINDERS') {
-    return Immutable.fromJS(action.requests);
+    return Immutable.fromJS(action.reminders);
   } else {
     return state;
   }

@@ -24,10 +24,10 @@ independentVar.define({
 });
 measure.define({
   samples : arrayOf(sample)
-})
+});
 
 module.exports = function(data) {
   return normalize(data, {
     exps: arrayOf(experiment)
   });
-}
+};

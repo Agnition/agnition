@@ -1,6 +1,5 @@
 var React = require('react');
 
-
 var Request = React.createClass({
   render: function() {
     return (
