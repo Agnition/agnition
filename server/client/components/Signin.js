@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
+var userId = require('../../../dummyData/userid.json').userId;
 
 var ExperimentActions = require('../actions/Experiments.js');
 var IndependentVariableActions = require('../actions/IndependentVars.js');
@@ -36,7 +37,8 @@ function mapDispatchtoProps (dispatch) {
 var Signin = React.createClass({
   handleClick: function() {
     // need to set this to be a dynamic user id-- will break on you in dev
-    $.get('/users/5625833b53f5cc52989c8ce9/experiments', function(data) {
+    console.log("-------------------------------------------",userId);
+    $.get('/users/' + userId + '/experiments', function(data) {
       //normalize
       var normData = normalize({ exps : data });
       //set all the normalized attributes to the appropriate state attribute

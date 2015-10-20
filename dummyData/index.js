@@ -1,6 +1,8 @@
 var Exp = require('../server/exps/model');
 var User = require('../server/users/model');
 var mongoose = require('mongoose');
+var fs = require('fs');
+var path = require('path');
 
 // Experiment Data
 var qualitative = require('./qualitative');
@@ -37,6 +39,12 @@ module.exports = function() {
     new User({username: 'mdboop'}).save();
     new User({username: 'stevenlundy'}).save();
     new User({username: 'marcusbuffett'}).save();
+
+    User.findOne({username: 'hdh3000'}, function (err, user) {
+      console.log(err);
+      console.log("-------------------------------------------userID", user._id);
+      fs.writeFileSync(__dirname +'/userid.json',JSON.stringify({"userId" : user._id},'utf8'));
+    });
 
     addExp(qualitative,'hdh3000');
     addExp(list,'hdh3000');
