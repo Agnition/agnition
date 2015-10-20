@@ -5,13 +5,16 @@
   "main": "index.js",
   "dependencies": {
     "babel": "^5.8.23",
+    "babelify": "^6.3.0",
     "body-parser": "^1.14.1",
+    "browserify": "^11.2.0",
     "chai": "^3.3.0",
     "express": "^4.13.3",
     "history": "^1.9.0",
     "humps": "^0.6.0",
     "immutable": "^3.7.5",
     "isomorphic-fetch": "^2.1.1",
+    "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
     "mongoose": "^4.1.11",
@@ -27,6 +30,7 @@
     "redux-thunk": "^1.0.0",
     "sinon": "^1.17.1",
     "supertest": "^1.1.0",
+    "through2": "^2.0.0",
     "yargs": "^3.18.0"
   },
   "devDependencies": {
@@ -68,7 +72,6 @@
     "phantomjs-polyfill": "0.0.1",
     "react-addons-test-utils": "^0.14.0",
     "react-transform-catch-errors": "^0.1.2",
-    "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.0.4",
     "redux-devtools": "tomatau/redux-devtools#e126f799bb81a61e4a2ce69fbc501e09b15b5f5d",
     "sass-loader": "^2.0.0",
