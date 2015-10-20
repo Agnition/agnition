@@ -2,7 +2,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
-// var Signin = require('../components/Signin.js');
+var Signin = require('../components/Signin.js');
 // function mapStatetoProps (state) {
 //   return {
 //     name: state.NewExperiment.get('name'),
@@ -21,6 +21,7 @@ const Dashboard = React.createClass({
     return (
       <div>
       <ul>
+      <Signin />
       <h1>Hello World</h1>
         <li><Link to="/123/newexp">Create New Experiment</Link></li>
       </ul>
