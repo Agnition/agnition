@@ -12,6 +12,7 @@ import ViewExperiment from './components/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
 import EditExperiment from './components/EditExperiment';
 import About from './components/About';
+import MyExps from './components/MyExperiments';
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
@@ -27,6 +28,7 @@ render((
           {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
         <Route path='/:userid/newexp' component={NewExperiment} />
         <Route path='about' component={About} />
+        <Route path='myexps' component={MyExps} />
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>

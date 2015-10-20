@@ -1,5 +1,4 @@
 var React = require('react');
-var OpenExps = require('./OpenExps');
 var Measure = require('./Measure');
 var Request = require('./Request');
 
