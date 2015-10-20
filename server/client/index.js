@@ -12,10 +12,14 @@ import ViewExperiment from './components/viewexperiment/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
 import About from './components/About';
 import MyExps from './components/myexperiments/MyExperiments';
+var  UserActions = require('./actions/Users.js');
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
 const store = configureStore();
+if (window.user) {
+  store.dispatch(UserActions.setUser(window.user.username));
+}
 
 render((
   <Provider store={store}>
