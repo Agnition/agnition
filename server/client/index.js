@@ -8,11 +8,10 @@ import configureStore from './store/configureStore';
 import App from './containers/App';
 import Dashboard from './containers/Dashboard';
 import NewExperiment from './components/NewExperiment';
-import ViewExperiment from './components/ViewExperiment';
+import ViewExperiment from './components/viewexperiment/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
-import EditExperiment from './components/EditExperiment';
 import About from './components/About';
-import MyExps from './components/MyExperiments';
+import MyExps from './components/myexperiments/MyExperiments';
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
@@ -27,8 +26,9 @@ render((
           {/* <Route path='/:userid/run/:expid' component={RunExperiment} /> */}
           {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
         <Route path='/:userid/newexp' component={NewExperiment} />
-        <Route path='about' component={About} />
-        <Route path='myexps' component={MyExps} />
+        <Route path='/about' component={About} />
+        <Route path='/myexps' component={MyExps} />
+        <Route path='/viewexp/:expid' component={ViewExperiment} />
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>
