@@ -1,6 +1,6 @@
 var React = require('react');
 var About = require('./About');
-var Signin = require('./Signin');
+// var Signin = require('./Signin');
 var Hypothesis = require('./Hypothesis');
 
 // STATELOGIC some logic here to load store from DB

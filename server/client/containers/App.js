@@ -12,9 +12,6 @@ class App extends Component {
 
     return (
       <div>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
-        <li><Link to="/new-experiment">NewExperiment</Link></li>
         <li><Link to='/123/dashboard'>Dashboard</Link></li>
         {React.cloneElement(this.props.children || <div />, { key: key })}
       </div>

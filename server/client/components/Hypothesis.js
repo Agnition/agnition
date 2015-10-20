@@ -18,9 +18,9 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-class Hypothesis extends Component {
+var Hypothesis = React.createClass({
 
-  handleClick(event) {
+  handleClick: function (event) {
 
     this.props.actions.setHypothesis(this.refs.hypothesisInput.value);
     this.refs.hypothesisInput.value = '';
@@ -28,9 +28,9 @@ class Hypothesis extends Component {
     this.refs.inVarInput.value = '';
     this.props.actions.setDepVar(this.refs.depVarInput.value);
     this.refs.depVarInput.value = '';
-  }
+  },
 
-  render() {
+  render: function () {
     return (
       <div>
         <section>
@@ -54,7 +54,7 @@ class Hypothesis extends Component {
       </div>
       );
   }
-}
+});
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Hypothesis);
-// module.exports = Hypothesis;
+// module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Hypothesis);
+module.exports = Hypothesis;

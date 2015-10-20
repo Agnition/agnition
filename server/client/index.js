@@ -11,6 +11,7 @@ import NewExperiment from './components/NewExperiment';
 import ViewExperiment from './components/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
 import EditExperiment from './components/EditExperiment';
+import About from './components/About';
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
@@ -20,12 +21,12 @@ render((
   <Provider store={store}>
     <Router>
       <Route path='/' component={App}>
-        <Route path='/:userid/dashboard' component={Dashboard}>
-          <Route path='/:userid/newexp' component={NewExperiment} />
-          <Route path='/:userid/view/:expid' component={ViewExperiment} />
+        <Route path='/:userid/dashboard' component={Dashboard} />
+          {/*<Route path='/:userid/view/:expid' component={ViewExperiment} />*/}
           {/* <Route path='/:userid/run/:expid' component={RunExperiment} /> */}
-          <Route path='/:userid/edit/:expid' component={EditExperiment} />
-        </Route>
+          {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
+        <Route path='/:userid/newexp' component={NewExperiment} />
+        <Route path='about' / component={About}>
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>
