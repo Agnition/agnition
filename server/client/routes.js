@@ -8,8 +8,6 @@ import About from './components/About';
 export default (
   <div>
   <Route path="/" component={App}>
-      <Route path="/login"
-             component={Login} />
       <Route path="/dashboard"
              component={Dashboard} />
       <Route path="/new-experiment"
