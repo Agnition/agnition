@@ -1,21 +1,21 @@
  
-export function setHypothesis(hypothesis) {
+module.exports.setHypothesis = function (hypothesis) {
   return {
     type: 'SET_HYPOTHESIS',
     hypothesis: hypothesis
   };
-}
+};
 
-export function setInVar(inVar) {
+module.exports.setCause = function (cause) {
   return { 
     type: 'SET_CAUSE',
-    inVar: inVar
+    cause: cause
   };
-}
+};
 
-export function setDepVar(depVar) {
+module.exports.setEffect = function (effect) {
   return {
     type: 'SET_EFFECT',
-    depVar: depVar
+    effect: effect
   };
-}
+};

@@ -1,5 +1,9 @@
 var Immutable = require('immutable');
-var initialState = Immutable.Map({});
+var initialState = Immutable.Map({
+  hypothesis: '',
+  cause: '',
+  effect: ''
+});
 
 module.exports = function(state, action) {
   state = state || initialState;
