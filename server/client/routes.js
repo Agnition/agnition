@@ -4,7 +4,6 @@ import App from './containers/App';
 import Dashboard from './containers/Dashboard';
 import NewExperiment from './components/NewExperiment';
 import About from './components/About';
-import Login from './components/Login';
 
 export default (
   <div>
