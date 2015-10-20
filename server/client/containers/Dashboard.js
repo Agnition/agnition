@@ -18,13 +18,12 @@ var Signin = require('../components/Signin.js');
 const Dashboard = React.createClass({
 
   render: function render() {
-    console.log('rendering!');
     return (
       <div>
-        <Signin />
       <ul>
+      <Signin />
       <h1>Hello World</h1>
-        <li><Link to="/new-experiment">Create Experiment</Link></li>
+        <li><Link to="/123/newexp">Create New Experiment</Link></li>
       </ul>
       </div>
     );

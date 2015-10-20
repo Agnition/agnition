@@ -1,6 +1,5 @@
 var React = require('react');
 var About = require('./About.jsx');
-var Signin = require('./Signin.jsx');
 var Hypothesis = require('./Hypothesis');
 
 var LandingPage = React.createClass({
