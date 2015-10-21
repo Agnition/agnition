@@ -25,9 +25,9 @@ var UserActions = require('./actions/Users.js');
 var normalize = require('./utils/normalize.js');
 
 //Import All View Experiments Routes
-import ViewExperiment from './components/ViewExperiment';
+import ViewExperiment from './components/viewexperiment/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
-import EditExperiment from './components/EditExperiment';
+// import EditExperiment from '../components/EditExperiment';
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
