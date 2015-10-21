@@ -37,9 +37,8 @@ var MeasureWrapper = React.createClass ({
   },
 
   handleSubmit: function (event) {
-    this.preventDefault(event);
-    console.log(this.refs.scale);
-    console.log(this.refs.number);
+    event.preventDefault();
+    console.log(event.currentTarget);
   },
 
   render: function () {
