@@ -1,6 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var Signin = require('./Signin');
+var Signout = require('./Signout');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 
@@ -22,7 +23,7 @@ var TopNav = React.createClass ({
     if(this.props.username !== undefined){
       links.push(<Link to="/dashboard"> Dashboard</Link>);
       links.push(<Link to="/profile"> {this.props.username}</Link>);
-      links.push(<Link to="/signout"> Sign out</Link>);
+      links.push(<Signout />);
     } else {
       links.push(<Signin />);
     }
@@ -36,3 +37,4 @@ var TopNav = React.createClass ({
 });
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(TopNav);
+module.exports.TopNav = TopNav;
