@@ -1,8 +1,7 @@
-var express = require('express');
 var passport = require('passport');
-var util = require('util');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var User = require('./users/model.js')
+
+var User = require('./users/model.js');
 
 var GOOGLE_CLIENT_ID = '856288792446-meq4vh55g23locbvru0f6oj23n2hbvm0.apps.googleusercontent.com';
 var GOOGLE_CLIENT_SECRET = '9SMPjAEi3MHIirClQrp2chSN';
@@ -25,11 +24,10 @@ module.exports = function(app) {
   });
 
   passport.deserializeUser(function(obj, done) {
-
     User.findOne({googleId: obj}, function(err, user) {
       if (err) {
         done(err, null);
-      } 
+      }
       else {
         done(null, user);
       }

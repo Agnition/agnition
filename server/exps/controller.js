@@ -37,7 +37,7 @@ var addExp = function (req, res) {
   }
   //find user that exp belongs to
   User.findOne({googleId: req.params.user_id}, function(err, user) {
-    if(user === undefined) {
+    if (user === undefined) {
       res.sendStatus(204);
       return;
     }
