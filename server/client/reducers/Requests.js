@@ -4,7 +4,6 @@ const initialState = new Immutable.List();
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_REQUESTS') {
     return Immutable.fromJS(action.requests);
-  } else {
-    return state;
   }
+  return state;
 };
