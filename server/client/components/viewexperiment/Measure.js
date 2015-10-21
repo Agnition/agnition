@@ -1,7 +1,17 @@
 var React = require('react');
+var _ = require('underscore');
 
 //decides what to present as the unit the measure comes in.
 //will look a bit ugly but enough to keep moving
+
+var BasisSpan = React.createClass({
+  render: function() {
+      return (
+        <span className='basis'>{this.props.item}</span>
+      );
+    }
+});
+
 
 
 var Measure = React.createClass({
@@ -15,13 +25,15 @@ var Measure = React.createClass({
     }
   },
   render: function() {
-    var basis = this.getBasis(this.props.kind);
+    var basis = this.getBasis(this.props.measure);
+    var spans = [];
+    _.each(basis, function(item){
+      spans.push(<BasisSpan item={item} />)
+    });
     return (
       <div>
-      {/* name as header */}
-        <h3>{this.props.kind}</h3>
-        <span>{basis}</span>
-        {/* <Samples samples = {this.props.measure.samples} /> */}
+        <h3>{this.props.measure.kind}</h3>
+        <span>{spans}</span>
       </div>
     );
   }
