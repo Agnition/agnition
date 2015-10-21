@@ -39,7 +39,7 @@
     //
     // The following rules point out areas where you might have made mistakes.
     //
-    "comma-dangle": 2, // disallow or enforce trailing commas
+    "comma-dangle": 0, // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
     "no-console": 1, // disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // disallow use of constant expressions in conditions
@@ -120,7 +120,7 @@
     "no-warning-comments": [0, {"terms": ["todo", "fixme"], "location": "start"}], // disallow usage of configurable warning terms in comments": 2, // e.g. TODO or FIXME (off by default)
     "no-with": 2, // disallow use of the with statement
     "radix": 2, // require use of the second argument for parseInt() (off by default)
-    "vars-on-top": 2, // requires to declare all vars on top of their containing scope (off by default)
+    "vars-on-top": 0, // requires to declare all vars on top of their containing scope (off by default)
     "wrap-iife": 2, // require immediate function invocation to be wrapped in parentheses (off by default)
     "yoda": 2, // require or disallow Yoda conditions
 
@@ -152,8 +152,8 @@
     //
     // These rules are purely matters of style and are quite subjective.
     //
-    "indent": [1, 2], // this option sets a specific tab width for your code (off by default)
-    "brace-style": 1, // enforce one true brace style (off by default)
+    "indent": 0, // this option sets a specific tab width for your code (off by default)
+    "brace-style": 0, // enforce one true brace style (off by default)
     "camelcase": 1, // require camel case names
     "comma-spacing": [1, {"before": false, "after": true}], // enforce spacing before and after comma
     "comma-style": [1, "last"], // enforce one true comma style (off by default)
