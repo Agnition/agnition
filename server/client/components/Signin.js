@@ -39,11 +39,9 @@ var Signin = React.createClass({
   },
   render: function() {
     return (
-      <div className="signin">
-        <a href="/auth/google">
-          sign in
-        </a>
-      </div>
+      <a className="signin" href="/auth/google">
+        sign in
+      </a>
     );
   }
 });
