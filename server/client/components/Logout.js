@@ -37,11 +37,9 @@ var Logout = React.createClass({
   },
   render: function() {
     return (
-      <div className="signin">
-        <a href="#" onClick={this.handleClick}>
-          Log Out
-        </a>
-      </div>
+      <a className="signin" href="#" onClick={this.handleClick}>
+        Log Out
+      </a>
     );
   }
 });
