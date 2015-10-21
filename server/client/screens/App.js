@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
 import { Link } from 'react-router';
 import Dashboard from './Dashboard';
+import TopNav from '../components/TopNav';
 
 class App extends Component {
 
@@ -12,7 +13,7 @@ class App extends Component {
 
     return (
       <div>
-        <li><Link to='/123/dashboard'>Dashboard</Link></li>
+        <TopNav />
         {React.cloneElement(this.props.children || <div />, { key: key })}
       </div>
     );
