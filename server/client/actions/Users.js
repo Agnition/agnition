@@ -5,3 +5,9 @@ module.exports.setUser = function(username, id) {
     id: id
   };
 };
+
+module.exports.logout = function() {
+  return {
+    type: 'LOG_OUT_USER'
+  };
+};

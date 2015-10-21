@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var userId = require('../../../dummyData/userid.json').userId;
+var cookie = require('react-cookie');
 
 var ExperimentActions = require('../actions/Experiments.js');
 var IndependentVariableActions = require('../actions/IndependentVars.js');
@@ -17,35 +18,32 @@ var bindActionCreators = require('redux').bindActionCreators;
 
 
 function mapStatetoProps (state) {
-  console.log("-------------------------------------------STATE",state.Experiments.toJS());
-  console.log("-------------------------------------------STATEDEP",state.DepVars.toJS());
-  return {};
+  return {
+  };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions : bindActionCreators(UserActions, dispatch),
-    expActions : bindActionCreators(ExperimentActions, dispatch),
-    depVarActions : bindActionCreators(DependentVariableActions, dispatch),
-    indVarActions : bindActionCreators(IndependentVariableActions, dispatch),
-    mesActions : bindActionCreators(MeasureActions, dispatch),
-    reqActions : bindActionCreators(RequestActions, dispatch),
-    remActions : bindActionCreators(ReminderActions, dispatch)
+    actions: bindActionCreators(UserActions, dispatch)
   };
 }
 
-var Signin = React.createClass({
+var Logout = React.createClass({
   handleClick: function() {
+    $.get('/logout', function(data) {
+      cookie.remove('connect.sid');
+      this.props.actions.logout();
+    }.bind(this));
   },
   render: function() {
     return (
       <div className="signin">
-        <a href="/auth/google">
-          sign in
+        <a href="#" onClick={this.handleClick}>
+          Log Out
         </a>
       </div>
     );
   }
 });
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Signin);
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Logout);
