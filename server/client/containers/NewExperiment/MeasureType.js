@@ -2,7 +2,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 // import actions
 var NewExperimentActions = require('../../actions/NewExperiment');
@@ -10,7 +9,8 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 function mapStatetoProps (state) {
   return {
     name: state.NewExperiment.get('name'),
-    questionIndex: state.NewExperiment.get('questionIndex')
+    questionIndex: state.NewExperiment.get('questionIndex'),
+    independentVar: state.NewExperiment.get('independentVar').toJS()
   };
 }
 
@@ -20,9 +20,9 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var Name = React.createClass ({
+var MeasureInput = React.createClass ({
 
-  setName: function () {
+  addMeasure: function () {
     this.props.actions.setName(this.refs.name.value);
   },
 
@@ -40,11 +40,10 @@ var Name = React.createClass ({
       <div>
         <label>Experiment Name</label>
         <input ref="name" type="text" />
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
+        <button onClick={this.addMeasure}>save measure</button>
       </div>
       );
   }
 });
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Name);
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(MeasureInput);

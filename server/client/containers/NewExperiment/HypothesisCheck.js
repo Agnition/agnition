@@ -21,12 +21,11 @@ function mapDispatchtoProps (dispatch) {
 var HypothesisCheck = React.createClass({
 
   handleBack: function () {
-    console.log(this.props.actions);
-    this.props.actions.goToPrevQuestion(this.props.questionIndex);
+    this.props.actions.goToPrevQuestion();
   },
 
   handleNext: function () {
-    this.props.actions.goToNextQuestion(this.props.questionIndex);
+    this.props.actions.goToNextQuestion();
   },
 
   render: function () {

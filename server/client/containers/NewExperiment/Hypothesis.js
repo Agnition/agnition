@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'react';
-import { connect } from 'react-redux';
+var React = require('react');
+var connect = require('react-redux').connect;
 var NewExperimentActions = require('../../actions/NewExperiment');
-import { bindActionCreators } from 'redux';
-import Immutable from 'immutable';
+var bindActionCreators = require('redux').bindActionCreators;
+var Immutable = require('immutable');
+
 
 function mapStatetoProps (state) {
   return {
@@ -23,40 +23,42 @@ function mapDispatchtoProps (dispatch) {
 var Hypothesis = React.createClass({
 
   handleBack: function () {
-    this.props.actions.goToPrevQuestion(this.props.questionIndex);
+    this.props.actions.goToPrevQuestion();
   },
 
-  handleNext: function (e) {
-    this.submitHypothesis(e);
-    this.props.actions.goToNextQuestion(this.props.questionIndex);
+  handleNext: function () {
+    this.setOverview();
+    this.props.actions.goToNextQuestion();
   },
 
-  submitHypothesis: function (event) {
+  setOverview: function () {
     var hypothesis = this.refs.hypothesisInput.value;
     var cause = this.refs.causeInput.value;
     var effect = this.refs.effectInput.value;
     this.props.actions.setOverview(hypothesis, cause, effect);
   },
 
-  showMeasures: function () {
-    this.refs.measures.style.display = "block";
-    this.refs.hypothesisContainer.style.display = "none";
+  handleChange: function () {
+    this.setOverview();
   },
 
   render: function () {
-    console.log('render!');
+    var hypothesis = this.props.hypothesis;
+    var cause = this.props.cause;
+    var effect = this.props.effect;
+
     return (
       <div>
-        <section ref="hypothesisContainer" style={{display: 'block'}}>
+        <section>
           <div>
             Please enter your hypothesis here.
           </div>
           <label>hypothesis</label>
-          <input ref="hypothesisInput" type="text" />
+          <input ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
           <label>cause</label>
-          <input ref="causeInput" type="text" />
+          <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
           <label>effect</label>
-          <input ref="effectInput" type="text" />
+          <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
           <button onClick={this.handleBack}>back</button>
           <button onClick={this.handleNext}>next</button>
         </section>

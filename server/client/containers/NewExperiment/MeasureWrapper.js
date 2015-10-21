@@ -10,6 +10,7 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 function mapStatetoProps (state) {
   return {
     name: state.NewExperiment.get('name'),
+    effect: state.NewExperiment.get('effect'),
     questionIndex: state.NewExperiment.get('questionIndex')
   };
 }
@@ -20,7 +21,7 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var Name = React.createClass ({
+var MeasureWrapper = React.createClass ({
 
   setName: function () {
     this.props.actions.setName(this.refs.name.value);
@@ -35,16 +36,31 @@ var Name = React.createClass ({
     this.props.actions.goToNextQuestion();
   },
 
+  handleSubmit: function (event) {
+    this.preventDefault(event);
+    console.log(this.refs.scale);
+    console.log(this.refs.number);
+  },
+
   render: function () {
     return (
       <div>
-        <label>Experiment Name</label>
-        <input ref="name" type="text" />
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
+        <span>What are the ways that you can measure {this.props.effect}?</span>
+        <h5>Measure Type</h5>
+        <label>Scale</label>
+        <form onSubmit={this.handleSubmit}>
+          <input ref="scale" type="radio" />
+          <label>Numerical Measure</label>
+          <input ref="number" type="radio" />
+          <label>Category</label>
+          <input ref="category" type="radio" />
+          <button onClick={this.addMeasure}>add another measure</button>
+          <button onClick={this.handleBack}>back</button>
+          <button onClick={this.handleNext}>next</button>
+        </form>
       </div>
       );
   }
 });
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Name);
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(MeasureWrapper);

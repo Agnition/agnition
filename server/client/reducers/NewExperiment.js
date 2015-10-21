@@ -1,23 +1,24 @@
 var Immutable = require('immutable');
+
 var initialState = Immutable.Map({
   name: '',
   hypothesis: '',
   cause: '',
   effect: '',
   questionIndex: 0,
-  indVar: Immutable.List(),
-  depVar: Immutable.List()
+  depVar: Immutable.List(),
+  indVar: Immutable.List()
 });
 
 module.exports = function(state, action) {
   state = state || initialState;
   if (action.type === 'GO_TO_NEXT_QUESTION') {
-    return state.set('questionIndex', ++action.questionIndex);
+    var questionIndex = state.get('questionIndex');
+    return state.set('questionIndex', ++questionIndex);
   }
   if (action.type === 'GO_TO_PREV_QUESTION') {
-    if (action.questionIndex > 0) {
-      return state.set('questionIndex', --action.questionIndex);
-    }
+    var questionIndex = state.get('questionIndex');
+      return state.set('questionIndex', --questionIndex);
   }
   if (action.type === 'SET_NAME') {
     return state.set('name', action.name);
@@ -32,6 +33,9 @@ module.exports = function(state, action) {
   }
   if (action.type === 'MAKE_DEPVAR') {
     return state.set('depVar', action.depVar);
+  }
+  if (action.type === 'SET_DEPVAR_KIND') {
+    return state.set('')
   }
   else {
     return state;

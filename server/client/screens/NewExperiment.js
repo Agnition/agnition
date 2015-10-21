@@ -10,7 +10,7 @@ var NewExperimentActions = require('../actions/NewExperiment');
 //import child containers
 var Name = require('../containers/NewExperiment/Name');
 var Hypothesis = require('../containers/NewExperiment/Hypothesis');
-var MeasureInput = require('../containers/NewExperiment/MeasureInput');
+var MeasureWrapper = require('../containers/NewExperiment/MeasureWrapper');
 var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 
 //import child components
@@ -29,7 +29,11 @@ function mapDispatchtoProps (dispatch) {
 
 var NewExperiment = React.createClass ({
 
-  questions: [(<Name />), (<Hypothesis />), (<HypothesisCheck />)],
+  questions: [(<Name />),
+              (<Hypothesis />),
+              (<HypothesisCheck />),
+              (<MeasureWrapper />)
+              ],
 
   render: function () {
     console.log(this.props.questionIndex);

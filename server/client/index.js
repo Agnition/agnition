@@ -12,7 +12,6 @@ import Dashboard from './screens/Dashboard';
 // Import All New Experiment Routes
 import NewExperiment from './screens/NewExperiment';
 import Hypothesis from './containers/NewExperiment/Hypothesis';
-import MeasureInput from './containers/NewExperiment/MeasureInput';
 import MyExps from './components/myexperiments/MyExperiments';
 var ExperimentActions = require('./actions/Experiments.js');
 var IndependentVariableActions = require('./actions/IndependentVars.js');
@@ -53,7 +52,7 @@ render((
           {/* <Route path='/:userid/run/:expid' component={RunExperiment} /> */}
           {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
         <Route path='/:userid/newexp' component={NewExperiment} />
-        <Route path='/about' component={About} />
+        {/*<Route path='/about' component={About} />*/}
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
         {/* <Route path='/newuser' component={NewUser} />
