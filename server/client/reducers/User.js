@@ -5,7 +5,7 @@ const initialState = new Immutable.Map({
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_USER') {
-    return state.set('username', action.username);
+    return state.set('username', action.username).set('id', action.id);
   } else {
     return state;
   }

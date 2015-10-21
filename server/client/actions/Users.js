@@ -1,7 +1,7 @@
-module.exports.setUser = function(username) {
+module.exports.setUser = function(username, id) {
   return {
     type: 'SET_USER',
-    username: username
-    // name: name
+    username: username,
+    id: id
   };
 };

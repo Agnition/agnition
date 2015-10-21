@@ -18,7 +18,7 @@ var  UserActions = require('./actions/Users.js');
 
 const store = configureStore();
 if (window.user) {
-  store.dispatch(UserActions.setUser(window.user.username));
+  store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 }
 
 render((
