@@ -46,7 +46,6 @@ module.exports = function(app) {
           username : profile.displayName,
           googleId : profile.id
         });
-        console.log(profile);
         User.findOne(newUser, function(err, user) {
           if (err) {
             done(err, null);
@@ -77,7 +76,8 @@ module.exports = function(app) {
   app.get('/auth/google',
     passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }),
     function(req, res) {
-    });
+    }
+  );
 
   app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
@@ -87,7 +87,7 @@ module.exports = function(app) {
 
   app.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    req.session.destroy();
   });
 
   // function ensureAuthenticated(req, res, next) {

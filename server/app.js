@@ -29,11 +29,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./auth.js')(app);
 
-if (process.env.ENV === undefined) {
+if (process.env.ENV === undefined && config.autoSignin) {
   app.get('/', function(req, res) {
     Exp.find({}, function(err, exps) {
       User.findOne({}, function(err, user) {
-        console.log(user);
         res.render('index', {
           user : JSON.stringify(user),
           exps : JSON.stringify(exps)

@@ -12,5 +12,7 @@ if(process.env.ENV === 'DEVELOPMENT') {
   dbPath = 'mongodb://localhost/agnition';
 }
 
+
 module.exports.port = port;
 module.exports.dbPath = dbPath;
+module.exports.autoSignin = true;

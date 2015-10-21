@@ -3,6 +3,7 @@ import React from 'react';
 // import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 var Signin = require('../components/Signin.js');
+var Logout = require('../components/Logout.js');
 var UserInfo = require('../components/UserInfo.js');
 // function mapStatetoProps (state) {
 //   return {
@@ -24,6 +25,7 @@ const Dashboard = React.createClass({
         <UserInfo />
       <ul>
       <Signin />
+      <Logout />
       <h1>Hello World</h1>
         <li><Link to="/123/newexp">Create New Experiment</Link></li>
       </ul>
