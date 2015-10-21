@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var userRouter = require('./users/routes');
 var session = require('express-session');
 var Exp = require('./exps/model.js');
+var verify = require('./verify.js');
 
 // db
 var mongoose = require('mongoose');
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 require('./auth.js')(app);
-app.get('/', function(req, res) {
+app.get('/', verify, function(req, res) {
   Exp.find({}, function(err, exps) {
     res.render('index', {
       user : JSON.stringify(req.user),
