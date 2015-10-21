@@ -38,6 +38,7 @@
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "autoprefixer-loader": "^3.1.0",
+    "babel": "^5.8.23",
     "babel-loader": "^5.0.0",
     "babel-plugin-react-transform": "^1.1.0",
     "babel-runtime": "^5.8.20",
@@ -58,7 +59,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-watchify": "^0.5.0",
+    "jsdom": "^7.0.1",
     "karma": "^0.13.8",
+    "karma-babel-preprocessor": "^5.2.2",
     "karma-coverage": "^0.5.0",
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
@@ -82,7 +85,7 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "test": "node ./node_modules/karma/bin/karma start"
+    "test": "mocha ./specs/clientspecs/measure.js  --compilers js:babel/register"
   },
   "author": "",
   "license": "ISC"
