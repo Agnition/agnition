@@ -3,6 +3,7 @@ import React from 'react';
 // import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 var Signin = require('../components/Signin.js');
+var UserInfo = require('../components/UserInfo.js');
 // function mapStatetoProps (state) {
 //   return {
 //     name: state.NewExperiment.get('name'),
@@ -20,6 +21,7 @@ const Dashboard = React.createClass({
   render: function render() {
     return (
       <div>
+        <UserInfo />
       <ul>
       <Signin />
       <h1>Hello World</h1>

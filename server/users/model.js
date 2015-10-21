@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 // declare schema
 var userSchema = new mongoose.Schema({
   username : String,
+  googleId : String,
   exps : [{ type: mongoose.Schema.ObjectId, ref: 'Exp' }]
 });
 
