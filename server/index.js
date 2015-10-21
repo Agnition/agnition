@@ -8,6 +8,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var userRouter = require('./users/routes');
 var session = require('express-session');
+var Exp = require('./exps/model.js');
 
 // db
 var mongoose = require('mongoose');
@@ -26,7 +27,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./auth.js')(app);
 app.get('/', function(req, res) {
-  res.render('index', {user : JSON.stringify(req.user)});
+  Exp.find({}, function(err, exps) {
+    res.render('index', {
+      user : JSON.stringify(req.user),
+      exps : JSON.stringify(exps)
+    });
+  });
 });
 
 app.use(express.static(path.join(__dirname, './client/public')));

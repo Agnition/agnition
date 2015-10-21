@@ -21,7 +21,7 @@ var getExp = function (req, res) {
 };
 
 var getAllExps = function (req, res) {
-  User.findOne({_id: req.params.user_id})
+  User.findOne({googleId: req.params.user_id})
     .populate('exps')
     .exec(function(err, user) {
       res.send(user.exps);
@@ -36,7 +36,7 @@ var addExp = function (req, res) {
     return;
   }
   //find user that exp belongs to
-  User.findOne({_id: req.params.user_id}, function(err, user) {
+  User.findOne({googleId: req.params.user_id}, function(err, user) {
     if(user === undefined) {
       res.sendStatus(204);
       return;
@@ -47,7 +47,7 @@ var addExp = function (req, res) {
         console.error(err); 
         return;
       }
-      User.update({_id: req.params.user_id}, {
+      User.update({googleId: req.params.user_id}, {
         $push: {exps: exp._id}
       }, function(err, mongoRes) {
         if(err) { 
