@@ -12,13 +12,29 @@ import ViewExperiment from './components/viewexperiment/ViewExperiment';
 // import RunExperiment from './components/RunExperiment';
 import About from './components/About';
 import MyExps from './components/myexperiments/MyExperiments';
-var  UserActions = require('./actions/Users.js');
+var ExperimentActions = require('./actions/Experiments.js');
+var IndependentVariableActions = require('./actions/IndependentVars.js');
+var DependentVariableActions = require('./actions/DependentVariables.js');
+var SampleActions = require('./actions/Samples.js');
+var MeasureActions = require('./actions/Measures.js');
+var RequestActions = require('./actions/Requests.js');
+var ReminderActions = require('./actions/Reminders.js');
+var UserActions = require('./actions/Users.js');
+var normalize = require('./utils/normalize.js');
 // import NewUser from './components/NewUser';
 // import Documentation from './components/Documentation';
 
 const store = configureStore();
-if (window.user) {
+if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
+
+  var normData = normalize({ exps : window.exps });
+  ExperimentActions.setExperiments(normData.entities.experiments);
+  DependentVariableActions.setDepVars(normData.entities.dependentVars);
+  IndependentVariableActions.setIndVars(normData.entities.independentVars);
+  MeasureActions.setMeasures(normData.entities.measures);
+  RequestActions.setRequests(normData.entities.requests);
+  ReminderActions.setReminders(normData.entities.reminders);
 }
 
 render((

@@ -3,7 +3,7 @@
 var User = require('./model');
 
 var getUser = function (req, res) {
-  User.findOne({_id: req.params.user_id }, function(err, user) {
+  User.findOne({googleId: req.params.user_id }, function(err, user) {
     if(err) { 
       res.send(err);
       throw err; 
@@ -26,7 +26,7 @@ var addUser = function (req, res) {
 };
 
 var deleteUser = function (req, res) {
-  User.remove({_id: req.params.user_id }, function(err) {
+  User.remove({googleId: req.params.user_id }, function(err) {
     if(err) { 
       res.send(err);
       throw err; 
