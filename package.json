@@ -85,7 +85,7 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "test": "mocha ./specs/clientspecs/measure.js  --compilers js:babel/register"
+    "test": "find ./specs -name '*.spec.js' | xargs mocha -R spec --compilers js:babel/register"
   },
   "author": "",
   "license": "ISC"
