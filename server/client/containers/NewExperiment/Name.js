@@ -3,27 +3,29 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
+var _ = require('underscore');
 
-// import actions
+// import actions and extend into a single object
 var NewExperimentActions = require('../../actions/NewExperiment');
+var ExpActions = require('../../actions/Experiments');
+var Actions = _.extend(NewExperimentActions, ExpActions);
 
 function mapStatetoProps (state) {
   return {
-    name: state.NewExperiment.get('name'),
-    questionIndex: state.NewExperiment.get('questionIndex')
+    questionIndex: state.NewExperiment,
   };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(NewExperimentActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 }
 
 var Name = React.createClass ({
 
   setName: function () {
-    this.props.actions.setName(this.refs.name.value);
+    this.props.actions.setName(this.refs.name.value, this.props.refKey);
   },
 
   handleBack: function () {

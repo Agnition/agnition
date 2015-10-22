@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
-function mapStatetoProps (state) {
+function mapStatetoProps (state, ownProps) {
   return {
-    hypothesis: state.NewExperiment.get('hypothesis'),
-    cause: state.NewExperiment.get('cause'),
-    effect: state.NewExperiment.get('effect'),
-    name: state.NewExperiment.get('name')
+    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
+    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
+    name: state.Experiments.getIn([ownProps.refKey, 'name'])
   };
 }
 
