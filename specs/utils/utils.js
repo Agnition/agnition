@@ -8,10 +8,10 @@ var mockDivComponent = function(className) {
       render: function() {
         return (
           <div className={className}>{JSON.stringify(this.props)}</div>
-          )
+        )
       }
     });  
-}
+};
 
 
 module.exports.mockDivComponent = mockDivComponent;
