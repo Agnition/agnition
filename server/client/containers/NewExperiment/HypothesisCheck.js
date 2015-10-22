@@ -4,11 +4,12 @@ var connect = require('react-redux').connect;
 var NewExperimentActions = require('../../actions/NewExperiment');
 var bindActionCreators = require('redux').bindActionCreators;
 
-function mapStatetoProps (state) {
+function mapStatetoProps (state, ownProps) {
   return {
-    cause: state.NewExperiment.get('cause'),
-    effect: state.NewExperiment.get('effect'),
-    questionIndex: state.NewExperiment.get('questionIndex')
+    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
+    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
+    questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex'])
   };
 }
 

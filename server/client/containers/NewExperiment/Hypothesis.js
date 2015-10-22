@@ -8,11 +8,11 @@ var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 
 
-function mapStatetoProps (state) {
+function mapStatetoProps (state, ownProps) {
   return {
-    hypothesis: state.Experiments.getIn([this.props.key, 'hypothesis']),
-    cause: state.Experiments.getIn([this.props.key, 'cause']),
-    effect: state.Experiments.getIn([this.props.key, 'effect']),
+    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
+    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
     questionIndex: state.NewExperiment
   };
 }
@@ -38,7 +38,9 @@ var Hypothesis = React.createClass({
     var hypothesis = this.refs.hypothesisInput.value;
     var cause = this.refs.causeInput.value;
     var effect = this.refs.effectInput.value;
-    this.props.actions.setOverview(hypothesis, cause, effect);
+    this.props.actions.setHypothesis(hypothesis, this.props.refKey);
+    this.props.actions.setCause(cause, this.props.refKey);
+    this.props.actions.setEffect(effect, this.props.refKey);
   },
 
   handleChange: function () {

@@ -9,7 +9,7 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 
 function mapStatetoProps (state) {
   return {
-    depVarKind: state.NewExperiment.get('name')
+    // depVarKind: state.NewExperiment.get('name')
   };
 }
 
