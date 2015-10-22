@@ -4,6 +4,7 @@ module.exports = {
   kind : 'ad_hoc',
   dependentVars : [{
     name : 'distance',
+    active: true,
     measures : [
       {
       kind  : 'numeric',
