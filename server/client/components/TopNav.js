@@ -37,4 +37,3 @@ var TopNav = React.createClass ({
 });
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(TopNav);
-module.exports.TopNav = TopNav;
