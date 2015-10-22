@@ -1,20 +1,44 @@
+
+var utils = require('../../utils/componentUtils');
 var React = require('react');
-var Measure = require('./Measure');
-var Request = require('./Request');
+var connect = require('react-redux').connect;
 
-// STATELOGIC logic to add in state properties
-// STATELOGIC create the the depVar variable
 
-var IndVar = React.createClass({
+function mapStateToProps (state, ownProps) {
+  return {
+    indVars: utils.mapIdsToObjs(ownProps.indVarIds, state.IndVars),
+  };
+}
+
+
+var Options = React.createClass({
   render: function() {
+    var options = this.props.options.map(function(option) {
+      return <span>{option}</span>;
+    });
     return (
-      <div>
-      {/* name as header */}
-      <h3>{this.props.indVar.name}</h3>
-
+      <div className="options">
+        {options}
       </div>
     );
   }
 });
 
-module.exports = IndVar;
+var IndVar = React.createClass({
+  render: function() {
+    return (
+      <div className="indvar">
+        <h3>{this.props.indVar.name}</h3>
+        <h4>Options</h4>
+        <Options options = {this.props.indVar.options}/>
+      </div>
+    );
+  }
+});
+
+var IndVars = React.createClass({
+  render: function() {
+    return utils.divCollection(this.props.indVars, IndVar, 'indVar') }
+});
+
+module.exports = connect(mapStateToProps)(IndVars);

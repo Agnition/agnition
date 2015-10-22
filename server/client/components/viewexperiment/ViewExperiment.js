@@ -12,22 +12,23 @@ function mapStateToProps (state, ownProps) {
 var ViewExp = React.createClass({
   render: function() {
     console.log("-------------------------------------------EXP",this.props.exp);
-    console.log("-------------------------------------------EXP",this.props.exp.dependentVars);
+    console.log("-------------------------------------------EXP",this.props.exp.independentVars);
     return (
       <div>
-      {/* name as header */}
-      <h2>{this.props.exp.name}</h2>
-      <span>{this.props.exp._id}</span>
-      <span>{this.props.exp.active}</span>
-      <span>{this.props.exp.hypothesis}</span>
-      <h2>Dependent Variables</h2>
-      <DepVar depVarIds = {this.props.exp.dependentVars} />
-      <h2>Independent Variables</h2>
+        {/* name as header */}
+        <h2>{this.props.exp.name}</h2>
+        <span>{this.props.exp._id}</span>
+        <span>{this.props.exp.active}</span>
+        <span>{this.props.exp.hypothesis}</span>
+        <h2>Dependent Variables</h2>
+        <DepVar depVarIds = {this.props.exp.dependentVars} />
+        <h2>Independent Variables</h2>
+        <IndVar indVarIds = {this.props.exp.independentVars} />
       </div>
     );
   }
 
-  // 
+  //
   // <IndVar indVar = {this.props.exp.IndVar[0]} />
 });
 

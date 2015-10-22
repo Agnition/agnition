@@ -36,13 +36,13 @@ describe('depVarsComponent', function () {
 
     depVar = TestUtils.renderIntoDocument(React.createElement(DepVar, props), 'root');
   });
-  
+
   it('should properly map the ids and render the names to <h3s>', function () {
     var h3s = TestUtils.scryRenderedDOMComponentsWithTag(depVar,'h3');
     expect(ReactDOM.findDOMNode(h3s[0]).textContent).to.eql('weezy');
     expect(ReactDOM.findDOMNode(h3s[1]).textContent).to.eql('steve');
   });
 
-  
+
 
 });

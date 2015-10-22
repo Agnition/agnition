@@ -1,4 +1,4 @@
-var mockStore = require('./mockStore');
+var mockStore = require('../utils/mockStore');
 var mocha = require('mocha');
 var expect = require('chai').expect;
 var Immutable = require('immutable');
