@@ -19,10 +19,10 @@ function mapDispatchtoProps (dispatch) {
 var TopNav = React.createClass ({
   render: function () {
     var links = [];
-    links.push(<Link to="/documentation"> Documentation</Link>);
+    links.push(<Link to="/documentation">Documentation</Link>);
     if(this.props.username !== undefined){
-      links.push(<Link to="/dashboard"> Dashboard</Link>);
-      links.push(<Link to="/profile"> {this.props.username}</Link>);
+      links.push(<Link to="/dashboard">Dashboard</Link>);
+      links.push(<Link to="/profile">{this.props.username}</Link>);
       links.push(<Logout />);
     } else {
       links.push(<Signin />);

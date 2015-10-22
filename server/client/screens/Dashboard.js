@@ -21,14 +21,14 @@ const Dashboard = React.createClass({
 
   render: function render() {
     return (
-      <div>
-        <UserInfo />
-      <ul>
-      <Signin />
-      <Logout />
-      <h1>Hello World</h1>
-        <li><Link to="/newexp">Create New Experiment</Link></li>
-      </ul>
+      <div className = 'dashboard'>
+        <h1>Agnition</h1>
+        <div>
+          <ul>
+            <li><Link to="/newexp">Create New Experiment</Link></li>
+            <li><Link to="/myexps">My Experiments</Link></li>
+          </ul>
+        </div>
       </div>
     );
   }
