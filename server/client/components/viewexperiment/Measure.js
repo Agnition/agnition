@@ -1,8 +1,18 @@
 var React = require('react');
 var _ = require('underscore');
+var connect = require('react-redux').connect;
+var utils = require('../../utils/componentUtils');
 
 //decides what to present as the unit the measure comes in.
 //will look a bit ugly but enough to keep moving
+
+
+function mapStateToProps (state, ownProps) {
+  //temp only returns one measure..
+  return {
+   measure: utils.mapIdsToObjs(ownProps.depVarIds, state.DepVars)[0],
+  };
+}
 
 var BasisSpan = React.createClass({
   render: function() {
@@ -11,8 +21,6 @@ var BasisSpan = React.createClass({
       );
     }
 });
-
-
 
 var Measure = React.createClass({
   getBasis: function(measure) {
@@ -39,4 +47,4 @@ var Measure = React.createClass({
   }
 });
 
-module.exports = Measure;
+module.exports = connect(mapStateToProps)(Measure);
