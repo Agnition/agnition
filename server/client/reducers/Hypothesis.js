@@ -16,7 +16,5 @@ module.exports = function(state, action) {
   if (action.type === 'SET_EFFECT') {
     return state.set('effect', action.effect);
   }
-  else {
-    return state;
-  }
+  return state;
 };

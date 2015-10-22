@@ -18,7 +18,7 @@ module.exports = function(state, action) {
   }
   if (action.type === 'GO_TO_PREV_QUESTION') {
     var questionIndex = state.get('questionIndex');
-      return state.set('questionIndex', --questionIndex);
+    return state.set('questionIndex', --questionIndex);
   }
   if (action.type === 'SET_NAME') {
     return state.set('name', action.name);
@@ -35,9 +35,7 @@ module.exports = function(state, action) {
     return state.set('depVar', action.depVar);
   }
   if (action.type === 'SET_DEPVAR_KIND') {
-    return state.set('')
+    return state.set('');
   }
-  else {
-    return state;
-  }
+  return state;
 };
