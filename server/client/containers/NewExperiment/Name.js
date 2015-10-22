@@ -3,14 +3,17 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
+var _ = require('underscore');
 
-// import actions
+// import actions and extend into a single object
 var NewExperimentActions = require('../../actions/NewExperiment');
+var ExpActions = require('../../actions/Experiments');
+var Actions = _.extend(NewExperimentActions, ExpActions);
 
 function mapStatetoProps (state) {
   return {
-    name: state.NewExperiment.get('name'),
-    questionIndex: state.NewExperiment.get('questionIndex')
+    name: state.Experiments.get('name'),
+    questionIndex: state.NewExperiment
   };
 }
 

@@ -17,7 +17,7 @@ var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 var NewExperimentProgress = require('../containers/NewExperiment/components/NewExperimentProgress');
 function mapStatetoProps (state) {
   return {
-    questionIndex: state.NewExperiment.get('questionIndex')
+    questionIndex: state.NewExperiment
   };
 }
 
@@ -27,30 +27,29 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var NewExperiment = React.createClass ({
+var NewExperiment = React.createClass({
 
-  questions: [(<Name />),
-              (<Hypothesis />),
-              (<HypothesisCheck />),
-              (<MeasureWrapper />)
-              ],
+  key: Math.floor(Math.random() * 1000000),
+
+  componentWillMount: function () {
+    this.props.actions.createExperiment(this.key);
+  },
 
   render: function () {
-    console.log(this.props.questionIndex);
+    var questions = [(<Name key={this.key} />),
+                            (<Hypothesis key={this.key} />),
+                            (<HypothesisCheck key={this.key} />),
+                            (<MeasureWrapper key={this.key} />)
+                            ];
     return (
       <div className="new-experiment">
         <h3>Create a new experiment.</h3>
-        {this.questions[this.props.questionIndex]}
-        <NewExperimentProgress />
+        {questions[this.props.questionIndex]}
+        <NewExperimentProgress key={this.key} />
       </div>
     );
   }
 
 });
-/*
-<label>Experiment Name</label>
-<input ref="name" type="text" />
-*/
-module.exports = NewExperiment;
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(NewExperiment);

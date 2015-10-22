@@ -35,14 +35,14 @@ if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 
   var normData = normalize({ exps : window.exps });
-  ExperimentActions.setExperiments(normData.entities.experiments);
-  DependentVariableActions.setDepVars(normData.entities.dependentVars);
-  IndependentVariableActions.setIndVars(normData.entities.independentVars);
-  MeasureActions.setMeasures(normData.entities.measures);
-  RequestActions.setRequests(normData.entities.requests);
-  ReminderActions.setReminders(normData.entities.reminders);
+  store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
+  store.dispatch(DependentVariableActions.setDepVars(normData.entities.dependentVars));
+  store.dispatch(IndependentVariableActions.setIndVars(normData.entities.independentVars));
+  store.dispatch(MeasureActions.setMeasures(normData.entities.measures));
+  store.dispatch(RequestActions.setRequests(normData.entities.requests));
+  store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
 }
-
+window.store = store;
 render((
   <Provider store={store}>
     <Router>

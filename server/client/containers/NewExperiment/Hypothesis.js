@@ -1,22 +1,25 @@
 var React = require('react');
 var connect = require('react-redux').connect;
+var _ = require('underscore');
+var ExpActions = require ('../../actions/Experiments');
 var NewExperimentActions = require('../../actions/NewExperiment');
+var Actions = _.extend(NewExperimentActions, ExpActions);
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 
 
 function mapStatetoProps (state) {
   return {
-    hypothesis: state.NewExperiment.get('hypothesis'),
-    cause: state.NewExperiment.get('cause'),
-    effect: state.NewExperiment.get('effect'),
-    questionIndex: state.NewExperiment.get('questionIndex')
+    hypothesis: state.Experiments.getIn([this.props.key, 'hypothesis']),
+    cause: state.Experiments.getIn([this.props.key, 'cause']),
+    effect: state.Experiments.getIn([this.props.key, 'effect']),
+    questionIndex: state.NewExperiment
   };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(NewExperimentActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 }
 
