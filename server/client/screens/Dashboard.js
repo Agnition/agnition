@@ -27,7 +27,7 @@ const Dashboard = React.createClass({
       <Signin />
       <Logout />
       <h1>Hello World</h1>
-        <li><Link to="/123/newexp">Create New Experiment</Link></li>
+        <li><Link to="/newexp">Create New Experiment</Link></li>
       </ul>
       </div>
     );

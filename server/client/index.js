@@ -47,11 +47,11 @@ render((
   <Provider store={store}>
     <Router>
       <Route path='/' component={App}>
-        <Route path='/:userid/dashboard' component={Dashboard} />
-          {/*<Route path='/:userid/view/:expid' component={ViewExperiment} />*/}
-          {/* <Route path='/:userid/run/:expid' component={RunExperiment} /> */}
-          {/*<Route path='/:userid/edit/:expid' component={EditExperiment} />*/}
-        <Route path='/:userid/newexp' component={NewExperiment} />
+        <Route path='/dashboard' component={Dashboard} />
+          {/*<Route path='/view/:expid' component={ViewExperiment} />*/}
+          {/* <Route path='/run/:expid' component={RunExperiment} /> */}
+          {/*<Route path='/edit/:expid' component={EditExperiment} />*/}
+        <Route path='/newexp' component={NewExperiment} />
         {/*<Route path='/about' component={About} />*/}
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
