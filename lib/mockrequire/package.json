@@ -1,0 +1,54 @@
+{
+  "author": {
+    "name": "Matt Walters",
+    "email": "mattwalters5@gmail.com"
+  },
+  "name": "mockrequire",
+  "description": "Simple module for mocking required dependencies. Works with any testing suite.",
+  "version": "0.0.4",
+  "homepage": "https://github.com/mateodelnorte/mockrequire",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mateodelnorte/mockrequire.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "dependencies": {
+    "debug": "0.7.2",
+    "react-tools": "^0.13.3",
+    "stack-trace": "0.0.6"
+  },
+  "devDependencies": {
+    "mocha": "1.9.0",
+    "should": "1.2.2"
+  },
+  "optionalDependencies": {},
+  "gitHead": "cc2d6915478e07d857c71a684c1556a4204326d9",
+  "bugs": {
+    "url": "https://github.com/mateodelnorte/mockrequire/issues"
+  },
+  "_id": "mockrequire@0.0.4",
+  "scripts": {},
+  "_shasum": "3ed9068095f4ac379fceab3e3d7775bc2bd17ae7",
+  "_from": "mockrequire@*",
+  "_npmVersion": "2.8.3",
+  "_nodeVersion": "1.8.1",
+  "_npmUser": {
+    "name": "mateodelnorte",
+    "email": "mattwalters5@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "mateodelnorte",
+      "email": "mattwalters5@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "3ed9068095f4ac379fceab3e3d7775bc2bd17ae7",
+    "tarball": "http://registry.npmjs.org/mockrequire/-/mockrequire-0.0.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/mockrequire/-/mockrequire-0.0.4.tgz"
+}
