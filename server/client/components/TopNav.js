@@ -1,7 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var Signin = require('./Signin');
-var Signout = require('./Signout');
+var Logout = require('./Logout');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 
@@ -23,7 +23,7 @@ var TopNav = React.createClass ({
     if(this.props.username !== undefined){
       links.push(<Link to="/dashboard"> Dashboard</Link>);
       links.push(<Link to="/profile"> {this.props.username}</Link>);
-      links.push(<Signout />);
+      links.push(<Logout />);
     } else {
       links.push(<Signin />);
     }

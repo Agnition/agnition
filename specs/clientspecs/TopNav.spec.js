@@ -1,6 +1,8 @@
 var React = require('react');
+var Provider = require('react-redux').Provider;
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
+var Immutable = require('immutable');
 
 var mocha = require('mocha');
 var expect = require('chai').expect;
@@ -8,48 +10,52 @@ var expect = require('chai').expect;
 var index = require('./index.js');
 var TopNav = require('../../server/client/components/TopNav.js');
 
-describe('TopNav', function () {
+var Measure = require('../../server/client/components/viewexperiment/Measure.js');
 
-  function createMockStore(state) {
-    return {
-      subscribe: () => {},
-      dispatch: () => {},
-      getState: () => {
-        return {...state};
-      }
-    };
-  }
+function createMockStore(state) {
+  return {
+    subscribe: () => {},
+    dispatch: () => {},
+    getState: () => {
+      return {...state};
+    }
+  };
+}
 
-  describe('General Interface', function () {
-    it('should show sign in when not signed in', function () {
-      //setup
-      var mockState = {};
-      mockState.Users = Immutable.Map({
-        username: undefined
-      });
+describe('TopNav', function(){
 
-      var option = TestUtils.renderIntoDocument(<TopNav store={createMockStore(mockState)} />, 'root');
-
-      var nav = TestUtils.scryRenderedDOMComponentsWithTag(option,'nav');
-      //tests
-      expect(ReactDOM.findDOMNode(nav[0]).textContent).to.contain('sign in');
-      expect(ReactDOM.findDOMNode(nav[0]).textContent).to.not.contain('sign out');
+  it('should have sign in when not signed in', function () {
+    var mockState = {};
+    mockState.User = Immutable.Map({
+      username: undefined
     });
 
-    it('should show sign out when signed in', function () {
-      //setup
-      var mockState = {};
-      mockState.Users = Immutable.Map({
-        username: 'Ash'
-      });
+    var nav = TestUtils.renderIntoDocument(
+      <Provider store={createMockStore(mockState)}>
+        <TopNav />
+      </Provider>, 'root');
 
-      var option = TestUtils.renderIntoDocument(<TopNav store={createMockStore(mockState)} />, 'root');
+    var signins = TestUtils.scryRenderedDOMComponentsWithClass(nav,'signin');
+    var logouts = TestUtils.scryRenderedDOMComponentsWithClass(nav,'logout');
+    expect(signins.length).to.eql(1);
+    expect(logouts.length).to.eql(0);
+  });
 
-      var nav = TestUtils.scryRenderedDOMComponentsWithTag(option,'nav');
-      //tests
-      expect(ReactDOM.findDOMNode(nav[0]).textContent).to.not.contain('sign in');
-      expect(ReactDOM.findDOMNode(nav[0]).textContent).to.contain('sign out');
+  it('should have log out when signed in', function () {
+    var mockState = {};
+    mockState.User = Immutable.Map({
+      username: 'Ash'
     });
+
+    var nav = TestUtils.renderIntoDocument(
+      <Provider store={createMockStore(mockState)}>
+        <TopNav />
+      </Provider>, 'root');
+
+    var signins = TestUtils.scryRenderedDOMComponentsWithClass(nav,'signin');
+    var logouts = TestUtils.scryRenderedDOMComponentsWithClass(nav,'logout');
+    expect(signins.length).to.eql(0);
+    expect(logouts.length).to.eql(1);
   });
 });
 
