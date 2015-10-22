@@ -1,6 +1,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var Exps = require('./Exps');
+var Exps = require('./ExpsTable');
 
 
 // creates two seperate lists of exps that will be seperately rendered
