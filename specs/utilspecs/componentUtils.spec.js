@@ -20,3 +20,11 @@ describe('mapIdsToObjs', function () {
     expect(result[0]).to.be.an('object');
   });
 });
+
+describe('divCollection(subElementobjects, subElementConstructor, propKey)', function () {
+  xit('should properly output the divCollection', function () {
+    //this is pending need to have larger conversation about this utility function
+  });
+
+
+});

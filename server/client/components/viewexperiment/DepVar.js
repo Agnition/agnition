@@ -1,6 +1,5 @@
 var Measure = require('./Measure');
 var utils = require('../../utils/componentUtils');
-
 var React = require('react');
 var connect = require('react-redux').connect;
 
