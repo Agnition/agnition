@@ -14,15 +14,15 @@ describe('Measures', function () {
       //setup
       var props = {
         measure : {
-          kind : 'qualitative',
+          kind : 'list',
           list : ['best','pokemon','friends']
         }
       };
       var measure = TestUtils.renderIntoDocument(React.createElement(Measure, props), 'root');
 
       //tests
-      expect(measure.props.measure.kind).to.eql('qualitative');
-      expect(measure.props.measure.list).to.deep.eql(['best','pokemon','friends']); 
+      expect(measure.props.measure.kind).to.eql('list');
+      expect(measure.props.measure.list).to.deep.eql(['best','pokemon','friends']);
     });
 
     describe('Get Basis(measure)', function () {
@@ -39,13 +39,13 @@ describe('Measures', function () {
         measure = TestUtils.renderIntoDocument(React.createElement(Measure, props), 'root');
       });
 
-      it('should set the basis to measure.list when measure.kind === `qualitative`', function () {
-        props.measure.kind = 'qualitative';
+      it('should set the basis to measure.list when measure.kind === `list`', function () {
+        props.measure.kind = 'list';
         expect(measure.getBasis(props.measure)).eql(['best','pokemon','friends']);
       });
 
-      it('should set the basis to measure.scale when measure.kind === `scale`', function () {
-        props.measure.kind = 'scale';
+      it('should set the basis to measure.scale when measure.kind === `qualitative`', function () {
+        props.measure.kind = 'qualitative';
         expect(measure.getBasis(props.measure)).eql(['worst','pokemon','friends']);
       });
 
@@ -61,7 +61,7 @@ describe('Measures', function () {
       beforeEach(function(){
         props = {
           measure : {
-            kind : 'qualitative',
+            kind : 'list',
             list : ['best','pokemon','friends'],
             scale : ['worst','pokemon','friends'],
             unit : 'pokemon'
@@ -69,7 +69,7 @@ describe('Measures', function () {
         };
         measure = TestUtils.renderIntoDocument(React.createElement(Measure, props), 'root');
         spans = TestUtils.scryRenderedDOMComponentsWithTag(measure,'span');
-        
+
       });
 
       it('should render the passed in properties', function () {

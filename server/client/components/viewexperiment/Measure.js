@@ -8,9 +8,8 @@ var utils = require('../../utils/componentUtils');
 
 
 function mapStateToProps (state, ownProps) {
-  //temp only returns one measure..
   return {
-   measure: utils.mapIdsToObjs(ownProps.depVarIds, state.DepVars)[0],
+   measures: utils.mapIdsToObjs(ownProps.measureIds, state.Measures),
   };
 }
 
@@ -27,17 +26,14 @@ var Measure = React.createClass({
     if(measure.kind === 'numeric'){
       return measure.unit;
     } else if (measure.kind === 'qualitative'){
-      return measure.list;
-    } else {
       return measure.scale;
+    } else {
+      return measure.list;
     }
   },
   render: function() {
     var basis = this.getBasis(this.props.measure);
-    var spans = [];
-    _.each(basis, function(item){
-      spans.push(<BasisSpan item={item} />)
-    });
+    var spans = <BasisSpan item={basis} />;
     return (
       <div>
         <h3>{this.props.measure.kind}</h3>
@@ -47,4 +43,17 @@ var Measure = React.createClass({
   }
 });
 
-module.exports = connect(mapStateToProps)(Measure);
+var Measures = React.createClass({
+  render: function() {
+    var measures = _.map(this.props.measures, function(measure) {
+      return <Measure measure = {measure} />;
+    });
+    return (
+      <div>
+        {measures}
+      </div>
+    );
+  }
+});
+
+module.exports = connect(mapStateToProps)(Measures);

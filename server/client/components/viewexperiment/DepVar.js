@@ -11,7 +11,7 @@ function mapStateToProps (state, ownProps) {
 }
 
 var DepVar = React.createClass({
-  render: function() {);
+  render: function() {
     return (
       <div>
       <h3>{this.props.depVar.name}</h3>
@@ -23,7 +23,7 @@ var DepVar = React.createClass({
 });
 
 var DepVars = React.createClass({
-  render: function() { 
+  render: function() {
     return utils.divCollection(this.props.depVars, DepVar, 'depVar') }
 });
 

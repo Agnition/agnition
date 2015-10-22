@@ -18,7 +18,7 @@ var divCollection = function(subElementobjects, subElementConstructor, propKey) 
       var props = {};
       props[propKey] = obj;
       divs.push(React.createElement(subElementConstructor, props));
-    })  
+    })
     return(
       <div>
         {divs}
