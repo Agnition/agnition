@@ -43,5 +43,5 @@ function unNormalize(obj, schema) {
 }
 
 module.exports = function(data) {
-  return unNormalize(data, schema);
+  return unNormalize(JSON.parse(JSON.stringify(data)), schema);
 };
