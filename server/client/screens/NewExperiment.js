@@ -29,8 +29,6 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-
-
 var NewExperiment = React.createClass({
 
   expId: Math.floor(Math.random() * 1000000),
@@ -40,15 +38,14 @@ var NewExperiment = React.createClass({
   },
 
   render: function () {
-    var questions = [(<Name expId={this.expId} />),
-                    (<Hypothesis expId={this.expId} />),
-                    (<HypothesisCheck expId={this.expId} />),
-                    (<DepVarWrapper expId={this.expId} />)
-                    ];
+
     return (
       <div className="new-experiment">
         <h3>Create a new experiment.</h3>
-        {questions[this.props.questionIndex]}
+        <Name expId={this.expId} />
+        <Hypothesis expId={this.expId} />
+        <HypothesisCheck expId={this.expId} />
+        {/*<MeasureWrapper expId={this.expId} />*/}
         <NewExperimentProgress expId={this.expId} />
 
       </div>

@@ -64,8 +64,8 @@ var Hypothesis = React.createClass({
           <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
           <label>effect</label>
           <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
-          <button onClick={this.handleBack}>back</button>
-          <button onClick={this.handleNext}>next</button>
+          <button ref="backButton" onClick={this.handleBack}>back</button>
+          <button ref="nextButton" onClick={this.handleNext}>next</button>
         </section>
       </div>
       );
