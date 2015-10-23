@@ -35,7 +35,7 @@ module.exports = {
       numTrials : 1,
       actionsPerTrial : 1,
       randomized : true,
-      reminder : [{
+      reminders : [{
         freq :'everyday2',
         reminder: 'do something here2',
       }],

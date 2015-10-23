@@ -36,13 +36,14 @@ if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 
   var normData = normalize({ exps : window.exps });
+  console.log(window.exps);
   console.log(normData);
   console.log(unNormalize(normData));
   store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
   store.dispatch(DependentVariableActions.setDepVars(normData.entities.dependentVars));
   store.dispatch(IndependentVariableActions.setIndVars(normData.entities.independentVars));
   store.dispatch(MeasureActions.setMeasures(normData.entities.measures));
-  // store.dispatch(RequestActions.setRequests(normData.entities.requests));
+  store.dispatch(RequestActions.setRequests(normData.entities.requests));
   store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
 }
 window.store = store;

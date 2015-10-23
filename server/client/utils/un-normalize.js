@@ -1,6 +1,7 @@
 var Normalize = require('normalizr');
 var Schema = Normalize.Schema;
 var arrayOf = Normalize.arrayOf;
+var _ = require('underscore');
 
 var EntitySchema = new Schema('schema').constructor;
 var ArraySchema = arrayOf({}).constructor;
@@ -43,5 +44,5 @@ function unNormalize(obj, schema) {
 }
 
 module.exports = function(data) {
-  return unNormalize(data, schema);
+  return unNormalize(JSON.parse(JSON.stringify(data)), schema);
 };

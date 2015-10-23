@@ -42,7 +42,7 @@ module.exports = {
     numTrials : 1,
     // actionsPerTrial : { type: Number, required: true, default: 1 },
     randomized : true,
-    reminder : [{
+    reminders : [{
       freq : null,
       reminder: null,
     }],
