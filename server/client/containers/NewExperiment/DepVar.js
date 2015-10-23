@@ -36,7 +36,7 @@ var DepVar = React.createClass({
       <div>
         <label>Dependent Variable Name:
         <input type="text" ref="depVarName" /></label>
-        <MeasureWrapper depVarId = {this.depVarId} />
+        <MeasureWrapper depVarId = {this.props.depVarId} />
       </div>
       );
   }

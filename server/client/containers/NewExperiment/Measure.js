@@ -30,14 +30,14 @@ var Measure = React.createClass({
 
   handleClick: function (event) {
     event.preventDefault();
-    this.props.actions.setKind(event.target.value);
+    this.props.actions.setKind(event.target.value, this.props.measureId);
   },
 
   render: function () {
     var measureKinds = {
-      qualitative: <MeasureQualitative measureId = {this.props.measureId} />,
-      numeric: <MeasureNumeric measureId = {this.props.measureId} />,
-      list: <MeasureList measureId = {this.props.measureId} />
+      qualitative: (<MeasureQualitative measureId = {this.props.measureId} />),
+      numeric: (<MeasureNumeric measureId = {this.props.measureId} />),
+      list: (<MeasureList measureId = {this.props.measureId} />)
     };
     return (
       <div>
