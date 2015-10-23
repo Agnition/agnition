@@ -33,23 +33,23 @@ function mapDispatchtoProps (dispatch) {
 
 var NewExperiment = React.createClass({
 
-  refKey: Math.floor(Math.random() * 1000000),
+  expId: Math.floor(Math.random() * 1000000),
 
   componentWillMount: function () {
-    this.props.actions.createExperiment(this.refKey);
+    this.props.actions.createExperiment(this.expId);
   },
 
   render: function () {
-    var questions = [(<Name refKey={this.refKey} />),
-                    (<Hypothesis refKey={this.refKey} />),
-                    (<HypothesisCheck refKey={this.refKey} />),
-                    (<MeasureWrapper refKey={this.refKey} />)
+    var questions = [(<Name expId={this.expId} />),
+                    (<Hypothesis expId={this.expId} />),
+                    (<HypothesisCheck expId={this.expId} />),
+                    (<MeasureWrapper expId={this.expId} />)
                     ];
     return (
       <div className="new-experiment">
         <h3>Create a new experiment.</h3>
         {questions[this.props.questionIndex]}
-        <NewExperimentProgress refKey={this.refKey} />
+        <NewExperimentProgress expId={this.expId} />
 
       </div>
     );

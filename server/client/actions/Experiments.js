@@ -5,57 +5,57 @@ module.exports.setExperiments = function(exps) {
   };
 };
 
-module.exports.createExperiment = function (key) {
+module.exports.createExperiment = function (expId) {
   return {
     type: 'CREATE_EXPERIMENT',
-    key: key
+    expId: expId
   };
 };
 
-module.exports.setName = function (name, key) {
+module.exports.setName = function (name, expId) {
   return {
     type: 'SET_NAME',
     name: name,
-    key: key
+    expId: expId
   };
 };
 
-module.exports.setHypothesis = function (hypothesis, key) {
+module.exports.setHypothesis = function (hypothesis, expId) {
   return {
     type: 'SET_HYPOTHESIS',
     hypothesis: hypothesis,
-    key: key
+    expId: expId
   };
 };
 
-module.exports.setCause = function (cause, key) {
+module.exports.setCause = function (cause, expId) {
   return {
     type: 'SET_CAUSE',
     cause: cause,
-    key: key
+    expId: expId
   };
 };
 
-module.exports.setEffect = function (effect, key) {
+module.exports.setEffect = function (effect, expId) {
   return {
     type: 'SET_EFFECT',
     effect: effect,
-    key: key
+    expId: expId
   };
 };
 
-module.exports.addDepVar = function (depVarKey, key) {
+module.exports.addDepVar = function (depVarKey, expId) {
   return {
     type: 'ADD_DEP_VAR',
     depVarKey: depVarKey,
-    key: key
+    expId: expId
   };
 };
 
-module.exports.addIndVar = function (indVarKey, key) {
+module.exports.addIndVar = function (indVarKey, expId) {
   return {
     type: 'ADD_IND_VAR',
     indVarKey: indVarKey,
-    key: key
+    expId: expId
   };
 };

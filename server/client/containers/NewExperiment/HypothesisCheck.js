@@ -6,10 +6,10 @@ var bindActionCreators = require('redux').bindActionCreators;
 
 function mapStatetoProps (state, ownProps) {
   return {
-    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
-    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
-    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
-    questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex'])
+    hypothesis: state.Experiments.getIn([ownProps.expId, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.expId, 'cause']),
+    effect: state.Experiments.getIn([ownProps.expId, 'effect']),
+    questionIndex: state.Experiments.getIn([ownProps.expId, 'questionIndex'])
   };
 }
 

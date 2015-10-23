@@ -25,7 +25,7 @@ function mapDispatchtoProps (dispatch) {
 var Name = React.createClass ({
 
   setName: function () {
-    this.props.actions.setName(this.refs.name.value, this.props.refKey);
+    this.props.actions.setName(this.refs.name.value, this.props.expId);
   },
 
   handleBack: function () {
