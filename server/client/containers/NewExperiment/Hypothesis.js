@@ -10,9 +10,9 @@ var Immutable = require('immutable');
 
 function mapStatetoProps (state, ownProps) {
   return {
-    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
-    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
-    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
+    hypothesis: state.Experiments.getIn([ownProps.expId, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.expId, 'cause']),
+    effect: state.Experiments.getIn([ownProps.expId, 'effect']),
     questionIndex: state.NewExperiment
   };
 }
@@ -38,9 +38,9 @@ var Hypothesis = React.createClass({
     var hypothesis = this.refs.hypothesisInput.value;
     var cause = this.refs.causeInput.value;
     var effect = this.refs.effectInput.value;
-    this.props.actions.setHypothesis(hypothesis, this.props.refKey);
-    this.props.actions.setCause(cause, this.props.refKey);
-    this.props.actions.setEffect(effect, this.props.refKey);
+    this.props.actions.setHypothesis(hypothesis, this.props.expId);
+    this.props.actions.setCause(cause, this.props.expId);
+    this.props.actions.setEffect(effect, this.props.expId);
   },
 
   handleChange: function () {

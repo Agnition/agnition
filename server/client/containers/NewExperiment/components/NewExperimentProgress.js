@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 
 function mapStatetoProps (state, ownProps) {
   return {
-    hypothesis: state.Experiments.getIn([ownProps.refKey, 'hypothesis']),
-    cause: state.Experiments.getIn([ownProps.refKey, 'cause']),
-    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
-    name: state.Experiments.getIn([ownProps.refKey, 'name'])
+    hypothesis: state.Experiments.getIn([ownProps.expId, 'hypothesis']),
+    cause: state.Experiments.getIn([ownProps.expId, 'cause']),
+    effect: state.Experiments.getIn([ownProps.expId, 'effect']),
+    name: state.Experiments.getIn([ownProps.expId, 'name'])
   };
 }
 
