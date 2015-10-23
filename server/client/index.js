@@ -22,6 +22,7 @@ var RequestActions = require('./actions/Requests.js');
 var ReminderActions = require('./actions/Reminders.js');
 var UserActions = require('./actions/Users.js');
 var normalize = require('./utils/normalize.js');
+var unNormalize = require('./utils/un-normalize.js');
 
 //Import All View Experiments Routes
 import ViewExperiment from './components/viewexperiment/ViewExperiment';
@@ -35,6 +36,8 @@ if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 
   var normData = normalize({ exps : window.exps });
+  console.log(normData);
+  console.log(unNormalize(normData));
   store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
   store.dispatch(DependentVariableActions.setDepVars(normData.entities.dependentVars));
   store.dispatch(IndependentVariableActions.setIndVars(normData.entities.independentVars));
