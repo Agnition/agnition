@@ -7,6 +7,8 @@ var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 var Scale = require('./Scale');
 
+var DepVar = require('./DepVar');
+
 // import actions
 var DepVarActions = require('../../actions/DependentVars');
 var ExpActions = require('../../actions/Experiments');
@@ -34,7 +36,7 @@ var DepVarWrapper = React.createClass ({
   addDepVar: function () {
     this.depVarId = Math.floor(Math.random() * 1000000);
     this.props.actions.createDepVar(this.depVarId);
-    this.props.actions.AddDepVar(this.depVarId, this.props.expId);
+    this.props.actions.addDepVar(this.depVarId, this.props.expId);
   },
 
   // handleBack: function () {
@@ -46,17 +48,10 @@ var DepVarWrapper = React.createClass ({
   //   this.props.actions.goToNextQuestion();
   // },
 
-  handleChoice: function(event) {
-    event.preventDefault();
-    console.log('event.target.value =', event.target.value);
-    this.props.actions.setDepVarKind(event.target.value);
-
-  },
-
   render: function () {
     return (
       <div>
-
+        <DepVar depVarId = {this.depVarId} />
         <button onClick={this.addDepVar}>add another dependant variable</button>
       </div>
       );

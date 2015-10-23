@@ -5,7 +5,8 @@ var _ = require('underscore');
 
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
-var Scale = require('./Scale');
+var Measure = require('./Measure');
+
 
 // import actions
 var DepVarActions = require('../../actions/DependentVars');
@@ -16,10 +17,7 @@ var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureA
 
 function mapStatetoProps (state, ownProps) {
   return {
-    name: state.Experiments.getIn([ownProps.refKey, 'name']),
-    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
-    questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex']),
-    depVarKind: state.Experiments.getIn([ownProps.refKey, 'depVarKind']),
+    measures: state.DepVars.getIn([ownProps.depVarId, 'measures']),
   };
 }
 
@@ -38,11 +36,7 @@ var MeasureWrapper = React.createClass ({
   addMeasure: function () {
     this.measureId = Math.floor(Math.random() * 1000000);
     this.props.actions.createMeasure(this.measureId);
-    this.props.actions.AddMeasure(this.measureId, this.props.depVarId);
-  },
-
-  setName: function () {
-    this.props.actions.setMeasureName(this.refs.measureName.value);
+    this.props.actions.addMeasure(this.measureId, this.props.depVarId);
   },
 
   handleBack: function () {
@@ -54,34 +48,27 @@ var MeasureWrapper = React.createClass ({
     this.props.actions.goToNextQuestion();
   },
 
-  handleChoice: function(event) {
-    event.preventDefault();
-    console.log('event.target.value =', event.target.value);
-    this.props.actions.setDepVarKind(event.target.value);
-
-  },
-
   render: function () {
-    var measureChoice = {
-      'default': '',
-      'scale': <Scale />
-    }
     return (
       <div>
-        <span>What are the ways that you can measure {this.props.effect}?</span>
-        <h5>Measure Type</h5>
-        <label>Scale</label>
-        <label>measure name:</label>
-        <input type="text" ref="measureName" />
-        <button value="category" onClick={this.handleChoice}>Category</button>
-        <button value="scale" onClick={this.handleChoice}>Scale</button>
-        <button value="numerical" onClick={this.handleChoice}>Numerical</button>
+        <Measure measureId = {this.measureId} />
         <button onClick={this.addMeasure}>add another measure</button>
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
-        {measureChoice[this.props.depVarKind]}
       </div>
       );
+      // <div>
+      //   <span>What are the ways that you can measure {this.props.effect}?</span>
+      //   <h5>Measure Type</h5>
+      //   <label>Scale</label>
+      //   <label>measure name:</label>
+      //   <input type="text" ref="measureName" />
+      //   <button value="category" onClick={this.handleChoice}>Category</button>
+      //   <button value="scale" onClick={this.handleChoice}>Scale</button>
+      //   <button value="numerical" onClick={this.handleChoice}>Numerical</button>
+      //   <button onClick={this.addMeasure}>add another measure</button>
+      //   <button onClick={this.handleBack}>back</button>
+      //   <button onClick={this.handleNext}>next</button>
+      //   {measureChoice[this.props.depVarKind]}
+      // </div>
   }
 });
 

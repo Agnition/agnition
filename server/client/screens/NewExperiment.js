@@ -10,7 +10,7 @@ var NewExperimentActions = require('../actions/NewExperiment');
 //import child containers
 var Name = require('../containers/NewExperiment/Name');
 var Hypothesis = require('../containers/NewExperiment/Hypothesis');
-var MeasureWrapper = require('../containers/NewExperiment/MeasureWrapper');
+var DepVarWrapper = require('../containers/NewExperiment/DepVarWrapper');
 var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 
 //import child components
@@ -43,7 +43,7 @@ var NewExperiment = React.createClass({
     var questions = [(<Name expId={this.expId} />),
                     (<Hypothesis expId={this.expId} />),
                     (<HypothesisCheck expId={this.expId} />),
-                    (<MeasureWrapper expId={this.expId} />)
+                    (<DepVarWrapper expId={this.expId} />)
                     ];
     return (
       <div className="new-experiment">

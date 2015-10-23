@@ -6,7 +6,7 @@ var cookie = require('react-cookie');
 
 var ExperimentActions = require('../actions/Experiments.js');
 var IndependentVariableActions = require('../actions/IndependentVars.js');
-var DependentVariableActions = require('../actions/DependentVariables.js');
+var DependentVariableActions = require('../actions/DependentVars.js');
 var SampleActions = require('../actions/Samples.js');
 var MeasureActions = require('../actions/Measures.js');
 var RequestActions = require('../actions/Requests.js');
