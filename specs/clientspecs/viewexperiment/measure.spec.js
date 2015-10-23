@@ -6,7 +6,9 @@ var mocha = require('mocha');
 var expect = require('chai').expect;
 var mockStore = require('../../utils/mockStore');
 
-var index = require('../index.js')();
+//setup virtual dom
+require('../index.js')();
+
 var Measure = require('../../../server/client/components/viewexperiment/Measure.js');
 
 describe('Measures', function () {
