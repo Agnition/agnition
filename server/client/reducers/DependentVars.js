@@ -8,7 +8,7 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'CREATE_DEP_VAR') {
     return state.set(action.depVarId, Immutable.Map());
   }
-  if (action.type === 'SET_NAME') {
+  if (action.type === 'SET_DEP_VAR_NAME') {
     return state.setIn([action.depVarId, 'name'], action.name)
   }
   if (action.type === 'ADD_MEASURE') {

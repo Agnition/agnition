@@ -1,32 +1,48 @@
 // import React and Redux dependencies
 var React = require('react');
 var connect = require('react-redux').connect;
+var _ = require('underscore');
+
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 var Scale = require('./Scale');
 
 // import actions
+var DepVarActions = require('../../actions/DependentVars');
+var MeasureActions = require('../../actions/Measures');
+var ExpActions = require('../../actions/Experiments');
 var NewExperimentActions = require('../../actions/NewExperiment');
+var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureActions);
 
-function mapStatetoProps (state) {
+function mapStatetoProps (state, ownProps) {
   return {
-    name: state.NewExperiment.get('name'),
-    effect: state.NewExperiment.get('effect'),
-    questionIndex: state.NewExperiment.get('questionIndex'),
-    depVarKind: state.NewExperiment.get('depVarKind')
+    name: state.Experiments.getIn([ownProps.refKey, 'name']),
+    effect: state.Experiments.getIn([ownProps.refKey, 'effect']),
+    questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex']),
+    depVarKind: state.Experiments.getIn([ownProps.refKey, 'depVarKind']),
   };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(NewExperimentActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 }
 
 var MeasureWrapper = React.createClass ({
 
+  componentWillMount: function () {
+    this.addMeasure();
+  },
+
+  addMeasure: function () {
+    this.measureId = Math.floor(Math.random() * 1000000);
+    this.props.actions.createMeasure(this.measureId);
+    this.props.actions.AddMeasure(this.measureId, this.props.depVarId);
+  },
+
   setName: function () {
-    // this.props.actions.setMeasureName(this.refs.measureName.value);
+    this.props.actions.setMeasureName(this.refs.measureName.value);
   },
 
   handleBack: function () {
@@ -40,6 +56,7 @@ var MeasureWrapper = React.createClass ({
 
   handleChoice: function(event) {
     event.preventDefault();
+    console.log('event.target.value =', event.target.value);
     this.props.actions.setDepVarKind(event.target.value);
 
   },
