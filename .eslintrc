@@ -41,7 +41,7 @@
     //
     "comma-dangle": 0, // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
-    "no-console": 1, // disallow use of console (off by default in the node environment)
+    "no-console": 0, // disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // disallow use of constant expressions in conditions
     "no-control-regex": 2, // disallow control characters in regular expressions
     "no-debugger": 2, // disallow use of debugger
@@ -76,7 +76,7 @@
     //
     "block-scoped-var": 0, // treat var statements as if they were block scoped (off by default). 0: deep destructuring is not compatible https://github.com/eslint/eslint/issues/1863
     "complexity": 0, // specify the maximum cyclomatic complexity allowed in a program (off by default)
-    "consistent-return": 2, // require return statements to either always or never specify values
+    "consistent-return": 1, // require return statements to either always or never specify values
     "curly": 2, // specify curly brace conventions for all control statements
     "default-case": 2, // require default case in switch statements (off by default)
     "dot-notation": 2, // encourages use of dot notation whenever possible
@@ -109,7 +109,7 @@
     "no-param-reassign": 2, // disallow reassignment of function parameters (off by default)
     "no-process-env": 2, // disallow use of process.env (off by default)
     "no-proto": 2, // disallow usage of __proto__ property
-    "no-redeclare": 2, // disallow declaring the same variable more then once
+    "no-redeclare": 0, // disallow declaring the same variable more then once
     "no-return-assign": 2, // disallow use of assignment in return statement
     "no-script-url": 2, // disallow use of javascript: urls.
     "no-self-compare": 2, // disallow comparisons where both sides are exactly the same (off by default)
@@ -139,7 +139,7 @@
     "no-catch-shadow": 2, // disallow the catch clause parameter name being the same as a variable in the outer scope (off by default in the node environment)
     "no-delete-var": 2, // disallow deletion of variables
     "no-label-var": 2, // disallow labels that share a name with a variable
-    "no-shadow": 2, // disallow declaration of variables already declared in the outer scope
+    "no-shadow": 0, // disallow declaration of variables already declared in the outer scope
     "no-shadow-restricted-names": 2, // disallow shadowing of names such as arguments
     "no-undef": 2, // disallow use of undeclared variables unless mentioned in a /*global */ block
     "no-undef-init": 2, // disallow use of undefined when initializing variables
@@ -176,7 +176,7 @@
     "no-spaced-func": 1, // disallow space between function identifier and application
     "no-ternary": 0, // disallow the use of ternary operators (off by default)
     "no-trailing-spaces": 1, // disallow trailing whitespace at the end of lines
-    "no-underscore-dangle": 1, // disallow dangling underscores in identifiers
+    "no-underscore-dangle": 0, // disallow dangling underscores in identifiers
     "no-extra-parens": 0, // disallow wrapping of non-IIFE statements in parens
     "one-var": [1, "never"], // allow just one var statement per function (off by default)
     "operator-assignment": [1, "never"], // require assignment operator shorthand where possible or prohibit it entirely (off by default)
@@ -216,7 +216,7 @@
     "max-params": [2, 5], // limits the number of parameters that can be used in the function declaration. (off by default)
     "max-statements": 0, // specify the maximum number of statement allowed in a function (off by default)
     "no-bitwise": 0, // disallow use of bitwise operators (off by default)
-    "no-plusplus": 2, // disallow use of unary operators, ++ and -- (off by default)
+    "no-plusplus": 0, // disallow use of unary operators, ++ and -- (off by default)
 
     //
     // eslint-plugin-react
