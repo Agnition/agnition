@@ -44,18 +44,18 @@ module.exports.setEffect = function (effect, expId) {
   };
 };
 
-module.exports.addDepVar = function (depVarKey, expId) {
+module.exports.addDepVar = function (depVarId, expId) {
   return {
     type: 'ADD_DEP_VAR',
-    depVarKey: depVarKey,
+    depVarId: depVarId,
     expId: expId
   };
 };
 
-module.exports.addIndVar = function (indVarKey, expId) {
+module.exports.addIndVar = function (indVarId, expId) {
   return {
     type: 'ADD_IND_VAR',
-    indVarKey: indVarKey,
+    indVarId: indVarId,
     expId: expId
   };
 };

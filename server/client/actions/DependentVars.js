@@ -12,9 +12,9 @@ module.exports.createDepVar = function (depVarId) {
   };
 };
 
-module.exports.setName = function (name, depVarId) {
+module.exports.setDepVarName = function (name, depVarId) {
   return {
-    type: 'SET_NAME',
+    type: 'SET_DEP_VAR_NAME',
     name: name,
     depVarId: depVarId
   };

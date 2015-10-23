@@ -14,8 +14,9 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 var Actions = _.extend(NewExperimentActions, MeasureActions, DepVarActions);
 
 function mapStatetoProps (state, ownProps) {
+  console.log('-------------------------------depVarId---------------', ownProps.depVarId);
   return {
-    name: state.DepVars.getIn([ownProps.depVarId, 'name']),
+    name: state.DepVars.getIn([ownProps.depVarId, 'name']) || ''
   };
 }
 
@@ -28,14 +29,14 @@ function mapDispatchtoProps (dispatch) {
 var DepVar = React.createClass({
 
   setName: function () {
-    this.props.actions.setDepVarName(this.refs.depVarName.value);
+    this.props.actions.setDepVarName(this.refs.depVarName.value, this.props.depVarId);
   },
 
   render: function () {
     return (
       <div>
         <label>Dependent Variable Name:
-        <input type="text" ref="depVarName" /></label>
+        <input type="text" ref="depVarName" onChange={this.setName} value = {this.props.name} /></label>
         <MeasureWrapper depVarId = {this.props.depVarId} />
       </div>
       );
