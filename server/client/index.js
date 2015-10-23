@@ -15,7 +15,7 @@ import Hypothesis from './containers/NewExperiment/Hypothesis';
 import MyExps from './components/myexperiments/MyExperiments';
 var ExperimentActions = require('./actions/Experiments.js');
 var IndependentVariableActions = require('./actions/IndependentVars.js');
-var DependentVariableActions = require('./actions/DependentVariables.js');
+var DependentVariableActions = require('./actions/DependentVars.js');
 var SampleActions = require('./actions/Samples.js');
 var MeasureActions = require('./actions/Measures.js');
 var RequestActions = require('./actions/Requests.js');

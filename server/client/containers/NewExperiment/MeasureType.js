@@ -6,11 +6,11 @@ var bindActionCreators = require('redux').bindActionCreators;
 // import actions
 var NewExperimentActions = require('../../actions/NewExperiment');
 
-function mapStatetoProps (state) {
+function mapStatetoProps (state, ownProps) {
   return {
-    name: state.NewExperiment.get('name'),
-    questionIndex: state.NewExperiment.get('questionIndex'),
-    independentVar: state.NewExperiment.get('independentVar').toJS()
+    name: state.Experiments.getIn([ownProps.refKey, 'name']),
+    questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex']),
+    independentVar: state.Experiments.getIn([ownProps.refKey, 'independentVar']).toJS,
   };
 }
 
