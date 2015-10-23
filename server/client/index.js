@@ -43,7 +43,6 @@ if (window.user && window.exps) {
   store.dispatch(RequestActions.setRequests(normData.entities.requests));
   store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
 }
-}
 window.store = store;
 render((
   <Provider store={store}>
