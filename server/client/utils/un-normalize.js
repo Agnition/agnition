@@ -1,7 +1,6 @@
 var Normalize = require('normalizr');
 var Schema = Normalize.Schema;
 var arrayOf = Normalize.arrayOf;
-var _ = require('underscore');
 
 var EntitySchema = new Schema('schema').constructor;
 var ArraySchema = arrayOf({}).constructor;
