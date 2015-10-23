@@ -5,21 +5,26 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'SET_IND_VARS') {
     return Immutable.fromJS(action.indVars);
 
-  } else if(action.type ==='SET_NAME') {
-      return state.setIn([action.indVarId],'name', action.name);
+  } else if(action.type ==='SET_INDVAR_NAME') {
+      return state.setIn([action.indVarId, 'name'], action.name);
 
-  } else if(action.type ==='SET_ACTIONS_PER_TRIAL') {
-      return state.setIn([action.indVarId],'actionsPerTrial', action.actionsPerTrial);
+  } else if(action.type ==='SET_INDVAR_ACTIONS_PER_TRIAL') {
+      return state.setIn([action.indVarId,'actionsPerTrial'], action.actionsPerTrial);
 
-  } else if(action.type ==='SET_NUM_TRIALS') {
-      return state.setIn([action.indVarId],'numTrials', action.numTrials);
+  } else if(action.type ==='SET_INDVAR_NUM_TRIALS') {
+      return state.setIn([action.indVarId,'numTrials'], action.numTrials);
 
-  } else if(action.type ==='SET_RANDOMIZED') {
-      return state.setIn([action.indVarId],'randomized', action.randomized);
+  } else if(action.type ==='SET_INDVAR_RANDOMIZED') {
+      return state.setIn([action.indVarId,'randomized'], action.randomized);
 
-  } else if(action.type ==='PUSH_OPTION') {
-      return state.setIn([action.indVarId],'option', action.option) ;
-
+  } else if(action.type ==='PUSH_INDVAR_OPTION') {
+      return = state.updateIn([action.indVarId, "options"], function(list) {
+        return list.push(action.option);
+      });
+  } else if(action.type ==='POP_INDVAR_OPTION') {
+      return state.updateIn([action.indVarId, "options"], function(list) {
+        return list.pop();
+      });
   } else {
     return state;
   }

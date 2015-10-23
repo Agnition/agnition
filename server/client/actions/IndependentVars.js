@@ -4,38 +4,47 @@ module.exports.setIndVars = function(indVars) {
     indVars: indVars
   };
 };
-module.exports.setName = function (name, id) {
+module.exports.setName = function (name, indVarId) {
   return {
-    type: 'SET_NAME',
+    type: 'SET_INDVAR_NAME',
     name : name,
-    id: id
+    indVarId: indVarId
   };
 };
-module.exports.setActionsPerTrial = function (actionsPerTrial, id) {
+module.exports.setActionsPerTrial = function (actionsPerTrial, indVarId) {
   return {
-    type: 'SET_ACTIONS_PER_TRIAL',
+    type: 'SET_INDVAR_ACTIONS_PER_TRIAL',
     actionsPerTrial : actionsPerTrial,
-    id: id
+    indVarId: indVarId
   };
 };
-module.exports.setNumTrials = function (numTrials, id) {
+module.exports.setNumTrials = function (numTrials, indVarId) {
   return {
-    type: 'SET_NUM_TRIALS',
+    type: 'SET_INDVAR_NUM_TRIALS',
     numTrials : numTrials,
-    id: id
+    indVarId: indVarId
   };
 };
-module.exports.setRandomized = function (randomized, id) {
+module.exports.setRandomized = function (randomized, indVarId) {
   return {
-    type: 'SET_RANDOMIZED',
+    type: 'SET_INDVAR_RANDOMIZED',
     randomized : randomized,
-    id: id
+    indVarId: indVarId
   };
 };
-module.exports.pushOption = function (option, id) {
+module.exports.pushOption = function (option, indVarId) {
   return {
-    type: 'PUSH_OPTION',
+    type: 'PUSH_INDVAR_OPTION',
     option : option,
-    id: id
+    indVarId: indVarId
   };
 };
+
+module.exports.popOption = function (option, indVarId) {
+  return {
+    type: 'POP_INDVAR_OPTION',
+    option : option,
+    indVarId: indVarId
+  };
+};
+
