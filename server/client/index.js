@@ -40,7 +40,6 @@ if (window.user && window.exps) {
   store.dispatch(IndependentVariableActions.setIndVars(normData.entities.independentVars));
   store.dispatch(MeasureActions.setMeasures(normData.entities.measures));
   // store.dispatch(RequestActions.setRequests(normData.entities.requests));
-
   store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
 }
 window.store = store;

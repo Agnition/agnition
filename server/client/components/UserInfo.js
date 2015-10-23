@@ -12,8 +12,7 @@ var UserInfo = React.createClass({
   render: function () {
     return (
       <div>
-        <h5>Username :</h5>
-        {this.props.username}
+        <span>logged in as: {this.props.username}</span>
       </div>
     );
   }
