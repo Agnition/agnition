@@ -12,24 +12,23 @@ var MeasureNumeric = require('./MeasureNumeric');
 
 // import actions
 var MeasureActions = require('../../actions/Measures');
-var Actions = _.extend(MeasureActions);
+// var Actions = _.extend(MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
-    kind: state.Measures.getIn([ownProps.measureId, 'kind']),
+    kind: state.Measures.getIn([ownProps.measureId, 'kind'])
   };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(MeasureActions, dispatch)
   };
 }
 
 var Measure = React.createClass({
 
   handleClick: function (event) {
-    event.preventDefault();
     this.props.actions.setKind(event.target.value, this.props.measureId);
   },
 

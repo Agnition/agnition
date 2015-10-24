@@ -17,7 +17,7 @@ var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureA
 
 function mapStatetoProps (state, ownProps) {
   return {
-    measures: state.DepVars.getIn([ownProps.depVarId, 'measures']),
+    measureIds: state.DepVars.getIn([ownProps.depVarId, 'measures']),
   };
 }
 
@@ -27,49 +27,27 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var MeasureWrapper = React.createClass ({
+var MeasureWrapper = React.createClass({
 
-  componentWillMount: function () {
-    this.addMeasure();
-  },
+  components: [],
 
-  addMeasure: function () {
+  genComponent: function (event) {
     this.measureId = Math.floor(Math.random() * 1000000);
     this.props.actions.createMeasure(this.measureId);
     this.props.actions.addMeasure(this.measureId, this.props.depVarId);
-  },
-
-  handleBack: function () {
-    this.props.actions.goToPrevQuestion();
-  },
-
-  handleNext: function () {
-    // this.setName();
-    this.props.actions.goToNextQuestion();
+    this.components.push(<Measure measureId = {this.measureId} />);
+    this.forceUpdate();
   },
 
   render: function () {
     return (
       <div>
-        <Measure measureId = {this.measureId} />
-        <button onClick={this.addMeasure}>add another measure</button>
+        {this.components}
+        <button onClick={this.genComponent}>add another measure</button>
       </div>
-      );
-      // <div>
-      //   <span>What are the ways that you can measure {this.props.effect}?</span>
-      //   <h5>Measure Type</h5>
-      //   <label>Scale</label>
-      //   <label>measure name:</label>
-      //   <input type="text" ref="measureName" />
-      //   <button value="category" onClick={this.handleChoice}>Category</button>
-      //   <button value="scale" onClick={this.handleChoice}>Scale</button>
-      //   <button value="numerical" onClick={this.handleChoice}>Numerical</button>
-      //   <button onClick={this.addMeasure}>add another measure</button>
-      //   <button onClick={this.handleBack}>back</button>
-      //   <button onClick={this.handleNext}>next</button>
-      //   {measureChoice[this.props.depVarKind]}
-      // </div>
+    );
   }
+
 });
 
 module.exports = connect(mapStatetoProps, mapDispatchtoProps)(MeasureWrapper);

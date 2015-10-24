@@ -21,24 +21,14 @@ function mapDispatchtoProps (dispatch) {
 
 var HypothesisCheck = React.createClass({
 
-  handleBack: function () {
-    this.props.actions.goToPrevQuestion();
-  },
-
-  handleNext: function () {
-    this.props.actions.goToNextQuestion();
-  },
-
   render: function () {
     return (
       <div>
       <section>
         <p>"Let's rephrase your cause and effect here."</p>
-        <p>"If this doesn't make sense, try to rephrase your causes and effects."</p>  
+        <p>"If this doesn't make sense, try to rephrase your causes and effects."</p>
         <p>Here is your hypothesis: {this.props.hypothesis}</p>
         <p>Question: How does {this.props.cause} affect {this.props.effect}?</p>
-        <button onClick={this.handleBack}>Redo</button>
-        <button onClick={this.handleNext}>Makes Sense!</button>
       </section>
       </div>
     );
