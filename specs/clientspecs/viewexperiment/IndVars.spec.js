@@ -28,7 +28,7 @@ describe('indVarsComponent', function () {
     props.store = mockStore(obj);
 
     //also need to pass in keys
-    props.indVarIds = ['a','b'];
+    props.indVars = ['a','b'];
 
     indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
   });
