@@ -29,8 +29,6 @@ var MeasureList = React.createClass({
   },
 
   render: function () {
-
-    console.log(this.props.list);
     return (
       <div>
         <input ref="listItem" type="text" />
