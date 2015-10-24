@@ -10,7 +10,7 @@ var mockRequire = require('mockrequire');
 var mockStore = require('../../utils/mockStore');
 var utils = require('../../utils/utils');
 
-var IndependentVarWrapper = mockRequire('../../../server/client/containers/newexperiment/IndependentVarWrapper',{
+var IndependentVarWrapper = mockRequire('../../../server/client/containers/NewExperiment/IndependentVarWrapper',{
   './IndependentVar' : utils.mockDivComponent('ind-var')
 }, {jsx:true});
 
