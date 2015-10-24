@@ -6,9 +6,7 @@ var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 
-// import actions
 var MeasureActions = require('../../actions/Measures');
-var Actions = _.extend(MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
@@ -18,17 +16,42 @@ function mapStatetoProps (state, ownProps) {
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(MeasureActions, dispatch)
   };
 }
 
 var MeasureQualitative = React.createClass({
 
-  render: function () {
+  setScale: function () {
+    var vals = [];
+    var step = Number(this.refs.step.value);
+    var max = Number(this.refs.max.value);
+    var min = Number(this.refs.min.value);
+    for (var i = min; i <= max; i += step) {
+      vals.push(i);
+    }
+    this.props.actions.setScale(vals, this.props.measureId);
+  },
 
+  componentWillMount: function() {
+
+  },
+
+  render: function () {
     return (
       <div>
-      Qualitative
+        <label>Experiment Name</label>
+        Min
+        <input ref="min" type="text" />
+        Max
+        <input ref="max" type="text" />
+        Step
+        <input ref="step" type="text" />
+        <p>
+        Current scale :
+          {JSON.stringify(this.props.scale)}
+        </p>
+        <button onClick={this.setScale}>save measure</button>
       </div>
       );
   }

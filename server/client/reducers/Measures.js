@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 const initialState = new Immutable.List();
 
 module.exports = function(state = initialState, action) {
-  if (action.type === 'SET_MEASURES') {
+  if (action.type === 'SET_MEASURES' && action.measures) {
     return Immutable.fromJS(action.measures);
   }
   if (action.type === 'CREATE_MEASURE') {
