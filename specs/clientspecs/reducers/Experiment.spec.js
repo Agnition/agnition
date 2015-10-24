@@ -127,14 +127,14 @@ describe('Experiment Reducer', function(){
     };
     action.type = 'SET_EXPERIMENTS';
     var state = Experiments(null, action);
-    expect(state.getIn(['a', 'depVarIds']).size).to.eql(0);
+    expect(state.getIn(['a', 'depVars']).size).to.eql(0);
 
     var action = {};
     action.depVarId = '1';
     action.expId = 'a';
     action.type = 'ADD_DEP_VAR';
     var state = Experiments(state, action);
-    expect(state.getIn(['a', 'depVarIds']).size).to.eql(1);
+    expect(state.getIn(['a', 'depVars']).size).to.eql(1);
   });
 
   it('should add independent variables', function () {
@@ -148,13 +148,13 @@ describe('Experiment Reducer', function(){
     };
     action.type = 'SET_EXPERIMENTS';
     var state = Experiments(null, action);
-    expect(state.getIn(['a', 'indVarIds']).size).to.eql(0);
+    expect(state.getIn(['a', 'indVars']).size).to.eql(0);
 
     var action = {};
     action.indVarId = '1';
     action.expId = 'a';
     action.type = 'ADD_IND_VAR';
     var state = Experiments(state, action);
-    expect(state.getIn(['a', 'indVarIds']).size).to.eql(1);
+    expect(state.getIn(['a', 'indVars']).size).to.eql(1);
   });
 });
