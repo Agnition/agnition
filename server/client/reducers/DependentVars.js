@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-const initialState = new Immutable.List();
+const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_DEP_VARS') {

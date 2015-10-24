@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-const initialState = new Immutable.List();
+const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_EXPERIMENTS') {
@@ -8,7 +8,7 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'CREATE_EXPERIMENT') {
     return state.set(action.expId, Immutable.Map({
       depVars: new Immutable.List(),
-      indVars: new Immutable.List(),
+      indVarsIds: new Immutable.List(),
     }));
   }
   if (action.type === 'SET_HYPOTHESIS') {
@@ -24,12 +24,13 @@ module.exports = function(state = initialState, action) {
     return state.setIn([action.expId, 'name'], action.name)
   }
   if (action.type === 'ADD_DEP_VAR') {
-    var newDepVars = state.getIn([action.expId, 'depVars']).push(action.depVarKey);
-    return state.setIn([action.expId, 'depVars'], newDepVars);
+    return state.updateIn([action.expId, 'depVars'], function (list) {
+      return list.push(action.depVarId);
+    });
   }
   if (action.type === 'ADD_IND_VAR') {
-    var newIndVars = state.getIn([action.expId, 'indVars']).push(action.indVarKey);
-    return state.setIn([action.expId, 'indVars'], newIndVars);
+    var newIndVarsIds = state.getIn([action.expId, 'indVarsIds']).push(action.indVarId);
+    return state.setIn([action.expId, 'indVarsIds'], newIndVarsIds);
   }
 
   return state;
