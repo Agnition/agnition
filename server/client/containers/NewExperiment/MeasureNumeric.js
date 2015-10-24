@@ -6,9 +6,7 @@ var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 
-// import actions
 var MeasureActions = require('../../actions/Measures');
-var Actions = _.extend(MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
@@ -18,13 +16,13 @@ function mapStatetoProps (state, ownProps) {
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(MeasureActions, dispatch)
   };
 }
 
 var MeasureNumeric = React.createClass({
 
-  handleChange: function () {
+  setUnit: function () {
     this.props.actions.setUnit(this.refs.unit.value, this.props.measureId);
   },
 
@@ -32,8 +30,9 @@ var MeasureNumeric = React.createClass({
 
     return (
       <div>
-      <input ref="unit" type="text" onChange={this.handleChange}/>
-      <div>Current unit: {this.props.unit} </div>
+        <label>
+          Choose Unit<input ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
+        </label>
       </div>
       );
   }
