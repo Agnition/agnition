@@ -6,9 +6,7 @@ var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
 
-// import actions
 var MeasureActions = require('../../actions/Measures');
-var Actions = _.extend(MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
@@ -18,27 +16,38 @@ function mapStatetoProps (state, ownProps) {
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(MeasureActions, dispatch)
   };
 }
 
 var MeasureList = React.createClass({
 
-  addListItem: function () {
-    this.props.actions.addListItem(this.refs.listItem.value, this.props.measureId);
+  addItem: function () {
+    this.props.actions.addListItem(this.refs.newItem.value, this.props.measureId);
+    this.refs.newItem.value = '';
+  },
+
+  removeItem: function (event) {
+    event.preventDefault();
+    this.props.actions.removeListItem(event.target.value, this.props.measureId);
   },
 
   render: function () {
+    var categories = this.props.list.map(function(item)){
+      return
+        (<div>
+          {this.props.list.get(i)}
+          <button onClick={this.removeItem} value={this.props.list.get(i)}>remove item</button>
+        </div>);
+    };
+
+    }
     return (
       <div>
-        <input ref="listItem" type="text" />
-        <button onClick={this.addListItem}>add list item</button>
-        <div>
-          { this.props.list.map(function(item) {
-              return <div>{item}</div>
-            })
-          }
-        </div>
+        <h4>Categories</h4>
+        {categories}
+        <input ref="newItem" type="text" />
+        <button onClick={this.addItem}>Add item</button>
       </div>
       );
   }
