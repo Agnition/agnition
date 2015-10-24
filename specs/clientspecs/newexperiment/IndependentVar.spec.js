@@ -14,7 +14,7 @@ var sinon = require('sinon');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
-var IndependentVar = require('../../../server/client/containers/newexperiment/IndependentVar');
+var IndependentVar = require('../../../server/client/containers/NewExperiment/IndependentVar');
 
 describe('the IndependentVar Container', function () {
   var indVar;
