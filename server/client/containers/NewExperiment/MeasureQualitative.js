@@ -24,10 +24,8 @@ var MeasureQualitative = React.createClass({
 
   setScale: function () {
     var vals = [];
-    var step = Number(this.refs.step.value);
     var max = Number(this.refs.max.value);
-    var min = Number(this.refs.min.value);
-    for (var i = min; i <= max; i += step) {
+    for (var i = 0; i <= max; i++) {
       vals.push(i);
     }
     this.props.actions.setScale(vals, this.props.measureId);
@@ -41,12 +39,8 @@ var MeasureQualitative = React.createClass({
     return (
       <div>
         <label>Experiment Name</label>
-        Min
-        <input ref="min" type="text" />
         Max
         <input ref="max" type="text" />
-        Step
-        <input ref="step" type="text" />
         <p>
         Current scale :
           {JSON.stringify(this.props.scale)}
