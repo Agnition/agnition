@@ -8,7 +8,6 @@ var Actions = require ('../../actions/Samples');
 
 
 var mapStateToProps = function (state, ownProps) {
-  console.log('%c--> here;' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
   console.dir(ownProps);
   return {
     options : state.IndVars.get(ownProps.indVarId).toJS().options,

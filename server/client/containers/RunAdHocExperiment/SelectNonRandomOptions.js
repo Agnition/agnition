@@ -32,7 +32,6 @@ var SelectNonRandomOptions = React.createClass({
     return selectableOptions;
   },
   render: function () {
-    console.log('%c--> here 2;' + this.props.indVarIds , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
     var selectableOptions = this.getSelectableOptions();
     return (
       <div>
