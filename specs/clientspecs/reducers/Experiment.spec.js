@@ -23,7 +23,7 @@ describe('Experiment Reducer', function(){
     expect(state.getIn(['a', 'name'])).to.eql('paper chaser scale');
   });
 
-  it('should create an in map', function () {
+  it('should create a new experiment', function () {
     var action = {};
     action.experiments = {
       a: {
