@@ -41,7 +41,7 @@ var IndVar = React.createClass({
           </div>
 
           <label>What should x be called?</label>
-          <input ref="name" type="text" value={this.props.name} onChange={this.setName}/>
+          <input ref="name" type="text"  onChange={this.setName}/>
 
           <label>How many times do you have to do x to see a change in y?</label>
           <input ref="actionsPerTrial" type="text" onChange={this.setActionsPerTrial}/>
