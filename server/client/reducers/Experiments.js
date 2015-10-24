@@ -29,8 +29,8 @@ module.exports = function(state = initialState, action) {
     });
   }
   if (action.type === 'ADD_IND_VAR') {
-    var newIndVarsIds = state.getIn([action.expId, 'indVarsIds']).push(action.indVarId);
-    return state.setIn([action.expId, 'indVarsIds'], newIndVarsIds);
+    var newIndVarsIds = state.getIn([action.expId, 'indVars']).push(action.indVarId);
+    return state.setIn([action.expId, 'indVars'], newIndVars);
   }
 
   return state;

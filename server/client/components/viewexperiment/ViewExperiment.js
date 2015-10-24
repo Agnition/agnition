@@ -11,8 +11,6 @@ function mapStateToProps (state, ownProps) {
 
 var ViewExp = React.createClass({
   render: function() {
-    console.log("-------------------------------------------EXP",this.props.exp);
-    console.log("-------------------------------------------EXP",this.props.exp.independentVars);
     return (
       <div>
         {/* name as header */}
@@ -23,7 +21,7 @@ var ViewExp = React.createClass({
         <h2>Dependent Variables</h2>
         <DepVar depVarIds = {this.props.exp.dependentVars} />
         <h2>Independent Variables</h2>
-        <IndVar indVarIds = {this.props.exp.independentVars} />
+        <IndVar indVars = {this.props.exp.independentVars} />
       </div>
     );
   }

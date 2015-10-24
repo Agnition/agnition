@@ -6,7 +6,7 @@ var connect = require('react-redux').connect;
 
 function mapStateToProps (state, ownProps) {
   return {
-    indVars: utils.mapIdsToObjs(ownProps.indVarIds, state.IndVars),
+    indVars: utils.mapIdsToObjs(ownProps.indVars, state.IndVars),
   };
 }
 
