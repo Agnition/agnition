@@ -4,7 +4,6 @@ import { applyMiddleware, compose } from 'redux';
 var reduxReactRouter = require('redux-router').reduxReactRouter;
 import { devTools } from 'redux-devtools';
 import createHistory from 'history/lib/createBrowserHistory';
-import routes from '../routes';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 

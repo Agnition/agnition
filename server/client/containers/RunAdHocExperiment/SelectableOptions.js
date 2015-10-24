@@ -5,10 +5,14 @@ var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require ('../../actions/Samples');
 
+
+
 var mapStateToProps = function (state, ownProps) {
-  //not yet mapping from state...
+  console.log('%c--> here;' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
+  console.dir(ownProps);
   return {
-    options : state.IndependentVars.get(ownProps.indVarId)
+    options : state.IndVars.get(ownProps.indVarId).toJS().options,
+    name : state.IndVars.get(ownProps.indVarId).toJS().name
   };
 };
 
@@ -22,19 +26,20 @@ var SelectableOption = React.createClass ({
   render: function () {
     return (
       <label>
-        <input type="radio" name={this.props.indVarId} value={this.props.optionIndex} onChange = {this.handleChange} />
+        <input type="radio" name={this.props.indVarId} value={this.props.optionIndex} />
         {this.props.optionValue}
       </label>
     )
   }
 });
 
-var SelectOption = React.createClass({
+var SelectableOptions = React.createClass({
   handleChange : function(event) {
-    console.log(event.target.value);
+    // anytime the radio button is change, we write to the sample in the state
     this.props.actions.setIndVarOptionOnSample(this.props.sampleId, this.props.indVarId, event.target.value);
   },
-  getOptions: function(){
+  getOptions: function() {
+    //creates an array of radio buttons
     var selectableOptions = [];
     _.each(this.props.options, function(optionValue, index) {
       var props = { 
@@ -42,19 +47,22 @@ var SelectOption = React.createClass({
         optionIndex : index,
         indVarId  : this.props.indVarId,
       }
-      console.log('%c--> ' + props.indVarId , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
       selectableOptions.push(<SelectableOption {...props}/>)
     },this);
     return selectableOptions;
   },
   render: function() {
+    //displays a form composed of radio buttons tied to sample and indVarId
     var options = this.getOptions();
       return (
+      <div>
+      <span>select an option for independent variable: {this.props.name}</span>
       <form onChange={this.handleChange}>
       {options}
       </form>
+      </div>
       )
   }
 });
 
-module.exports = connect(null, mapDispatchToProps)(SelectOption);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(SelectableOptions);
