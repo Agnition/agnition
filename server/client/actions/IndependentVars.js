@@ -4,6 +4,12 @@ module.exports.setIndVars = function(indVars) {
     indVars: indVars
   };
 };
+module.exports.createIndVar = function (indVarId) {
+  return {
+    type: 'CREATE_IND_VAR',
+    indVarId: indVarId
+  };
+};
 module.exports.setName = function (name, indVarId) {
   return {
     type: 'SET_INDVAR_NAME',

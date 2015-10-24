@@ -5,20 +5,9 @@ import { Link } from 'react-router';
 var Signin = require('../components/Signin.js');
 var Logout = require('../components/Logout.js');
 var UserInfo = require('../components/UserInfo.js');
-// function mapStatetoProps (state) {
-//   return {
-//     name: state.NewExperiment.get('name'),
-//   };
-// }
-
-// function mapDispatchtoProps (dispatch) {
-//   return {
-//     actions: bindActionCreators(CreateExperimentActions, dispatch)
-//   };
-// }
+var IndependentVarWrapper = require('../containers/NewExperiment/IndependentVarWrapper');
 
 const Dashboard = React.createClass({
-
   render: function render() {
     return (
       <div className = 'dashboard'>
@@ -28,6 +17,7 @@ const Dashboard = React.createClass({
             <li><Link to="/newexp">Create New Experiment</Link></li>
             <li><Link to="/myexps">My Experiments</Link></li>
           </ul>
+          <IndependentVarWrapper expId = {'562a8aab8ca3941d9570680a'} />
         </div>
       </div>
     );

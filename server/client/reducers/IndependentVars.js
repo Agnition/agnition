@@ -5,6 +5,14 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'SET_IND_VARS') {
     return Immutable.fromJS(action.indVars);
 
+  } else if(action.type === 'CREATE_IND_VAR') {
+      var a = state.set(action.indVarId, new Immutable.Map({
+        options: new Immutable.List()
+      }));
+      console.log('%c--> added an indvar?' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
+      console.dir(a.toJS());
+      return a;
+
   } else if(action.type ==='SET_INDVAR_NAME') {
       return state.setIn([action.indVarId, 'name'], action.name);
 
