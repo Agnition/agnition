@@ -25,15 +25,6 @@ function mapDispatchtoProps (dispatch) {
 
 var Hypothesis = React.createClass({
 
-  handleBack: function () {
-    this.props.actions.goToPrevQuestion();
-  },
-
-  handleNext: function () {
-    this.setOverview();
-    this.props.actions.goToNextQuestion();
-  },
-
   setOverview: function () {
     var hypothesis = this.refs.hypothesisInput.value;
     var cause = this.refs.causeInput.value;
@@ -64,8 +55,6 @@ var Hypothesis = React.createClass({
           <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
           <label>effect</label>
           <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
-          <button ref="backButton" onClick={this.handleBack}>back</button>
-          <button ref="nextButton" onClick={this.handleNext}>next</button>
         </section>
       </div>
       );

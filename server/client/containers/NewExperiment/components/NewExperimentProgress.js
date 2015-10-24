@@ -10,8 +10,8 @@ function mapStatetoProps (state, ownProps) {
     cause: state.Experiments.getIn([ownProps.expId, 'cause']),
     effect: state.Experiments.getIn([ownProps.expId, 'effect']),
     name: state.Experiments.getIn([ownProps.expId, 'name'])
-    // depVarIds: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS(),
-    // indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars']).toJS()
+    // depVars: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS(),
+    // indVars: state.Experiments.getIn([ownProps.expId, 'indVars']).toJS()
   };
 }
 
@@ -31,11 +31,11 @@ var NewExperimentProgress = React.createClass({
         </div>
         {/*<div>
                   <h3>These are your dependent variables</h3>
-                  <DepVars depVarIds ={this.props.depVars}/>
+                  <DepVars depVars ={this.props.depVars}/>
                 </div>
                 <div>
                   <h3>These are your independent variables</h3>
-                  <IndVars indVarIds ={this.props.indVars}/>
+                  <IndVars indVars ={this.props.indVars}/>
                 </div>*/}
       </div>
     );

@@ -24,11 +24,16 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureNumeric = React.createClass({
 
+  handleChange: function () {
+    this.props.actions.setUnit(this.refs.unit.value, this.props.measureId);
+  },
+
   render: function () {
 
     return (
       <div>
-      Numeric
+      <input ref="unit" type="text" onChange={this.handleChange}/>
+      <div>Current unit: {this.props.unit} </div>
       </div>
       );
   }

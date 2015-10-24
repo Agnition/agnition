@@ -28,22 +28,11 @@ var Name = React.createClass ({
     this.props.actions.setName(this.refs.name.value, this.props.expId);
   },
 
-  handleBack: function () {
-    this.props.actions.goToPrevQuestion();
-  },
-
-  handleNext: function () {
-    this.setName();
-    this.props.actions.goToNextQuestion();
-  },
-
   render: function () {
     return (
       <div>
         <label>Experiment Name</label>
-        <input ref="name" type="text" />
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
+        <input ref="name" type="text" onChange={this.setName}/>
       </div>
       );
   }

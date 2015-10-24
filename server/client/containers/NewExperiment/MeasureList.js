@@ -24,11 +24,23 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureList = React.createClass({
 
+  addListItem: function () {
+    this.props.actions.addListItem(this.refs.listItem.value, this.props.measureId);
+  },
+
   render: function () {
 
+    console.log(this.props.list);
     return (
       <div>
-      List
+        <input ref="listItem" type="text" />
+        <button onClick={this.addListItem}>add list item</button>
+        <div>
+          { this.props.list.map(function(item) {
+              return <div>{item}</div>
+            })
+          }
+        </div>
       </div>
       );
   }
