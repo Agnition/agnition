@@ -4,3 +4,14 @@ module.exports.setSamples = function(samples) {
     samples: samples
   };
 };
+
+module.exports.setIndVarOptionOnSample = function(sampleId, indVarId, optionIndex) {
+  console.log("--indVar Sample Called With--calledWith", arguments);
+  return {
+    type: 'SET_IND_VAR_OPTION_ON_SAMPLE',
+    sampleId: sampleId,
+    indVarId: indVarId,
+    optionIndex: optionIndex
+  };
+};
+
