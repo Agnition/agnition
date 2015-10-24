@@ -18,7 +18,7 @@ module.exports = function(state = initialState, action) {
       return state.setIn([action.indVarId,'randomized'], action.randomized);
 
   } else if(action.type ==='PUSH_INDVAR_OPTION') {
-      return = state.updateIn([action.indVarId, "options"], function(list) {
+      return state.updateIn([action.indVarId, "options"], function(list) {
         return list.push(action.option);
       });
   } else if(action.type ==='POP_INDVAR_OPTION') {
