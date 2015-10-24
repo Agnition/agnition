@@ -6,12 +6,9 @@ module.exports = function(state = initialState, action) {
     return Immutable.fromJS(action.indVars);
 
   } else if(action.type === 'CREATE_IND_VAR') {
-      var a = state.set(action.indVarId, new Immutable.Map({
+      return state.set(action.indVarId, new Immutable.Map({
         options: new Immutable.List()
       }));
-      console.log('%c--> added an indvar?' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
-      console.dir(a.toJS());
-      return a;
 
   } else if(action.type ==='SET_INDVAR_NAME') {
       return state.setIn([action.indVarId, 'name'], action.name);
@@ -37,12 +34,3 @@ module.exports = function(state = initialState, action) {
     return state;
   }
 };
-
-
-
-
-
-  // state = state || initialState;
-  // if (action.type === 'SET_HYPOTHESIS') {
-  //   return state.set('hypothesis', action.hypothesis);
-  // }
