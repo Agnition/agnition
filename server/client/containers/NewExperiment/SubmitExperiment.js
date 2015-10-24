@@ -1,6 +1,7 @@
 import React from 'react';
 var connect = require('react-redux').connect;
 var unNormalize = require('../../utils/un-normalize');
+var schema = require('../../utils/schema');
 
 var NewExperimentActions = require('../../actions/NewExperiment');
 var bindActionCreators = require('redux').bindActionCreators;
@@ -23,10 +24,10 @@ var SubmitExperiment = React.createClass({
     var exps = this.props.experiments;
     var expsList = [];
     for(var key in exps) {
-
+      expsList.push(exps[key]);
     }
-    console.log(this.props.experiments);
-    var exps = unNormalize(this.props.experiments);
+    console.log(expsList);
+    var exps = unNormalize({exps: expsList}, schema);
     console.log(exps);
 
     console.log('you submitted your experiment');

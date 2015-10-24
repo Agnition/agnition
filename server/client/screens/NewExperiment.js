@@ -10,10 +10,9 @@ var NewExperimentActions = require('../actions/NewExperiment');
 var Name = require('../containers/NewExperiment/Name');
 var Hypothesis = require('../containers/NewExperiment/Hypothesis');
 var DepVarWrapper = require('../containers/NewExperiment/DepVarWrapper');
-<<<<<<< Updated upstream
-=======
-var IndVarWrapper = require('../containers/NewExperiment/IndVarWrapper');
->>>>>>> Stashed changes
+var IndVarWrapper = require('../containers/NewExperiment/IndependentVarWrapper');
+var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
+
 var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 
 // import child components
@@ -53,19 +52,21 @@ var NewExperiment = React.createClass({
 
   render: function () {
 
-    // var questions = [];
+    var questions = [(<Name expId={this.expId} />),
+        (<Hypothesis expId={this.expId} />),
+        (<HypothesisCheck expId={this.expId} />),
+        (<DepVarWrapper expId={this.expId} />),
+        (<IndVarWrapper expId={this.expId} />),
+        (<SubmitExperiment expId={this.expId} />)
+        ];
 
     return (
       <div className="new-experiment">
         <h3>Create a new experiment.</h3>
-        <Name expId={this.expId} />
-        <Hypothesis expId={this.expId} />
-        <HypothesisCheck expId={this.expId} />
-        <DepVarWrapper expId={this.expId} />
-        <IndVarWrapper expId={this.expId} />
-        <NewExperimentProgress expId={this.expId} />
+        {questions[this.props.questionIndex]}
         <button onClick={this.handleBack}>back</button>
         <button onClick={this.handleNext}>next</button>
+        <NewExperimentProgress expId={this.expId} />
       </div>
     );
   }
