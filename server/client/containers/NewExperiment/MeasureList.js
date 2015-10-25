@@ -33,15 +33,13 @@ var MeasureList = React.createClass({
   },
 
   render: function () {
-    var categories = this.props.list.map(function(item)){
-      return
-        (<div>
-          {this.props.list.get(i)}
-          <button onClick={this.removeItem} value={this.props.list.get(i)}>remove item</button>
+    var categories = this.props.list.map(function(item) {
+      return (<div>
+          {item}
+          <button onClick={this.removeItem} value={item}>remove item</button>
         </div>);
-    };
+    }.bind(this));
 
-    }
     return (
       <div>
         <h4>Categories</h4>

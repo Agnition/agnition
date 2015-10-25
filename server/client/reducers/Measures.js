@@ -34,7 +34,7 @@ module.exports = function(state = initialState, action) {
     var itemIndex = newList.indexOf(action.item);
     // Remove if in list
     if (itemIndex >= 0) {
-      newList.splice(itemIndex, 1);
+      newList = newList.splice(itemIndex, 1);
     }
     return state.setIn([action.measureId, 'list'], newList);
   }
