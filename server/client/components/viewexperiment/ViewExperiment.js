@@ -24,11 +24,12 @@ var ViewExp = React.createClass({
   mixins: [ History ],
   createSample: function(e){
     var id = shortId.generate();
+    
     //instantiate a new sample with ID
     this.props.actions.createSample(id);
+    
     //re-direct
-    console.log('%c--> ' + this.props.exp._id , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
-    this.history.pushState(null, '/newsample/' + this.props.exp._id + '/' + id);
+    this.history.pushState(null, '/sample/' + this.props.exp._id + '/' + id + '/adhoc/setup');
   },
   render: function() {
     return (
