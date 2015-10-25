@@ -28,7 +28,6 @@ var divCollection = function(subElementobjects, subElementConstructor, propKey) 
 };
 
 
-
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 

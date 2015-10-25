@@ -13,14 +13,11 @@ module.exports = function(state = initialState, action) {
     console.log('%c--> look here' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
     console.dir(a.toJS);
     return a;
+
+  } else if (action.type === 'CREATE_SAMPLE') {
+     return state.set(action.sampleId, new Immutable.Map({
+        indVarStates: new Immutable.Map()
+      }));
   }
   return state;
 };
-
-  // } else if(action.type ==='PUSH_INDVAR_OPTION') {
-  //     return state.updateIn([action.indVarId, "options"], function(list) {
-  //       return list.push(action.option);
-  //     });
-// sampleId: sampleId,
-// indVarId: indVarId,
-// optionIndex: optionIndex
