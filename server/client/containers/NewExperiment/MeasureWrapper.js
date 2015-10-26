@@ -29,20 +29,20 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureWrapper = React.createClass({
 
-  components: [],
-
   genComponent: function (event) {
     this.measureId = Math.floor(Math.random() * 1000000);
     this.props.actions.createMeasure(this.measureId);
     this.props.actions.addMeasure(this.measureId, this.props.depVarId);
-    this.components.push(<Measure measureId = {this.measureId} />);
-    this.forceUpdate();
   },
 
   render: function () {
+
+    var components = this.props.measureIds.map(function(measureId) {
+      return <Measure key={measureId} measureId={measureId} />;
+    });
     return (
       <div>
-        {this.components}
+        {components}
         <button onClick={this.genComponent}>add another measure</button>
       </div>
     );
