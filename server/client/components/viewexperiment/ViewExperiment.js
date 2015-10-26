@@ -2,6 +2,12 @@ var React = require('react');
 var DepVar = require('./DepVar');
 var IndVar = require('./IndVar');
 var connect = require('react-redux').connect;
+var shortId = require('shortid');
+var utils = require('../../utils/componentUtils');
+var Actions = require('../../actions/Samples');
+var bindActionCreators = require('redux').bindActionCreators;
+import { History } from 'react-router';
+import { Link } from 'react-router';
 
 function mapStateToProps (state, ownProps) {
   return {
@@ -9,7 +15,23 @@ function mapStateToProps (state, ownProps) {
   };
 }
 
+function mapDispatchtoProps (dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+}
+
 var ViewExp = React.createClass({
+  mixins: [ History ],
+  createSample: function(e){
+    var id = shortId.generate();
+    
+    //instantiate a new sample with ID
+    this.props.actions.createSample(id);
+    
+    //re-direct
+    this.history.pushState(null, '/sample/' + this.props.exp._id + '/' + id + '/adhoc/setup');
+  },
   render: function() {
     return (
       <div>
@@ -22,6 +44,7 @@ var ViewExp = React.createClass({
         <DepVar depVarIds = {this.props.exp.dependentVars} />
         <h2>Independent Variables</h2>
         <IndVar indVars = {this.props.exp.independentVars} />
+        <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
       </div>
     );
   }
@@ -30,4 +53,4 @@ var ViewExp = React.createClass({
   // <IndVar indVar = {this.props.exp.IndVar[0]} />
 });
 
-module.exports = connect(mapStateToProps)(ViewExp);
+module.exports = connect(mapStateToProps, mapDispatchtoProps)(ViewExp);
