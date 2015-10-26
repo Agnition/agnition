@@ -10,14 +10,15 @@ var shortId = require('shortid');
 
 var mapStateToProps = function (state, ownProps) {
     //have to map the ids to the indVars
-    var ids = state.Experiments.get(ownProps.params.expId).toJS().independentVars;
+    var ids = state.Experiments.get(ownProps.expId).toJS().independentVars;
     var indVars = _.map(ids, function(id) {
       return state.IndVars.get(id).toJS();
     });
+
   return {
     indVars: indVars,
-    sampleId: ownProps.params.sampleId,
-    expId : ownProps.params.expId
+    expId : ownProps.expId,
+    sampleId : ownProps.sampleId
   };
 };
 
@@ -28,7 +29,6 @@ var mapDispatchToProps = function (dispatch) {
 };
 
 var SetupNewRunOfAdHocExperiment = React.createClass({
-  //NOT SURE IF SAMPLE SHOULD BE INSTANTIATED FROM HERE OR ELSEWHERE...
   getNonRandomIndVars : function() {
     return _.pluck(_.filter(this.props.indVars, function(indVar) {
       return !indVar.randomized;
@@ -39,15 +39,28 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
     return  'not yet';
   },
   render: function () {
+    var nonRand = this.getNonRandomIndVars();
+    var rand = this.getRandomIndVars();
+    
+    var nonRandSpan = null;
+    if(nonRand.length > 0){
+     randSpan = <span>enter the parameters for your new sample</span>;
+    }
+    
+    var randSpan = null;
+    if(rand.length > 0){
+      randSpan = <span>these are the parameters we have randomly assigned</span>;
+    }
+
     return(
       <div>
-        <span>enter the parameters for your new sample</span>
+        {nonRandSpan}
         <div>
-          <SelectNonRandomOptions indVarIds = {this.getNonRandomIndVars()} sampleId = {this.props.sampleId} />
+          <SelectNonRandomOptions indVarIds = {nonRand} sampleId = {this.props.sampleId} />
         </div>
-        <span>these are the parameters we have randomly assigned</span>
+        {randSpan}
         <div>
-          {this.getRandomIndVars()}
+          {rand}
         </div>
         <button>Run Experiment</button>
       </div>

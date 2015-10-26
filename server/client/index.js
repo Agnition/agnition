@@ -13,7 +13,8 @@ import Dashboard from './screens/Dashboard';
 import NewExperiment from './screens/NewExperiment';
 import Hypothesis from './containers/NewExperiment/Hypothesis';
 import MyExps from './components/myexperiments/MyExperiments';
-import SetupNewRunOfAdHocExperiment from './containers/RunAdHoCExperiment/SetupNewRunOfAdHocExperiment';
+import SampleWrapper from './containers/RunAdHoCExperiment/SampleWrapper';
+import RecordRunOfAdHocExperiment from './containers/RunAdHoCExperiment/RecordRunOfAdHocExperiment';
 var ExperimentActions = require('./actions/Experiments.js');
 var IndependentVariableActions = require('./actions/IndependentVars.js');
 var DependentVariableActions = require('./actions/DependentVars.js');
@@ -48,7 +49,7 @@ if (window.user && window.exps) {
   // store.dispatch(RequestActions.setRequests(normData.entities.requests));
   // store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
   store.dispatch(SampleActions.setSamples(normData.entities.samples));
-}
+} 
 window.store = store;
 render((
   <Provider store={store}>
@@ -62,7 +63,8 @@ render((
         {/*<Route path='/about' component={About} />*/}
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
-        <Route path='/newsample/:expId/:sampleId' component = {SetupNewRunOfAdHocExperiment} />
+        <Route path='/sample/:expId/adhoc' component = {SampleWrapper} />
+        // <Route path='/sample/:expId/:sampleId/adhoc/record' component = {RecordRunOfAdHocExperiment} />
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>

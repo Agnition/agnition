@@ -7,6 +7,7 @@ var utils = require('../../utils/componentUtils');
 var Actions = require('../../actions/Samples');
 var bindActionCreators = require('redux').bindActionCreators;
 import { History } from 'react-router';
+import { Link } from 'react-router';
 
 function mapStateToProps (state, ownProps) {
   return {
@@ -43,7 +44,7 @@ var ViewExp = React.createClass({
         <DepVar depVarIds = {this.props.exp.dependentVars} />
         <h2>Independent Variables</h2>
         <IndVar indVars = {this.props.exp.independentVars} />
-        <button onClick={this.createSample}> Add Sample </button>
+        <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
       </div>
     );
   }
