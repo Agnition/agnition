@@ -8,7 +8,6 @@ var Actions = require ('../../actions/Samples');
 
 
 var mapStateToProps = function (state, ownProps) {
-  console.dir(ownProps);
   return {
     options : state.IndVars.get(ownProps.indVarId).toJS().options,
     name : state.IndVars.get(ownProps.indVarId).toJS().name
