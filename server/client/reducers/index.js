@@ -21,6 +21,6 @@ module.exports = combineReducers({
   IndVars : IndVars,
   Measures : Measures,
   Samples : Samples,
-  // Reminders : Reminders,
-  // Requests : Requests,
+  Reminders : Reminders,
+  Requests : Requests,
 });
