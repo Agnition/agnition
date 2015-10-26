@@ -2,13 +2,10 @@
 var index = require('../index.js')();
 var mocha = require('mocha');
 var chai = require('chai');
-expect = chai.expect;
+var expect = chai.expect;
 var sinon = require('sinon');
 var sinonChai = require('sinon-chai');
 chai.use(sinonChai);
-
-var mocha = require('mocha');
-var expect = require('chai').expect;
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -21,13 +18,10 @@ var _ = require('underscore');
 var SelectableOptions = require('../../../server/client/containers/RunAdHocExperiment/SelectableOptions.js');
 
 describe('SelectableOptions Container', function () {
-
   var selectableOptions;
   var actions;
   beforeEach(function () {
     var props = {};
-
-    //this is our mock of the DepVar state property
     var obj = {
       IndVars : {
         a : {

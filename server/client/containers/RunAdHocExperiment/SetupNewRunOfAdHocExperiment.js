@@ -31,7 +31,7 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
   //NOT SURE IF SAMPLE SHOULD BE INSTANTIATED FROM HERE OR ELSEWHERE...
   getNonRandomIndVars : function() {
     return _.pluck(_.filter(this.props.indVars, function(indVar) {
-      return indVar.randomized;
+      return !indVar.randomized;
     }),'_id');
   },
   getRandomIndVars : function () {
