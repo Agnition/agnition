@@ -10,7 +10,7 @@ function mapStatetoProps (state, ownProps) {
   return {
     name: state.Experiments.getIn([ownProps.refKey, 'name']),
     questionIndex: state.Experiments.getIn([ownProps.refKey, 'questionIndex']),
-    independentVar: state.Experiments.getIn([ownProps.refKey, 'independentVar']).toJS,
+    indVar: state.Experiments.getIn([ownProps.refKey, 'indVar']).toJS,
   };
 }
 

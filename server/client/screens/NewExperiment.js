@@ -10,7 +10,7 @@ var NewExperimentActions = require('../actions/NewExperiment');
 var Name = require('../containers/NewExperiment/Name');
 var Hypothesis = require('../containers/NewExperiment/Hypothesis');
 var DepVarWrapper = require('../containers/NewExperiment/DepVarWrapper');
-var IndVarWrapper = require('../containers/NewExperiment/IndependentVarWrapper');
+var IndVarWrapper = require('../containers/NewExperiment/IndVarWrapper');
 var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
 
 var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');

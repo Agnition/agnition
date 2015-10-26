@@ -3,13 +3,13 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
-var Actions = require ('../../actions/IndependentVars');
+var Actions = require ('../../actions/IndVars');
 var expActions = require('../../actions/Experiments');
 Actions = _.extend(Actions,expActions);
 var shortid = require('shortid');
 
 //added in..
-var IndependentVar = require('./IndependentVar');
+var IndVar = require('./IndVar');
 var utils = require('../../utils/componentUtils');
 
 
@@ -24,7 +24,7 @@ var IndVarWrapper = React.createClass({
     var indVarId = shortid.generate();
     this.props.actions.createIndVar(indVarId,this.props.expId);
     this.props.actions.addIndVar(indVarId);
-    this.components.push(<IndependentVar indVarId = {indVarId} />);
+    this.components.push(<IndVar indVarId = {indVarId} />);
     this.forceUpdate()
   },
   render: function(){

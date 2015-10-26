@@ -10,7 +10,7 @@ var shortId = require('shortid');
 
 var mapStateToProps = function (state, ownProps) {
     //have to map the ids to the indVars
-    var ids = state.Experiments.get(ownProps.expId).toJS().independentVars;
+    var ids = state.Experiments.get(ownProps.expId).toJS().indVars;
     var indVars = _.map(ids, function(id) {
       return state.IndVars.get(id).toJS();
     });
@@ -41,12 +41,12 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
   render: function () {
     var nonRand = this.getNonRandomIndVars();
     var rand = this.getRandomIndVars();
-    
+
     var nonRandSpan = null;
     if(nonRand.length > 0){
      randSpan = <span>enter the parameters for your new sample</span>;
     }
-    
+
     var randSpan = null;
     if(rand.length > 0){
       randSpan = <span>these are the parameters we have randomly assigned</span>;

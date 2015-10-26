@@ -2,7 +2,7 @@ var example = {
   name : 'Paper chaser',
   hypothesis : '5g is the best weight for planes',
   kind : 'ad_hoc',
-  dependentVar: {
+  depVar: {
     name : 'Flight length',
     measures : [{
       name : 'Distance',
@@ -16,12 +16,12 @@ var example = {
         value: 2.5
       }],
       request : {
-        freq : null, 
+        freq : null,
         question : 'how far did it fly?'
       }
     }]
-  }, 
-  independentVars : [{
+  },
+  indVars : [{
     name: 'Weight',
     actionStart : null,
     actionWarning : null, //should likely be some datetime thing....

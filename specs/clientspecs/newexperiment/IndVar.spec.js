@@ -14,9 +14,9 @@ var sinon = require('sinon');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
-var IndependentVar = require('../../../server/client/containers/NewExperiment/IndependentVar');
+var IndVar = require('../../../server/client/containers/NewExperiment/IndVar');
 
-describe('the IndependentVar Container', function () {
+describe('the IndVar Container', function () {
   var indVar;
   var actions;
   var inputs;
@@ -25,7 +25,7 @@ describe('the IndependentVar Container', function () {
     var obj = {};
     props.store = mockStore({});
     props.indVarId = ['69'];
-    indVar = TestUtils.renderIntoDocument(React.createElement(IndependentVar, props), 'root');
+    indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
     actions = sinon.stub(indVar.dispatchProps.actions);
     inputs = TestUtils.scryRenderedDOMComponentsWithTag(indVar, 'input');
   });

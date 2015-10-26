@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var measureSchema = require('./measureSchema');
 
-//dependentvar
-var dependentVarSchema = new Schema ({
+//depvar
+var depVarSchema = new Schema ({
   name : {type: String, required: true },
   measures : [measureSchema]
 });
 
-module.exports = dependentVarSchema;
+module.exports = depVarSchema;

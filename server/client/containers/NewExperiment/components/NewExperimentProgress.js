@@ -30,11 +30,11 @@ var NewExperimentProgress = React.createClass({
           Effect: {this.props.effect}
         </div>
         {/*<div>
-                  <h3>These are your dependent variables</h3>
+                  <h3>These are your dep variables</h3>
                   <DepVars depVars ={this.props.depVars}/>
                 </div>
                 <div>
-                  <h3>These are your independent variables</h3>
+                  <h3>These are your ind variables</h3>
                   <IndVars indVars ={this.props.indVars}/>
                 </div>*/}
       </div>

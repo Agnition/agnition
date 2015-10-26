@@ -8,7 +8,7 @@ var Immutable = require('immutable');
 var MeasureWrapper = require('./MeasureWrapper');
 
 // import actions
-var DepVarActions = require('../../actions/DepVars');
+var DepVarActions = require('../../actions/depVars');
 var MeasureActions = require('../../actions/Measures');
 var NewExperimentActions = require('../../actions/NewExperiment');
 var Actions = _.extend(NewExperimentActions, MeasureActions, DepVarActions);
@@ -34,8 +34,9 @@ var DepVar = React.createClass({
   render: function () {
     return (
       <div>
-        <label>Dep Variable Name:
+        <label>dep Variable Name:
         <input type="text" ref="depVarName" onChange={this.setName} value = {this.props.name} /></label>
+        <div> Name: {this.props.name} </div>
         <MeasureWrapper key={this.props.depVarId} depVarId={this.props.depVarId} />
       </div>
       );

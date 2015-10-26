@@ -12,7 +12,7 @@ describe('Controller', function () {
       name : 'Paper chaser',
       hypothesis : '5g is the best weight for planes',
       kind : 'ad_hoc',
-      dependentVar: {
+      depVar: {
         name : 'Flight length',
         measures : [{
           name : 'Distance',
@@ -26,12 +26,12 @@ describe('Controller', function () {
             value: 2.5
           }],
           request : {
-            freq : null, 
+            freq : null,
             question : 'how far did it fly?'
           }
         }]
-      }, 
-      independentVars : [{
+      },
+      indVars : [{
         name: 'Weight',
         actionStart : null,
         actionWarning : null, //should likely be some datetime thing....
@@ -53,31 +53,31 @@ describe('Controller', function () {
   });
   describe('mesKindValidator', function() {
     it('should check measure kind for valid input', function () {
-      example.dependentVar.measures[0].kind = 'pokemen';
+      example.depVar.measures[0].kind = 'pokemen';
       var exp = new Exp(example);
       expect(exp.validateSync()).to.not.eql(undefined);
     });
   });
   describe('mesScaleValidator', function() {
     it('should check measure scale for valid input', function () {
-      example.dependentVar.measures[0].kind = 'numeric';
-      example.dependentVar.measures[0].scale = [];
+      example.depVar.measures[0].kind = 'numeric';
+      example.depVar.measures[0].scale = [];
       var exp = new Exp(example);
       expect(exp.validateSync()).to.not.eql(undefined);
-      example.dependentVar.measures[0].kind = 'list';
-      example.dependentVar.measures[0].scale = [];
+      example.depVar.measures[0].kind = 'list';
+      example.depVar.measures[0].scale = [];
       var exp = new Exp(example);
       expect(exp.validateSync()).to.not.eql(undefined);
     });
   });
   describe('mesListValidator', function() {
     it('should check measure list for valid input', function () {
-      example.dependentVar.measures[0].kind = 'numeric';
-      example.dependentVar.measures[0].list = [];
+      example.depVar.measures[0].kind = 'numeric';
+      example.depVar.measures[0].list = [];
       var exp = new Exp(example);
       expect(exp.validateSync()).to.not.eql(undefined);
-      example.dependentVar.measures[0].kind = 'qualitative';
-      example.dependentVar.measures[0].list = [];
+      example.depVar.measures[0].kind = 'qualitative';
+      example.depVar.measures[0].list = [];
       var exp = new Exp(example);
       expect(exp.validateSync()).to.not.eql(undefined);
     });

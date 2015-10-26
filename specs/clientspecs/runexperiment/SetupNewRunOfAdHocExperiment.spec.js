@@ -27,7 +27,7 @@ describe('SetupNewRunOfAdHocExperiment container', function () {
     var obj = {
       Experiments: {
         acre:{
-          independentVars: ['barn','cow','donkey']
+          indVars: ['barn','cow','donkey']
         }
       },
       IndVars : {

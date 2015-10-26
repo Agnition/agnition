@@ -4,8 +4,8 @@ var $ = require('jquery');
 var userId = require('../../../dummyData/userid.json').userId;
 
 var ExperimentActions = require('../actions/Experiments.js');
-var IndependentVariableActions = require('../actions/IndependentVars.js');
-var DependentVariableActions = require('../actions/DependentVars.js');
+var IndVariableActions = require('../actions/IndVars.js');
+var DepVariableActions = require('../actions/DepVars.js');
 var SampleActions = require('../actions/Samples.js');
 var MeasureActions = require('../actions/Measures.js');
 var RequestActions = require('../actions/Requests.js');
@@ -24,8 +24,8 @@ function mapDispatchtoProps (dispatch) {
   return {
     actions : bindActionCreators(UserActions, dispatch),
     expActions : bindActionCreators(ExperimentActions, dispatch),
-    depVarActions : bindActionCreators(DependentVariableActions, dispatch),
-    indVarActions : bindActionCreators(IndependentVariableActions, dispatch),
+    depVarActions : bindActionCreators(DepVariableActions, dispatch),
+    indVarActions : bindActionCreators(IndVariableActions, dispatch),
     mesActions : bindActionCreators(MeasureActions, dispatch),
     reqActions : bindActionCreators(RequestActions, dispatch),
     remActions : bindActionCreators(ReminderActions, dispatch)

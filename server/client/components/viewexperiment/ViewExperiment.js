@@ -25,10 +25,10 @@ var ViewExp = React.createClass({
   mixins: [ History ],
   createSample: function(e){
     var id = shortId.generate();
-    
+
     //instantiate a new sample with ID
     this.props.actions.createSample(id);
-    
+
     //re-direct
     this.history.pushState(null, '/sample/' + this.props.exp._id + '/' + id + '/adhoc/setup');
   },
@@ -40,10 +40,10 @@ var ViewExp = React.createClass({
         <span>{this.props.exp._id}</span>
         <span>{this.props.exp.active}</span>
         <span>{this.props.exp.hypothesis}</span>
-        <h2>Dependent Variables</h2>
-        <DepVar depVarIds = {this.props.exp.dependentVars} />
-        <h2>Independent Variables</h2>
-        <IndVar indVars = {this.props.exp.independentVars} />
+        <h2>Dep Variables</h2>
+        <DepVar depVarIds = {this.props.exp.depVars} />
+        <h2>Ind Variables</h2>
+        <IndVar indVars = {this.props.exp.indVars} />
         <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
       </div>
     );

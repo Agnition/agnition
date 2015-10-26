@@ -6,8 +6,8 @@ module.exports = function(state) {
     result: {}
   };
   norm.entities.experiments = state.Experiments.toJS();
-  norm.entities.dependentVars = state.DepVars.toJS();
-  norm.entities.independentVars = state.IndVars.toJS();
+  norm.entities.depVars = state.DepVars.toJS();
+  norm.entities.indVars = state.IndVars.toJS();
   norm.entities.measures = state.Measures.toJS();
   norm.entities.reminders = state.Reminders.toJS();
   norm.entities.samples = state.Samples.toJS();

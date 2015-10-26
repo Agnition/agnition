@@ -3,9 +3,9 @@ var expect = require('chai').expect;
 
 var Immutable = require('immutable');
 
-var DepVars = require('../../../server/client/reducers/DependentVars');
+var DepVars = require('../../../server/client/reducers/DepVars');
 
-describe('Dependent Variable Reducer', function(){
+describe('Dep Variable Reducer', function(){
   it('should create an immutable map from an object', function () {
     var action = {};
     action.depVars = {
@@ -21,7 +21,7 @@ describe('Dependent Variable Reducer', function(){
     expect(state.getIn(['a', 'name'])).to.eql('distance');
   });
 
-  it('should create a new dependent variable', function () {
+  it('should create a new dep variable', function () {
     var action = {};
     action.depVars = {
       a: {

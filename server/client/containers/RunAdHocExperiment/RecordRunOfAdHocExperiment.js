@@ -1,8 +1,8 @@
 
 //<RecordRun>
-// <DependentVar>
+// <DepVar>
 //   <measure>
 //   <measure>
-// <DependentVar>
+// <DepVar>
 //   <measure>
 //   <measure>

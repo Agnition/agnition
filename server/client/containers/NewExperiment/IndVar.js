@@ -3,7 +3,7 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/IndependentVars');
+var Actions = require ('../../actions/IndVars');
 
 function mapDispatchtoProps (dispatch) {
   return {
@@ -37,7 +37,7 @@ var IndVar = React.createClass({
       <div>
         <section className ='indvar-input'>
           <div>
-              Please enter your Independent Variable here.
+              Please enter your Ind Variable here.
           </div>
 
           <label>What should x be called?</label>
@@ -45,13 +45,13 @@ var IndVar = React.createClass({
 
           <label>How many times do you have to do x to see a change in y?</label>
           <input ref="actionsPerTrial" type="text" onChange={this.setActionsPerTrial}/>
-          
+
           <label>How many times would you like to repeat each way you can do x?</label>
           <input ref="numTrials" type="text" onChange={this.setNumTrials}/>
-          
+
           <label>Please randomize the events for me</label>
           <input ref="randomized" type="checkbox" onChange={this.setRandomized}/>
-          
+
           <label>List Options For X</label>
           <input ref="option" type="text"/>
           <button onClick={this.pushOption}>Add an option</button>

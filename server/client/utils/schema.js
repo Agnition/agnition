@@ -3,22 +3,22 @@ var Schema = Normalize.Schema;
 var arrayOf = Normalize.arrayOf;
 
 var experiment     = new Schema('experiments', {idAttribute: '_id'});
-var dependentVar   = new Schema('dependentVars', {idAttribute: '_id'});
-var independentVar = new Schema('independentVars', {idAttribute: '_id'});
+var depVar   = new Schema('depVars', {idAttribute: '_id'});
+var indVar = new Schema('indVars', {idAttribute: '_id'});
 var measure        = new Schema('measures', {idAttribute: '_id'});
 var sample         = new Schema('samples', {idAttribute: '_id'});
 var reminder       = new Schema('reminders', {idAttribute: '_id'});
 var request        = new Schema('requests', {idAttribute: '_id'});
 
 experiment.define({
-  independentVars : arrayOf(independentVar),
-  dependentVars : arrayOf(dependentVar)
+  indVars : arrayOf(indVar),
+  depVars : arrayOf(depVar)
 });
-dependentVar.define({
+depVar.define({
   measures : arrayOf(measure),
   requests : arrayOf(request)
 });
-independentVar.define({
+indVar.define({
   reminders : arrayOf(reminder)
 });
 measure.define({

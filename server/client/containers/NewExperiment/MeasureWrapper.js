@@ -9,7 +9,7 @@ var Measure = require('./Measure');
 
 
 // import actions
-var DepVarActions = require('../../actions/DependentVars');
+var DepVarActions = require('../../actions/DepVars');
 var MeasureActions = require('../../actions/Measures');
 var ExpActions = require('../../actions/Experiments');
 var NewExperimentActions = require('../../actions/NewExperiment');
