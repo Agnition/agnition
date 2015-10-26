@@ -7,7 +7,7 @@ var DepVar = require('./DepVar');
 
 function mapStatetoProps (state, ownProps) {
   return {
-    depVars: state.Experiments.getIn([ownProps.expId, 'dependentVars']).toJS() //Change later to depVars
+    depVars: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS()
   };
 }
 
