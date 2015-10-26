@@ -116,7 +116,7 @@ describe('Experiment Reducer', function(){
     expect(state.getIn(['a', 'effect'])).to.eql('falling');
   });
 
-  it('should add dependent variables', function () {
+  it('should add dep variables', function () {
     var action = {};
     action.experiments = {
       a: {
@@ -137,7 +137,7 @@ describe('Experiment Reducer', function(){
     expect(state.getIn(['a', 'depVars']).size).to.eql(1);
   });
 
-  it('should add independent variables', function () {
+  it('should add ind variables', function () {
     var action = {};
     action.experiments = {
       a: {

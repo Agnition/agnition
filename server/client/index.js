@@ -16,8 +16,8 @@ import MyExps from './components/myexperiments/MyExperiments';
 import SampleWrapper from './containers/RunAdHoCExperiment/SampleWrapper';
 import RecordRunOfAdHocExperiment from './containers/RunAdHoCExperiment/RecordRunOfAdHocExperiment';
 var ExperimentActions = require('./actions/Experiments.js');
-var IndependentVariableActions = require('./actions/IndependentVars.js');
-var DependentVariableActions = require('./actions/DependentVars.js');
+var IndVariableActions = require('./actions/IndVars.js');
+var DepVariableActions = require('./actions/DepVars.js');
 var SampleActions = require('./actions/Samples.js');
 var MeasureActions = require('./actions/Measures.js');
 var RequestActions = require('./actions/Requests.js');
@@ -43,13 +43,13 @@ if (window.user && window.exps) {
   console.log(normData);
   console.log(unNormalize(normData));
   store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
-  store.dispatch(DependentVariableActions.setDepVars(normData.entities.dependentVars));
-  store.dispatch(IndependentVariableActions.setIndVars(normData.entities.independentVars));
+  store.dispatch(DepVariableActions.setDepVars(normData.entities.depVars));
+  store.dispatch(IndVariableActions.setIndVars(normData.entities.indVars));
   store.dispatch(MeasureActions.setMeasures(normData.entities.measures));
   // store.dispatch(RequestActions.setRequests(normData.entities.requests));
   // store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
   store.dispatch(SampleActions.setSamples(normData.entities.samples));
-} 
+}
 window.store = store;
 render((
   <Provider store={store}>

@@ -3,12 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 //required modelCompents
-var dependentVarSchema = require('./modelComponents/dependentVarSchema');
-var independentVarSchema = require('./modelComponents/independentVarSchema');
+var depVarSchema = require('./modelComponents/depVarSchema');
+var indVarSchema = require('./modelComponents/indVarSchema');
 
 //validator
 var expKindValidator = function (val) {
-  return val === 'continuous' || val === 'ad_hoc'; 
+  return val === 'continuous' || val === 'ad_hoc';
 };
 
 //exp
@@ -18,13 +18,13 @@ var expSchema = new Schema ({
   active: Boolean,
   kind : {
     type: String,
-    required : true, 
-    validate : { 
+    required : true,
+    validate : {
       validator: expKindValidator,
     }
   },
-  dependentVars : [dependentVarSchema],
-  independentVars : [independentVarSchema] 
+  depVars : [depVarSchema],
+  indVars : [indVarSchema]
 });
 
 

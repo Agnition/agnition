@@ -40,7 +40,7 @@ var SelectableOptions = React.createClass({
     //creates an array of radio buttons
     var selectableOptions = [];
     _.each(this.props.options, function(optionValue, index) {
-      var props = { 
+      var props = {
         optionValue : optionValue,
         optionIndex : index,
         indVarId  : this.props.indVarId,
@@ -54,7 +54,7 @@ var SelectableOptions = React.createClass({
     var options = this.getOptions();
       return (
       <div>
-      <span>select an option for independent variable: {this.props.name}</span>
+      <span>select an option for ind variable: {this.props.name}</span>
       <form onChange={this.handleChange}>
       {options}
       </form>

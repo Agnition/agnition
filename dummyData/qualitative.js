@@ -2,7 +2,7 @@ module.exports = {
   name : 'paper chaser scale',
   hypothesis : 'something',
   kind : 'ad_hoc',
-  dependentVars : [{
+  depVars : [{
     name : 'distance',
     active: true,
     measures : [
@@ -14,14 +14,14 @@ module.exports = {
       samples : [{
         value: 1,
         // time: using defualt,
-        independentVarStates : [{
+        indVarStates : [{
           name : 'weight',
           value : '1g',
           }]
         },
         { value: 3,
         // time: using defualt,
-        independentVarStates : [{
+        indVarStates : [{
           name : 'weight',
           value : '2g',
           }]
@@ -29,7 +29,7 @@ module.exports = {
       ]
     }]
   }],
-  independentVars : [{
+  indVars : [{
       name: 'Weight',
       options : ['1g','2g'],
       numTrials : 1,

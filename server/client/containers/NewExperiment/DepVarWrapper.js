@@ -9,7 +9,7 @@ var Immutable = require('immutable');
 var DepVar = require('./DepVar');
 
 // import actions
-var DepVarActions = require('../../actions/DependentVars');
+var DepVarActions = require('../../actions/DepVars');
 var ExpActions = require('../../actions/Experiments');
 var Actions = _.extend(ExpActions, DepVarActions);
 

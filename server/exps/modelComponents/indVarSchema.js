@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var remindSchema = require('./remindSchema');
 
-// independentvar
-var independentVarSchema = new Schema({
+// indvar
+var indVarSchema = new Schema({
     name: { type: String, required: true },
     options : [String],
     numTrials : Number,
@@ -13,10 +13,10 @@ var independentVarSchema = new Schema({
     reminders : [remindSchema]
 });
 
-module.exports = independentVarSchema;
+module.exports = indVarSchema;
 
 
  //TODO: decide on whether or not these matter...
  // actionStart : String,
  // actionWarning : String, //should likely be some datetime thing....
- 
+

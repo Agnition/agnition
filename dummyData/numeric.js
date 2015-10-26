@@ -1,33 +1,33 @@
 module.exports = {
-  _id : 0,
+  // _id : 0,
   name : 'paper chaser',
   hypothesis : 'something',
   kind : 'ad_hoc',
-  dependentVars : [{
-    _id : 1,
+  depVars : [{
+    // _id : 1,
     name : 'distance',
     active: true,
     measures : [
       {
-        _id : 2,
+        // _id : 2,
         kind  : 'numeric',
         scale : null,
         list  : null,
         unit  : 'feet',
         samples : [{
-          _id : 3,
+          // _id : 3,
           value: 1,
           // time: using defualt,
-          independentVars : [{
-            _id : 4,
+          indVars : [{
+            // _id : 4,
             name : 'weight',
             optionIndex : 0,
           }]
         },
         { value: 2,
           // time: using defualt,
-          independentVars : [{
-            _id : 5,
+          indVars : [{
+            // _id : 5,
             name : 'weight',
             optionIndex : 1,
           }]
@@ -35,8 +35,8 @@ module.exports = {
         ]
       }]
   }],
-  independentVars : [{
-    _id : 6,
+  indVars : [{
+    // _id : 6,
     name: 'Weight',
     options : ['1g','2g'],
     numTrials : 1,
