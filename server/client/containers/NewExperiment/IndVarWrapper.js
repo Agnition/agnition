@@ -12,6 +12,11 @@ var shortid = require('shortid');
 var IndVar = require('./IndVar');
 var utils = require('../../utils/componentUtils');
 
+function mapStateToProps (state, ownProps) {
+  return {
+    indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars'])
+  };
+}
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -22,16 +27,17 @@ var IndVarWrapper = React.createClass({
   components: [],
   genComponent: function(event){
     var indVarId = shortid.generate();
-    this.props.actions.createIndVar(indVarId,this.props.expId);
-    this.props.actions.addIndVar(indVarId);
-    this.components.push(<IndVar indVarId = {indVarId} />);
-    this.forceUpdate()
+    this.props.actions.createIndVar(indVarId);
+    this.props.actions.addIndVar(indVarId, this.props.expId);
   },
   render: function(){
     // genComponent();
     return (
       <div>
-        {this.components}
+        {this.props.indVarIds.map(function (indVarId) {
+          return <IndVar indVarId = {indVarId} key = {indVarId} />
+        })
+        }
         <button onClick={this.genComponent} > add indvar </button>
       </div>
     )
@@ -39,4 +45,4 @@ var IndVarWrapper = React.createClass({
 });
 
 
-module.exports = connect(null, mapDispatchToProps)(IndVarWrapper);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(IndVarWrapper);
