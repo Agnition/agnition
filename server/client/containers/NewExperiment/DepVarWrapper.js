@@ -27,19 +27,20 @@ function mapDispatchtoProps (dispatch) {
 
 var DepVarWrapper = React.createClass({
 
+  components: [],
+
   genComponent: function (event) {
     this.depVarId = Math.floor(Math.random() * 1000000);
     this.props.actions.createDepVar(this.depVarId);
     this.props.actions.addDepVar(this.depVarId, this.props.expId);
+    this.components.push(<DepVar depVarId = {this.depVarId} />);
+    this.forceUpdate();
   },
 
   render: function () {
-    var components = this.props.depVars.map(function(depVarId) {
-      return <DepVar key={depVarId} depVarId={depVarId} />;
-    });
     return (
       <div>
-         {components}
+         {this.components}
         <button ref="depVarButton" onClick={this.genComponent}>add depvar</button>
       </div>
     );

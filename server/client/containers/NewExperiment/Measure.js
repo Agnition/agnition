@@ -34,9 +34,9 @@ var Measure = React.createClass({
 
   render: function () {
     var measureKinds = {
-      qualitative: (<MeasureQualitative key={this.props.measureId} measureId={this.props.measureId} />),
-      numeric: (<MeasureNumeric key={this.props.measureId} measureId={this.props.measureId} />),
-      list: (<MeasureList key={this.props.measureId} measureId={this.props.measureId} />)
+      qualitative: (<MeasureQualitative measureId = {this.props.measureId} />),
+      numeric: (<MeasureNumeric measureId = {this.props.measureId} />),
+      list: (<MeasureList measureId = {this.props.measureId} />)
     };
     return (
       <div>
