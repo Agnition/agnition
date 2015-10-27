@@ -1,0 +1,5 @@
+
+> bignum@0.6.2 install /Users/henryhutcheson/Desktop/agnition/node_modules/mongoose-shortid/node_modules/bignum
+> node-gyp configure build
+
+  CXX(target) Release/obj.target/bignum/bignum.o

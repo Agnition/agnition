@@ -1,4 +1,4 @@
-var Exp = require('../server/exps/model');
+// var Exp = require('../server/exps/model');
 var User = require('../server/users/model');
 var mongoose = require('mongoose');
 var fs = require('fs');
@@ -43,9 +43,9 @@ module.exports = function() {
               console.log(err);
               console.log("-------------------------------------------userID", user._id);
               fs.writeFileSync(__dirname +'/userid.json',JSON.stringify({"userId" : user._id},'utf8'));
-              addExp(qualitative,'hdh3000');
-              addExp(list,'hdh3000');
-              addExp(numeric,'hdh3000');
+              // addExp(qualitative,'hdh3000');
+              // addExp(list,'hdh3000');
+              // addExp(numeric,'hdh3000');
             });
 
           });
