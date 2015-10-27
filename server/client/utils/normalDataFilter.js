@@ -1,10 +1,10 @@
 var _ = require('lodash');
 
 function getNested (data, key, ids) {
-  var result = {}
-    _.each(ids, function (id) {
-      var obj = {};
-      obj[id] = data[key][id];
+  var result = {};
+  _.each(ids, function (id) {
+    var obj = {};
+    obj[id] = data[key][id];
     _.extend(result, obj);
   });
   return result;
