@@ -27,6 +27,10 @@ function mapDispatchToProps (dispatch) {
 
 var DepVarWrapper = React.createClass({
 
+  componentWillMount: function(){
+    this.genComponent();
+  },
+
   genComponent: function (event) {
     this.depVarId = Math.floor(Math.random() * 1000000);
     this.props.actions.createDepVar(this.depVarId);
