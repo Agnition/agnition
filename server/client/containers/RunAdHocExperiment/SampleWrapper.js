@@ -24,9 +24,9 @@ var SampleWrapper = React.createClass({
   render: function() {
     return (
     <div>
-    <SetupNewRunOfAdHocExperiment expId = {this.props.params.expId} sampleId = {this.sampleId} />
+    <SetupNewRunOfAdHocExperiment expId = {this.props.params.expid} sampleId = {this.sampleId} />
     </div>
-    )
+    );
   }
 });
 

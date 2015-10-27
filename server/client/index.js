@@ -14,7 +14,7 @@ import NewExperiment from './screens/NewExperiment';
 import Hypothesis from './containers/NewExperiment/Hypothesis';
 import MyExps from './components/myexperiments/MyExperiments';
 import SampleWrapper from './containers/RunAdHocExperiment/SampleWrapper';
-import RecordRunOfAdHocExperiment from './containers/RunAdHocExperiment/RecordRunOfAdHocExperiment';
+import RecordRunOfAdHocExperiment from './containers/RunAdHocExperiment/DepVars';
 var ExperimentActions = require('./actions/Experiments.js');
 var IndVariableActions = require('./actions/IndVars.js');
 var DepVariableActions = require('./actions/DepVars.js');
@@ -63,8 +63,8 @@ render((
         {/*<Route path='/about' component={About} />*/}
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
-        <Route path='/sample/:expId/adhoc' component = {SampleWrapper} />
-        // <Route path='/sample/:expId/:sampleId/adhoc/record' component = {RecordRunOfAdHocExperiment} />
+        <Route path='/sample/:expid/adhoc' component = {SampleWrapper} />
+        <Route path='/sample/:expid/:sampleid/adhoc/record' component = {RecordRunOfAdHocExperiment} />
         {/* <Route path='/newuser' component={NewUser} />
          <Route path='/documentation' component={Documentation} /> */}
       </Route>
