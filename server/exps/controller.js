@@ -7,7 +7,6 @@ var Measure = require('./models/Measure');
 var Remind = require('./models/Remind');
 var Request = require('./models/Request');
 var Sample = require('./models/Sample');
-
 var _ = require('underscore');
 
 
@@ -36,9 +35,6 @@ var getAllExps = function (req, res) {
 };
 
 var addExp = function (req, res) {
-  var expId = null;
-  var depVarIds = [];
-
   User.findOne({googleId: req.params.user_id}).exec()
     .then(function(user) {
       if (user === undefined) {
@@ -52,7 +48,6 @@ var addExp = function (req, res) {
       });
     })
     .then(function(exp){
-      console.log("-------------------------------------------I MADE IT");
       _.each(req.body.depVars, function(depVar) {
         new DepVar(depVar).save();
       });
