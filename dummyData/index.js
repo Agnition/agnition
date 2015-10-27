@@ -12,8 +12,6 @@ var fs = require('fs');
 var path = require('path');
 var _ = require('underscore');
 var data = require('./normalizedDummyData.json');
-console.log("-------------------------------------------",data);
-
 
 var dbPath = 'mongodb://localhost/test';
 module.exports = function() {
