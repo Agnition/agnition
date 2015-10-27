@@ -8,7 +8,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var userRouter = require('./users/routes');
 var session = require('express-session');
-var Exp = require('./exps/model.js');
+var Exp = require('./exps/models/Exp.js');
 var User = require('./users/model.js');
 var verify = require('./verify.js');
 
@@ -29,28 +29,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./auth.js')(app);
 
-if (process.env.ENV === undefined && config.autoSignin) {
-  app.get('/', function(req, res) {
-    Exp.find({}, function(err, exps) {
-      User.findOne({}, function(err, user) {
-        res.render('index', {
-          user : JSON.stringify(user),
-          exps : JSON.stringify(exps)
-        });
-      });
-    });
-  });
-}
-else {
-  app.get('/', verify, function(req, res) {
-    Exp.find({}, function(err, exps) {
-      res.render('index', {
-        user : JSON.stringify(req.user),
-        exps : JSON.stringify(exps)
-      });
-    });
-  });
-}
+// if (process.env.ENV === undefined && config.autoSignin) {
+//   app.get('/', function(req, res) {
+//     Exp.find({}, function(err, exps) {
+//       User.findOne({}, function(err, user) {
+//         res.render('index', {
+//           user : JSON.stringify(user),
+//           exps : JSON.stringify(exps)
+//         });
+//       });
+//     });
+//   });
+// }
+// else {
+//   app.get('/', verify, function(req, res) {
+//     Exp.find({}, function(err, exps) {
+//       res.render('index', {
+//         user : JSON.stringify(req.user),
+//         exps : JSON.stringify(exps)
+//       });
+//     });
+//   });
+// }
 
 
 app.use(express.static(path.join(__dirname, './client/public')));

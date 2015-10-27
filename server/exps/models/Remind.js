@@ -1,20 +1,18 @@
-'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+mongoose.Promise = require('bluebird');
 var freqValidator = require('./freqValidator');
 
-//request
-var requestSchema = new Schema({
+//remind
+var remindSchema = new Schema({
+  _id : {type: mongoose.Schema.ObjectId},
   freq : {
     type: String, 
     validate : {
       validator : freqValidator
     }
   },
-  question : { 
-    type: String, 
-    required: true 
-  }
+  reminder: String 
 });
 
-module.exports = requestSchema;
+module.exports = mongoose.model('Remind', remindSchema);

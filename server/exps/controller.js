@@ -1,8 +1,14 @@
-'use strict';
-/*jshint camelcase: false, unused: false*/ 
-
-var Exp = require('./model');
 var User = require('../users/model');
+
+var Exp = require('./models/Exp');
+var DepVar = require('./models/DepVar');
+var IndVar = require('./models/IndVar');
+var Measure = require('./models/Measure');
+var Remind = require('./models/Remind');
+var Request = require('./models/Request');
+var Sample = require('./models/Sample');
+var _ = require('underscore');
+
 
 var getExp = function (req, res) {
   // does not check the exp belongs to the user
@@ -29,39 +35,57 @@ var getAllExps = function (req, res) {
 };
 
 var addExp = function (req, res) {
-  var exp = new Exp(req.body);
-  //ensure exp is valid before saving
-  if(exp.validateSync()) {
-    res.sendStatus(204);
-    return;
-  }
-  //find user that exp belongs to
-  User.findOne({googleId: req.params.user_id}, function(err, user) {
-    if (user === undefined) {
-      res.sendStatus(204);
-      return;
-    }
-    exp.save(function(err, exp) {
-      if(err) { 
-        res.sendStatus(500);
-        console.error(err); 
-        return;
-      }
-      User.update({googleId: req.params.user_id}, {
-        $push: {exps: exp._id}
-      }, function(err, mongoRes) {
-        if(err) { 
-          res.sendStatus(500);
-          console.error(err); 
-          return;
-        }
-        res.send(exp);
+  User.findOne({googleId: req.params.user_id}).exec()
+    .then(function(user) {
+      if (user === undefined) {
+        res.sendStatus(204);
+        throw 'user not defined';
+      } else return user;
+    })
+    .then(function(user){
+      _.each(req.body.experiments, function(experiment) {
+        new Exp(experiment).save();
       });
-    });
+    })
+    .then(function(exp){
+      _.each(req.body.depVars, function(depVar) {
+        new DepVar(depVar).save();
+      });
+    })
+    .then(function(){
+      _.each(req.body.indVars, function(indVar) {
+        new IndVar(indVar).save();
+      });
+    })
+    .then(function(){ 
+      _.each(req.body.measures, function(measure) {
+        new Measure(measure).save();
+      });
+    })
+    .then(function(){ 
+      _.each(req.body.reminders, function(remind) {
+        new Remind(remind).save();
+      });
+    })
+    .then(function(){ 
+      _.each(req.body.requests, function(request) {
+        new Request(request).save();
+      });
+    })
+    .then(function(){ 
+      _.each(req.body.samples, function(sample) {
+        new Sample(sample).save();
+      });      
+    }).then(function(){
+      res.send(200);
+    }).catch(function(err){
+      res.send(500);
+      console.log(err);
   });
 };
 
 var deleteExp = function (req, res) {
+  //TODO: dosen't remove it from user...
   Exp.remove({_id: req.params.exp_id }, function(err) {
     if(err) { 
       res.sendStatus(500);

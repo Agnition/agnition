@@ -1,8 +1,8 @@
-'use strict';
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 var Schema = mongoose.Schema;
-var sampleSchema = require('./sampleSchema');
-var requestSchema = require('./requestSchema');
+// var sampleSchema = require('./sampleSchema');
+// var requestSchema = require('./requestSchema');
 
 //validator functions
 var mesKindValidator = function (val) {
@@ -30,6 +30,7 @@ var mesUnitValidator = function (val) {
 
 //mesuare schema
 var measureSchema = new Schema({
+  _id : {type: mongoose.Schema.ObjectId},
   kind : { 
     type: String, 
     required: true,
@@ -55,8 +56,8 @@ var measureSchema = new Schema({
      validator: mesUnitValidator 
     }
   },
-  samples : [sampleSchema],
-  requests : [requestSchema]
+  samples : [{ type: mongoose.Schema.ObjectId, ref: 'Sample' }],  //[sampleSchema],
+  requests : [{ type: mongoose.Schema.ObjectId, ref: 'Request' }] //[requestSchema]
 });
 
-module.exports = measureSchema;
+module.exports = mongoose.model('Measure', measureSchema);

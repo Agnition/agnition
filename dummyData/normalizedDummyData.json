@@ -1,0 +1,236 @@
+ {
+		"experiments": {
+			"562ebfa6a3b7183b57d3ed41": {
+				"_id": "562ebfa6a3b7183b57d3ed41",
+				"name": "paper chaser scale",
+				"hypothesis": "something",
+				"kind": "ad_hoc",
+				"__v": 0,
+				"indVars": [
+					"562ebfa6a3b7183b57d3ed42"
+				],
+				"depVars": [
+					"562ebfa6a3b7183b57d3ed44"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed4a": {
+				"_id": "562ebfa6a3b7183b57d3ed4a",
+				"name": "paper chaser list",
+				"hypothesis": "something",
+				"kind": "ad_hoc",
+				"__v": 0,
+				"indVars": [
+					"562ebfa6a3b7183b57d3ed4b"
+				],
+				"depVars": [
+					"562ebfa6a3b7183b57d3ed4d"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed53": {
+				"_id": "562ebfa6a3b7183b57d3ed53",
+				"name": "paper chaser",
+				"hypothesis": "something",
+				"kind": "ad_hoc",
+				"__v": 0,
+				"indVars": [
+					"562ebfa6a3b7183b57d3ed54"
+				],
+				"depVars": [
+					"562ebfa6a3b7183b57d3ed56"
+				]
+			}
+		},
+		"indVars": {
+			"562ebfa6a3b7183b57d3ed42": {
+				"name": "Weight",
+				"numTrials": 1,
+				"randomized": true,
+				"_id": "562ebfa6a3b7183b57d3ed42",
+				"reminders": [
+					"562ebfa6a3b7183b57d3ed43"
+				],
+				"actionsPerTrial": 1,
+				"options": [
+					"1g",
+					"2g"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed4b": {
+				"name": "Weight",
+				"numTrials": 1,
+				"randomized": true,
+				"_id": "562ebfa6a3b7183b57d3ed4b",
+				"reminders": [
+					"562ebfa6a3b7183b57d3ed4c"
+				],
+				"actionsPerTrial": 1,
+				"options": [
+					"1g",
+					"2g"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed54": {
+				"name": "Weight",
+				"numTrials": 1,
+				"randomized": true,
+				"_id": "562ebfa6a3b7183b57d3ed54",
+				"reminders": [
+					"562ebfa6a3b7183b57d3ed55"
+				],
+				"actionsPerTrial": 1,
+				"options": [
+					"1g",
+					"2g"
+				]
+			}
+		},
+		"reminders": {
+			"562ebfa6a3b7183b57d3ed43": {
+				"freq": "everyday2",
+				"reminder": "do something here2",
+				"_id": "562ebfa6a3b7183b57d3ed43"
+			},
+			"562ebfa6a3b7183b57d3ed4c": {
+				"freq": "everyday",
+				"reminder": "do something here",
+				"_id": "562ebfa6a3b7183b57d3ed4c"
+			},
+			"562ebfa6a3b7183b57d3ed55": {
+				"freq": null,
+				"reminder": null,
+				"_id": "562ebfa6a3b7183b57d3ed55"
+			}
+		},
+		"depVars": {
+			"562ebfa6a3b7183b57d3ed44": {
+				"name": "distance",
+				"_id": "562ebfa6a3b7183b57d3ed44",
+				"measures": [
+					"562ebfa6a3b7183b57d3ed45"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed4d": {
+				"name": "distance",
+				"_id": "562ebfa6a3b7183b57d3ed4d",
+				"measures": [
+					"562ebfa6a3b7183b57d3ed4e"
+				]
+			},
+			"562ebfa6a3b7183b57d3ed56": {
+				"name": "distance",
+				"_id": "562ebfa6a3b7183b57d3ed56",
+				"measures": [
+					"562ebfa6a3b7183b57d3ed57"
+				]
+			}
+		},
+		"measures": {
+			"562ebfa6a3b7183b57d3ed45": {
+				"kind": "qualitative",
+				"unit": null,
+				"_id": "562ebfa6a3b7183b57d3ed45",
+				"requests": [],
+				"samples": [
+					"562ebfa6a3b7183b57d3ed48",
+					"562ebfa6a3b7183b57d3ed46"
+				],
+				"list": null,
+				"scale": [
+					1,
+					3,
+					4,
+					6
+				]
+			},
+			"562ebfa6a3b7183b57d3ed4e": {
+				"kind": "list",
+				"unit": null,
+				"_id": "562ebfa6a3b7183b57d3ed4e",
+				"requests": [],
+				"samples": [
+					"562ebfa6a3b7183b57d3ed51",
+					"562ebfa6a3b7183b57d3ed4f"
+				],
+				"list": [
+					"somewhere",
+					"overthere",
+					"idontcare"
+				],
+				"scale": null
+			},
+			"562ebfa6a3b7183b57d3ed57": {
+				"kind": "numeric",
+				"unit": "feet",
+				"_id": "562ebfa6a3b7183b57d3ed57",
+				"requests": [],
+				"samples": [
+					"562ebfa6a3b7183b57d3ed59",
+					"562ebfa6a3b7183b57d3ed58"
+				],
+				"list": null,
+				"scale": null
+			}
+		},
+		"samples": {
+			"562ebfa6a3b7183b57d3ed48": {
+				"value": 1,
+				"_id": "562ebfa6a3b7183b57d3ed48",
+				"indVarStates": [
+					{
+						"name": "weight",
+						"value": "1g",
+						"_id": "562ebfa6a3b7183b57d3ed49"
+					}
+				],
+				"time": "2015-10-27T00:04:54.466Z"
+			},
+			"562ebfa6a3b7183b57d3ed46": {
+				"value": 3,
+				"_id": "562ebfa6a3b7183b57d3ed46",
+				"indVarStates": [
+					{
+						"name": "weight",
+						"value": "2g",
+						"_id": "562ebfa6a3b7183b57d3ed47"
+					}
+				],
+				"time": "2015-10-27T00:04:54.466Z"
+			},
+			"562ebfa6a3b7183b57d3ed51": {
+				"value": "somewhere",
+				"_id": "562ebfa6a3b7183b57d3ed51",
+				"indVarStates": [
+					{
+						"name": "weight",
+						"value": "1g",
+						"_id": "562ebfa6a3b7183b57d3ed52"
+					}
+				],
+				"time": "2015-10-27T00:04:54.470Z"
+			},
+			"562ebfa6a3b7183b57d3ed4f": {
+				"value": "overthere",
+				"_id": "562ebfa6a3b7183b57d3ed4f",
+				"indVarStates": [
+					{
+						"name": "weight",
+						"value": "2g",
+						"_id": "562ebfa6a3b7183b57d3ed50"
+					}
+				],
+				"time": "2015-10-27T00:04:54.469Z"
+			},
+			"562ebfa6a3b7183b57d3ed59": {
+				"value": 1,
+				"_id": "562ebfa6a3b7183b57d3ed59",
+				"indVarStates": [],
+				"time": "2015-10-27T00:04:54.472Z"
+			},
+			"562ebfa6a3b7183b57d3ed58": {
+				"value": 2,
+				"_id": "562ebfa6a3b7183b57d3ed58",
+				"indVarStates": [],
+				"time": "2015-10-27T00:04:54.472Z"
+			}
+		}
+	}

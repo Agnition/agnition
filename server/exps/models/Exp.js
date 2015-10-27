@@ -1,10 +1,6 @@
-'use strict';
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 var Schema = mongoose.Schema;
-
-//required modelCompents
-var depVarSchema = require('./modelComponents/depVarSchema');
-var indVarSchema = require('./modelComponents/indVarSchema');
 
 //validator
 var expKindValidator = function (val) {
@@ -13,6 +9,7 @@ var expKindValidator = function (val) {
 
 //exp
 var expSchema = new Schema ({
+  _id : {type: mongoose.Schema.ObjectId},
   name : { type: String, required: true },
   hypothesis : { type: String },
   active: Boolean,
@@ -23,8 +20,8 @@ var expSchema = new Schema ({
       validator: expKindValidator,
     }
   },
-  depVars : [depVarSchema],
-  indVars : [indVarSchema]
+  depVars : [{ type: mongoose.Schema.ObjectId, ref: 'DepVar' }], //[depVarSchema],
+  indVars : [{ type: mongoose.Schema.ObjectId, ref: 'IndVar' }] //[indVarSchema]
 });
 
 

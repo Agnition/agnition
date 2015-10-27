@@ -6,6 +6,7 @@
   "dependencies": {
     "babel": "^5.8.23",
     "babelify": "^6.3.0",
+    "bluebird": "^2.10.2",
     "body-parser": "^1.14.1",
     "chai": "^3.3.0",
     "ejs": "^2.3.4",
