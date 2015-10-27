@@ -1,5 +1,3 @@
-'use strict';
-
 var User = require('./model');
 
 var getUser = function (req, res) {

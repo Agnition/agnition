@@ -8,29 +8,39 @@ var Remind = require('./models/Remind');
 var Request = require('./models/Request');
 var Sample = require('./models/Sample');
 var _ = require('underscore');
-
+var deepPopulate = require('mongoose-deep-populate');
+var utils = require('../utils');
 
 var getExp = function (req, res) {
   // does not check the exp belongs to the user
-  Exp.findOne({_id: req.params.exp_id }, function(err, exp) {
+  Exp.findOne({_id: req.params.exp_id }).then(function(exp){
     if(exp === undefined) {
-      res.sendStatus(204);
-      return;
+      throw "exp is undefined";
     }
-    if(err) { 
-      res.sendStatus(500);
-      console.error(err);
-      return;
-    }
-    res.send(exp);
+    return exp.deepPopulate(utils.expPopArray,function(err, exp){
+        if(err) {
+          throw err;
+        }
+        res.send(exp);
+      });
+  }).catch(function(err){
+    res.send(500);
+    console.log("----GET EXP ERR----\n", err);
   });
 };
 
 var getAllExps = function (req, res) {
   User.findOne({googleId: req.params.user_id})
-    .populate('exps')
-    .exec(function(err, user) {
-      res.send(user.exps);
+    .then(function(user){
+      return user.deepPopulate(utils.userPopArray, function(err, user){
+          if(err) {
+            res.send(500);
+            console.log("----GET ALL EXPS ERR----\n", err);
+            return;
+          }
+          res.send(user.exps);
+          return;
+      });
     });
 };
 
@@ -40,7 +50,7 @@ var addExp = function (req, res) {
       if (user === undefined) {
         res.sendStatus(204);
         throw 'user not defined';
-      } else return user;
+      } else return user;  
     })
     .then(function(user){
       _.each(req.body.experiments, function(experiment) {

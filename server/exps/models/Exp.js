@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+// mongoose.Promise = require('bluebird');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 var Schema = mongoose.Schema;
 
 //validator
@@ -23,6 +24,9 @@ var expSchema = new Schema ({
   depVars : [{ type: mongoose.Schema.ObjectId, ref: 'DepVar' }], //[depVarSchema],
   indVars : [{ type: mongoose.Schema.ObjectId, ref: 'IndVar' }] //[indVarSchema]
 });
+
+//need to include plugin after schema...
+expSchema.plugin(deepPopulate);
 
 
 // export model

@@ -1,6 +1,3 @@
-'use strict';
-/*jshint undef:false, unused: false*/ 
-
 var request = require('supertest');
 var expect = require('chai').expect;
 var sinon = require('sinon');

@@ -20,6 +20,7 @@
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
     "mongoose": "^4.1.11",
+    "mongoose-deep-populate": "^2.0.2",
     "normalizr": "^1.0.0",
     "passport": "^0.3.0",
     "passport-google-oauth": "^0.2.0",

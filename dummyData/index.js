@@ -18,7 +18,7 @@ module.exports = function() {
   mongoose.connect(dbPath, function(){
     mongoose.connection.db.dropDatabase();
 
-    new User({username: 'hdh3000'}).save()
+    new User({username: 'hdh3000', googleId:'sampleGoogleId'}).save()
       .then(function(){
         new User({username: 'mdboop'}).save();
       })
@@ -32,7 +32,6 @@ module.exports = function() {
         new User({username: 'marcusbuffett'}).save();
       })
       .then(function(user) {
-        console.log("-------------------------------------------user id",user._id);
         _.each(data.experiments, function(experiment) {
           new Exp(experiment).save().then(function(exp){
             console.log("----------------------------------------ID---",exp._id);
