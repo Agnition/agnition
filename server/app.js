@@ -3,6 +3,7 @@ var path = require('path');
 var config = require('./config');
 var utils = require('./utils');
 var _ = require('underscore');
+var mock = require('./mock.js');
 
 // express
 var express = require('express');
@@ -32,8 +33,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./auth.js')(app);
 
-if (process.env.ENV === undefined && config.autoSignin) {
-  app.get('/', function(req, res) {
+if (process.env.ENV === undefined || config.autoSignin) {
+  console.log("ENV UNDEFINED!");
+  app.get('/', mock, function(req, res) {
     Exp.find({}, function(err, exps) {
       User.findOne({}, function(err, user) {
         popExps = [];
@@ -75,7 +77,7 @@ else {
   }); 
 }
 app.use(express.static(path.join(__dirname, './client/public')));
-app.use('/users', userRouter);
+app.use('/users', mock, userRouter);
 
 // start it up
 console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);
