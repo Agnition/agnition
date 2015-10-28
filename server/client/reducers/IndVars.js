@@ -10,7 +10,6 @@ module.exports = function(state = initialState, action) {
         options: new Immutable.List()
       }));
   } else if(action.type ==='SET_INDVAR_NAME') {
-    console.log('%c' + action.name, 'font-size:20px');
       return state.setIn([action.indVarId, 'name'], action.name);
 
   } else if(action.type ==='SET_INDVAR_ACTIONS_PER_TRIAL') {
