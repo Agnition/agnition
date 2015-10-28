@@ -54,9 +54,10 @@ var addExp = function (req, res) {
       if (user === undefined) {
         res.sendStatus(204);
         throw 'user not defined';
-      } else return user;  
+      } else return user;
     })
     .then(function(user){
+      console.dir(req.body);
       _.each(req.body.experiments, function(experiment) {
         new Exp(experiment).save();
       });
@@ -71,25 +72,25 @@ var addExp = function (req, res) {
         new IndVar(indVar).save();
       });
     })
-    .then(function(){ 
+    .then(function(){
       _.each(req.body.measures, function(measure) {
         new Measure(measure).save();
       });
     })
-    .then(function(){ 
+    .then(function(){
       _.each(req.body.reminders, function(remind) {
         new Remind(remind).save();
       });
     })
-    .then(function(){ 
+    .then(function(){
       _.each(req.body.requests, function(request) {
         new Request(request).save();
       });
     })
-    .then(function(){ 
+    .then(function(){
       _.each(req.body.samples, function(sample) {
         new Sample(sample).save();
-      });      
+      });
     }).then(function(){
       res.sendStatus(200);
     }).catch(function(err){
@@ -101,9 +102,9 @@ var addExp = function (req, res) {
 var deleteExp = function (req, res) {
   //TODO: dosen't remove it from user...
   Exp.remove({_id: req.params.exp_id }, function(err) {
-    if(err) { 
+    if(err) {
       res.sendStatus(500);
-      console.error(err); 
+      console.error(err);
       return;
     }
     res.send('removed exp');
