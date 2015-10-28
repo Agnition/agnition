@@ -8,6 +8,8 @@ var SelectNonRandomOptions = require('./SelectNonRandomOptions');
 var SelectRandomOptions  = 'tbd';
 var shortId = require('shortid');
 
+var Link = require('react-router').Link;
+
 var mapStateToProps = function (state, ownProps) {
     //have to map the ids to the indVars
     var ids = state.Experiments.get(ownProps.expId).toJS().indVars;
@@ -62,7 +64,7 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
         <div>
           {rand}
         </div>
-        <button>Run Experiment</button>
+        <button><Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>Run Experiment</Link></button>
       </div>
     );
   }

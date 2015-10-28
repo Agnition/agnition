@@ -24,7 +24,7 @@ var SelectableOption = React.createClass ({
   render: function () {
     return (
       <label>
-        <input type="radio" name={this.props.indVarId} value={this.props.optionIndex} />
+        <input type="radio" name={this.props.indVarId} value={this.props.optionValue} />
         {this.props.optionValue}
       </label>
     )
