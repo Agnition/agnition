@@ -1,5 +1,11 @@
 module.exports = {
+    "User": {
+        "id" : "sampleGoogleId"
+    },
     "entities": {
+        "User": {
+            "id": "sampleGoogleId"
+        },
         "experiments": {
             "88152": {
                 "depVars": [

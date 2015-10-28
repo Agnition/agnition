@@ -7,7 +7,7 @@ var expect = require('chai').expect;
 
 var correctResult = {
   experiments: {
-    "88152": { depVars: [ 581056 ],
+    "88152": { depVars: [ '581056' ],
      indVars: [ 'VkprU1_Zx' ],
      name: 'My Experiment Test',
      hypothesis: 'test hyp',
@@ -16,7 +16,7 @@ var correctResult = {
     }
   },
   depVars: {
-    "581056": { measures: [519716, 609680], name: 'depvarA' }
+    "581056": { measures: ['519716', '609680'], name: 'depvarA' }
   },
   measures: {
     "519716": { "list": [ "one", "two", "three" ], "kind": "list" },
