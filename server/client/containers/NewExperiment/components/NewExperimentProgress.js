@@ -18,8 +18,9 @@ function mapStatetoProps (state, ownProps) {
 var NewExperimentProgress = React.createClass({
   render: function() {
     return (
-      <div>
-      <h4>{this.props.name}</h4>
+      <div className="col-md-6 col-sm-12">
+      <h2>Experiment Summary</h2>
+      <h3>Name : {this.props.name}</h3>
         <div className="progress">
           Hypothesis: {this.props.hypothesis}
         </div>

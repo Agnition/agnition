@@ -61,12 +61,20 @@ var NewExperiment = React.createClass({
         ];
 
     return (
-      <div className="new-experiment">
-        <h3>Create a new experiment.</h3>
-        {questions[this.props.questionIndex]}
-        <button onClick={this.handleBack}>back</button>
-        <button onClick={this.handleNext}>next</button>
-        <NewExperimentProgress expId={this.expId} />
+      <div className="container">
+        <div className="row">
+          <div className="new-experiment col-md-4 col-sm-12">
+            <h2>Create a new experiment.</h2>
+            {questions[this.props.questionIndex]}
+            <div className="row back-next-row">
+              <div className="col-xs-9 col-xs-offset-3">
+                <button className="back-button" onClick={this.handleBack}>Back</button>
+                <button className="next-button" onClick={this.handleNext}>Next</button>
+              </div>
+            </div>
+          </div>
+            <NewExperimentProgress expId={this.expId} />
+        </div>
       </div>
     );
   }

@@ -45,7 +45,7 @@ var MeasureWrapper = React.createClass({
       return <Measure key={measureId} measureId={measureId} />;
     });
     return (
-      <div>
+      <div className="measure-wrapper">
         {components}
         <button onClick={this.genComponent}>add another measure</button>
       </div>
