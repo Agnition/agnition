@@ -23,7 +23,7 @@ describe('New Experiment: Progress Component', function () {
     var obj = {
       Experiments : {
         a: {
-          name: 'Test Name',
+          name: 'Name : Test Name',
           hypothesis: 'test hypothesis',
           cause: 'test cause',
           effect: 'test effect'
@@ -37,7 +37,7 @@ describe('New Experiment: Progress Component', function () {
   });
 
   it('should render the current progress from props', function () {
-    var  title = TestUtils.findRenderedDOMComponentWithTag(progress,'h4');
+    var  title = TestUtils.findRenderedDOMComponentWithTag(progress,'h3');
     var  divs = TestUtils.scryRenderedDOMComponentsWithClass(progress,'progress');
     expect(title.textContent).to.contain('Test Name');
     expect(divs[0].textContent).to.contain('test hypothesis');
