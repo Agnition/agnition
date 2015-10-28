@@ -19,7 +19,7 @@ var DepVars = React.createClass({
     event.preventDefault();
 
     var data = $(event.target).serializeJSON();
-    $.post('/submit', data);
+    $.post('/samples', data);
   },
 
   render: function () {
@@ -32,10 +32,6 @@ var DepVars = React.createClass({
                 name={'indVars[' + indVar._id + '][value]'}
                 type="hidden"
                 value={indVar.value} />);
-      indVars.push(<input
-                name={'indVars[' + indVar._id + '][name]'}
-                type="hidden"
-                value={indVar.name} />);
     });
     return (
       <div>
