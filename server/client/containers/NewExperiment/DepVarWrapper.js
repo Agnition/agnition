@@ -2,6 +2,7 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
+var mongooseId = require('mongoose').Types;
 
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
@@ -32,7 +33,7 @@ var DepVarWrapper = React.createClass({
   },
 
   genComponent: function (event) {
-    this.depVarId = Math.floor(Math.random() * 1000000);
+    this.depVarId = mongooseId.ObjectId().toString();
     this.props.actions.createDepVar(this.depVarId);
     this.props.actions.addDepVar(this.depVarId, this.props.expId);
   },

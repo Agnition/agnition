@@ -6,7 +6,7 @@ var Immutable = require('immutable');
 var Actions = require ('../../actions/IndVars');
 var expActions = require('../../actions/Experiments');
 Actions = _.extend(Actions,expActions);
-var shortid = require('shortid');
+var mongooseId = require('mongoose').Types;
 
 //added in..
 var IndVar = require('./IndVar');
@@ -25,7 +25,7 @@ function mapDispatchToProps (dispatch) {
 }
 var IndVarWrapper = React.createClass({
   genComponent: function(event){
-    var indVarId = shortid.generate();
+    var indVarId = mongooseId.ObjectId().toString();
     this.props.actions.createIndVar(indVarId);
     this.props.actions.addIndVar(indVarId, this.props.expId);
   },

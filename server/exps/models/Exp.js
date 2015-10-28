@@ -10,9 +10,11 @@ var expKindValidator = function (val) {
 
 //exp
 var expSchema = new Schema ({
-  _id : {type: mongoose.Schema.ObjectId},
+  _id : {type: mongoose.Schema.ObjectId, default: mongoose.Types.ObjectId() },
   name : { type: String, required: true },
   hypothesis : { type: String },
+  cause: { type: String},
+  effect: { type: String },
   active: Boolean,
   kind : {
     type: String,
@@ -31,3 +33,11 @@ expSchema.plugin(deepPopulate);
 
 // export model
 module.exports = mongoose.model('Exp', expSchema);
+
+
+// { depVars: [Object],
+//         indVars: [Object],
+//         name: 'asdf',
+//         hypothesis: 'asdfasdf',
+//         cause: '',
+//         effect: '' } },

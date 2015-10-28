@@ -2,6 +2,7 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
+var mongooseId = require('mongoose');
 
 var bindActionCreators = require('redux').bindActionCreators;
 var Immutable = require('immutable');
@@ -34,7 +35,7 @@ var MeasureWrapper = React.createClass({
   },
 
   genComponent: function (event) {
-    this.measureId = Math.floor(Math.random() * 1000000);
+    this.measureId = mongooseId.Types.ObjectId().toString();
     this.props.actions.createMeasure(this.measureId);
     this.props.actions.addMeasure(this.measureId, this.props.depVarId);
   },

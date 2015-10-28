@@ -1,9 +1,15 @@
 module.exports = {
+    "User": {
+        "id" : "sampleGoogleId"
+    },
     "entities": {
+        "User": {
+            "id": "sampleGoogleId"
+        },
         "experiments": {
             "88152": {
                 "depVars": [
-                    581056
+                    '581056'
                 ],
                 "indVars": [
                     "VkprU1_Zx"
@@ -59,8 +65,8 @@ module.exports = {
         "depVars": {
             "581056": {
                 "measures": [
-                    519716,
-                    609680
+                    '519716',
+                    '609680'
                 ],
                 "name": "depvarA"
             },

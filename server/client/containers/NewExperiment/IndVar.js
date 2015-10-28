@@ -13,7 +13,7 @@ function mapDispatchtoProps (dispatch) {
 
 var IndVar = React.createClass({
   setName: function(event) {
-    this.props.actions.setName(this.refs.name.value, this.props.indVarId);
+    this.props.actions.setIndVarName(this.refs.name.value, this.props.indVarId);
   },
   setActionsPerTrial: function (event){
     this.props.actions.setActionsPerTrial(this.refs.actionsPerTrial.value, this.props.indVarId);

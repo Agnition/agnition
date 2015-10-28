@@ -5,6 +5,7 @@ function getNested (data, key, ids) {
   _.each(ids, function (id) {
     var obj = {};
     obj[id] = data[key][id];
+    obj[id]._id = id;
     _.extend(result, obj);
   });
   return result;
@@ -15,6 +16,7 @@ module.exports = function filterData(data, key, id) {
   if (key === 'experiments') {
     var exp = data[key][id];
     result.experiments[id] = data[key][id];
+    result.experiments[id]._id = id;
     result.depVars = getNested(data, 'depVars', exp.depVars);
     // get all of the ids for the measures from all of the depVars on this experiment
     var measureIds = _.reduce(result.depVars, function (concatted, depVar) {

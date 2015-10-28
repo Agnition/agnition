@@ -35,7 +35,7 @@ describe('the IndVar Container', function () {
     //check to actually make sure we are still pointed at right element
     expect(element._reactInternalComponent._currentElement.ref).to.eql('name');
     TestUtils.Simulate.change(element);
-    expect(actions.setName).to.have.been.called;
+    expect(actions.setIndVarName).to.have.been.called;
   });
 
   it('should call setActionsPerTrial on actionsPerTrial change', function () {
