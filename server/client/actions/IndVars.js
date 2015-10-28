@@ -10,7 +10,7 @@ module.exports.createIndVar = function (indVarId) {
     indVarId: indVarId
   };
 };
-module.exports.setName = function (name, indVarId) {
+module.exports.setIndVarName = function (name, indVarId) {
   return {
     type: 'SET_INDVAR_NAME',
     name : name,

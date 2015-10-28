@@ -12,6 +12,14 @@ module.exports.createExperiment = function (expId) {
   };
 };
 
+module.exports.setExperimentKind = function (kind, expId) {
+  return {
+    type: 'SET_EXPERIMENT_KIND',
+    kind: kind,
+    expId: expId
+  };
+};
+
 module.exports.setName = function (name, expId) {
   return {
     type: 'SET_NAME',
