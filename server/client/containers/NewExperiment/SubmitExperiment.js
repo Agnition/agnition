@@ -1,4 +1,4 @@
-import React from 'react';
+var React = require('react');
 var $ = require('jquery');
 var connect = require('react-redux').connect;
 var unNormalize = require('../../utils/un-normalize');
@@ -23,16 +23,14 @@ function mapDispatchtoProps (dispatch) {
 
 var SubmitExperiment = React.createClass({
 
-
-
   handleClick: function () {
     var state = store.getState();
     var normalState = stateToNorm(state);
-    var data = [];
-    data.push(filterData(normalState.entities, 'experiments', this.props.expId));
+    var data = filterData(normalState.entities, 'experiments', this.props.expId);
     var userId = this.props.userId;
-    var url = '/' + userId + '/experiments/';
-    $.post(url, data,function (data) {
+    console.log(data);
+    var url = '/users/' + userId + '/experiments/';
+    $.post(url, data, function (data) {
       console.log(data);
     });
   },
