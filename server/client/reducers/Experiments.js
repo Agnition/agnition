@@ -11,6 +11,9 @@ module.exports = function(state = initialState, action) {
       indVars: new Immutable.List(),
     }));
   }
+  if (action.type === 'SET_EXPERIMENT_KIND') {
+    return state.setIn([action.expId, 'kind'], action.kind);
+  }
   if (action.type === 'SET_HYPOTHESIS') {
     return state.setIn([action.expId, 'hypothesis'], action.hypothesis)
   }

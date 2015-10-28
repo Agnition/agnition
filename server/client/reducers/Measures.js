@@ -10,9 +10,24 @@ module.exports = function(state = initialState, action) {
       list: new Immutable.List()
       }));
     }
+
   if (action.type === 'SET_KIND') {
+    if (action.kind !== 'numeric') {
+      state = state.setIn([action.measureId, 'unit'], 'null');
+    }
+    if (action.kind === 'qualitative') {
+      state = state.setIn([action.measureId, 'list'], 'null');
+    }
+    if (action.kind === 'list') {
+      state = state.setIn([action.measureId, 'scale'], 'null');
+    }
+    if (action.kind === 'numeric') {
+      state = state.setIn([action.measureId, 'scale'], 'null');
+      state = state.setIn([action.measureId, 'list'], 'null');
+    }
     return state.setIn([action.measureId, 'kind'], action.kind);
   }
+
   if (action.type === 'SET_UNIT') {
     return state.setIn([action.measureId, 'unit'], action.unit);
   }
@@ -20,6 +35,7 @@ module.exports = function(state = initialState, action) {
     return state.setIn([action.measureId, 'scale'], action.scale);
   }
   if (action.type === 'ADD_LIST_ITEM') {
+
     var newList = state.getIn([action.measureId, 'list']);
     // Only add unique items
     if (newList.indexOf(action.item) === -1) {

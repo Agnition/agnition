@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-const initialState = new Immutable.List();
+const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_IND_VARS') {
@@ -9,8 +9,8 @@ module.exports = function(state = initialState, action) {
       return state.set(action.indVarId, new Immutable.Map({
         options: new Immutable.List()
       }));
-
   } else if(action.type ==='SET_INDVAR_NAME') {
+    console.log('%c' + action.name, 'font-size:20px');
       return state.setIn([action.indVarId, 'name'], action.name);
 
   } else if(action.type ==='SET_INDVAR_ACTIONS_PER_TRIAL') {
