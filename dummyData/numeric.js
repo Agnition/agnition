@@ -37,9 +37,9 @@ module.exports = {
   }],
   indVars : [{
     // _id : 6,
-    name: 'Weight',
+    name: 'weight',
     options : ['1g','2g'],
-    numTrials : 1,
+    numTrials : 3,
     // actionsPerTrial : { type: Number, required: true, default: 1 },
     randomized : true,
     reminders : [{

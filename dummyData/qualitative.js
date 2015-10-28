@@ -30,11 +30,11 @@ module.exports = {
     }]
   }],
   indVars : [{
-      name: 'Weight',
+      name: 'weight',
       options : ['1g','2g'],
       numTrials : 1,
       actionsPerTrial : 1,
-      randomized : true,
+      randomized : false,
       reminders : [{
         freq :'everyday2',
         reminder: 'do something here2',

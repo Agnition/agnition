@@ -94,7 +94,7 @@ module.exports = {
         },
         "indVars": {
             "562eb105403223fa6eec74f7": {
-                "name": "Weight",
+                "name": "weight",
                 "numTrials": 1,
                 "randomized": true,
                 "_id": "562eb105403223fa6eec74f7",
@@ -108,7 +108,7 @@ module.exports = {
                 ]
             },
             "562eb105403223fa6eec7500": {
-                "name": "Weight",
+                "name": "weight",
                 "numTrials": 1,
                 "randomized": true,
                 "_id": "562eb105403223fa6eec7500",
@@ -122,7 +122,7 @@ module.exports = {
                 ]
             },
             "562eb105403223fa6eec7509": {
-                "name": "Weight",
+                "name": "weight",
                 "numTrials": 1,
                 "randomized": true,
                 "_id": "562eb105403223fa6eec7509",

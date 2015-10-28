@@ -22,7 +22,7 @@ describe('The DepVar sample component', function () {
     var obj = {
       DepVars : {
         z: {
-          name : 'Weight',
+          name : 'weight',
           measures: ['a', 'b']
         }
       }
