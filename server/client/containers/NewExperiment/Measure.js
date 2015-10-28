@@ -39,7 +39,7 @@ var Measure = React.createClass({
       list: (<MeasureList key={this.props.measureId} measureId={this.props.measureId} />)
     };
     return (
-      <div>
+      <div className="measure">
         <button value="qualitative" onClick={this.handleClick}>Scale</button>
         <button value="numeric" onClick={this.handleClick}>Number</button>
         <button value="list" onClick={this.handleClick}>Categorical</button>

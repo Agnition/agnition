@@ -51,22 +51,92 @@ nav {
   margin-bottom : 10px;
   padding: 3px;
   width:100%;
-  background-color: #C5CAD3; 
+  background-color: hsla(0, 0%, 95%, 1.0);
 }
 
 nav a {
   margin: 10px 5px;
-  font-size:10px;
-  color: #0808F7;
+  /* font-size:10px; */
+  color: hsla(0, 0%, 10%, 1.0);
+  /* font-weight: bold; */
+  font-size: 20px;
 }
 
 li a {
   margin: 10px 5px;
-  font-size:10px;
+  /* font-size:10px; */
 }
 
-div {
+input {
+  margin-left : 10px !important;
+}
+
+button {
+  border : none;
+  margin: 10px 10px 0px 0px !important;
+  background-color: hsla(0, 0%, 95%, 1.0);
+}
+
+button:focus {
+  outline : none;
+}
+
+.dep-var-wrapper {
+  background-color : hsla(0, 0%, 98%, 1.0);
+  padding: 10px;
+}
+
+.measure-wrapper {
+  background-color : hsla(0, 0%, 90%, 1.0);
+  padding: 10px;
+}
+
+.measure {
+  background-color : hsla(0, 0%, 85%, 1.0);
+  padding: 10px;
+  margin: 10px;
+}
+
+.remove-item {
+  margin-left: 10px !important;
+  background-color: hsla(0, 50%, 70%, 1.0);
+}
+
+.add-item {
+  margin-left: 10px !important;
+  background-color: hsla(0, 0%, 95%, 1.0);
+}
+
+.ind-var-input input {
+  display: block;
+}
+
+
+/* div { */
+  /* margin : 10px; */
+/* } */
+
+.padded {
+  margin-top: 10px;
+}
+
+.back-next-row div button {
   margin : 20px !important;
+  padding : 5px 10px;
+}
+
+.back-button {
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+}
+.back-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
+}
+
+.next-button {
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+}
+.next-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
 }
 
 .dashboard {
@@ -79,12 +149,12 @@ div {
 }
 
 .exps-table th {
-  font-size: 10px;
+  /* font-size: 10px; */
   padding: 3px;
 }
 
 .exps-table td {
-  font-size: 10px;
+  /* font-size: 10px; */
   padding: 3px;
 }
 

@@ -42,7 +42,7 @@ var DepVarWrapper = React.createClass({
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
     return (
-      <div>
+      <div className="dep-var-wrapper">
          {components}
         <button ref="depVarButton" onClick={this.genComponent}>add depvar</button>
       </div>

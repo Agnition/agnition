@@ -38,9 +38,8 @@ var MeasureQualitative = React.createClass({
   render: function () {
     return (
       <div>
-        <label>Experiment Name</label>
         Max
-        <input ref="max" type="text" />
+        <input ref="max" onChange={this.setScale} type="text" />
         <p>
         Current scale :
           {JSON.stringify(this.props.scale)}

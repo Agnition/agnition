@@ -35,7 +35,7 @@ var IndVar = React.createClass({
   render: function(){
     return (
       <div>
-        <section className ='indvar-input'>
+        <section className ='ind-var-input'>
           <div>
               Please enter your Ind Variable here.
           </div>

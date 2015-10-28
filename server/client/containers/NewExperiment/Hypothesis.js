@@ -49,12 +49,18 @@ var Hypothesis = React.createClass({
           <div>
             Please enter your hypothesis here.
           </div>
-          <label>hypothesis</label>
-          <input ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
-          <label>cause</label>
-          <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
-          <label>effect</label>
-          <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
+          <div className="padded">
+            <label>Hypothesis:</label>
+            <input ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
+          </div>
+          <div className="padded">
+            <label>Cause:</label>
+            <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
+          </div>
+          <div className="padded">
+            <label>Effect:</label>
+            <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
+          </div>
         </section>
       </div>
       );

@@ -25,10 +25,10 @@ var HypothesisCheck = React.createClass({
     return (
       <div>
       <section>
-        <p>"Let's rephrase your cause and effect here."</p>
-        <p>"If this doesn't make sense, try to rephrase your causes and effects."</p>
-        <p>Here is your hypothesis: {this.props.hypothesis}</p>
-        <p>Question: How does {this.props.cause} affect {this.props.effect}?</p>
+        <p>Let's rephrase your cause and effect here.</p>
+        <p>If this doesn't make sense, try to rephrase your causes and effects.</p>
+        <p><b>Here is your hypothesis:</b> {this.props.hypothesis}</p>
+        <p><b>Question:</b> How does {this.props.cause} affect {this.props.effect}?</p>
       </section>
       </div>
     );
