@@ -2,9 +2,13 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
+var mongooseId = require('mongoose').Types;
+var _ = require('lodash');
 
 // import actions
 var NewExperimentActions = require('../actions/NewExperiment');
+var ExperimentActions = require('../actions/Experiments');
+var Actions = _.extend(ExperimentActions, NewExperimentActions);
 
 // import child containers
 var Name = require('../containers/NewExperiment/Name');
@@ -26,16 +30,17 @@ function mapStatetoProps (state) {
 
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(NewExperimentActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 }
 
 var NewExperiment = React.createClass({
 
-  expId: Math.floor(Math.random() * 1000000),
+  expId: mongooseId.ObjectId().toString(),
 
   componentWillMount: function () {
     this.props.actions.createExperiment(this.expId);
+    this.props.actions.setExperimentKind('ad_hoc', this.expId);
   },
 
   setName: function () {
