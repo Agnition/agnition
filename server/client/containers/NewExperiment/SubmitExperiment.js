@@ -1,14 +1,17 @@
 import React from 'react';
+var $ = require('jquery');
 var connect = require('react-redux').connect;
 var unNormalize = require('../../utils/un-normalize');
+var stateToNorm = require('../../utils/stateToNorm');
 var schema = require('../../utils/schema');
+var filterData = require('../../utils/normalDataFilter');
 
 var NewExperimentActions = require('../../actions/NewExperiment');
 var bindActionCreators = require('redux').bindActionCreators;
 
 function mapStatetoProps (state, ownProps) {
   return {
-    experiments: state.Experiments.toJS()
+    userId: state.User.get('id')
   };
 }
 
@@ -20,17 +23,18 @@ function mapDispatchtoProps (dispatch) {
 
 var SubmitExperiment = React.createClass({
 
-  handleClick: function () {
-    var exps = this.props.experiments;
-    var expsList = [];
-    for(var key in exps) {
-      expsList.push(exps[key]);
-    }
-    console.log(expsList);
-    var exps = unNormalize({exps: expsList}, schema);
-    console.log(exps);
 
-    console.log('you submitted your experiment');
+
+  handleClick: function () {
+    var state = store.getState();
+    var normalState = stateToNorm(state);
+    var data = [];
+    data.push(filterData(normalState.entities, 'experiments', this.props.expId));
+    var userId = this.props.userId;
+    var url = '/' + userId + '/experiments/';
+    $.post(url, data,function (data) {
+      console.log(data);
+    });
   },
 
   render: function () {
