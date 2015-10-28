@@ -40,7 +40,7 @@ var DepVars = React.createClass({
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input name="expId" type="hidden" value={this.props.params.expid} />
+          { /* <input name="expId" type="hidden" value={this.props.params.expid} /> */ }
           {indVars}
           {depVars}
           <button type="submit">Submit Sample</button>
