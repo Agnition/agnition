@@ -1,58 +1,64 @@
-var request = require('supertest');
+// var request = require('supertest');
 var expect = require('chai').expect;
 var sinon = require('sinon');
-var Exp = require('../../../server/exps/model');
-var app;
+var Exp = require('../../../server/exps/models/Exp');
+var app = require('../../../server/index.js');
+var request = require('supertest')(app);
+var exampleUser = require('../../../dummyData/exampleUsers.json')[0];
+var dummyData = require('../../../dummyData/normalizedDummyData.json');
+var mongoose = require('mongoose');
 
 describe('The Experiment Router', function () {
-  var exampleExp = require('./exampleExp.js');
-  var exampleUser = require('../../../server/users/example.js');
-  var userId;
-  var expId;
-  
+  var userId, expId, dummyExp;
+
   beforeEach(function(done){
-    app = require('../../../server/index.js');
-    request(app)
+    //setup dummy exp
+    var keys = Object.keys(dummyData.experiments);
+    dummyExp = dummyData['experiments'][keys[0]];
+    dummyExp._id = mongoose.Types.ObjectId();
+
+    //have to set up the user.
+    request
       .post('/users/')
       .send(exampleUser)
       .end(function(err, res) {
-        userId = res.body._id;
+        userId = res.body.googleId;
         done();
       });
-  });
+    });
 
-  afterEach(function(done){
-    request(app)
-      .delete('/users/'+userId)
-      .end(function(err, res) {
-        done();
-        // app.close(done);
-      });
-
-  });
-
-  describe('/users/:userId/experiments/', function () {
-    it('responds to POST requests', function (done) {
-      request(app)
-        .post('/users/' + userId + '/experiments/')
-        .send(exampleExp)
-        .expect(200)
-        .expect(function(res){
-          if(res.body.name === exampleExp.name) {
-            return done();
-          }
-        })
-        .end(function (err, res) {
-          if (err) { return done(err); }
+    afterEach(function(done){
+      //remove dummy exp
+      request
+        .delete('/' + userId + '/experiments'+ dummyExp._id)
+        .end(function(err, res) {
+          request
+          //remove dummy user
+          .delete('/users/' + userId)
+          .end(function(err) {
+            done(err);});
         });
     });
 
-    it('responds to GET requests', function (done) {
-      request(app)
+
+
+  describe('/users/:userId/experiments/', function () {
+    it('adds an exp on post', function (done) {
+      request
+        .post('/users/'+userId+'/experiments/')
+        .send({experiments : [dummyExp]})
+        .expect(200)
+        .end(function (err, res) {
+          if (err) { return done(err); }
+          else return done();
+        });
+    });
+
+    it('returns all experiments on get', function (done) {
+      request
         .get('/users/'+userId+'/experiments/')
         .expect(200)
         .expect(function(res){
-
           if(Array.isArray(res.body)){
             return done();
           }
@@ -63,57 +69,45 @@ describe('The Experiment Router', function () {
 
     });  
     it('returns previously created experiments on GET', function (done) {
-      request(app)
+      request
         //create new exp
         .post('/users/' + userId + '/experiments/')
-        .send(exampleExp)
+        .send({experiments : [dummyExp]})
         .end(function(err, res) {
-          //get id from created exp
-          var expId = res.body._id;
-          request(app)
+          request
             //get exps
-            .get('/users/' + userId + '/experiments/')
+            .get('/users/' + userId + '/experiments/'+ dummyExp._id)
             .expect(200)
             .expect(function(res){
-              //ensure that id from above matches, and only one is created
-              if(res.body[0]._id === expId && res.body.length === 1){
+              //ensure that id from above matches
+              if(res.body._id === dummyExp._id){
                 return done();
               } else {
                 throw 'No experiments';
               }
             })
             .end(function (err, res) {
-              if (err) return done(err);
-            });
+              done(err);
+          });
         });
+      });
     });
-    
-    it('should tell us when we post to a user that doesnt exist', function (done) {
-     //post to fake user
-     request(app)
-     .post('/users/1/experiments/')
-     .send(exampleExp)
-     .expect(204, done);
-    });
-
-  });
 
   describe('/users/:userId/experiments/:expId', function () {
     it('responds to DELETE requests at', function (done) {
     
-      request(app)
+      request
         .post('/users/' + userId + '/experiments/')
-        .send(exampleExp)
+        .send({experiments : [dummyExp]})
         .end(function(err, res) {
-          expId = res.body._id;
-          request(app)
-            .delete('/users/' + userId + '/experiments/' + expId)
+          request
+            .delete('/users/' + userId + '/experiments/' + dummyExp._id)
             .expect(200, 'removed exp', done);
         });
 
     });
     it('actually deletes Exp document from DB', function(done){
-      Exp.findOne({_id : expId}, function (err, exp) {
+      Exp.findOne({_id : dummyExp._id}, function (err, exp) {
         expect(exp).to.eql(null);
         done();
       });
@@ -121,16 +115,15 @@ describe('The Experiment Router', function () {
     });
   
     it('responds to GET requests at `/users/:userId/experiments/:expId`', function (done) {
-      request(app)
+      request
         .post('/users/' + userId + '/experiments/')
-        .send(exampleExp)
+        .send({experiments : [dummyExp]})
         .end(function(err, res) {
-          expId = res.body._id;
-          request(app)
-            .get('/users/' + userId + '/experiments/'+ expId)
+          request
+            .get('/users/' + userId + '/experiments/'+ dummyExp._id)
             .expect(200)
             .expect(function(res){
-              if(res.body.name === exampleExp.name) {
+              if(res.body.name === dummyExp.name) {
                 return done();
               }
             })
@@ -142,17 +135,19 @@ describe('The Experiment Router', function () {
 
     it('should tell us when the exp dosent exist', function (done) {
      //ask for fake exp
-     request(app)
-     .get('/users/'+ userId + '/experiments/1')
+     request
+     .get('/users/'+ userId + '/experiments/'+mongoose.Types.ObjectId())
      .expect(204, done);
     });
   });
-  
-
 });
 
-  // 204 No Content
-  // 400 Bad Request
-  // 406 Not Acceptable
 
+    // request
+    //   .post('/users/')
+    //   .send(exampleUser)
+    //   .end(function(err, res) {
+    //     userId = res.body.googleId;
+    //     done();
+    //   });
 
