@@ -10,6 +10,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var userRouter = require('./users/routes');
+var sampleRouter = require('./samples/routes.js');
 var session = require('express-session');
 var Exp = require('./exps/models/Exp.js');
 var User = require('./users/model.js');
@@ -78,6 +79,7 @@ else {
 }
 app.use(express.static(path.join(__dirname, './client/public')));
 app.use('/users', mock, userRouter);
+app.use('/samples', mock, sampleRouter);
 
 // start it up
 console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);

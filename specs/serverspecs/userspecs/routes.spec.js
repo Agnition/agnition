@@ -1,6 +1,6 @@
 var expect = require('chai').expect;
 var request = require('supertest');
-var app = require('../../../server/index.js');
+var app = require('../../../server/app.js');
 var sinon = require('sinon');
 
 describe('The User Router', function () {
