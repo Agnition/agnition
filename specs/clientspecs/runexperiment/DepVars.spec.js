@@ -70,9 +70,9 @@ describe('The DepVars sample component', function () {
     expect(vars.length).to.eql(3);
   });
 
-  it('should render two input fields for each indDepVar', function () {
+  it('should render an input field for each indDepVar', function () {
     var inputs = TestUtils.scryRenderedDOMComponentsWithTag(form, 'input');
-    expect(inputs.length).to.eql(2*2);
+    expect(inputs.length).to.eql(2);
   });
 
 });
