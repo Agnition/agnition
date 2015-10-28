@@ -15,14 +15,26 @@ var Measure = React.createClass({
   render: function () {
     var input;
     if (this.props.kind === 'numeric') {
-      input = <span><input type="number" name={this.props.measureId} /></span>;
+      input = (<span>
+                <input type="number" name={'measures[' + this.props.measureId + '][value]'} />
+              </span>);
     } else if (this.props.kind === 'list') {
       input = this.props.list.map(function(item) {
-        return <span><input type="radio" name={this.props.measureId} value={item} />{item}</span>;
+        return (<span>
+                  <input
+                    type="radio"
+                    name={'measures[' + this.props.measureId + '][value]'}
+                    value={item} />{item}
+                </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
       input = this.props.scale.map(function(item) {
-        return <span><input type="radio" name={this.props.measureId} value={item} />{item}</span>;
+        return (<span>
+                  <input
+                    type="radio"
+                    name={'measures[' + this.props.measureId + '][value]'}
+                    value={item} />{item}
+                </span>);
       }.bind(this));
     }
     return (

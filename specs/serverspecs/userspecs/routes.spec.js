@@ -19,7 +19,7 @@ describe('The User Router', function () {
         .end(function (err, res) {
           if (err) { return done(err); }
         });
-    });  
+    });
   });
 
   describe('/users/:ID', function () {
@@ -34,11 +34,12 @@ describe('The User Router', function () {
           request(app)
             .get('/users/'+ googleId)
             .end(function(err, res){
-              expect(res.body).to.eql({ 
-                _id: '5630343a54859083199f59bf',
-                username: 'johnsmith', 
-                googleId: 'aGoogleId', 
-                __v: 0, 
+              res.body._id = '123';
+              expect(res.body).to.eql({
+                _id: '123',
+                username: 'johnsmith',
+                googleId: 'aGoogleId',
+                __v: 0,
                 exps: [] });
               done(err);
             });
@@ -57,7 +58,7 @@ describe('The User Router', function () {
             .expect(200, 'removed user', done);
         });
     });
-  
+
   });
 
 });

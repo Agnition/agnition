@@ -29,6 +29,10 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureWrapper = React.createClass({
 
+  componentWillMount: function(){
+    this.genComponent();
+  },
+
   genComponent: function (event) {
     this.measureId = Math.floor(Math.random() * 1000000);
     this.props.actions.createMeasure(this.measureId);
