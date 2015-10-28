@@ -1,0 +1,174 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* font-size: 100%; */
+  /* font: inherit; */
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+nav {
+  margin-bottom : 10px;
+  padding: 3px;
+  width:100%;
+  background-color: hsla(0, 0%, 95%, 1.0);
+}
+
+nav a {
+  margin: 10px 5px;
+  /* font-size:10px; */
+  color: hsla(0, 0%, 10%, 1.0);
+  /* font-weight: bold; */
+  font-size: 20px;
+}
+
+li a {
+  margin: 10px 5px;
+  /* font-size:10px; */
+}
+
+input {
+  margin-left : 10px !important;
+}
+
+button {
+  border : none;
+  margin: 10px 10px 0px 0px !important;
+  background-color: hsla(0, 0%, 95%, 1.0);
+}
+
+button:focus {
+  outline : none;
+}
+
+.dep-var-wrapper {
+  background-color : hsla(0, 0%, 98%, 1.0);
+  padding: 10px;
+}
+
+.measure-wrapper {
+  background-color : hsla(0, 0%, 90%, 1.0);
+  padding: 10px;
+}
+
+.measure {
+  background-color : hsla(0, 0%, 85%, 1.0);
+  padding: 10px;
+  margin: 10px;
+}
+
+.remove-item {
+  margin-left: 10px !important;
+  background-color: hsla(0, 50%, 70%, 1.0);
+}
+
+.add-item {
+  margin-left: 10px !important;
+  background-color: hsla(0, 0%, 95%, 1.0);
+}
+
+.ind-var-input input {
+  display: block;
+}
+
+
+/* div { */
+  /* margin : 10px; */
+/* } */
+
+.padded {
+  margin-top: 10px;
+}
+
+.back-next-row div button {
+  margin : 20px !important;
+  padding : 5px 10px;
+}
+
+.back-button {
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+}
+.back-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
+}
+
+.next-button {
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+}
+.next-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
+}
+
+.dashboard {
+  margin: 5px
+}
+
+.exps-table{
+  text-align: left;
+  margin-bottom: 10px
+}
+
+.exps-table th {
+  /* font-size: 10px; */
+  padding: 3px;
+}
+
+.exps-table td {
+  /* font-size: 10px; */
+  padding: 3px;
+}
+
+
+a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+
