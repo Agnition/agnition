@@ -26,12 +26,11 @@ var DepVars = React.createClass({
     var depVars = this.props.depVars.map(function(depVarId) {
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
-    var indVars = [];
-    _.each(this.props.indVars, function(indVar){
-      indVars.push(<input
-                name={'indVars[' + indVar._id + '][value]'}
+    var indVars = _.map(this.props.indVars, function(value, indVarId){
+      return (<input
+                name={'indVars[' + indVarId + '][value]'}
                 type="hidden"
-                value={indVar.value} />);
+                value={value} />);
     });
     return (
       <div>

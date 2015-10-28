@@ -44,7 +44,7 @@
 			"562ebfa6a3b7183b57d3ed42": {
 				"name": "Weight",
 				"numTrials": 1,
-				"randomized": true,
+				"randomized": false,
 				"_id": "562ebfa6a3b7183b57d3ed42",
 				"reminders": [
 					"562ebfa6a3b7183b57d3ed43"

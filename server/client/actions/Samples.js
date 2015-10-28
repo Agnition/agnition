@@ -5,12 +5,12 @@ module.exports.setSamples = function(samples) {
   };
 };
 
-module.exports.setIndVarOptionOnSample = function(sampleId, indVarId, optionIndex) {
+module.exports.setIndVarOptionOnSample = function(sampleId, indVarId, optionValue) {
   return {
     type: 'SET_IND_VAR_OPTION_ON_SAMPLE',
     sampleId: sampleId,
     indVarId: indVarId,
-    optionIndex: optionIndex
+    optionValue: optionValue
   };
 };
 
