@@ -28,7 +28,6 @@ var SubmitExperiment = React.createClass({
     var normalState = stateToNorm(state);
     var data = filterData(normalState.entities, 'experiments', this.props.expId);
     var userId = this.props.userId;
-    console.log(data);
     var url = '/users/' + userId + '/experiments/';
     $.post(url, data, function (data) {
       console.log(data);
