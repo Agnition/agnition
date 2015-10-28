@@ -24,21 +24,21 @@ function mapDispatchToProps (dispatch) {
   };
 }
 var IndVarWrapper = React.createClass({
-  components: [],
   genComponent: function(event){
     var indVarId = shortid.generate();
     this.props.actions.createIndVar(indVarId);
     this.props.actions.addIndVar(indVarId, this.props.expId);
   },
+
   render: function(){
     // genComponent();
-    return (
-      <div>
-        {this.props.indVarIds.map(function (indVarId) {
+    var components = this.props.indVarIds.map(function (indVarId) {
           return <IndVar indVarId = {indVarId} key = {indVarId} />
         })
-        }
-        <button onClick={this.genComponent} > add indvar </button>
+    return (
+      <div>
+        {components}
+        <button ref="indVarButton" onClick={this.genComponent} > add indvar </button>
       </div>
     )
   }
