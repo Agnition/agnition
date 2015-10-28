@@ -1,14 +1,14 @@
-{
+module.exports = {
   "indVars": {
-    "562ebbf8b1d93903474273ec": {
+    "562ebfa6a3b7183b57d3ed42": {
       "value": "1g"
     },
-    "562ebfa6a3b7183b57d3ed55": {
+    "562ebfa6a3b7183b57d3ed4b": {
       "value": "42"
     }
   },
   "measures": {
-    "562ebbf8b1d93903474273e8": {
+    "562ebfa6a3b7183b57d3ed45": {
       "value": "4"
     },
     "562ebfa6a3b7183b57d3ed4e": {
