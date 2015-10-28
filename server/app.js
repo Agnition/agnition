@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./auth.js')(app);
 
-if (process.env.ENV === undefined || config.autoSignin) {
+if (process.env.ENV === undefined && config.autoSignin) {
   console.log("ENV UNDEFINED!");
   app.get('/', mock, function(req, res) {
     Exp.find({}, function(err, exps) {
@@ -59,8 +59,8 @@ if (process.env.ENV === undefined || config.autoSignin) {
 else {
   app.get('/', verify, function(req, res) {
     Exp.find({}, function(err, exps) {
-      User.findOne({}, function(err, user) {
-        popExps = [];
+      User.findOne({googleId : req.user.googleId}, function(err, user) {
+        var popExps = [];
         _.each(exps, function(exp){
           exp.deepPopulate(utils.expPopArray, function(err, exp){
             popExps.push(exp);
