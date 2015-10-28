@@ -1,5 +1,6 @@
 var example = {
-  username: "johnsmith"
+  username: "johnsmith",
+  googleId: "aGoogleId"
 };
 
 module.exports = example;

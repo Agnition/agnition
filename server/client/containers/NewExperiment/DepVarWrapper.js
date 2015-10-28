@@ -19,7 +19,7 @@ function mapStatetoProps (state, ownProps) {
   };
 }
 
-function mapDispatchtoProps (dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     actions: bindActionCreators(Actions, dispatch)
   };
@@ -46,4 +46,4 @@ var DepVarWrapper = React.createClass({
   }
 });
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(DepVarWrapper);
+module.exports = connect(mapStatetoProps, mapDispatchToProps)(DepVarWrapper);

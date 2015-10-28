@@ -13,19 +13,23 @@ var utils = require('../utils');
 
 var getExp = function (req, res) {
   // does not check the exp belongs to the user
-  Exp.findOne({_id: req.params.exp_id }).then(function(exp){
-    if(exp === undefined) {
+  Exp.findOne({_id: req.params.exp_id}).then(function(exp){
+    if(exp === null) {
       throw "exp is undefined";
     }
-    return exp.deepPopulate(utils.expPopArray,function(err, exp){
+    return exp.deepPopulate(utils.expPopArray, function(err, exp){
         if(err) {
           throw err;
         }
         res.send(exp);
       });
   }).catch(function(err){
-    res.send(500);
-    console.log("----GET EXP ERR----\n", err);
+    if(err === "exp is undefined"){
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(500);
+      console.log("----GET EXP ERR----\n", err);
+    }
   });
 };
 
@@ -87,7 +91,7 @@ var addExp = function (req, res) {
         new Sample(sample).save();
       });      
     }).then(function(){
-      res.send(200);
+      res.sendStatus(200);
     }).catch(function(err){
       res.send(500);
       console.log(err);

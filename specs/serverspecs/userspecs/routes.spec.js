@@ -1,6 +1,3 @@
-'use strict';
-/*jshint undef:false, unused: false*/
-
 var expect = require('chai').expect;
 var request = require('supertest');
 var app = require('../../../server/index.js');
@@ -27,24 +24,24 @@ describe('The User Router', function () {
 
   describe('/users/:ID', function () {
     it('responds to GET requests', function (done) {
-      var userId;
+      var userId, googleId;
       request(app)
         .post('/users/')
         .send(exampleUser)
         .end(function(err, res) {
           userId = res.body._id;
+          googleId = res.body.googleId;
           request(app)
-            .get('/users/'+userId)
-            .expect(function(res){
-              res.body.exps = '';
-              res.body.__v = 0;
-            })
-            .expect(200, {
-              __v: 0,
-              _id: userId,
-              username: exampleUser.username,
-              exps: ''
-            }, done);
+            .get('/users/'+ googleId)
+            .end(function(err, res){
+              expect(res.body).to.eql({ 
+                _id: '5630343a54859083199f59bf',
+                username: 'johnsmith', 
+                googleId: 'aGoogleId', 
+                __v: 0, 
+                exps: [] });
+              done(err);
+            });
         });
     });
 

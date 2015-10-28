@@ -37,7 +37,7 @@ if (process.env.ENV === undefined || config.autoSignin) {
   console.log("ENV UNDEFINED!");
   app.get('/', mock, function(req, res) {
     Exp.find({}, function(err, exps) {
-      User.findOne({}, function(err, user) {
+      User.findOne({username:'hdh3000'}, function(err, user) {
         popExps = [];
         _.each(exps, function(exp){
           exp.deepPopulate(utils.expPopArray, function(err, exp){
