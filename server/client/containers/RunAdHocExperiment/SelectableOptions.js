@@ -5,8 +5,6 @@ var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require ('../../actions/Samples');
 
-
-
 var mapStateToProps = function (state, ownProps) {
   return {
     options : state.IndVars.get(ownProps.indVarId).toJS().options,
@@ -27,7 +25,7 @@ var SelectableOption = React.createClass ({
         <input type="radio" name={this.props.indVarId} value={this.props.optionValue} />
         {this.props.optionValue}
       </label>
-    )
+    );
   }
 });
 
@@ -44,22 +42,22 @@ var SelectableOptions = React.createClass({
         optionValue : optionValue,
         optionIndex : index,
         indVarId  : this.props.indVarId,
-      }
-      selectableOptions.push(<SelectableOption {...props}/>)
-    },this);
+      };
+      selectableOptions.push(<SelectableOption {...props}/>);
+    }, this);
     return selectableOptions;
   },
   render: function() {
     //displays a form composed of radio buttons tied to sample and indVarId
     var options = this.getOptions();
       return (
-      <div>
-      <span>select an option for ind variable: {this.props.name}</span>
-      <form onChange={this.handleChange}>
-      {options}
-      </form>
-      </div>
-      )
+        <div>
+          <span>select an option for ind variable: {this.props.name}</span>
+          <form onChange={this.handleChange}>
+            {options}
+          </form>
+        </div>
+      );
   }
 });
 
