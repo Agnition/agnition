@@ -29,7 +29,9 @@ var IndVarWrapper = React.createClass({
     this.props.actions.createIndVar(indVarId);
     this.props.actions.addIndVar(indVarId, this.props.expId);
   },
-
+  componentWillMount: function(){
+    this.genComponent();
+  },
   render: function(){
     // genComponent();
     var components = this.props.indVarIds.map(function (indVarId) {
