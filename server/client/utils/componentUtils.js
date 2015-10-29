@@ -33,18 +33,18 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   var sampleIds = state.Measures.getIn([measureId, 'samples']).toJS();
   var samples = _.map(sampleIds, function(sampleId) {
     var sample = state.Samples.get(sampleId).toJS();
-    var indVarValue = _.first(_.pluck(_.filter(sample.indVars, function(indVar) {
-        //return indVar._id === this.props.indVarId; // TODO: use when id is consistent
-        return indVar.name === ownProps.name; // until db is consistent
-      }), 'value'))
+    var indVarValue = _.first(_.pluck(_.filter(sample.indVarStates, function(indVar) {
+        //return indVar._id === indVarId; // TODO: use when id is consistent
+        return indVar.name === indVarName; // until db is consistent
+      }), 'value'));
     return {
       indVarValue: indVarValue,
       measureValue: sample.value
     };
   });
   return {
-    measureKind: measureKind,
     indVarName: indVarName,
+    measureKind: measureKind,
     samples: samples
   };
 };
