@@ -42,7 +42,7 @@ var ChosenOption = React.createClass({
     var ownProps = this.props;
     var options = _.map(states, function(indVars) {
       return _.first(_.pluck(_.filter(indVars, function(indVar) {
-        //return indVar._id === this.props.indVarId;
+        //return indVar._id === this.props.indVarId; // TODO: use when id is consistent
         return indVar.name === ownProps.name; // until db is consistent
       }), 'value'));
     });

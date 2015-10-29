@@ -15,7 +15,8 @@ var utils = require('../../utils/utils');
 var mockRequire = require('mockrequire');
 
 var IndVarWrapper = mockRequire('../../../server/client/containers/NewExperiment/IndVarWrapper',{
-  './IndVar' : utils.mockDivComponent('ind-var')
+  './IndVar' : utils.mockDivComponent('ind-var'),
+  '../../components/viewexperiment/IndVar.js' : utils.mockDivComponent('ind-var-view')
 }, {jsx:true});
 
 describe('the IndVarWrapper Container', function () {
@@ -24,7 +25,7 @@ describe('the IndVarWrapper Container', function () {
     var props = {};
     var obj = {
       Experiments : {
-        'a': { 
+        'a': {
           indVars : []
         }
       }

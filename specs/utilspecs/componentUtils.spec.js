@@ -1,5 +1,7 @@
 var testUtils = require('../../server/client/utils/componentUtils.js');
 var Immutable = require('immutable');
+var mockStore = require('../utils/mockStore');
+
 var expect = require('chai').expect;
 
 describe('mapIdsToObjs', function () {
@@ -27,4 +29,53 @@ describe('divCollection(subElementobjects, subElementConstructor, propKey)', fun
   });
 
 
+});
+
+describe('getSamplesForMeasure', function () {
+  it('should get samples for a measure and indvar pair', function () {
+    var obj = {
+      Measures : {
+        m1 : {
+          kind : 'list',
+          samples : ['s1', 's2']
+        }
+      },
+      Samples : {
+        s1 : {
+          value : 'worked',
+          indVarStates : [
+            {
+              _id : 'iv1',
+              name : 'weight',
+              value : '1a'
+            }
+          ]
+        },
+        s2 : {
+          value : 'didn\'t work',
+          indVarStates : [
+            {
+              _id : 'iv1',
+              name : 'weight',
+              value : '1b'
+            }
+          ]
+        }
+      },
+      IndVars : {
+        iv1 : {
+          name : 'weight',
+          options: ['1a','2a'],
+          numTrials : 4,
+          actionsPerTrial : 1
+        },
+      },
+    };
+    var state = mockStore(obj).getState();
+    var indVarId = 'iv1';
+    var measureId = 'm1';
+
+    expect(JSON.stringify(testUtils.getSamplesForMeasure(state, measureId, indVarId)))
+      .to.eql('{"indVarName":"weight","measureKind":"list","samples":[{"indVarValue":"1a","measureValue":"worked"},{"indVarValue":"1b","measureValue":"didn\'t work"}]}');
+  });
 });

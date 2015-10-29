@@ -27,6 +27,30 @@ var divCollection = function(subElementobjects, subElementConstructor, propKey) 
 };
 
 
+var getSamplesForMeasure = function(state, measureId, indVarId) {
+  var measureKind = state.Measures.getIn([measureId, 'kind']);
+  var indVarName = state.IndVars.getIn([indVarId, 'name']);
+  var sampleIds = state.Measures.getIn([measureId, 'samples']).toJS();
+  var samples = _.map(sampleIds, function(sampleId) {
+    var sample = state.Samples.get(sampleId).toJS();
+    var indVarValue = _.first(_.pluck(_.filter(sample.indVarStates, function(indVar) {
+        //return indVar._id === indVarId; // TODO: use when id is consistent
+        return indVar.name === indVarName; // until db is consistent
+      }), 'value'));
+    return {
+      indVarValue: indVarValue,
+      measureValue: sample.value
+    };
+  });
+  return {
+    indVarName: indVarName,
+    measureKind: measureKind,
+    samples: samples
+  };
+};
+
+
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
+module.exports.getSamplesForMeasure = getSamplesForMeasure;
 
