@@ -39,7 +39,7 @@ describe('Submit Experiment', function () {
     ReactDOM.unmountComponentAtNode(root);
   });
 
-  it('should post a new experiment when clicked', function () {
+  xit('should post a new experiment when clicked', function () {
     var button = TestUtils.findRenderedDOMComponentWithTag(submitExperiment, 'button');
     // TestUtils.Simulate.click(button);
     expect(button).to.exist;
