@@ -22,29 +22,16 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureQualitative = React.createClass({
 
-  setScale: function () {
-    var vals = [];
-    var max = Number(this.refs.max.value);
-    for (var i = 0; i <= max; i++) {
-      vals.push(i);
-    }
-    this.props.actions.setScale(vals, this.props.measureId);
-  },
-
   componentWillMount: function() {
-
+    this.props.actions.setScale([1, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0], this.props.measureId);
   },
 
   render: function () {
     return (
       <div>
-        Max
-        <input ref="max" onChange={this.setScale} type="text" />
         <p>
-        Current scale :
-          {JSON.stringify(this.props.scale)}
+        Scale from 1-5
         </p>
-        <button onClick={this.setScale}>save measure</button>
       </div>
       );
   }
