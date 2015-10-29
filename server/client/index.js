@@ -39,9 +39,6 @@ if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 
   var normData = normalize({ exps : window.exps });
-  console.log(window.exps);
-  console.log(normData);
-  console.log(unNormalize(normData));
   store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
   store.dispatch(DepVariableActions.setDepVars(normData.entities.depVars));
   store.dispatch(IndVariableActions.setIndVars(normData.entities.indVars));
