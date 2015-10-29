@@ -8,6 +8,7 @@ var expect = require('chai').expect;
 var mockStore = require('../../utils/mockStore');
 var mockRequire = require('mockrequire');
 var utils = require('../../utils/utils');
+var sinon = require('sinon');
 
 var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/DepVars', {
   './DepVar': utils.mockDivComponent('depvar'),
@@ -27,8 +28,8 @@ var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/
 var index = require('../index.js')();
 
 describe('The DepVars sample component', function () {
-
-  var form;
+  
+  var form, server;
 
   beforeEach(function () {
     var props = {};
@@ -62,7 +63,7 @@ describe('The DepVars sample component', function () {
     props.params.sampleid = 's';
 
     form = TestUtils.renderIntoDocument(React.createElement(DepVars, props), 'root');
-
+    
   });
 
   it('should render a depVar for each depVarId', function () {
@@ -74,5 +75,12 @@ describe('The DepVars sample component', function () {
     var inputs = TestUtils.scryRenderedDOMComponentsWithTag(form, 'input');
     expect(inputs.length).to.eql(2);
   });
+
+  xit('go to next sample page', function () {
+    var button = TestUtils.findRenderedDOMComponentWithTag(form, 'button');
+    TestUtils.Simulate.submit(button);
+    // server.respond();
+  });
+
 
 });
