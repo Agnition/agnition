@@ -73,8 +73,12 @@ var NewExperiment = React.createClass({
             {questions[this.props.questionIndex]}
             <div className="row back-next-row">
               <div className="col-xs-9 col-xs-offset-3">
-                <button className="back-button" onClick={this.handleBack}>Back</button>
-                <button className="next-button" onClick={this.handleNext}>Next</button>
+              {this.props.questionIndex > 0
+                ? <button className="back-button" onClick={this.handleBack}>Back</button> 
+                : null}
+              {this.props.questionIndex < 5
+                ? <button className="next-button" onClick={this.handleNext}>Next</button>
+                : null}
               </div>
             </div>
           </div>
