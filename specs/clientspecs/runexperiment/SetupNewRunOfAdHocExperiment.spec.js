@@ -17,7 +17,8 @@ var _ = require('underscore');
 
 //require specific components
 var SetupNewRunOfAdHocExperiment = mockRequire('../../../server/client/containers/RunAdHocExperiment/SetupNewRunOfAdHocExperiment',{
-  './SelectNonRandomOptions': utils.mockDivComponent('non-random-options')
+  './SelectNonRandomOptions': utils.mockDivComponent('non-random-options'),
+  './SelectRandomOptions': utils.mockDivComponent('random-options')
 }, {jsx:true});
 
 describe('SetupNewRunOfAdHocExperiment container', function () {
@@ -42,10 +43,16 @@ describe('SetupNewRunOfAdHocExperiment container', function () {
     adHocExp = TestUtils.renderIntoDocument(React.createElement(SetupNewRunOfAdHocExperiment, props), 'root');
   });
 
-  it('should pass the correct indvars and sample to', function () {
+  it('should pass the correct indvars and sample to non random indvars', function () {
     var nonRands = TestUtils.scryRenderedDOMComponentsWithClass(adHocExp, 'non-random-options');
     var text = _.pluck(nonRands,'textContent');
     expect(text).to.eql(['{"indVarIds":["barn","cow"],"sampleId":"sickle"}']);
+  });
+
+  it('should pass the correct indvars, sample, and expid to random indvars', function () {
+    var rands = TestUtils.scryRenderedDOMComponentsWithClass(adHocExp, 'random-options');
+    var text = _.pluck(rands,'textContent');
+    expect(text).to.eql(['{"indVarIds":["donkey"],"expId":"acre","sampleId":"sickle"}']);
   });
 
 });

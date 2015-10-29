@@ -49,15 +49,3 @@ describe('SelectableOptions Container', function () {
     expect(actions.setIndVarOptionOnSample).to.have.been.called;
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
