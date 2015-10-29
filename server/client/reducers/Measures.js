@@ -13,17 +13,17 @@ module.exports = function(state = initialState, action) {
 
   if (action.type === 'SET_KIND') {
     if (action.kind !== 'numeric') {
-      state = state.setIn([action.measureId, 'unit'], 'null');
+      state = state.setIn([action.measureId, 'unit'], null);
     }
     if (action.kind === 'qualitative') {
-      state = state.setIn([action.measureId, 'list'], 'null');
+      state = state.setIn([action.measureId, 'list'], null);
     }
     if (action.kind === 'list') {
-      state = state.setIn([action.measureId, 'scale'], 'null');
+      state = state.setIn([action.measureId, 'scale'], null);
     }
     if (action.kind === 'numeric') {
-      state = state.setIn([action.measureId, 'scale'], 'null');
-      state = state.setIn([action.measureId, 'list'], 'null');
+      state = state.setIn([action.measureId, 'scale'], null);
+      state = state.setIn([action.measureId, 'list'], null);
     }
     return state.setIn([action.measureId, 'kind'], action.kind);
   }

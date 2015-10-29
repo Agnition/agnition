@@ -27,10 +27,20 @@ var SubmitExperiment = React.createClass({
     var state = store.getState();
     var normalState = stateToNorm(state);
     var data = filterData(normalState.entities, 'experiments', this.props.expId);
+    data = JSON.stringify(data);
     var userId = this.props.userId;
     var url = '/users/' + userId + '/experiments/';
-    $.post(url, data, function (data) {
-      console.log(data);
+    $.ajax({
+      url: url,
+      type: 'POST',
+      contentType: 'application/json',
+      data: data,
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (err) {
+        console.log(err);
+      }
     });
   },
 

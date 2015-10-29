@@ -62,37 +62,37 @@ var addExp = function (req, res) {
         new Exp(experiment).save();
       });
     })
-    .then(function(exp){
+    .then(function (exp){
       _.each(req.body.depVars, function(depVar) {
         new DepVar(depVar).save();
       });
     })
-    .then(function(){
+    .then(function (){
       _.each(req.body.indVars, function(indVar) {
         new IndVar(indVar).save();
       });
     })
-    .then(function(){
+    .then(function (){
       _.each(req.body.measures, function(measure) {
         new Measure(measure).save();
       });
     })
-    .then(function(){
+    .then(function (){
       _.each(req.body.reminders, function(remind) {
         new Remind(remind).save();
       });
     })
-    .then(function(){
+    .then(function (){
       _.each(req.body.requests, function(request) {
         new Request(request).save();
       });
     })
-    .then(function(){
+    .then(function (){
       _.each(req.body.samples, function(sample) {
         new Sample(sample).save();
       });
-    }).then(function(){
-      res.sendStatus(200);
+    }).then(function (exp){
+      res.send(exp);
     }).catch(function(err){
       res.send(500);
       console.log(err);
