@@ -5,22 +5,27 @@ var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require ('../../actions/Samples');
 var SelectNonRandomOptions = require('./SelectNonRandomOptions');
-var SelectRandomOptions  = 'tbd';
+var SelectRandomOptions  = require('./SelectRandomOptions');
 var shortId = require('shortid');
 
 var Link = require('react-router').Link;
 
 var mapStateToProps = function (state, ownProps) {
-    //have to map the ids to the indVars
-    var ids = state.Experiments.get(ownProps.expId).toJS().indVars;
-    var indVars = _.map(ids, function(id) {
-      return state.IndVars.get(id).toJS();
-    });
+  //have to map the ids to the indVars
+  var indVarIds = state.Experiments.get(ownProps.expId).toJS().indVars;
+  var indVars = _.map(indVarIds, function(indVarId) {
+    return state.IndVars.get(indVarId).toJS();
+  });
 
+  var randIndVars = _.pluck(_.filter(indVars, function(indVar) {
+    return indVar.randomized;
+  }), '_id');
+  var nonRandIndVars = _.pluck(_.filter(indVars, function(indVar) {
+    return !indVar.randomized;
+  }), '_id');
   return {
-    indVars: indVars,
-    expId : ownProps.expId,
-    sampleId : ownProps.sampleId
+    randIndVars: randIndVars,
+    nonRandIndVars: nonRandIndVars,
   };
 };
 
@@ -31,26 +36,15 @@ var mapDispatchToProps = function (dispatch) {
 };
 
 var SetupNewRunOfAdHocExperiment = React.createClass({
-  getNonRandomIndVars : function() {
-    return _.pluck(_.filter(this.props.indVars, function(indVar) {
-      return !indVar.randomized;
-    }),'_id');
-  },
-  getRandomIndVars : function () {
-    //someday this will get filled out
-    return  'not yet';
-  },
   render: function () {
-    var nonRand = this.getNonRandomIndVars();
-    var rand = this.getRandomIndVars();
 
     var nonRandSpan = null;
-    if(nonRand.length > 0){
-     randSpan = <span>enter the parameters for your new sample</span>;
+    if(this.props.nonRandIndVars.length > 0){
+     nonRandSpan = <span>enter the parameters for your new sample</span>;
     }
 
     var randSpan = null;
-    if(rand.length > 0){
+    if(this.props.randIndVars.length > 0){
       randSpan = <span>these are the parameters we have randomly assigned</span>;
     }
 
@@ -58,13 +52,22 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
       <div>
         {nonRandSpan}
         <div>
-          <SelectNonRandomOptions indVarIds = {nonRand} sampleId = {this.props.sampleId} />
+          <SelectNonRandomOptions
+            indVarIds = {this.props.nonRandIndVars}
+            sampleId = {this.props.sampleId} />
         </div>
         {randSpan}
         <div>
-          {rand}
+          <SelectRandomOptions
+            indVarIds = {this.props.randIndVars}
+            expId = {this.props.expId}
+            sampleId = {this.props.sampleId} />
         </div>
-        <button><Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>Run Experiment</Link></button>
+        <button>
+          <Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>
+            Run Experiment
+          </Link>
+        </button>
       </div>
     );
   }

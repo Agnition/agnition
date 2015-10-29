@@ -42,7 +42,7 @@
 		},
 		"indVars": {
 			"562ebfa6a3b7183b57d3ed42": {
-				"name": "Weight",
+				"name": "weight",
 				"numTrials": 1,
 				"randomized": false,
 				"_id": "562ebfa6a3b7183b57d3ed42",
@@ -56,7 +56,7 @@
 				]
 			},
 			"562ebfa6a3b7183b57d3ed4b": {
-				"name": "Weight",
+				"name": "weight",
 				"numTrials": 1,
 				"randomized": true,
 				"_id": "562ebfa6a3b7183b57d3ed4b",
@@ -70,8 +70,8 @@
 				]
 			},
 			"562ebfa6a3b7183b57d3ed54": {
-				"name": "Weight",
-				"numTrials": 1,
+				"name": "weight",
+				"numTrials": 3,
 				"randomized": true,
 				"_id": "562ebfa6a3b7183b57d3ed54",
 				"reminders": [

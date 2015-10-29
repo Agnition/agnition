@@ -75,7 +75,7 @@ else {
         });
       });
     });
-  }); 
+  });
 }
 app.use(express.static(path.join(__dirname, './client/public')));
 app.use('/users', mock, userRouter);

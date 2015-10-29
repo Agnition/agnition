@@ -8,13 +8,13 @@ var SelectableOptions = require('./SelectableOptions');
 var SelectNonRandomOptions = React.createClass({
   getSelectableOptions: function () {
     var selectableOptions = [];
-    _.each(this.props.indVarIds, function(indVarid){
+    _.each(this.props.indVarIds, function(indVarId){
       var props = {
-        indVarId: indVarid,
+        indVarId: indVarId,
         sampleId: this.props.sampleId
       };
-      selectableOptions.push(<SelectableOptions {...props}/>)
-    }, this)
+      selectableOptions.push(<SelectableOptions {...props}/>);
+    }, this);
 
     return selectableOptions;
   },
@@ -22,10 +22,10 @@ var SelectNonRandomOptions = React.createClass({
     var selectableOptions = this.getSelectableOptions();
     return (
       <div>
-      {selectableOptions}
+        {selectableOptions}
       </div>
-    )
+    );
   }
-})
+});
 
-module.exports = SelectNonRandomOptions
+module.exports = SelectNonRandomOptions;
