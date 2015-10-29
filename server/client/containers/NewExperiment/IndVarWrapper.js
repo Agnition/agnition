@@ -8,13 +8,15 @@ var expActions = require('../../actions/Experiments');
 Actions = _.extend(Actions,expActions);
 var mongooseId = require('mongoose').Types;
 
+
 //added in..
 var IndVar = require('./IndVar');
+var IndVarView = require('../../components/viewexperiment/IndVar.js');
 var utils = require('../../utils/componentUtils');
 
 function mapStateToProps (state, ownProps) {
   return {
-    indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars'])
+    indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars']).toJS()
   };
 }
 
@@ -33,14 +35,16 @@ var IndVarWrapper = React.createClass({
     this.genComponent();
   },
   render: function(){
-    // genComponent();
-    var components = this.props.indVarIds.map(function (indVarId) {
+    var indVarEntries = this.props.indVarIds.map(function (indVarId) {
           return <IndVar indVarId = {indVarId} key = {indVarId} />
-        })
+        });
     return (
       <div>
-        {components}
+        {indVarEntries}
         <button ref="indVarButton" onClick={this.genComponent} > add indvar </button>
+        <div>
+        <IndVarView indVars = {this.props.indVarIds} />
+        </div>
       </div>
     )
   }
