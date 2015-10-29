@@ -4,6 +4,7 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 var $ = require('jquery');
 require('jquery-serializejson');
+var History = require('react-router').History;
 
 var DepVar = require('./DepVar');
 
@@ -15,11 +16,15 @@ function mapStatetoProps (state, ownProps) {
 }
 
 var DepVars = React.createClass({
+  mixins: [ History ],
   handleSubmit: function (event) {
     event.preventDefault();
-
+    console.log('buttonPushed!');
     var data = $(event.target).serializeJSON();
-    $.post('/samples', data);
+    $.post('/samples', data, function(success){
+      console.log('success!');
+      this.history.pushState(null, '/viewexp/' + this.props.params.expid);
+    }.bind(this));
   },
 
   render: function () {
