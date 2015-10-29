@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
-var userId = require('../../../dummyData/userid.json').userId;
 var cookie = require('react-cookie');
 
 var ExperimentActions = require('../actions/Experiments.js');
