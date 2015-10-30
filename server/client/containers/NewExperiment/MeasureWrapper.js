@@ -18,7 +18,7 @@ var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureA
 
 function mapStatetoProps (state, ownProps) {
   return {
-    measureIds: state.DepVars.getIn([ownProps.depVarId, 'measures']),
+    measureIds: state.DepVars.getIn([ownProps.depVarId, 'measures']).toJS(),
   };
 }
 
@@ -31,7 +31,9 @@ function mapDispatchtoProps (dispatch) {
 var MeasureWrapper = React.createClass({
 
   componentWillMount: function(){
-    this.genComponent();
+    if(this.props.measureIds.length === 0) {
+      this.genComponent();
+    }
   },
 
   genComponent: function (event) {
@@ -41,14 +43,12 @@ var MeasureWrapper = React.createClass({
   },
 
   render: function () {
-
     var components = this.props.measureIds.map(function(measureId) {
       return <Measure key={measureId} measureId={measureId} />;
     });
     return (
       <div className="measure-wrapper">
         {components}
-        <button onClick={this.genComponent}>add another measure</button>
       </div>
     );
   }

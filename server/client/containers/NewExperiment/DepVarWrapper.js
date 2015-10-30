@@ -16,7 +16,7 @@ var Actions = _.extend(ExpActions, DepVarActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
-    depVars: state.Experiments.getIn([ownProps.expId, 'depVars']),
+    depVars: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS(),
   };
 }
 
@@ -28,24 +28,26 @@ function mapDispatchToProps (dispatch) {
 
 var DepVarWrapper = React.createClass({
 
-  componentWillMount: function(){
-    this.genComponent();
-  },
 
   genComponent: function (event) {
-    this.depVarId = mongooseId.ObjectId().toString();
-    this.props.actions.createDepVar(this.depVarId);
-    this.props.actions.addDepVar(this.depVarId, this.props.expId);
+    var depVarId = mongooseId.ObjectId().toString();
+    this.props.actions.createDepVar(depVarId);
+    this.props.actions.addDepVar(depVarId, this.props.expId);
+  },
+
+  componentWillMount: function(){
+    if(this.props.depVars.length === 0) {
+      this.genComponent(); 
+    }
   },
 
   render: function () {
-    var components = this.props.depVars.map(function(depVarId) {
+    var depVars = this.props.depVars.map(function(depVarId) {
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
     return (
-      <div className="dep-var-wrapper">
-         {components}
-        <button ref="depVarButton" onClick={this.genComponent}>add depvar</button>
+      <div className="dep-var-wrapper new-experiment-container">
+        {depVars}
       </div>
     );
   }

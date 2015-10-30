@@ -9,6 +9,7 @@ var _ = require('lodash');
 var NewExperimentActions = require('../actions/NewExperiment');
 var ExperimentActions = require('../actions/Experiments');
 var Actions = _.extend(ExperimentActions, NewExperimentActions);
+var Lifecycle = require('react-router').Lifecycle;
 
 // import child containers
 var Name = require('../containers/NewExperiment/Name');
