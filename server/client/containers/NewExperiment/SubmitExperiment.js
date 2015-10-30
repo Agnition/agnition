@@ -41,7 +41,7 @@ var SubmitExperiment = React.createClass({
       data: data,
       success: function (data) {
         this.history.pushState(null, '/dashboard');
-        this.props.actions.resetNewExperiment();
+        this.props.actions.resetQuestionIndex();
       }.bind(this),
       error: function (err) {
         console.log(err);
@@ -51,7 +51,7 @@ var SubmitExperiment = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="new-experiment-container">
         <button ref="submitExperiment" onClick={this.handleClick}>Save Experiment</button>
       </div>
     );

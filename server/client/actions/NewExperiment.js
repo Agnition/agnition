@@ -10,8 +10,8 @@ module.exports.goToNextQuestion = function () {
   };
 };
 
-module.exports.resetNewExperiment = function () {
+module.exports.resetQuestionIndex = function () {
   return {
-    type: 'RESET_NEW_EXPERIMENT'
+    type: 'RESET_QUESTION_INDEX'
   };
 }

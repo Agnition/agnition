@@ -13,7 +13,7 @@ module.exports = function(state = 0, action) {
       console.log('You are at the first question already');
     }
   }
-  if (action.type === 'RESET_NEW_EXPERIMENT') {
+  if (action.type === 'RESET_QUESTION_INDEX') {
     return 0;
   }
   return state;
