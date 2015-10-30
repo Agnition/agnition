@@ -12,6 +12,9 @@ module.exports = function(state = initialState, action) {
       indVars: new Immutable.List(),
     }));
   }
+  if (action.type === 'DELETE_EXPERIMENT') {
+    return state.delete(action.expId);
+  }
   if (action.type === 'SET_EXPERIMENT_KIND') {
     return state.setIn([action.expId, 'kind'], action.kind);
   }
