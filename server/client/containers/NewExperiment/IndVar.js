@@ -5,9 +5,15 @@ var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require ('../../actions/IndVars');
 
+function mapStatetoProps (state, ownProps) {
+  return {
+    options: state.IndVars.getIn([ownProps.indVarId, 'options']).toJS()
+  };
+}
+
 function mapDispatchtoProps (dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(Actions, dispatch),
   };
 }
 
@@ -24,15 +30,17 @@ var IndVar = React.createClass({
   setRandomized: function(event) {
       this.props.actions.setRandomized(event.target.checked, this.props.indVarId);
   },
-  pushOption: function(event){
-    this.props.actions.pushOption(this.refs.option.value, this.props.indVarId);
+  addOption: function(event){
+    this.props.actions.addOption(this.refs.option.value, this.props.indVarId);
     this.refs.option.value = '';
   },
-  popOption: function(event){
-    this.props.actions.popOption(this.refs.option.value, this.props.indVarId);
-    this.refs.option.value = '';
+  removeOption: function (event){
+    event.preventDefault();
+    this.props.actions.removeOption(event.target.value, this.props.indVarId);
   },
+
   render: function(){
+
     return (
       <div>
         <section className ='ind-var-input'>
@@ -44,22 +52,31 @@ var IndVar = React.createClass({
           <input ref="name" type="text"  onChange={this.setName}/>
 
           <label>How many times do you have to do x to see a change in y?</label>
-          <input ref="actionsPerTrial" type="text" onChange={this.setActionsPerTrial}/>
+          <input ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
 
           <label>How many times would you like to repeat each way you can do x?</label>
-          <input ref="numTrials" type="text" onChange={this.setNumTrials}/>
+          <input ref="numTrials" type="number" onChange={this.setNumTrials}/>
 
           <label>Please randomize the events for me</label>
           <input ref="randomized" type="checkbox" onChange={this.setRandomized}/>
 
           <label>List Options For X</label>
           <input ref="option" type="text"/>
-          <button onClick={this.pushOption}>Add an option</button>
-          <button onClick={this.popOption}>Undo</button>
+          <button onClick={this.addOption}>Add an option</button>
+          <div className="optionList">
+            {this.props.options.map(function (option) {
+              return (
+                <div>
+                {option}
+                <button className="remove-option" onClick={this.removeOption} value={option}>remove</button>
+                </div>
+              );
+            }.bind(this))}
+          </div>
         </section>
       </div>
     )
   }
 })
 
-module.exports = connect(null, mapDispatchtoProps)(IndVar);
+module.exports = connect(mapStatetoProps, mapDispatchtoProps)(IndVar);

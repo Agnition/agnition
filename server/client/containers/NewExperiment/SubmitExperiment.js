@@ -5,6 +5,8 @@ var unNormalize = require('../../utils/un-normalize');
 var stateToNorm = require('../../utils/stateToNorm');
 var schema = require('../../utils/schema');
 var filterData = require('../../utils/normalDataFilter');
+var Router = require('react-router').Router;
+import { History } from 'react-router';
 
 var NewExperimentActions = require('../../actions/NewExperiment');
 var bindActionCreators = require('redux').bindActionCreators;
@@ -23,6 +25,8 @@ function mapDispatchtoProps (dispatch) {
 
 var SubmitExperiment = React.createClass({
 
+  mixins: [ History ],
+
   handleClick: function () {
     var state = store.getState();
     var normalState = stateToNorm(state);
@@ -36,8 +40,9 @@ var SubmitExperiment = React.createClass({
       contentType: 'application/json',
       data: data,
       success: function (data) {
-        console.log(data);
-      },
+        this.history.pushState(null, '/dashboard');
+        this.props.actions.resetQuestionIndex();
+      }.bind(this),
       error: function (err) {
         console.log(err);
       }
@@ -46,7 +51,7 @@ var SubmitExperiment = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="new-experiment-container">
         <button ref="submitExperiment" onClick={this.handleClick}>Save Experiment</button>
       </div>
     );

@@ -7,6 +7,7 @@ module.exports = function(state = initialState, action) {
   }
   if (action.type === 'CREATE_EXPERIMENT') {
     return state.set(action.expId, Immutable.Map({
+      _id: action.expId,
       depVars: new Immutable.List(),
       indVars: new Immutable.List(),
     }));

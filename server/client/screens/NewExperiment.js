@@ -20,7 +20,7 @@ var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
 var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 
 // import child components
-var NewExperimentProgress = require('../containers/NewExperiment/components/NewExperimentProgress');
+var NewExperimentProgress = require('../containers/NewExperiment/components/ProgressWrapper');
 
 function mapStatetoProps (state) {
   return {
@@ -59,7 +59,6 @@ var NewExperiment = React.createClass({
 
     var questions = [(<Name expId={this.expId} />),
         (<Hypothesis expId={this.expId} />),
-        (<HypothesisCheck expId={this.expId} />),
         (<DepVarWrapper expId={this.expId} />),
         (<IndVarWrapper expId={this.expId} />),
         (<SubmitExperiment expId={this.expId} />)

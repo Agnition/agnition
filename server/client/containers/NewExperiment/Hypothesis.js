@@ -62,6 +62,9 @@ var Hypothesis = React.createClass({
             <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
           </div>
         </section>
+        <section>
+          Put another way, how does {this.props.cause} affect {this.props.effect} ? 
+        </section>
       </div>
       );
   }
