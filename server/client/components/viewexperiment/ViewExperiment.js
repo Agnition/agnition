@@ -10,8 +10,6 @@ import { History } from 'react-router';
 import { Link } from 'react-router';
 
 function mapStateToProps (state, ownProps) {
-  console.log(state);
-  debugger;
   return {
     exp: state.Experiments.get(ownProps.params.expid).toJS(),
   };

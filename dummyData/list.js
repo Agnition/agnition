@@ -10,6 +10,9 @@ module.exports = {
       kind  : 'list',
       list  : ['somewhere','overthere','idontcare'],
       unit  : null,
+      scaleDescriptionMin: null,
+      scaleDescriptionMiddle: null,
+      scaleDescriptionMax: null,
       samples : [{
         value: 'somewhere',
         // time: using defualt,

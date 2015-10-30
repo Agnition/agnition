@@ -13,6 +13,9 @@ module.exports = {
         kind  : 'numeric',
         list  : null,
         unit  : 'feet',
+        scaleDescriptionMin: null,
+        scaleDescriptionMiddle: null,
+        scaleDescriptionMax: null,
         samples : [{
           // _id : 3,
           value: 1,

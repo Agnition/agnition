@@ -143,6 +143,10 @@
 				"kind": "list",
 				"unit": null,
 				"_id": "562ebfa6a3b7183b57d3ed4e",
+        "scaleDescriptionMin": null,
+        "scaleDescriptionMiddle": null,
+        "scaleDescriptionMax": null,
+				"requests": [],
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed51",
@@ -158,6 +162,9 @@
 				"kind": "numeric",
 				"unit": "feet",
 				"_id": "562ebfa6a3b7183b57d3ed57",
+        "scaleDescriptionMin": null,
+        "scaleDescriptionMiddle": null,
+        "scaleDescriptionMax": null,
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed59",
