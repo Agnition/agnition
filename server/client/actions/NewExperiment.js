@@ -9,3 +9,9 @@ module.exports.goToNextQuestion = function () {
     type: 'GO_TO_NEXT_QUESTION'
   };
 };
+
+module.exports.resetNewExperiment = function () {
+  return {
+    type: 'RESET_NEW_EXPERIMENT'
+  };
+}

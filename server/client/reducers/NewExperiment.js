@@ -13,5 +13,8 @@ module.exports = function(state = 0, action) {
       console.log('You are at the first question already');
     }
   }
+  if (action.type === 'RESET_NEW_EXPERIMENT') {
+    return 0;
+  }
   return state;
 };
