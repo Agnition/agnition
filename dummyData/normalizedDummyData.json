@@ -129,6 +129,9 @@
 				"kind": "qualitative",
 				"unit": null,
 				"_id": "562ebfa6a3b7183b57d3ed45",
+        "scaleDescriptionMin": "The min!",
+        "scaleDescriptionMiddle": "The middle!",
+        "scaleDescriptionMax": "The max!",
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed48",
