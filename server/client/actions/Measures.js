@@ -37,6 +37,30 @@ module.exports.setScale = function (scale, measureId) {
   };
 };
 
+module.exports.setScaleDescriptionMin = function (description, measureId) {
+  return {
+    type: 'SET_SCALE_DESCRIPTION_MIN',
+    description: description,
+    measureId: measureId
+  };
+};
+
+module.exports.setScaleDescriptionMiddle = function (description, measureId) {
+  return {
+    type: 'SET_SCALE_DESCRIPTION_MIDDLE',
+    description: description,
+    measureId: measureId
+  };
+};
+
+module.exports.setScaleDescriptionMax = function (description, measureId) {
+  return {
+    type: 'SET_SCALE_DESCRIPTION_MAX',
+    description: description,
+    measureId: measureId
+  };
+};
+
 module.exports.addListItem = function (item, measureId) {
   return {
     type: 'ADD_LIST_ITEM',

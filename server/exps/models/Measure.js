@@ -44,6 +44,9 @@ var measureSchema = new Schema({
      validator: mesScaleValidator
     }
   },
+  scaleDescriptionMin: String,
+  scaleDescriptionMiddle: String,
+  scaleDescriptionMax: String,
   list : {
     type: Array,
     validate : {

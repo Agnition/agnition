@@ -23,7 +23,27 @@ function mapDispatchtoProps (dispatch) {
 var MeasureQualitative = React.createClass({
 
   componentWillMount: function() {
-    this.props.actions.setScale([1, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0], this.props.measureId);
+    this.props.actions.setScale(
+      [1, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0],
+      this.props.measureId);
+  },
+  setMinDescription: function() {
+    this.props.actions.setScaleDescriptionMin(
+      this.refs.minDescription.value,
+      this.props.measureId
+    );
+  },
+  setMiddleDescription: function() {
+    this.props.actions.setScaleDescriptionMiddle(
+      this.refs.middleDescription.value,
+      this.props.measureId
+    );
+  },
+  setMaxDescription: function() {
+    this.props.actions.setScaleDescriptionMax(
+      this.refs.maxDescription.value,
+      this.props.measureId
+    );
   },
 
   render: function () {
@@ -32,6 +52,12 @@ var MeasureQualitative = React.createClass({
         <p>
         Scale from 1-5
         </p>
+        Min description :
+        <input ref="minDescription" onChange={this.setMinDescription}/>
+        Middle description :
+        <input ref="middleDescription" onChange={this.setMiddleDescription}/>
+        Max description :
+        <input ref="maxDescription" onChange={this.setMaxDescription}/>
       </div>
       );
   }
