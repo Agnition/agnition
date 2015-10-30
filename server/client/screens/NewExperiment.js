@@ -43,6 +43,10 @@ var NewExperiment = React.createClass({
     this.props.actions.setExperimentKind('ad_hoc', this.expId);
   },
 
+  componentWillUnmount: function () {
+    this.props.actions.deleteExperiment(this.expId);
+  },
+
   setName: function () {
     this.props.actions.setName(this.refs.name.value, this.props.expId);
   },
