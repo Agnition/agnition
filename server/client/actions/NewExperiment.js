@@ -14,4 +14,4 @@ module.exports.resetQuestionIndex = function () {
   return {
     type: 'RESET_QUESTION_INDEX'
   };
-}
+};

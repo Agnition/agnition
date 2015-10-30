@@ -22,6 +22,8 @@ var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
 // import child components
 var NewExperimentProgress = require('../containers/NewExperiment/components/ProgressWrapper');
 
+const QUESTION_COUNT = 5;
+
 function mapStatetoProps (state) {
   return {
     questionIndex: state.NewExperiment
@@ -44,7 +46,10 @@ var NewExperiment = React.createClass({
   },
 
   componentWillUnmount: function () {
-    this.props.actions.deleteExperiment(this.expId);
+    if (this.props.questionIndex < QUESTION_COUNT) {
+      this.props.actions.resetQuestionIndex();
+      this.props.actions.deleteExperiment(this.expId);
+    }
   },
 
   setName: function () {
