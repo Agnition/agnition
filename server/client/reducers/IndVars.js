@@ -35,6 +35,6 @@ module.exports = function(state = initialState, action) {
       }
       return state.setIn([action.indVarId, 'options'], newOptions);
   } else {
-    return state
+    return state;
   }
 };
