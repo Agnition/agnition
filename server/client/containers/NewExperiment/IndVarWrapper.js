@@ -40,11 +40,7 @@ var IndVarWrapper = React.createClass({
         });
     return (
       <div>
-        {indVarEntries}
-        <button ref="indVarButton" onClick={this.genComponent} > add indvar </button>
-        <div>
-        <IndVarView indVars = {this.props.indVarIds} />
-        </div>
+      {indVarEntries}
       </div>
     )
   }

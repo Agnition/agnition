@@ -38,17 +38,17 @@ module.exports.setRandomized = function (randomized, indVarId) {
     indVarId: indVarId
   };
 };
-module.exports.pushOption = function (option, indVarId) {
+module.exports.addOption = function (option, indVarId) {
   return {
-    type: 'PUSH_INDVAR_OPTION',
+    type: 'ADD_INDVAR_OPTION',
     option : option,
     indVarId: indVarId
   };
 };
 
-module.exports.popOption = function (option, indVarId) {
+module.exports.removeOption = function (option, indVarId) {
   return {
-    type: 'POP_INDVAR_OPTION',
+    type: 'REMOVE_INDVAR_OPTION',
     option : option,
     indVarId: indVarId
   };

@@ -21,15 +21,20 @@ module.exports = function(state = initialState, action) {
   } else if(action.type ==='SET_INDVAR_RANDOMIZED') {
       return state.setIn([action.indVarId,'randomized'], action.randomized);
 
-  } else if(action.type ==='PUSH_INDVAR_OPTION') {
+  } else if(action.type ==='ADD_INDVAR_OPTION') {
       return state.updateIn([action.indVarId, "options"], function(list) {
         return list.push(action.option);
       });
-  } else if(action.type ==='POP_INDVAR_OPTION') {
-      return state.updateIn([action.indVarId, "options"], function(list) {
-        return list.pop();
-      });
+  } else if(action.type ==='REMOVE_INDVAR_OPTION') {
+      var newOptions = state.get(action.indVarId).get('options');
+      // Find index of item
+      var optionIndex = newOptions.indexOf(action.option);
+      // Remove if in list
+      if (optionIndex >= 0) {
+        newOptions = newOptions.splice(optionIndex, 1);
+      }
+      return state.setIn([action.indVarId, 'options'], newOptions);
   } else {
-    return state;
+    return state
   }
 };
