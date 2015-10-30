@@ -1,13 +1,14 @@
 // import React and Redux dependencies
 var React = require('react');
 var connect = require('react-redux').connect;
+var _ = require('lodash');
 
 function mapStatetoProps (state, ownProps) {
   return {
     kind: state.Measures.getIn([ownProps.measureId, 'kind']),
     unit: state.Measures.getIn([ownProps.measureId, 'unit']),
     list: state.Measures.get(ownProps.measureId).toJS().list,
-    scale: state.Measures.get(ownProps.measureId).toJS().scale,
+    scale: _.range(1, 5, 0.5),
   };
 }
 

@@ -8,9 +8,11 @@ module.exports = {
     measures : [
       {
       kind  : 'qualitative',
-      scale : [1,3,4,6],
       list  : null,
       unit  : null,
+      scaleDescriptionMin: 'The min!',
+      scaleDescriptionMiddle: 'The middle!',
+      scaleDescriptionMax: 'The max!',
       samples : [{
         value: 1,
         // time: using defualt,

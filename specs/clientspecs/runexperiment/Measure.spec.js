@@ -39,7 +39,6 @@ describe('The measure sample component', function () {
       Measures : {
         a : {
           kind : 'qualitative',
-          scale : [1, 2, 3],
         }
       },
     };
@@ -48,9 +47,10 @@ describe('The measure sample component', function () {
 
     var measure = TestUtils.renderIntoDocument(React.createElement(Measure, props), 'root');
     var spans = TestUtils.scryRenderedDOMComponentsWithTag(measure,'span');
-    expect(ReactDOM.findDOMNode(spans[1]).textContent).to.contain('2');
+    console.log(ReactDOM.findDOMNode(spans[1]).textContent);
+    expect(ReactDOM.findDOMNode(spans[2]).textContent).to.contain('2');
     expect(ReactDOM.findDOMNode(spans[1]).innerHTML).to.contain('radio');
-    expect(spans.length).to.eql(3);
+    expect(spans.length).to.eql(8);
   });
 
   it('should render scale as radio button options', function () {

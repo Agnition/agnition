@@ -8,9 +8,11 @@ module.exports = {
     measures : [
       {
       kind  : 'list',
-      scale : null,
       list  : ['somewhere','overthere','idontcare'],
       unit  : null,
+      scaleDescriptionMin: null,
+      scaleDescriptionMiddle: null,
+      scaleDescriptionMax: null,
       samples : [{
         value: 'somewhere',
         // time: using defualt,

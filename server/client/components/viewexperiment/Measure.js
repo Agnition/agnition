@@ -26,7 +26,7 @@ var Measure = React.createClass({
     if(measure.kind === 'numeric'){
       return measure.unit;
     } else if (measure.kind === 'qualitative'){
-      return measure.scale;
+      return _.range(1, 5, 0.5);
     } else {
       return measure.list;
     }

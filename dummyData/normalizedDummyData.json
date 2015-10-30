@@ -129,23 +129,24 @@
 				"kind": "qualitative",
 				"unit": null,
 				"_id": "562ebfa6a3b7183b57d3ed45",
+        "scaleDescriptionMin": "The min!",
+        "scaleDescriptionMiddle": "The middle!",
+        "scaleDescriptionMax": "The max!",
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed48",
 					"562ebfa6a3b7183b57d3ed46"
 				],
-				"list": null,
-				"scale": [
-					1,
-					3,
-					4,
-					6
-				]
+				"list": null
 			},
 			"562ebfa6a3b7183b57d3ed4e": {
 				"kind": "list",
 				"unit": null,
 				"_id": "562ebfa6a3b7183b57d3ed4e",
+        "scaleDescriptionMin": null,
+        "scaleDescriptionMiddle": null,
+        "scaleDescriptionMax": null,
+				"requests": [],
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed51",
@@ -155,20 +156,21 @@
 					"somewhere",
 					"overthere",
 					"idontcare"
-				],
-				"scale": null
+				]
 			},
 			"562ebfa6a3b7183b57d3ed57": {
 				"kind": "numeric",
 				"unit": "feet",
 				"_id": "562ebfa6a3b7183b57d3ed57",
+        "scaleDescriptionMin": null,
+        "scaleDescriptionMiddle": null,
+        "scaleDescriptionMax": null,
 				"requests": [],
 				"samples": [
 					"562ebfa6a3b7183b57d3ed59",
 					"562ebfa6a3b7183b57d3ed58"
 				],
-				"list": null,
-				"scale": null
+				"list": null
 			}
 		},
 		"samples": {
