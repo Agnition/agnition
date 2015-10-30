@@ -9,12 +9,6 @@ var mesKindValidator = function (val) {
   return val === 'qualitative' ||  val === 'list' || val === 'numeric';
 };
 
-var mesScaleValidator = function (val) {
-  // what is this?
-  // null values do not call validator functions.. so case is not considered
-  return ((this.kind !== 'qualitative' && val === null) || (this.kind === 'qualitative' &&  val instanceof Array));
-};
-
 var mesListValidator = function (val) {
   // what is this?
   // null values do not call validator functions.. so case is not considered
@@ -38,12 +32,9 @@ var measureSchema = new Schema({
       validator : mesKindValidator
     }
   },
-  scale : {
-    type: Array,
-    validate : {
-     validator: mesScaleValidator
-    }
-  },
+  scaleDescriptionMin: String,
+  scaleDescriptionMiddle: String,
+  scaleDescriptionMax: String,
   list : {
     type: Array,
     validate : {

@@ -34,6 +34,15 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'SET_SCALE') {
     return state.setIn([action.measureId, 'scale'], action.scale);
   }
+  if (action.type === 'SET_SCALE_DESCRIPTION_MIN') {
+    return state.setIn([action.measureId, 'scaleDescriptionMin'], action.description);
+  }
+  if (action.type === 'SET_SCALE_DESCRIPTION_MIDDLE') {
+    return state.setIn([action.measureId, 'scaleDescriptionMiddle'], action.description);
+  }
+  if (action.type === 'SET_SCALE_DESCRIPTION_MAX') {
+    return state.setIn([action.measureId, 'scaleDescriptionMax'], action.description);
+  }
   if (action.type === 'ADD_LIST_ITEM') {
 
     var newList = state.getIn([action.measureId, 'list']);
