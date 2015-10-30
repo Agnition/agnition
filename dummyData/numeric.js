@@ -11,7 +11,6 @@ module.exports = {
       {
         // _id : 2,
         kind  : 'numeric',
-        scale : null,
         list  : null,
         unit  : 'feet',
         samples : [{

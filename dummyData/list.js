@@ -8,7 +8,6 @@ module.exports = {
     measures : [
       {
       kind  : 'list',
-      scale : null,
       list  : ['somewhere','overthere','idontcare'],
       unit  : null,
       samples : [{

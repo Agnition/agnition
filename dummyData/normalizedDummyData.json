@@ -134,13 +134,7 @@
 					"562ebfa6a3b7183b57d3ed48",
 					"562ebfa6a3b7183b57d3ed46"
 				],
-				"list": null,
-				"scale": [
-					1,
-					3,
-					4,
-					6
-				]
+				"list": null
 			},
 			"562ebfa6a3b7183b57d3ed4e": {
 				"kind": "list",
@@ -155,8 +149,7 @@
 					"somewhere",
 					"overthere",
 					"idontcare"
-				],
-				"scale": null
+				]
 			},
 			"562ebfa6a3b7183b57d3ed57": {
 				"kind": "numeric",
@@ -167,8 +160,7 @@
 					"562ebfa6a3b7183b57d3ed59",
 					"562ebfa6a3b7183b57d3ed58"
 				],
-				"list": null,
-				"scale": null
+				"list": null
 			}
 		},
 		"samples": {
