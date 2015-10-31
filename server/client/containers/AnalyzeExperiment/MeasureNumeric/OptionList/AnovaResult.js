@@ -5,7 +5,7 @@ var AnovaUtils = require('../../../../utils/ANOVA');
 
 var AnovaResult = React.createClass({
   render: function() {
-    var result = AnovaUtils.neglectNullHypothesis(this.props.samples);
+    var result = AnovaUtils.rejectNullHypothesis(this.props.samples);
     if (result) {
       var message = (<div>We think there is likely a relationship in your data.</div>);
     } else {

@@ -49,7 +49,7 @@ var sumOfSquaresBetweenGroups = function(data) {
   return sumOfSquares;
 };
 
-var neglectNullHypothesis = function(data) {
+var rejectNullHypothesis = function(data) {
   var sampleDegreeOfFreedom = getSampleDegreesOfFreedom(data);
   var optionDegreeOfFreedom = getOptionDegreesOfFreedom(data);
   var fRatio = (sumOfSquaresBetweenGroups(data) / optionDegreeOfFreedom) /
@@ -64,5 +64,5 @@ module.exports = {
   _sumOfSquaresBetweenGroups: sumOfSquaresBetweenGroups,
   _sumOfSquaresWithinGroups: sumOfSquaresWithinGroups,
   _totalSumOfSquares: totalSumOfSquares,
-  neglectNullHypothesis: neglectNullHypothesis,
+  rejectNullHypothesis: rejectNullHypothesis,
 };
