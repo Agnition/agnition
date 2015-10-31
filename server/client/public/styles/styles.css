@@ -22,10 +22,11 @@ time, mark, audio, video {
   /* font-size: 100%; */
   /* font: inherit; */
   vertical-align: baseline;
+  color : hsla(0, 0%, 30%, 1.0);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, section {
   display: block;
 }
 body {
@@ -52,14 +53,20 @@ nav {
   padding: 3px;
   width:100%;
   background-color: hsla(0, 0%, 95%, 1.0);
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  padding : 0 300px;
 }
 
 nav a {
   margin: 10px 5px;
   /* font-size:10px; */
-  color: hsla(0, 0%, 10%, 1.0);
+  /* color: hsla(0, 0%, 10%, 1.0); */
   /* font-weight: bold; */
+  color : hsla(0, 0%, 30%, 1.0);
   font-size: 20px;
+  font-weight: bold;
 }
 
 li a {
@@ -140,8 +147,50 @@ button:focus {
 }
 
 .dashboard {
-  margin: 5px
+  margin: 5px;
+  /* margin: 0 auto; */
 }
+
+.dashboard h1 {
+  text-align: center;
+}
+
+.exps-table {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+}
+
+.exps-table thead tr th {
+  font-size: 24px;
+  color: hsla(0, 0%, 30%, 1.0);
+}
+
+.exps-table tbody tr td {
+  font-size: 20px;
+  color: hsla(0, 0%, 30%, 1.0);
+}
+
+.add-new-exp, .go-to-exps {
+  font-size: 24px;
+  padding: 14px;
+}
+
+.dashboard-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* .exps-table tbody tr td { */
+  /* [> margin: 0 auto; <] */
+  /* margin: 100px; */
+/* } */
+
+/* .dashboard div{ */
+  /* margin: 5px */
+/* } */
 
 .exps-table{
   text-align: left;

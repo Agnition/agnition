@@ -11,7 +11,6 @@ var Exps = require('../components/myexperiments/ExpsTable.js')
 var _ = require('lodash');
 
 function mapStateToProps (state) {
-  debugger;
   return {
     exps: state.Experiments.toJS()
   };
@@ -43,8 +42,10 @@ const Dashboard = React.createClass({
         {openExps.length > 0 
         ? <Exps exps = {openExps} />
         : <p>No open experiments, add some!</p>}
-        <button onClick={this.goToNewExp}>Add New Experiment</button>
-        <button onClick={this.goToAllExps}>View All Experiments</button>
+        <div className="dashboard-buttons">
+          <button className="add-new-exp" onClick={this.goToNewExp}>Add New Experiment</button>
+          <button className="go-to-exps" onClick={this.goToAllExps}>View All Experiments</button>
+        </div>
       </div>
     );
   }
