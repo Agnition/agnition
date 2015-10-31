@@ -69,6 +69,7 @@ var ChosenOption = React.createClass({
       } else {
         var randOptionIndex = Math.floor(Math.random() * options.length);
         var randOption = options[randOptionIndex];
+        this.setIndVarOptionOnSample(randOption);
         var span = <span>{this.props.name}: {randOption}</span>;
       }
     } else {
