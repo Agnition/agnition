@@ -33,7 +33,6 @@ var addSample = function (req, res) {
       var measureId = measures[i]._id;
       //this just converts to number if possible, to perserve schema mixed type.
       measureSample.value = utils.ensureIsNumber(body.measures[measureId].value);
-      console.log("-------------------------------------------",measureSample);
       var sample = new Sample(measureSample);
       var index = i;
       var savedSamples = [];
