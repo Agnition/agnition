@@ -49,28 +49,6 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   };
 };
 
-var genHistogram =function (bins, set) {
-    var min = Math.min.apply(null, set);
-    var max = Math.max.apply(null, set)+1;
-    
-    var binWidth = (max-min)/bins;
-    var freq = Array(bins).fill(0);
-    
-    var results = [];
-
-    for(var i = 0; i < set.length; i++) {
-        var index = Math.floor((set[i] - min) / binWidth);
-        freq[index]+=1;
-    }
-
-    for(var i =0; i < freq.length; i++){
-        results.push({x: (min+binWidth*i), y:freq[i] });
-        results.push({x: (min+binWidth*(i+1)), y:freq[i] }) 
-    }
-
-    console.dir(results);
-    return results;
-};
 
 var genSingleSeriesBarChartValues = function (indVarValues, samples) {
    if(indVarValues === undefined || samples === undefined) {
@@ -109,6 +87,5 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
-module.exports.genHistogram = genHistogram;
 module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
 
