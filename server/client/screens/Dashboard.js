@@ -13,14 +13,12 @@ var _ = require('lodash');
 function mapStateToProps (state) {
   debugger;
   return {
-    // name: state.NewExperiment.get('name'),
     exps: state.Experiments.toJS()
   };
 }
 
 function mapDispatchtoProps (dispatch) {
   return {
-    // actions: bindActionCreators(CreateExperimentActions, dispatch)
   };
 }
 
@@ -38,8 +36,6 @@ const Dashboard = React.createClass({
     var openExps = _.filter(this.props.exps, function(exp) {
       return exp.active;
     });
-    console.log("===============================");
-    console.log(this.props.exps);
     
     return (
       <div className = 'dashboard'>
