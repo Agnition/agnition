@@ -30,7 +30,7 @@ var Name = React.createClass ({
 
   render: function () {
     return (
-      <div>
+      <div className="new-experiment-container">
         <label>Experiment Name</label>
         <input ref="name" type="text" onChange={this.setName}/>
       </div>

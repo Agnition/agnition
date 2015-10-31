@@ -44,7 +44,7 @@ var Hypothesis = React.createClass({
     var effect = this.props.effect;
 
     return (
-      <div>
+      <div className="new-experiment-container">
         <section>
           <div>
             Please enter your hypothesis here.

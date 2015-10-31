@@ -26,21 +26,26 @@ function mapDispatchToProps (dispatch) {
   };
 }
 var IndVarWrapper = React.createClass({
+
   genComponent: function(event){
     var indVarId = mongooseId.ObjectId().toString();
     this.props.actions.createIndVar(indVarId);
     this.props.actions.addIndVar(indVarId, this.props.expId);
   },
+
   componentWillMount: function(){
-    this.genComponent();
+    if(this.props.indVarIds < 1) {
+      this.genComponent();
+    }  
   },
+
   render: function(){
     var indVarEntries = this.props.indVarIds.map(function (indVarId) {
           return <IndVar indVarId = {indVarId} key = {indVarId} />
         });
     return (
       <div>
-      {indVarEntries}
+        {indVarEntries}
       </div>
     )
   }

@@ -171,4 +171,7 @@ a:hover
      cursor:pointer;  
 }
 
+.new-experiment-container {
+  min-height: 50vh;
+}
 
