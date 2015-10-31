@@ -6,18 +6,9 @@ var connect = require('react-redux').connect;
 var Signin = require('../components/Signin.js');
 var Logout = require('../components/Logout.js');
 var UserInfo = require('../components/UserInfo.js');
-<<<<<<< HEAD
 var History = require('react-router').History;
 var Exps = require('../components/myexperiments/ExpsTable.js')
 var _ = require('lodash');
-=======
-var SampleBar = require('../containers/AnalyzeExperiment/MeasureNumeric/OptionList/BarChart.js');
-// function mapStatetoProps (state) {
-//   return {
-//     name: state.NewExperiment.get('name'),
-//   };
-// }
->>>>>>> have an untested barchat component
 
 function mapStateToProps (state) {
   debugger;
