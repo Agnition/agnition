@@ -3,7 +3,6 @@ var rootReducer = require('../reducers/index.js');
 var applyMiddleware = require('redux').applyMiddleware;
 var compose = require('redux').compose;
 var reduxReactRouter = require('redux-router').reduxReactRouter;
-var devTools = require('redux-devtools');
 var createHistory = require('history/lib/createBrowserHistory');
 var thunk = require('redux-thunk');
 var createLogger = require('redux-logger');
@@ -11,8 +10,7 @@ var createLogger = require('redux-logger');
 const finalCreateStore = compose(
   applyMiddleware(thunk),
   reduxReactRouter({ createHistory }),
-  applyMiddleware(createLogger()),
-  devTools()
+  applyMiddleware(createLogger())
 )(createStore);
 
 module.exports = function(initialState) {
