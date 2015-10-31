@@ -37,14 +37,14 @@ var genHistogram =function (bins, set) {
     
 
     for(var i = 0; i < set.length; i++) {
-        var index = Math.floor((set[i] - min) / binWidth);
-        freq[index]+=1;
+      var index = Math.floor((set[i] - min) / binWidth);
+      freq[index]+=1;
     }
 
     for(i =0; i < freq.length; i++) {
-        maxFreq = Math.max(freq[i], maxFreq);
-        results.push({x: (min+binWidth*i), y:freq[i] });
-        results.push({x: (min+binWidth*(i+1)), y:freq[i] });
+      maxFreq = Math.max(freq[i], maxFreq);
+      results.push({x: (min+binWidth*i), y:freq[i] });
+      results.push({x: (min+binWidth*(i+1)), y:freq[i] });
     }
 
 
