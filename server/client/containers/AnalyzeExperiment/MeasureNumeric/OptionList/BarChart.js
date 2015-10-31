@@ -4,7 +4,6 @@ var _ = require('underscore');
 var connect = require('react-redux').connect;
 var utils = require('../../../../utils/componentUtils');
 var BarChart = require("react-d3").BarChart;
-var d3 = require('d3');
 
 // componet that takes in indvarID + measureID
 var mapStateToProps = function(state, ownProps){
@@ -12,7 +11,7 @@ var mapStateToProps = function(state, ownProps){
     return {
         indVar : state.IndVars.get(ownProps.indVarId).toJS(),
         measure : state.Measures.get(ownProps.measureId).toJS(),
-        samples : samples
+        samples : samples,
     };
 };
 
@@ -26,7 +25,7 @@ var Chart = React.createClass({
     render: function() {
         return (
             <div>
-                <BarChart data={this.genChartData()} width={500} height={300} title="Bar Chart" yAxisLabel="Label" xAxisLabel="Value"/>
+                <BarChart data={this.genChartData()} width={500} height={300} title="Bar Chart" yAxisLabel={this.props.measure._id} xAxisLabel={this.props.indVar.name} />
             </div>
         );
     }
