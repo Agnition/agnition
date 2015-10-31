@@ -7,7 +7,7 @@ var TestUtils = require('react-addons-test-utils');
 var mockStore = require('../../utils/mockStore');
 var mockRequire = require('mockrequire');
 var utils = require('../../utils/utils');
-var Progress = require('../../../server/client/containers/NewExperiment/components/NewExperimentProgress');
+var Progress = require('../../../server/client/containers/NewExperiment/components/ProgressWrapper');
 
 //Mock Dom Setup
 require('../index.js')();
