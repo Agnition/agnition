@@ -1,7 +1,7 @@
 var criticalValues = require('./ANOVACriticalValues');
 
 var getOptionDegreesOfFreedom = function(data) {
-  return data.keys.length - 1;
+  return Object.keys(data).length - 1;
 };
 
 var getSampleDegreesOfFreedom = function(data) {
@@ -69,7 +69,7 @@ var neglectNullHyposthesis = function(data) {
   var optionDegreeOfFreedom = getOptionDegreesOfFreedom(data);
   var fRatio = (sumOfSquaresBetweenGroups(data) / optionDegreeOfFreedom) /
                (sumOfSquaresWithinGroups(data) / sampleDegreeOfFreedom);
-  return fRatio > criticalValues(sampleDegreeOfFreedom, optionDegreeOfFreedom);
+  return fRatio > getCriticalValue(sampleDegreeOfFreedom, optionDegreeOfFreedom);
 };
 
 var getOptions = function(measureData) {
@@ -97,3 +97,15 @@ var getValues = function(measureData) {
   return data;
 };
 
+module.exports = {
+  getOptionDegreesOfFreedom: getOptionDegreesOfFreedom,
+  getSampleDegreesOfFreedom: getSampleDegreesOfFreedom,
+  getCriticalValue: getCriticalValue,
+  getMean: getMean,
+  sumOfSquaresBetweenGroups: sumOfSquaresBetweenGroups,
+  sumOfSquaresWithinGroups: sumOfSquaresWithinGroups,
+  totalSumOfSquares: totalSumOfSquares,
+  neglectNullHyposthesis: neglectNullHyposthesis,
+  getOptions: getOptions,
+  getValues: getValues
+};
