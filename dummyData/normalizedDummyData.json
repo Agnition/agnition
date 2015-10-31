@@ -5,6 +5,7 @@
 				"name": "paper chaser scale",
 				"hypothesis": "something",
 				"kind": "ad_hoc",
+				"active": true,
 				"__v": 0,
 				"indVars": [
 					"562ebfa6a3b7183b57d3ed42"
@@ -18,6 +19,7 @@
 				"name": "paper chaser list",
 				"hypothesis": "something",
 				"kind": "ad_hoc",
+				"active": true,
 				"__v": 0,
 				"indVars": [
 					"562ebfa6a3b7183b57d3ed4b"
@@ -31,6 +33,7 @@
 				"name": "paper chaser",
 				"hypothesis": "something",
 				"kind": "ad_hoc",
+				"active": true,
 				"__v": 0,
 				"indVars": [
 					"562ebfa6a3b7183b57d3ed54"

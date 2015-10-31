@@ -2,6 +2,7 @@ module.exports = {
   name : 'paper chaser list',
   hypothesis : 'something',
   kind : 'ad_hoc',
+  active: true,
   depVars : [{
     name : 'distance',
     active: false,
