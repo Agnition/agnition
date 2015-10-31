@@ -36,6 +36,6 @@ describe('ANOVA utility functions', function () {
   });
 
   it('should correctly assess null hypothesis', function () {
-    expect(ANOVA.neglectNullHyposthesis(data)).to.eql(false);
+    expect(ANOVA.neglectNullHypothesis(data)).to.eql(false);
   });
 });
