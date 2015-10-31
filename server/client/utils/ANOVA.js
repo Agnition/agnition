@@ -42,12 +42,7 @@ var getStandardDeviation = function(array) {
 var sumOfSquaresWithinGroups = function(data) {
   var sumOfSquares = 0;
   for (var option in data) {
-    var mean = getMean(data[option]);
-    var sumOfGroup = 0;
-    for (var i = 0; i < data[option].length; i++) {
-      sumOfGroup += Math.pow(mean - data[option][i], 2);
-    }
-    sumOfSquares += sumOfGroup;
+    sumOfSquares += getSumOfSquaresDeviation(data[option]);
   }
   return sumOfSquares;
 };
@@ -57,12 +52,7 @@ var totalSumOfSquares = function(data) {
   for (var option in data) {
     fullData = fullData.concat(data[option]);
   }
-  var mean = getMean(fullData);
-  var sumOfSquares = 0;
-  for (var i = 0; i < fullData.length; i++) {
-    sumOfSquares += Math.pow(mean - fullData[i], 2);
-  }
-  return sumOfSquares;
+  return getSumOfSquaresDeviation(fullData);
 };
 
 var sumOfSquaresBetweenGroups = function(data) {
