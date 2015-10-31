@@ -2,6 +2,7 @@ module.exports = {
   name : 'paper chaser scale',
   hypothesis : 'something',
   kind : 'ad_hoc',
+  active: true,
   depVars : [{
     name : 'distance',
     active: true,
