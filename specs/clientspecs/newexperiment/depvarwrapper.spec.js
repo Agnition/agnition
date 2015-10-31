@@ -5,6 +5,7 @@ var expect = chai.expect;
 var sinon = require('sinon');
 var sinonChai = require('sinon-chai');
 chai.use(sinonChai);
+var Immutable = require('immutable');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -15,7 +16,7 @@ var utils = require('../../utils/utils');
 var mockRequire = require('mockrequire');
 
 var DepVarWrapper = mockRequire('../../../server/client/containers/NewExperiment/DepVarWrapper',{
-  './DepVar' : utils.mockDivComponent('ind-var')
+  './DepVar' : utils.mockDivComponent('dep-var')
 }, {jsx:true});
 
 describe('the DepVarWrapper Container', function () {
@@ -25,7 +26,7 @@ describe('the DepVarWrapper Container', function () {
     var obj = {
       Experiments : {
         'a': { 
-          depVars : []
+          depVars : Immutable.List()
         }
       }
     };
@@ -33,17 +34,10 @@ describe('the DepVarWrapper Container', function () {
     props.expId = 'a';
     depVarWrapper = TestUtils.renderIntoDocument(React.createElement(DepVarWrapper, props), 'root');
     actions = sinon.stub(depVarWrapper.dispatchProps.actions);
-
-
   });
 
   it('should call the correct actions on button press', function () {
-    var count = function() {
-      return TestUtils.scryRenderedDOMComponentsWithClass(depVarWrapper, 'ind-var');
-    };
-    var  button = TestUtils.findRenderedDOMComponentWithTag(depVarWrapper,'button');
-    TestUtils.Simulate.click(button);
-    expect(actions.createDepVar).to.have.been.calledOnce;
-    expect(actions.addDepVar).to.have.been.calledOnce;
+    var div = TestUtils.findRenderedDOMComponentWithClass(depVarWrapper, 'dep-var-wrapper');
+    expect(div).to.exist;
   });
 });

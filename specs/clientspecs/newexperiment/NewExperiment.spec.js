@@ -22,7 +22,7 @@ var NewExperiment = mockRequire('../../../server/client/screens/NewExperiment', 
   '../containers/NewExperiment/IndVarWrapper' : utils.mockDivComponent('IndVarWrapper'),
   '../containers/NewExperiment/SubmitExperiment' : utils.mockDivComponent('SubmitExperiment'),
   '../containers/NewExperiment/HypothesisCheck' : utils.mockDivComponent('HypothesisCheck'),
-  '../containers/NewExperiment/components/NewExperimentProgress'  : utils.mockDivComponent('NewExperimentProgress'),
+  '../containers/NewExperiment/components/ProgressWrapper'  : utils.mockDivComponent('NewExperimentProgress'),
 }, {jsx:true});
 
 describe('Submit Experiment', function () {

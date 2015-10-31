@@ -34,18 +34,11 @@ describe('the IndVarWrapper Container', function () {
     props.expId = 'a';
     indVarWrapper = TestUtils.renderIntoDocument(React.createElement(IndVarWrapper, props), 'root');
     actions = sinon.stub(indVarWrapper.dispatchProps.actions);
-
-
   });
 
   it('should call the correct actions on button press', function () {
-    var count = function() {
-      return TestUtils.scryRenderedDOMComponentsWithClass(indVarWrapper, 'ind-var');
-    };
-    var  button = TestUtils.findRenderedDOMComponentWithTag(indVarWrapper,'button');
-    TestUtils.Simulate.click(button);
-    expect(actions.createIndVar).to.have.been.calledOnce;
-    expect(actions.addIndVar).to.have.been.calledOnce;
+      var div = TestUtils.findRenderedDOMComponentWithClass(indVarWrapper, 'ind-var-wrapper');
+    expect(div).to.exist;
   });
 });
 

@@ -15,6 +15,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var IndVar = require('../../../server/client/containers/NewExperiment/IndVar');
+var Immutable = require('immutable');
 
 describe('the IndVar Container', function () {
   var indVar;
@@ -22,9 +23,15 @@ describe('the IndVar Container', function () {
   var inputs;
   beforeEach(function () {
     var props = {};
-    var obj = {};
+    var obj = {
+      IndVars: Immutable.Map({
+        '123': Immutable.Map({
+          options: Immutable.List()
+        })
+      })
+    };
+    props.indVarId = '123'
     props.store = mockStore({});
-    props.indVarId = ['69'];
     indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
     actions = sinon.stub(indVar.dispatchProps.actions);
     inputs = TestUtils.scryRenderedDOMComponentsWithTag(indVar, 'input');

@@ -7,26 +7,36 @@ var TestUtils = require('react-addons-test-utils');
 var mockStore = require('../../utils/mockStore');
 var mockRequire = require('mockrequire');
 var utils = require('../../utils/utils');
-var Progress = require('../../../server/client/containers/NewExperiment/components/NewExperimentProgress');
+var Immutable = require('immutable');
 
 //Mock Dom Setup
 require('../index.js')();
+
+var Progress = mockRequire('../../../server/client/containers/NewExperiment/components/ProgressWrapper', {
+  './ProgressName': utils.mockDivComponent('progress-name'),
+  './ProgressHypothesis': utils.mockDivComponent('progress-hypothesis'),
+  '../../../components/viewexperiment/DepVar': utils.mockDivComponent('progress-depvar'),
+  '../../../components/viewexperiment/IndVar': utils.mockDivComponent('progress-indvar'),
+}, {jsx: true});
 
 describe('New Experiment: Progress Component', function () {
   var progress;
   beforeEach(function () {
     var props = {
-      expId: 'a'
+      expId: 'a',
     };
 
     //this is our mock of the DepVar state property
     var obj = {
+      NewExperiment: 5,
       Experiments : {
         a: {
           name: 'Name : Test Name',
           hypothesis: 'test hypothesis',
           cause: 'test cause',
-          effect: 'test effect'
+          effect: 'test effect',
+          depVars: Immutable.List(),
+          indVars: Immutable.List()
         }
       }
     };
@@ -37,11 +47,13 @@ describe('New Experiment: Progress Component', function () {
   });
 
   it('should render the current progress from props', function () {
-    var  title = TestUtils.findRenderedDOMComponentWithTag(progress,'h3');
-    var  divs = TestUtils.scryRenderedDOMComponentsWithClass(progress,'progress');
-    expect(title.textContent).to.contain('Test Name');
-    expect(divs[0].textContent).to.contain('test hypothesis');
-    expect(divs[1].textContent).to.contain('test cause');
-    expect(divs[2].textContent).to.contain('test effect');
+    var  name = TestUtils.findRenderedDOMComponentWithClass(progress,'progress-name');
+    var  hypothesis = TestUtils.findRenderedDOMComponentWithClass(progress,'progress-hypothesis');
+    var  depvar = TestUtils.findRenderedDOMComponentWithClass(progress,'progress-depvar');
+    var  indvar = TestUtils.findRenderedDOMComponentWithClass(progress, 'progress-indvar');
+    expect(name).to.exist;
+    expect(hypothesis).to.exist;
+    expect(depvar).to.exist;
+    expect(indvar).to.exist;
   });
 });
