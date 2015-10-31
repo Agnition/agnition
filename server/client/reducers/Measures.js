@@ -19,10 +19,9 @@ module.exports = function(state = initialState, action) {
       state = state.setIn([action.measureId, 'list'], null);
     }
     if (action.kind === 'list') {
-      state = state.setIn([action.measureId, 'scale'], null);
+      state = state.setIn([action.measureId, 'list'], new Immutable.List());
     }
     if (action.kind === 'numeric') {
-      state = state.setIn([action.measureId, 'scale'], null);
       state = state.setIn([action.measureId, 'list'], null);
     }
     return state.setIn([action.measureId, 'kind'], action.kind);
