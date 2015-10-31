@@ -29,6 +29,7 @@ describe('MeasureNumeric OptionList BarChart Component', function () {
     var props = barChart.nextState;
     expect(props.indVar).to.eql({ options: [ 'horse', 'pig' ], name: 'erotica' });
     expect(props.measure).to.eql({ samples: [ 'sa', 'sb', 'sc', 'sd', 'se' ], _id: 'b' });
+    console.dir(props.samples);
     expect(props.samples.samples.length).to.eql(5);
   });
 

@@ -19,7 +19,7 @@ var Chart = React.createClass({
     genChartData : function() {
         return [{
             name: this.props.measure.id,
-            values: utils.genSingleSeriesBarChartValues(this.props.indVar.options, this.props.samples)
+            values: utils.genSingleSeriesBarChartValues(this.props.indVar.options, this.props.samples.samples)
         }];
     },
     render: function() {
