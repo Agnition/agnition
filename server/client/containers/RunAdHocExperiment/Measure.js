@@ -13,6 +13,14 @@ function mapStatetoProps (state, ownProps) {
 }
 
 var Measure = React.createClass({
+  getInitialState: function() {
+    return {
+      scaleValue: 3
+    }
+  },
+  scaleChanged: function() {
+    this.setState({'scaleValue': this.refs.scale.value});
+  },
   render: function () {
     var input;
     if (this.props.kind === 'numeric') {
@@ -29,14 +37,18 @@ var Measure = React.createClass({
                 </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
-      input = this.props.scale.map(function(item) {
-        return (<span>
-                  <input
-                    type="radio"
-                    name={'measures[' + this.props.measureId + '][value]'}
-                    value={item} />{item}
-                </span>);
-      }.bind(this));
+      return (<div> 
+                <input
+                  type="range"
+                  max="5"
+                  min="1"
+                  step="0.5"
+                  ref="scale"
+                  name={'measures[' + this.props.measureId + '][value]'}
+                  onChange={this.scaleChanged}
+                  />
+                {this.state.scaleValue}
+               </div>);
     }
     return (
       <div>
