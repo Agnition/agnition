@@ -93,7 +93,6 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
 
    //collapse samples into averages object
    _.each(samples.samples,function(sample){
-      console.log("-------------------------------------------",sample);
        averages[sample.indVarValue].total += sample.measureValue;
        averages[sample.indVarValue].count ++;
    });
