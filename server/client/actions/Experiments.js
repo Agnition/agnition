@@ -35,6 +35,13 @@ module.exports.setName = function (name, expId) {
   };
 };
 
+module.exports.setActive = function (expId, active) {
+  return {
+    type: 'SET_ACTIVE',
+    active: active
+  };
+};
+
 module.exports.setHypothesis = function (hypothesis, expId) {
   return {
     type: 'SET_HYPOTHESIS',

@@ -15,7 +15,7 @@ var expSchema = new Schema ({
   hypothesis : { type: String },
   cause: { type: String},
   effect: { type: String },
-  active: Boolean,
+  active: { type : Boolean, required: true},
   kind : {
     type: String,
     required : true,

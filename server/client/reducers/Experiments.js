@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+var Immutable = require('immutable');
 const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
@@ -8,6 +8,7 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'CREATE_EXPERIMENT') {
     return state.set(action.expId, Immutable.Map({
       _id: action.expId,
+      active: true,
       depVars: new Immutable.List(),
       indVars: new Immutable.List(),
     }));
@@ -18,17 +19,20 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'SET_EXPERIMENT_KIND') {
     return state.setIn([action.expId, 'kind'], action.kind);
   }
+  if (action.type === 'SET_ACTIVE') {
+    return state.setIn([action.expId, 'active'], action.active);
+  }
   if (action.type === 'SET_HYPOTHESIS') {
-    return state.setIn([action.expId, 'hypothesis'], action.hypothesis)
+    return state.setIn([action.expId, 'hypothesis'], action.hypothesis);
   }
   if (action.type === 'SET_CAUSE') {
-    return state.setIn([action.expId, 'cause'], action.cause)
+    return state.setIn([action.expId, 'cause'], action.cause);
   }
   if (action.type === 'SET_EFFECT') {
-    return state.setIn([action.expId, 'effect'], action.effect)
+    return state.setIn([action.expId, 'effect'], action.effect);
   }
   if (action.type === 'SET_NAME') {
-    return state.setIn([action.expId, 'name'], action.name)
+    return state.setIn([action.expId, 'name'], action.name);
   }
   if (action.type === 'ADD_DEP_VAR') {
     return state.updateIn([action.expId, 'depVars'], function (list) {
@@ -40,7 +44,6 @@ module.exports = function(state = initialState, action) {
       return list.push(action.indVarId);
     });
   }
-
   return state;
 };
 
