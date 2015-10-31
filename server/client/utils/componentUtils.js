@@ -34,8 +34,8 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   var samples = _.map(sampleIds, function(sampleId) {
     var sample = state.Samples.get(sampleId).toJS();
     var indVarValue = _.first(_.pluck(_.filter(sample.indVarStates, function(indVar) {
-        //return indVar._id === indVarId; // TODO: use when id is consistent
-        return indVar.name === indVarName; // until db is consistent
+        return indVar.indVar === indVarId; // TODO: use when id is consistent
+        // return indVar.name === indVarName; // until db is consistent
       }), 'value'));
     return {
       indVarValue: indVarValue,
@@ -72,8 +72,8 @@ var genHistogram =function (bins, set) {
     return results;
 };
 
-var genSingleSeriesBarChart = function (indVarValues, samples) {
-   if(indVarValues == undefined || samples == undefined) {
+var genSingleSeriesBarChartValues = function (indVarValues, samples) {
+   if(indVarValues === undefined || samples === undefined) {
        console.log("bad arguments to genSingleSeriesBarChart");
        return;
    }
@@ -90,8 +90,10 @@ var genSingleSeriesBarChart = function (indVarValues, samples) {
        };
    });
 
+
    //collapse samples into averages object
-   _.each(samples,function(sample){
+   _.each(samples.samples,function(sample){
+      console.log("-------------------------------------------",sample);
        averages[sample.indVarValue].total += sample.measureValue;
        averages[sample.indVarValue].count ++;
    });
@@ -103,11 +105,11 @@ var genSingleSeriesBarChart = function (indVarValues, samples) {
    });
    
    return coordinates;
-},
+};
 
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
 module.exports.genHistogram = genHistogram;
-module.exports.genSingleSeriesBarChart = genSingleSeriesBarChart;
+module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
 
