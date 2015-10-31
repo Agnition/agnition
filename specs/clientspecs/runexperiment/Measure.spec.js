@@ -46,11 +46,8 @@ describe('The measure sample component', function () {
     props.measureId = 'a';
 
     var measure = TestUtils.renderIntoDocument(React.createElement(Measure, props), 'root');
-    var spans = TestUtils.scryRenderedDOMComponentsWithTag(measure,'span');
-    console.log(ReactDOM.findDOMNode(spans[1]).textContent);
-    expect(ReactDOM.findDOMNode(spans[2]).textContent).to.contain('2');
-    expect(ReactDOM.findDOMNode(spans[1]).innerHTML).to.contain('radio');
-    expect(spans.length).to.eql(8);
+    var range = TestUtils.scryRenderedDOMComponentsWithTag(measure,'input')[0];
+    expect(ReactDOM.findDOMNode(range)).to.not.equal(undefined);
   });
 
   it('should render scale as radio button options', function () {
