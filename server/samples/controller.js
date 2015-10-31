@@ -1,8 +1,6 @@
-'use strict';
-
-// var Exp = require('../exps/model');
 var Sample = require('../exps/models/Sample');
 var Measure = require('../exps/models/Measure');
+var utils = require('../utils');
 
 
 var getSample = function (req, res) {
@@ -33,7 +31,9 @@ var addSample = function (req, res) {
       var measureSample = {};
       measureSample.indVarStates = indVars;
       var measureId = measures[i]._id;
-      measureSample.value = body.measures[measureId].value;
+      //this just converts to number if possible, to perserve schema mixed type.
+      measureSample.value = utils.ensureIsNumber(body.measures[measureId].value);
+      console.log("-------------------------------------------",measureSample);
       var sample = new Sample(measureSample);
       var index = i;
       var savedSamples = [];
