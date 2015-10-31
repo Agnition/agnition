@@ -1,0 +1,28 @@
+{   
+    "options": ["horse","pig"],
+    
+    "samples" :[
+        {
+            "indVarValue": "horse",
+            "measureValue": 2
+        },
+        {
+            "indVarValue": "horse",
+            "measureValue": 2
+        },
+        {
+            "indVarValue": "horse",
+            "measureValue": 2
+        },
+        {
+            "indVarValue": "pig",
+            "measureValue": 5
+        },
+        {
+            "indVarValue": "pig",
+            "measureValue": 5
+        }
+    ]
+}
+
+

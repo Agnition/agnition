@@ -1,5 +1,4 @@
 var React = require('react');
-var React = require('react');
 
 
 //outputs a string of passed in properties for checking if passed in correctly

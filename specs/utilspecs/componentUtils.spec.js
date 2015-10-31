@@ -1,6 +1,7 @@
 var testUtils = require('../../server/client/utils/componentUtils.js');
 var Immutable = require('immutable');
 var mockStore = require('../utils/mockStore');
+var barChartValues = require('./genSingleSeriesBarChartValuesMockData.json');
 
 var expect = require('chai').expect;
 
@@ -45,7 +46,7 @@ describe('getSamplesForMeasure', function () {
           value : 'worked',
           indVarStates : [
             {
-              _id : 'iv1',
+              indVar : 'iv1',
               name : 'weight',
               value : '1a'
             }
@@ -55,7 +56,7 @@ describe('getSamplesForMeasure', function () {
           value : 'didn\'t work',
           indVarStates : [
             {
-              _id : 'iv1',
+              indVar : 'iv1',
               name : 'weight',
               value : '1b'
             }
@@ -79,3 +80,17 @@ describe('getSamplesForMeasure', function () {
       .to.eql('{"indVarName":"weight","measureKind":"list","samples":[{"indVarValue":"1a","measureValue":"worked"},{"indVarValue":"1b","measureValue":"didn\'t work"}]}');
   });
 });
+  
+describe('genSingleSeriesBarChartValues', function () {
+  it('should create the proper data shape for bar chart value', function () {
+    var values = testUtils.genSingleSeriesBarChartValues(barChartValues.options, barChartValues.samples);
+    expect(values[0].y).to.eql(2);
+    expect(values[1].y).to.eql(5);
+  });
+});
+
+describe('genHistogram', function () {
+  xit('should ', function () {
+  });
+});
+

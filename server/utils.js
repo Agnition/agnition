@@ -18,3 +18,13 @@ module.exports.userPopArray =
   'exps.depVars.measures',
   'exps.depVars.measures.samples'
   ];
+
+module.exports.ensureIsNumber = function (value) {
+  //prevents nubmers being saved as strings in db...
+  //but preserves our mixed type ability for categorical data
+  if(isNaN(Number(value))) {
+    return value;
+  } else {
+    return Number(value);
+  }
+};

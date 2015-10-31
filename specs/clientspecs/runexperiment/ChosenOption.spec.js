@@ -121,6 +121,8 @@ describe('ChosenOption Container', function () {
     props.expId = 'e1';
     props.indVarId = 'iv1';
     props.sampleId = 's7';
+
+
   });
 
   it('should choose one of the indVar options at random', function () {
@@ -132,6 +134,17 @@ describe('ChosenOption Container', function () {
     //this is effectivlety a test of get options.
     var spans = TestUtils.scryRenderedDOMComponentsWithTag(chosenOption, 'span');
     expect(ReactDOM.findDOMNode(spans[0]).textContent).to.contain('1a');
+  });
+
+  it('should call setIndVar Option on page load', function () {
+    obj.IndVars.iv1.options = ['1a'];
+    props.store = mockStore(obj);
+    var chosenOption = TestUtils.renderIntoDocument(React.createElement(ChosenOption, props), 'root');
+    var actions = sinon.stub(chosenOption.dispatchProps.actions);
+
+    //this is effectivlety a test of get options.
+    chosenOption.forceUpdate()
+    expect(actions.setIndVarOptionOnSample).to.have.been.called;
   });
 
   it('should not choose options that are at max numTrials', function () {

@@ -34,8 +34,8 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   var samples = _.map(sampleIds, function(sampleId) {
     var sample = state.Samples.get(sampleId).toJS();
     var indVarValue = _.first(_.pluck(_.filter(sample.indVarStates, function(indVar) {
-        //return indVar._id === indVarId; // TODO: use when id is consistent
-        return indVar.name === indVarName; // until db is consistent
+        return indVar.indVar === indVarId; // TODO: use when id is consistent
+        // return indVar.name === indVarName; // until db is consistent
       }), 'value'));
     return {
       indVarValue: indVarValue,
@@ -49,8 +49,66 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   };
 };
 
+var genHistogram =function (bins, set) {
+    var min = Math.min.apply(null, set);
+    var max = Math.max.apply(null, set)+1;
+    
+    var binWidth = (max-min)/bins;
+    var freq = Array(bins).fill(0);
+    
+    var results = [];
+
+    for(var i = 0; i < set.length; i++) {
+        var index = Math.floor((set[i] - min) / binWidth);
+        freq[index]+=1;
+    }
+
+    for(var i =0; i < freq.length; i++){
+        results.push({x: (min+binWidth*i), y:freq[i] });
+        results.push({x: (min+binWidth*(i+1)), y:freq[i] }) 
+    }
+
+    console.dir(results);
+    return results;
+};
+
+var genSingleSeriesBarChartValues = function (indVarValues, samples) {
+   if(indVarValues === undefined || samples === undefined) {
+       console.log("bad arguments to genSingleSeriesBarChart");
+       return;
+   }
+
+   var coordinates = []; //what we will return
+   var averages = {}; // to hold intermediate values
+
+   //get each series we are looking for
+   _.each(indVarValues, function(value){
+       averages[value] = {
+           total: 0,
+           count: 0,
+           avg  : null,
+       };
+   });
+
+
+   //collapse samples into averages object
+   _.each(samples,function(sample){
+       averages[sample.indVarValue].total += sample.measureValue;
+       averages[sample.indVarValue].count ++;
+   });
+
+   // transform the averages object into a set of coordinates
+   coordinates = _.map(averages, function(result, key){
+       result.avg = result.total / result.count;
+       return {x: key, y: result.avg};
+   });
+   
+   return coordinates;
+};
 
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
+module.exports.genHistogram = genHistogram;
+module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
 

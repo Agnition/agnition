@@ -51,7 +51,6 @@ describe('Submit Experiment', function () {
 
   it('should hide back button', function () {
     var buttons = TestUtils.scryRenderedDOMComponentsWithTag(newExperiment, 'button');
-    console.log(buttons);
     // TestUtils.Simulate.click(button);
     expect(buttons.length).to.equal(1);
   });
