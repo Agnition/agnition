@@ -23,7 +23,7 @@ var divCollection = function(subElementobjects, subElementConstructor, propKey) 
       <div>
         {divs}
       </div>
-    )
+    );
 };
 
 
