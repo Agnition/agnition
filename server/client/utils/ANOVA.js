@@ -1,3 +1,4 @@
+var statsUtil = require('./stats');
 var criticalValues = require('./ANOVACriticalValues');
 
 var getOptionDegreesOfFreedom = function(data) {
@@ -15,34 +16,13 @@ var getSampleDegreesOfFreedom = function(data) {
 };
 
 var getCriticalValue = function(sampleDegreesOfFreedom, optionDegreesOfFreedom) {
-  return criticalValues[sampleDegreesOfFreedom-1][optionDegreesOfFreedom-1];
-};
-
-var getMean = function(array) {
-  return array.reduce(function(a, b) {
-    return a + b;
-  }) / array.length;
-};
-
-var getSumOfSquaresDeviation = function(array) {
-  var mean = getMean(array);
-  return array.reduce(function(sum, item) {
-    return sum + Math.pow(mean - item, 2);
-  }, 0);
-};
-
-var getVariance = function(array) {
-  return getSumOfSquaresDeviation(array) / array.length;
-};
-
-var getStandardDeviation = function(array) {
-  return Math.sqrt(getVariance(array));
+  return criticalValues[sampleDegreesOfFreedom - 1][optionDegreesOfFreedom - 1];
 };
 
 var sumOfSquaresWithinGroups = function(data) {
   var sumOfSquares = 0;
   for (var option in data) {
-    sumOfSquares += getSumOfSquaresDeviation(data[option]);
+    sumOfSquares += statsUtil.getSumOfSquaresDeviation(data[option]);
   }
   return sumOfSquares;
 };
@@ -52,7 +32,7 @@ var totalSumOfSquares = function(data) {
   for (var option in data) {
     fullData = fullData.concat(data[option]);
   }
-  return getSumOfSquaresDeviation(fullData);
+  return statsUtil.getSumOfSquaresDeviation(fullData);
 };
 
 var sumOfSquaresBetweenGroups = function(data) {
@@ -60,10 +40,10 @@ var sumOfSquaresBetweenGroups = function(data) {
   for (var option in data) {
     fullData = fullData.concat(data[option]);
   }
-  var fullMean = getMean(fullData);
+  var fullMean = statsUtil.getMean(fullData);
   var sumOfSquares = 0;
   for (var option in data) {
-    var mean = getMean(data[option]);
+    var mean = statsUtil.getMean(data[option]);
     sumOfSquares += Math.pow(mean - fullMean, 2) * data[option].length;
   }
   return sumOfSquares;
@@ -78,15 +58,11 @@ var neglectNullHyposthesis = function(data) {
 };
 
 module.exports = {
-  getOptionDegreesOfFreedom: getOptionDegreesOfFreedom,
-  getSampleDegreesOfFreedom: getSampleDegreesOfFreedom,
-  getCriticalValue: getCriticalValue,
-  getMean: getMean,
-  getSumOfSquaresDeviation: getSumOfSquaresDeviation,
-  getVariance: getVariance,
-  getStandardDeviation: getStandardDeviation,
-  sumOfSquaresBetweenGroups: sumOfSquaresBetweenGroups,
-  sumOfSquaresWithinGroups: sumOfSquaresWithinGroups,
-  totalSumOfSquares: totalSumOfSquares,
+  _getOptionDegreesOfFreedom: getOptionDegreesOfFreedom,
+  _getSampleDegreesOfFreedom: getSampleDegreesOfFreedom,
+  _getCriticalValue: getCriticalValue,
+  _sumOfSquaresBetweenGroups: sumOfSquaresBetweenGroups,
+  _sumOfSquaresWithinGroups: sumOfSquaresWithinGroups,
+  _totalSumOfSquares: totalSumOfSquares,
   neglectNullHyposthesis: neglectNullHyposthesis,
 };
