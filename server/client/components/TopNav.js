@@ -3,7 +3,6 @@ var Link = require('react-router').Link;
 var Signin = require('./Signin');
 var Logout = require('./Logout');
 var connect = require('react-redux').connect;
-var bindActionCreators = require('redux').bindActionCreators;
 
 
 function mapStatetoProps (state) {
@@ -12,15 +11,16 @@ function mapStatetoProps (state) {
   };
 }
 
-function mapDispatchtoProps (dispatch) {
-  return {};
+function mapDispatchtoProps () {
+  return {
+  };
 }
 
-var TopNav = React.createClass ({
+var TopNav = React.createClass({
   render: function () {
     var links = [];
     links.push(<Link key="documentation" to="/documentation">Documentation</Link>);
-    if(this.props.username !== undefined){
+    if (this.props.username !== undefined) {
       links.push(<Link key="dashboard" to="/dashboard">Dashboard</Link>);
       links.push(<Link key="profile" to="/profile">{this.props.username}</Link>);
       links.push(<Logout key="logout"/>);

@@ -1,14 +1,11 @@
 var React = require('react');
 var _ = require('underscore');
-var Immutable = require('immutable');
-var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
 var SelectableOptions = require('./SelectableOptions');
 
 var SelectNonRandomOptions = React.createClass({
   getSelectableOptions: function () {
     var selectableOptions = [];
-    _.each(this.props.indVarIds, function(indVarId){
+    _.each(this.props.indVarIds, function(indVarId) {
       var props = {
         indVarId: indVarId,
         sampleId: this.props.sampleId

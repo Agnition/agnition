@@ -1,17 +1,16 @@
-import { createStore } from 'redux';
-import rootReducer from '../reducers/index.js';
-import { applyMiddleware, compose } from 'redux';
+var createStore = require('redux').createStore;
+var rootReducer = require('../reducers/index.js');
+var applyMiddleware = require('redux').applyMiddleware;
+var compose = require('redux').compose;
 var reduxReactRouter = require('redux-router').reduxReactRouter;
-import { devTools } from 'redux-devtools';
-import createHistory from 'history/lib/createBrowserHistory';
-import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+var createHistory = require('history/lib/createBrowserHistory');
+var thunk = require('redux-thunk');
+var createLogger = require('redux-logger');
 
 const finalCreateStore = compose(
   applyMiddleware(thunk),
   reduxReactRouter({ createHistory }),
-  applyMiddleware(createLogger()),
-  devTools()
+  applyMiddleware(createLogger())
 )(createStore);
 
 module.exports = function(initialState) {

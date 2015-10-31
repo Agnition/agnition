@@ -1,9 +1,7 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var _ = require('underscore');
-var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/IndVars');
+var Actions = require('../../actions/IndVars');
 
 function mapStatetoProps (state, ownProps) {
   return {
@@ -18,32 +16,31 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var IndVar = React.createClass({
-  setName: function(event) {
+  setName: function() {
     this.props.actions.setIndVarName(this.refs.name.value, this.props.indVarId);
   },
-  setActionsPerTrial: function (event){
+  setActionsPerTrial: function () {
     this.props.actions.setActionsPerTrial(this.refs.actionsPerTrial.value, this.props.indVarId);
   },
-  setNumTrials: function(event) {
+  setNumTrials: function() {
       this.props.actions.setNumTrials(this.refs.numTrials.value, this.props.indVarId);
   },
   setRandomized: function(event) {
       this.props.actions.setRandomized(event.target.checked, this.props.indVarId);
   },
-  addOption: function(event){
+  addOption: function() {
     this.props.actions.addOption(this.refs.option.value, this.props.indVarId);
     this.refs.option.value = '';
   },
-  removeOption: function (event){
+  removeOption: function() {
     event.preventDefault();
     this.props.actions.removeOption(event.target.value, this.props.indVarId);
   },
 
-  render: function(){
-
+  render: function() {
     return (
       <div>
-        <section className ='ind-var-input'>
+        <section className ="ind-var-input">
           <div>
               Please enter your Ind Variable here.
           </div>
@@ -68,7 +65,12 @@ var IndVar = React.createClass({
               return (
                 <div>
                 {option}
-                <button className="remove-option" onClick={this.removeOption} value={option}>remove</button>
+                <button
+                  className="remove-option"
+                  onClick={this.removeOption}
+                  value={option}>
+                  remove
+                  </button>
                 </div>
               );
             }.bind(this))}

@@ -1,6 +1,5 @@
 var React = require('react');
 // import { PropTypes } from 'react';
-var utils = require('../../../utils/componentUtils');
 var connect = require('react-redux').connect;
 
 function mapStatetoProps (state, ownProps) {
@@ -14,10 +13,10 @@ function mapStatetoProps (state, ownProps) {
 var NewExperimentProgress = React.createClass({
   render: function() {
     return (
-    	<div>
-    		<div>Hypothesis: {this.props.hypothesis}</div>
-    		<div>Cause: {this.props.cause}</div>
-  			<div>Effect: {this.props.effect}</div> 
+      <div>
+        <div>Hypothesis: {this.props.hypothesis}</div>
+        <div>Cause: {this.props.cause}</div>
+        <div>Effect: {this.props.effect}</div>
       </div>
     );
   }

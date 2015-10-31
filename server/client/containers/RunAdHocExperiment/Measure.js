@@ -16,10 +16,10 @@ var Measure = React.createClass({
   getInitialState: function() {
     return {
       scaleValue: 3
-    }
+    };
   },
   scaleChanged: function() {
-    this.setState({'scaleValue': this.refs.scale.value});
+    this.setState({scaleValue: this.refs.scale.value});
   },
   render: function () {
     var input;
@@ -37,7 +37,7 @@ var Measure = React.createClass({
                 </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
-      return (<div> 
+      return (<div>
                 <input
                   type="range"
                   max="5"

@@ -3,8 +3,8 @@ var _ = require('underscore');
 var connect = require('react-redux').connect;
 var utils = require('../../utils/componentUtils');
 
-//decides what to present as the unit the measure comes in.
-//will look a bit ugly but enough to keep moving
+// decides what to present as the unit the measure comes in.
+// will look a bit ugly but enough to keep moving
 
 
 function mapStateToProps (state, ownProps) {
@@ -16,20 +16,20 @@ function mapStateToProps (state, ownProps) {
 var BasisSpan = React.createClass({
   render: function() {
       return (
-        <span className='basis'>{this.props.item}</span>
+        <span className="basis">{this.props.item}</span>
       );
     }
 });
 
 var Measure = React.createClass({
   getBasis: function(measure) {
-    if(measure.kind === 'numeric'){
+    if (measure.kind === 'numeric') {
       return measure.unit;
-    } else if (measure.kind === 'qualitative'){
-      return _.range(1, 5, 0.5);
-    } else {
-      return measure.list;
     }
+    if (measure.kind === 'qualitative') {
+      return _.range(1, 5, 0.5);
+    }
+    return measure.list;
   },
   render: function() {
     var basis = this.getBasis(this.props.measure);

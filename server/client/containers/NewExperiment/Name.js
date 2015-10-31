@@ -2,7 +2,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 var _ = require('underscore');
 
 // import actions and extend into a single object
@@ -22,7 +21,7 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var Name = React.createClass ({
+var Name = React.createClass({
 
   setName: function () {
     this.props.actions.setName(this.refs.name.value, this.props.expId);

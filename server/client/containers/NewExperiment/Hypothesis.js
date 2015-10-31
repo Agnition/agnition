@@ -1,11 +1,10 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
-var ExpActions = require ('../../actions/Experiments');
+var ExpActions = require('../../actions/Experiments');
 var NewExperimentActions = require('../../actions/NewExperiment');
 var Actions = _.extend(NewExperimentActions, ExpActions);
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 
 function mapStatetoProps (state, ownProps) {

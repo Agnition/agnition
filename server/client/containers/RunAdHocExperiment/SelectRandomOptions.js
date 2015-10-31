@@ -1,8 +1,5 @@
 var React = require('react');
 var _ = require('underscore');
-var Immutable = require('immutable');
-var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
 var ChosenOption = require('./ChosenOption');
 
 // var mapStateToProps = function (state, ownProps) {

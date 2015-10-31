@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+var Immutable = require('immutable');
 const initialState = new Immutable.List();
 
 module.exports = function(state = initialState, action) {

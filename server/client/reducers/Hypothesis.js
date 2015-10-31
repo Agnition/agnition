@@ -5,8 +5,7 @@ var initialState = Immutable.Map({
   effect: ''
 });
 
-module.exports = function(state, action) {
-  state = state || initialState;
+module.exports = function(state = initialState, action) {
   if (action.type === 'SET_HYPOTHESIS') {
     return state.set('hypothesis', action.hypothesis);
   }

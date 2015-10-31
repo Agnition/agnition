@@ -5,7 +5,6 @@ var _ = require('underscore');
 var mongooseId = require('mongoose').Types;
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 var DepVar = require('./DepVar');
 
@@ -29,15 +28,15 @@ function mapDispatchToProps (dispatch) {
 var DepVarWrapper = React.createClass({
 
 
-  genComponent: function (event) {
+  genComponent: function () {
     var depVarId = mongooseId.ObjectId().toString();
     this.props.actions.createDepVar(depVarId);
     this.props.actions.addDepVar(depVarId, this.props.expId);
   },
 
-  componentWillMount: function(){
-    if(this.props.depVars.length === 0) {
-      this.genComponent(); 
+  componentWillMount: function() {
+    if (this.props.depVars.length === 0) {
+      this.genComponent();
     }
   },
 

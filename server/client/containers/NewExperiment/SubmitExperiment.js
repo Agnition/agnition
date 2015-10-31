@@ -1,17 +1,14 @@
 var React = require('react');
 var $ = require('jquery');
 var connect = require('react-redux').connect;
-var unNormalize = require('../../utils/un-normalize');
 var stateToNorm = require('../../utils/stateToNorm');
-var schema = require('../../utils/schema');
 var filterData = require('../../utils/normalDataFilter');
-var Router = require('react-router').Router;
-import { History } from 'react-router';
+var History = require('react-router').History;
 
 var NewExperimentActions = require('../../actions/NewExperiment');
 var bindActionCreators = require('redux').bindActionCreators;
 
-function mapStatetoProps (state, ownProps) {
+function mapStatetoProps (state) {
   return {
     userId: state.User.get('id')
   };
@@ -28,7 +25,7 @@ var SubmitExperiment = React.createClass({
   mixins: [ History ],
 
   handleClick: function () {
-    var state = store.getState();
+    var state = window.store.getState();
     var normalState = stateToNorm(state);
     var data = filterData(normalState.entities, 'experiments', this.props.expId);
     data = JSON.stringify(data);
@@ -39,7 +36,7 @@ var SubmitExperiment = React.createClass({
       type: 'POST',
       contentType: 'application/json',
       data: data,
-      success: function (data) {
+      success: function () {
         this.history.pushState(null, '/dashboard');
         this.props.actions.resetQuestionIndex();
       }.bind(this),

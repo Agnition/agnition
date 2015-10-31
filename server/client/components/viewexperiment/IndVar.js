@@ -38,7 +38,8 @@ var IndVar = React.createClass({
 
 var IndVars = React.createClass({
   render: function() {
-    return utils.divCollection(this.props.indVars, IndVar, 'indVar') }
+    return utils.divCollection(this.props.indVars, IndVar, 'indVar');
+  }
 });
 
 module.exports = connect(mapStateToProps)(IndVars);

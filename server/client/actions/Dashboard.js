@@ -10,5 +10,5 @@ module.exports.createExperiment = function () {
 module.exports.viewExperiments = function () {
   return {
     type: 'VIEW_EXPERIMENTS'
-  }
+  };
 };

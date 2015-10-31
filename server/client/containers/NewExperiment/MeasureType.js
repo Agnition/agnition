@@ -20,8 +20,7 @@ function mapDispatchtoProps (dispatch) {
   };
 }
 
-var MeasureInput = React.createClass ({
-
+var MeasureInput = React.createClass({
   addMeasure: function () {
     this.props.actions.setName(this.refs.name.value);
   },

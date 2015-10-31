@@ -1,13 +1,9 @@
-import React from 'react';
+var React = require('react');
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { Link } from 'react-router';
 var connect = require('react-redux').connect;
-var Signin = require('../components/Signin.js');
-var Logout = require('../components/Logout.js');
-var UserInfo = require('../components/UserInfo.js');
 var History = require('react-router').History;
-var Exps = require('../components/myexperiments/ExpsTable.js')
+var Exps = require('../components/myexperiments/ExpsTable.js');
 var _ = require('lodash');
 
 function mapStateToProps (state) {
@@ -16,7 +12,7 @@ function mapStateToProps (state) {
   };
 }
 
-function mapDispatchtoProps (dispatch) {
+function mapDispatchtoProps () {
   return {
   };
 }
@@ -35,11 +31,11 @@ const Dashboard = React.createClass({
     var openExps = _.filter(this.props.exps, function(exp) {
       return exp.active;
     });
-    
+
     return (
-      <div className = 'dashboard'>
+      <div className="dashboard">
         <h1>Open Experiments</h1>
-        {openExps.length > 0 
+        {openExps.length > 0
         ? <Exps exps = {openExps} />
         : <p>No open experiments, add some!</p>}
         <div className="dashboard-buttons">

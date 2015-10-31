@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+var Immutable = require('immutable');
 const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
@@ -44,7 +44,6 @@ module.exports = function(state = initialState, action) {
     return state.setIn([action.measureId, 'scaleDescriptionMax'], action.description);
   }
   if (action.type === 'ADD_LIST_ITEM') {
-
     var newList = state.getIn([action.measureId, 'list']);
     // Only add unique items
     if (newList.indexOf(action.item) === -1) {

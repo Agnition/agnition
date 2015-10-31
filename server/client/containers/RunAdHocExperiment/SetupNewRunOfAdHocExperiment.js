@@ -1,17 +1,15 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
-var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
+var Actions = require('../../actions/Samples');
 var SelectNonRandomOptions = require('./SelectNonRandomOptions');
 var SelectRandomOptions  = require('./SelectRandomOptions');
-var shortId = require('shortid');
 
 var Link = require('react-router').Link;
 
 var mapStateToProps = function (state, ownProps) {
-  //have to map the ids to the indVars
+  // have to map the ids to the indVars
   var indVarIds = state.Experiments.get(ownProps.expId).toJS().indVars;
   var indVars = _.map(indVarIds, function(indVarId) {
     return state.IndVars.get(indVarId).toJS();
@@ -37,18 +35,17 @@ var mapDispatchToProps = function (dispatch) {
 
 var SetupNewRunOfAdHocExperiment = React.createClass({
   render: function () {
-
     var nonRandSpan = null;
-    if(this.props.nonRandIndVars.length > 0){
+    if (this.props.nonRandIndVars.length > 0) {
      nonRandSpan = <span>enter the parameters for your new sample</span>;
     }
 
     var randSpan = null;
-    if(this.props.randIndVars.length > 0){
+    if (this.props.randIndVars.length > 0) {
       randSpan = <span>these are the parameters we have randomly assigned</span>;
     }
 
-    return(
+    return (
       <div>
         {nonRandSpan}
         <div>
@@ -74,4 +71,4 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
 
 });
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(SetupNewRunOfAdHocExperiment)
+module.exports = connect(mapStateToProps, mapDispatchToProps)(SetupNewRunOfAdHocExperiment);

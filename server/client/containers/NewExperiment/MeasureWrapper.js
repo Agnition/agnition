@@ -5,7 +5,6 @@ var _ = require('underscore');
 var mongooseId = require('mongoose');
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 var Measure = require('./Measure');
 
 
@@ -30,13 +29,13 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureWrapper = React.createClass({
 
-  componentWillMount: function(){
-    if(this.props.measureIds.length === 0) {
+  componentWillMount: function() {
+    if (this.props.measureIds.length === 0) {
       this.genComponent();
     }
   },
 
-  genComponent: function (event) {
+  genComponent: function () {
     this.measureId = mongooseId.Types.ObjectId().toString();
     this.props.actions.createMeasure(this.measureId);
     this.props.actions.addMeasure(this.measureId, this.props.depVarId);

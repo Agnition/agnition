@@ -1,27 +1,18 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var cookie = require('react-cookie');
 
-var ExperimentActions = require('../actions/Experiments.js');
-var IndVariableActions = require('../actions/IndVars.js');
-var DepVariableActions = require('../actions/DepVars.js');
-var SampleActions = require('../actions/Samples.js');
-var MeasureActions = require('../actions/Measures.js');
-var RequestActions = require('../actions/Requests.js');
-var ReminderActions = require('../actions/Reminders.js');
 var UserActions = require('../actions/Users.js');
-var normalize = require('../utils/normalize');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 
 
-function mapStatetoProps (state) {
+function mapStateToProps () {
   return {
   };
 }
 
-function mapDispatchtoProps (dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     actions: bindActionCreators(UserActions, dispatch)
   };
@@ -29,7 +20,7 @@ function mapDispatchtoProps (dispatch) {
 
 var Logout = React.createClass({
   handleClick: function() {
-    $.get('/logout', function(data) {
+    $.get('/logout', function() {
       cookie.remove('connect.sid');
       this.props.actions.logout();
     }.bind(this));
@@ -43,4 +34,4 @@ var Logout = React.createClass({
   }
 });
 
-module.exports = connect(mapStatetoProps, mapDispatchtoProps)(Logout);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Logout);

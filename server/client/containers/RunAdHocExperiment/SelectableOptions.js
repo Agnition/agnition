@@ -1,9 +1,8 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
-var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
+var Actions = require('../../actions/Samples');
 
 var mapStateToProps = function (state, ownProps) {
   return {
@@ -18,7 +17,7 @@ var mapDispatchToProps = function (dispatch) {
   };
 };
 
-var SelectableOption = React.createClass ({
+var SelectableOption = React.createClass({
   render: function () {
     return (
       <label>
@@ -32,10 +31,12 @@ var SelectableOption = React.createClass ({
 var SelectableOptions = React.createClass({
   handleChange : function(event) {
     // anytime the radio button is change, we write to the sample in the state
-    this.props.actions.setIndVarOptionOnSample(this.props.sampleId, this.props.indVarId, event.target.value);
+    this.props.actions.setIndVarOptionOnSample(this.props.sampleId,
+                                               this.props.indVarId,
+                                               event.target.value);
   },
   getOptions: function() {
-    //creates an array of radio buttons
+    // creates an array of radio buttons
     var selectableOptions = [];
     _.each(this.props.options, function(optionValue, index) {
       var props = {
@@ -48,7 +49,7 @@ var SelectableOptions = React.createClass({
     return selectableOptions;
   },
   render: function() {
-    //displays a form composed of radio buttons tied to sample and indVarId
+    // displays a form composed of radio buttons tied to sample and indVarId
     var options = this.getOptions();
       return (
         <div>

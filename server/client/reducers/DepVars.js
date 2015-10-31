@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+var Immutable = require('immutable');
 const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
@@ -11,7 +11,7 @@ module.exports = function(state = initialState, action) {
     }));
   }
   if (action.type === 'SET_DEP_VAR_NAME') {
-    return state.setIn([action.depVarId, 'name'], action.name)
+    return state.setIn([action.depVarId, 'name'], action.name);
   }
   if (action.type === 'ADD_MEASURE') {
     var newMeasure = state.getIn([action.depVarId, 'measures']).push(action.measureId);

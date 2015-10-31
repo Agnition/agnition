@@ -24,7 +24,8 @@ var DepVar = React.createClass({
 
 var DepVars = React.createClass({
   render: function() {
-    return utils.divCollection(this.props.depVars, DepVar, 'depVar') }
+    return utils.divCollection(this.props.depVars, DepVar, 'depVar');
+  }
 });
 
 module.exports = connect(mapStateToProps)(DepVars);
