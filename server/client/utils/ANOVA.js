@@ -24,6 +24,21 @@ var getMean = function(array) {
   }) / array.length;
 };
 
+var getSumOfSquaresDeviation = function(array) {
+  var mean = getMean(array);
+  return array.reduce(function(sum, item) {
+    return sum + Math.pow(mean - item, 2);
+  }, 0);
+};
+
+var getVariance = function(array) {
+  return getSumOfSquaresDeviation(array) / array.length;
+};
+
+var getStandardDeviation = function(array) {
+  return Math.sqrt(getVariance(array));
+};
+
 var sumOfSquaresWithinGroups = function(data) {
   var sumOfSquares = 0;
   for (var option in data) {
@@ -77,6 +92,9 @@ module.exports = {
   getSampleDegreesOfFreedom: getSampleDegreesOfFreedom,
   getCriticalValue: getCriticalValue,
   getMean: getMean,
+  getSumOfSquaresDeviation: getSumOfSquaresDeviation,
+  getVariance: getVariance,
+  getStandardDeviation: getStandardDeviation,
   sumOfSquaresBetweenGroups: sumOfSquaresBetweenGroups,
   sumOfSquaresWithinGroups: sumOfSquaresWithinGroups,
   totalSumOfSquares: totalSumOfSquares,
