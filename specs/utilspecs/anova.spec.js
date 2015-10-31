@@ -25,6 +25,18 @@ describe('ANOVA utility functions', function () {
     expect(ANOVA.getMean([1, 1, 3, 3])).to.eql(2);
   });
 
+  it('should find the sum of squares of deviation from the mean', function () {
+    expect(ANOVA.getSumOfSquaresDeviation([2, 4, 5, 3, 6])).to.eql(10);
+  });
+
+  it('should find the variance', function () {
+    expect(ANOVA.getVariance([2, 4, 5, 3, 6])).to.eql(2);
+  });
+
+  it('should find the standard deviation', function () {
+    expect(ANOVA.getStandardDeviation([2, 4, 5, 3, 6])).to.eql(Math.sqrt(2));
+  });
+
   it('should find sumOfSquaresWithinGroups', function () {
     expect(ANOVA.sumOfSquaresWithinGroups({'1g': [2, 4, 5, 3, 6]})).to.eql(10);
     expect(ANOVA.sumOfSquaresWithinGroups({'2g': [4, 5, 6, 4, 6]})).to.eql(4);
