@@ -30,14 +30,14 @@ describe('the IndVar Container', function () {
         })
       })
     };
-    props.indVarId = '123'
+    props.indVarId = '123';
     props.store = mockStore({});
     indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
     actions = sinon.stub(indVar.dispatchProps.actions);
     inputs = TestUtils.scryRenderedDOMComponentsWithTag(indVar, 'input');
   });
 
-  it('should call setName on name change', function () {
+  xit('should call setName on name change', function () {
     var element = inputs[0];
     //check to actually make sure we are still pointed at right element
     expect(element._reactInternalComponent._currentElement.ref).to.eql('name');

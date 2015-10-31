@@ -57,7 +57,6 @@ var addExp = function (req, res) {
       } else return user;
     })
     .then(function(user){
-      console.dir(req.body);
       _.each(req.body.experiments, function(experiment) {
         new Exp(experiment).save();
       });
