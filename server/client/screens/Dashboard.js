@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 var Signin = require('../components/Signin.js');
 var Logout = require('../components/Logout.js');
 var UserInfo = require('../components/UserInfo.js');
-var SampleBar = require('../containers/AnalyzeExperiment/MeasureNumeric/OptionList/BarChart.js');
 // function mapStatetoProps (state) {
 //   return {
 //     name: state.NewExperiment.get('name'),
