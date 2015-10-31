@@ -1,15 +1,15 @@
-import { combineReducers } from 'redux';
-import User from './User';
-import Dashboard from './Dashboard';
-import Experiments from './Experiments';
-import DepVars from './DepVars';
-import IndVars from './IndVars';
-import Measures from './Measures';
-import Samples from './Samples';
-import Reminders from './Reminders';
-import Requests from './Requests';
-import NewExperiment from './NewExperiment';
-import { routerStateReducer as Router } from 'redux-router';
+var combineReducers = require('redux').combineReducers;
+var User = require('./User');
+var Dashboard = require('./Dashboard');
+var Experiments = require('./Experiments');
+var DepVars = require('./DepVars');
+var IndVars = require('./IndVars');
+var Measures = require('./Measures');
+var Samples = require('./Samples');
+var Reminders = require('./Reminders');
+var Requests = require('./Requests');
+var NewExperiment = require('./NewExperiment');
+var Router = require('redux-router').routerStateReducer;
 
 module.exports = combineReducers({
   Router: Router,

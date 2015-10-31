@@ -21,7 +21,7 @@ var DepVars = React.createClass({
     event.preventDefault();
     console.log('buttonPushed!');
     var data = $(event.target).serializeJSON();
-    $.post('/samples', data, function(success){
+    $.post('/samples', data, function(){
       console.log('success!');
       this.history.pushState(null, '/viewexp/' + this.props.params.expid);
     }.bind(this));
@@ -31,7 +31,7 @@ var DepVars = React.createClass({
     var depVars = this.props.depVars.map(function(depVarId) {
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
-    var indVars = _.map(this.props.indVars, function(value, indVarId){
+    var indVars = _.map(this.props.indVars, function(value, indVarId) {
       return (<input
                 name={'indVars[' + indVarId + '][value]'}
                 type="hidden"
@@ -40,7 +40,6 @@ var DepVars = React.createClass({
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          { /* <input name="expId" type="hidden" value={this.props.params.expid} /> */ }
           {indVars}
           {depVars}
           <button type="submit">Submit Sample</button>

@@ -1,6 +1,5 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var bindActionCreators = require('redux').bindActionCreators;
 
 function mapStatetoProps (state) {
   return {

@@ -1,22 +1,19 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
-var $ = require('jquery');
 
 var ExperimentActions = require('../actions/Experiments.js');
 var IndVariableActions = require('../actions/IndVars.js');
 var DepVariableActions = require('../actions/DepVars.js');
-var SampleActions = require('../actions/Samples.js');
 var MeasureActions = require('../actions/Measures.js');
 var RequestActions = require('../actions/Requests.js');
 var ReminderActions = require('../actions/Reminders.js');
 var UserActions = require('../actions/Users.js');
-var normalize = require('../utils/normalize');
 var connect = require('react-redux').connect;
 var bindActionCreators = require('redux').bindActionCreators;
 
 
-function mapStatetoProps (state) {
-  return {};
+function mapStatetoProps () {
+  return {
+  };
 }
 
 function mapDispatchtoProps (dispatch) {

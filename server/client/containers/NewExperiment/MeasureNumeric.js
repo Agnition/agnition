@@ -1,10 +1,8 @@
 // import React and Redux dependencies
 var React = require('react');
 var connect = require('react-redux').connect;
-var _ = require('underscore');
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 var MeasureActions = require('../../actions/Measures');
 
@@ -27,11 +25,11 @@ var MeasureNumeric = React.createClass({
   },
 
   render: function () {
-
     return (
       <div>
         <label>
-          Choose Unit<input ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
+          Choose Unit
+          <input ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
         </label>
       </div>
       );

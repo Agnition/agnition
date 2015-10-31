@@ -4,7 +4,6 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 var MeasureWrapper = require('./MeasureWrapper');
 
 // import actions
@@ -35,7 +34,12 @@ var DepVar = React.createClass({
     return (
       <div>
         <label>dep Variable Name:
-        <input type="text" ref="depVarName" onChange={this.setName} value = {this.props.name} /></label>
+        <input
+          type="text"
+          ref="depVarName"
+          onChange={this.setName}
+          value={this.props.name}/>
+        </label>
         <div> Name: {this.props.name} </div>
         <MeasureWrapper key={this.props.depVarId} depVarId={this.props.depVarId} />
       </div>

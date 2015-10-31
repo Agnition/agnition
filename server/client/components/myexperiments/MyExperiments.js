@@ -1,7 +1,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var Exps = require('./ExpsTable');
-var utils = require('../../utils/componentUtils');
 var _ = require('underscore');
 
 // creates two seperate lists of exps that will be seperately rendered
@@ -13,21 +12,27 @@ function mapStatetoProps (state) {
 
 var MyExps = React.createClass({
   render: function() {
-    var openExps = _.filter(this.props.exps,function(exp) {
+    var openExps = _.filter(this.props.exps, function(exp) {
       return exp.active;
     });
-    var closedExps = _.filter(this.props.exps,function(exp) {
+    var closedExps = _.filter(this.props.exps, function(exp) {
       return !exp.active;
     });
     return (
-      <div>
+      <div className="my-exps">
         <div>
-          <h2>Open Experiments</h2>
-          <Exps exps = {openExps} />
+          <h1>Open Experiments</h1>
+          {openExps.length > 0
+            ? <Exps exps = {openExps} />
+            : <p>You don't have any open experiments!</p>
+          }
         </div>
         <div>
-          <h2>Closed Experiments</h2>
-          <Exps exps = {closedExps} />
+          <h1>Closed Experiments</h1>
+          {closedExps.length > 0
+            ? <Exps exps = {closedExps} />
+            : <p> You don't have any finished experiments!</p>
+          }
         </div>
       </div>
     );

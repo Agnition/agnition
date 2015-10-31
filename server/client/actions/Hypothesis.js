@@ -1,4 +1,3 @@
- 
 module.exports.setHypothesis = function (hypothesis) {
   return {
     type: 'SET_HYPOTHESIS',
@@ -7,7 +6,7 @@ module.exports.setHypothesis = function (hypothesis) {
 };
 
 module.exports.setCause = function (cause) {
-  return { 
+  return {
     type: 'SET_CAUSE',
     cause: cause
   };

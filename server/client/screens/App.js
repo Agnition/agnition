@@ -1,9 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { pushState } from 'redux-router';
-import { Link } from 'react-router';
-import Dashboard from './Dashboard';
-import TopNav from '../components/TopNav';
+var React = require('react');
+var Component = require('react').Component;
+var TopNav = require('../components/TopNav');
 
 class App extends Component {
 

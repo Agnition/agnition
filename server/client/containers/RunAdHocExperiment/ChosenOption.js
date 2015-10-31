@@ -1,9 +1,8 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var _ = require('underscore');
-var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
+var Actions = require('../../actions/Samples');
 
 var mapStateToProps = function (state, ownProps) {
   var depVarIds = state.Experiments.getIn([ownProps.expId, 'depVars']).toJS();
@@ -23,7 +22,6 @@ var mapStateToProps = function (state, ownProps) {
     name : state.IndVars.get(ownProps.indVarId).toJS().name,
     numMeasures : measureIds.length,
     numTrials : state.IndVars.get(ownProps.indVarId).toJS().numTrials,
-    // actionsPerTrial : state.IndVars.get(ownProps.indVarId).toJS().actionsPerTrial, // assume 1 for ad-hoc exps
   };
 };
 
@@ -42,8 +40,9 @@ var ChosenOption = React.createClass({
     var ownProps = this.props;
     var options = _.map(states, function(indVars) {
       return _.first(_.pluck(_.filter(indVars, function(indVar) {
-        //return indVar._id === this.props.indVarId; // TODO: use when id is consistent
-        return indVar.name === ownProps.name; // until db is consistent
+        // return indVar._id === this.props.indVarId; // TODO: use when id is consistent
+        // until db is consistent
+        return indVar.name === ownProps.name;
       }), 'value'));
     });
     var optionCount = {};

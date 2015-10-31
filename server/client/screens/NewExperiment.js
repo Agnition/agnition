@@ -17,9 +17,6 @@ var DepVarWrapper = require('../containers/NewExperiment/DepVarWrapper');
 var IndVarWrapper = require('../containers/NewExperiment/IndVarWrapper');
 var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
 
-var HypothesisCheck = require('../containers/NewExperiment/HypothesisCheck');
-
-// import child components
 var NewExperimentProgress = require('../containers/NewExperiment/components/ProgressWrapper');
 
 const QUESTION_COUNT = 5;
@@ -65,7 +62,6 @@ var NewExperiment = React.createClass({
   },
 
   render: function () {
-
     var questions = [(<Name expId={this.expId} />),
         (<Hypothesis expId={this.expId} />),
         (<DepVarWrapper expId={this.expId} />),
@@ -82,7 +78,7 @@ var NewExperiment = React.createClass({
             <div className="row back-next-row">
               <div className="col-xs-9 col-xs-offset-3">
               {this.props.questionIndex > 0
-                ? <button className="back-button" onClick={this.handleBack}>Back</button> 
+                ? <button className="back-button" onClick={this.handleBack}>Back</button>
                 : null}
               {this.props.questionIndex < 5
                 ? <button className="next-button" onClick={this.handleNext}>Next</button>

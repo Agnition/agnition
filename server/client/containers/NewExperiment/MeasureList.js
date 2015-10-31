@@ -1,10 +1,8 @@
 // import React and Redux dependencies
 var React = require('react');
 var connect = require('react-redux').connect;
-var _ = require('underscore');
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 var MeasureActions = require('../../actions/Measures');
 

@@ -11,7 +11,7 @@ function mapStatetoProps (state, ownProps) {
 var NewExperimentProgress = React.createClass({
   render: function() {
     return (
-        <h3>Name: {this.props.name}</h3> 
+        <h3>Name: {this.props.name}</h3>
     );
   }
 });

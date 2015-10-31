@@ -1,5 +1,3 @@
-var Immutable = require('immutable');
-
 module.exports.renameDepVar = function (depVar, index) {
   return {
     type: 'RENAME_DEP_VAR',
@@ -11,5 +9,5 @@ module.exports.renameDepVar = function (depVar, index) {
 module.exports.viewExperiments = function () {
   return {
     type: 'VIEW_EXPERIMENTS'
-  }
+  };
 };

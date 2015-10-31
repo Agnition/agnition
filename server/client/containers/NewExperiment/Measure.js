@@ -1,10 +1,8 @@
 // import React and Redux dependencies
 var React = require('react');
 var connect = require('react-redux').connect;
-var _ = require('underscore');
 
 var bindActionCreators = require('redux').bindActionCreators;
-var Immutable = require('immutable');
 
 var MeasureQualitative = require('./MeasureQualitative');
 var MeasureList = require('./MeasureList');
@@ -34,9 +32,15 @@ var Measure = React.createClass({
 
   render: function () {
     var measureKinds = {
-      qualitative: (<MeasureQualitative key={this.props.measureId} measureId={this.props.measureId} />),
-      numeric: (<MeasureNumeric key={this.props.measureId} measureId={this.props.measureId} />),
-      list: (<MeasureList key={this.props.measureId} measureId={this.props.measureId} />)
+      qualitative: (<MeasureQualitative
+                    key={this.props.measureId}
+                    measureId={this.props.measureId} />),
+      numeric: (<MeasureNumeric
+                key={this.props.measureId}
+                measureId={this.props.measureId} />),
+      list: (<MeasureList
+             key={this.props.measureId}
+             measureId={this.props.measureId} />)
     };
     return (
       <div className="measure">

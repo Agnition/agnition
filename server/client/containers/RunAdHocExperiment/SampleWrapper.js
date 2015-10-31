@@ -1,13 +1,9 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var _ = require('underscore');
-var Immutable = require('immutable');
 var bindActionCreators = require('redux').bindActionCreators;
-var Actions = require ('../../actions/Samples');
+var Actions = require('../../actions/Samples');
 var SetupNewRunOfAdHocExperiment = require('./SetupNewRunOfAdHocExperiment');
-var SelectRandomOptions  = 'tbd';
 var shortId = require('shortid');
-var Actions = require ('../../actions/Samples');
 
 var mapDispatchToProps = function (dispatch) {
   return {
@@ -17,7 +13,7 @@ var mapDispatchToProps = function (dispatch) {
 
 var SampleWrapper = React.createClass({
   sampleId: null,
-  componentWillMount: function(){
+  componentWillMount: function() {
     this.sampleId = shortId.generate();
     this.props.actions.createSample(this.sampleId);
   },

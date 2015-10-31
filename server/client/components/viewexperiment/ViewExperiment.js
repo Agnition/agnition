@@ -6,8 +6,8 @@ var shortId = require('shortid');
 var utils = require('../../utils/componentUtils');
 var Actions = require('../../actions/Samples');
 var bindActionCreators = require('redux').bindActionCreators;
-import { History } from 'react-router';
-import { Link } from 'react-router';
+var History = require('react-router').History;
+var Link = require('react-router').Link;
 
 function mapStateToProps (state, ownProps) {
   return {

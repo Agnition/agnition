@@ -1,4 +1,4 @@
-import React from 'react';
+var React = require('react');
 var connect = require('react-redux').connect;
 
 var NewExperimentActions = require('../../actions/NewExperiment');
