@@ -7,8 +7,8 @@ var BarChart = require("react-d3").BarChart;
 var d3 = require('d3');
 
 // componet that takes in indvarID + measureID
-mapStateToProps = function(state, ownProps){
-    var samples = getSamplesForMeasure(state, ownProps.measureId, ownProps.indVarId);
+var mapStateToProps = function(state, ownProps){
+    var samples = utils.getSamplesForMeasure(state, ownProps.measureId, ownProps.indVarId);
     return {
         indVar : state.IndVars.get(ownProps.indVarId).toJS(),
         measure : state.Measures.get(ownProps.measureId).toJS(),
@@ -26,7 +26,7 @@ var Chart = React.createClass({
     render: function() {
         return (
             <div>
-                <BarChart data={genChartData()} width={500} height={300} title="Bar Chart" yAxisLabel="Label" xAxisLabel="Value"/>
+                <BarChart data={this.genChartData()} width={500} height={300} title="Bar Chart" yAxisLabel="Label" xAxisLabel="Value"/>
             </div>
         );
     }
