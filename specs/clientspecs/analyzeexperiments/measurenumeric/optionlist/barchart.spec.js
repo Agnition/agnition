@@ -27,7 +27,7 @@ describe('MeasureNumeric OptionList BarChart Component', function () {
 
   it('should correctly map state to props', function () {
     var props = barChart.nextState;
-    expect(props.indVar).to.eql({ options: [ 'horse', 'pig' ], name: 'erotica' });
+    expect(props.indVar).to.eql({ options: [ 'horse', 'pig' ], name: 'proffesional sounding name' });
     expect(props.measure).to.eql({ samples: [ 'sa', 'sb', 'sc', 'sd', 'se' ], _id: 'b' });
     console.dir(props.samples);
     expect(props.samples.samples.length).to.eql(5);
