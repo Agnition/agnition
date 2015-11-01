@@ -5,16 +5,6 @@ var connect = require('react-redux').connect;
 var utils = require('../../../../utils/componentUtils');
 var BarChart = require('../../../../../../lib/react-d3').BarChart;
 
-// componet that takes in indvarID + measureID
-var mapStateToProps = function(state, ownProps){
-    var samples = utils.getSamplesForMeasure(state, ownProps.measureId, ownProps.indVarId);
-    return {
-        indVar : state.IndVars.get(ownProps.indVarId).toJS(),
-        measure : state.Measures.get(ownProps.measureId).toJS(),
-        samples : samples,
-    };
-};
-
 var Chart = React.createClass({
     genChartData : function() {
         return [{
@@ -32,4 +22,4 @@ var Chart = React.createClass({
 });
 
 // export chart
-module.exports = connect(mapStateToProps)(Chart);
+module.exports = Chart;
