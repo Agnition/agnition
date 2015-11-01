@@ -2,8 +2,8 @@
 var getOptions = function(measureData) {
   var options = [];
   for (var i = 0; i < measureData.length; i++) {
-    if (options.indexOf(measureData[i].indVars[0].value) === -1) {
-      options.push(measureData[i].indVars[0].value);
+    if (options.indexOf(measureData[i].indVarValue) === -1) {
+      options.push(measureData[i].indVarValue);
     }
   }
   return options;
@@ -18,8 +18,8 @@ var getValues = function(measureData) {
   }
 
   for (var i = 0; i < measureData.length; i++) {
-    var option = measureData[i].indVars[0].value;
-    data[option].push(measureData[i].value);
+    var option = measureData[i].indVarValue;
+    data[option].push(measureData[i].measureValue);
   }
 
   return data;
@@ -31,10 +31,10 @@ var genHistogram =function (bins, set) {
     var min = Math.min.apply(null, set);
     var max = Math.max.apply(null, set)+1;
     var maxFreq = 0;
-    
+
     var binWidth = (max-min)/bins;
     var freq = Array(bins).fill(0);
-    
+
 
     for(var i = 0; i < set.length; i++) {
       var index = Math.floor((set[i] - min) / binWidth);
