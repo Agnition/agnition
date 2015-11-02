@@ -23,14 +23,14 @@ var MyExps = React.createClass({
         <div>
           <h1>Open Experiments</h1>
           {openExps.length > 0
-            ? <Exps exps = {openExps} />
+            ? <Exps exps = {openExps} active = {true}/>
             : <p>You don't have any open experiments!</p>
           }
         </div>
         <div>
           <h1>Closed Experiments</h1>
           {closedExps.length > 0
-            ? <Exps exps = {closedExps} />
+            ? <Exps exps = {closedExps} active = {false}/>
             : <p> You don't have any finished experiments!</p>
           }
         </div>

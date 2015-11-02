@@ -225,7 +225,22 @@ a:hover
      cursor:pointer;  
 }
 
-.new-experiment-container {
+.new-experiment {
   min-height: 50vh;
 }
 
+.name-container, .dep-var-container {
+  min-height: 40vh;
+}
+
+.open-exps-container {
+  display: flex;
+}
+
+.run-open-exps-container {
+  padding: 3px;
+}
+
+.cause {
+  color: red;
+}
