@@ -25,13 +25,18 @@ var getValues = function(measureData) {
   return data;
 };
 
-var genHistogram =function (bins, set) {
+var genHistogram =function (bins, set, min, max) {
     //what we are returning
     var results = [];
-    var min = Math.min.apply(null, set);
-    var max = Math.max.apply(null, set)+1;
+    if(min === undefined){
+      min = Math.min.apply(null, set);
+    }
+
+    if(max === undefined){
+      max = Math.max.apply(null, set)+1;
+    }
+
     var maxFreq = 0;
-    
     var binWidth = (max-min)/bins;
     var freq = Array(bins).fill(0);
     
