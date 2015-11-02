@@ -19,7 +19,7 @@ var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
 
 var NewExperimentProgress = require('../containers/NewExperiment/components/ProgressWrapper');
 
-const QUESTION_COUNT = 5;
+const QUESTION_COUNT = 4;
 
 function mapStatetoProps (state) {
   return {
