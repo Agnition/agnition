@@ -28,10 +28,6 @@ const Dashboard = React.createClass({
     this.history.pushState(null, '/myexps/');
   },
 
-  makeButtons: function () {
-
-  },
-
   render: function render() {
     var openExps = _.filter(this.props.exps, function(exp) {
       return exp.active;
