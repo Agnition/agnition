@@ -7,7 +7,7 @@ var TestUtils = require('react-addons-test-utils');
 var mockStore = require('../../../../utils/mockStore');
 var mockRequire = require('mockrequire');
 var utils = require('../../../../utils/utils');
-var stateObj = mockStore(require('./barchartmockstate.json'));
+var sampleObj = require('./barchartmocksample.json');
 
 var BarChart = mockRequire('../../../../../server/client/containers/AnalyzeExperiment/MeasureNumeric/OptionList/BarChart', {
   '../../../../../../lib/react-d3': {
@@ -19,18 +19,10 @@ describe('MeasureNumeric OptionList BarChart Component', function () {
   var barChart;
   beforeEach(function () {
     var props = {};
-    props.store = stateObj;
-    props.indVarId = 'a';
-    props.measureId = 'b';
+    props.samples = sampleObj;
+    props.indVar = { options: [ 'horse', 'pig' ], name: 'proffesional sounding name' };
+    props.measure = { samples: [ 'sa', 'sb', 'sc', 'sd', 'se' ], _id: 'b' };
     barChart = TestUtils.renderIntoDocument(React.createElement(BarChart, props), 'root');
-  });
-
-  it('should correctly map state to props', function () {
-    var props = barChart.nextState;
-    expect(props.indVar).to.eql({ options: [ 'horse', 'pig' ], name: 'proffesional sounding name' });
-    expect(props.measure).to.eql({ samples: [ 'sa', 'sb', 'sc', 'sd', 'se' ], _id: 'b' });
-    console.dir(props.samples);
-    expect(props.samples.samples.length).to.eql(5);
   });
 
   it('should render a bar chart element', function () {

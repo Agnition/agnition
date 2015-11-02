@@ -1,0 +1,19 @@
+{
+  "indVarName": "proffesional sounding name",
+  "samples": [{
+    "indVarValue": "horse",
+    "measureValue": 2
+  }, {
+    "indVarValue": "horse",
+    "measureValue": 2
+  }, {
+    "indVarValue": "horse",
+    "measureValue": 2
+  }, {
+    "indVarValue": "pig",
+    "measureValue": 5
+  }, {
+    "indVarValue": "pig",
+    "measureValue": 5
+  }]
+}
