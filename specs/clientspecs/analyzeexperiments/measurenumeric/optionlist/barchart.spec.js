@@ -10,7 +10,7 @@ var utils = require('../../../../utils/utils');
 var stateObj = mockStore(require('./barchartmockstate.json'));
 
 var BarChart = mockRequire('../../../../../server/client/containers/AnalyzeExperiment/MeasureNumeric/OptionList/BarChart', {
-  'react-d3': {
+  '../../../../../../lib/react-d3': {
     BarChart : utils.mockDivComponent('chart')
   },
   }, {jsx: true});

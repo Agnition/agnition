@@ -27,7 +27,7 @@ const Dashboard = React.createClass({
   goToAllExps: function() {
     this.history.pushState(null, '/myexps/');
   },
-
+ 
   render: function render() {
     var openExps = _.filter(this.props.exps, function(exp) {
       return exp.active;

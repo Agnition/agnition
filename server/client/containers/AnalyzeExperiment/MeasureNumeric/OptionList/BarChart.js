@@ -3,7 +3,7 @@ var React = require('react');
 var _ = require('underscore');
 var connect = require('react-redux').connect;
 var utils = require('../../../../utils/componentUtils');
-var BarChart = require("react-d3").BarChart;
+var BarChart = require('../../../../../../lib/react-d3').BarChart;
 
 // componet that takes in indvarID + measureID
 var mapStateToProps = function(state, ownProps){

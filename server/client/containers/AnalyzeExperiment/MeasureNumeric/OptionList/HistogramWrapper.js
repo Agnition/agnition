@@ -3,7 +3,7 @@ var React = require('react');
 var _ = require('underscore');
 var connect = require('react-redux').connect;
 var utils = require('../../../../utils/sampleUtils.js');
-var AreaChart = require("react-d3").AreaChart;
+var AreaChart = require('../../../../../../lib/react-d3').AreaChart;
 
 
 var HistogramWrapper = React.createClass({
@@ -12,13 +12,17 @@ var HistogramWrapper = React.createClass({
 
   },
   genChartHistograms : function() {
-    var minValue = 0;
-    var maxValue = 0;
+    //concat all the samples to find the min and max for min sizing
+    var allSamples = _.reduce(this.props.datasets, function(memo, array){
+      return memo.concat(array);
+    });
+    var minValue = Math.floor(Math.min.apply(null, allSamples));
+    var maxValue = Math.ceil(Math.max.apply(null, allSamples));
+
+    //set max freq
     var maxFreq = 0;
     var chartData = _.map(this.props.datasets, function(values, key){
-      var histogram = utils.genHistogram(this.props.bins, values);
-      minValue = Math.min(histogram.min, minValue);
-      maxValue = Math.max(histogram.max, maxValue);
+      var histogram = utils.genHistogram(this.props.bins, values, minValue, maxValue);
       maxFreq = Math.max(histogram.maxFreq, maxFreq);
       return  { data : {name: 'a name', values: histogram.coordinates}, label: key};
     }, this);

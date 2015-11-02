@@ -10,7 +10,7 @@ var datasets = require('./histogramwrappermockstate.json');
 
 
 var HistogramWrapper = mockRequire('../../../../../server/client/containers/AnalyzeExperiment/MeasureNumeric/OptionList/HistogramWrapper', {
-  'react-d3': {
+  '../../../../../../lib/react-d3': {
     AreaChart : utils.mockDivComponent('chart')
   },
   }, {jsx: true});
