@@ -25,7 +25,7 @@ var Measure = React.createClass({
     var input;
     if (this.props.kind === 'numeric') {
       input = (<span>
-                <input type="number" name={'measures[' + this.props.measureId + '][value]'} />
+                <input type="number"  step="0.01" name={'measures[' + this.props.measureId + '][value]'} />
               </span>);
     } else if (this.props.kind === 'list') {
       input = this.props.list.map(function(item) {
