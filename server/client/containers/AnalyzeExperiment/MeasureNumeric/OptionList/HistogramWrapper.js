@@ -13,21 +13,14 @@ var HistogramWrapper = React.createClass({
   },
   genChartHistograms : function() {
     //concat all the samples to find the min and max for min sizing
-    allSamples = _.reduce(this.props.datasets, function(memo, array){
+    var allSamples = _.reduce(this.props.datasets, function(memo, array){
       return memo.concat(array);
     });
-
-    var minValue = _.reduce(allSamples, function(memo, value){
-      return Math.floor(Math.min(memo, value));
-    });
-
-    var maxValue = _.reduce(allSamples, function(memo, value){
-      return Math.floor(Math.max(memo, value));
-    });
+    var minValue = Math.floor(Math.min.apply(null, allSamples));
+    var maxValue = Math.ceil(Math.max.apply(null, allSamples));
 
     //set max freq
     var maxFreq = 0;
-
     var chartData = _.map(this.props.datasets, function(values, key){
       var histogram = utils.genHistogram(this.props.bins, values, minValue, maxValue);
       maxFreq = Math.max(histogram.maxFreq, maxFreq);
