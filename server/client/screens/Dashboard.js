@@ -7,16 +7,6 @@ var Exps = require('../components/myexperiments/ExpsTable.js');
 var _ = require('lodash');
 var Link = require('react-router').Link;
 
-var  HistogramWrapper = require('../containers/AnalyzeExperiment/MeasureNumeric/OptionList/HistogramWrapper.js');
-
-var oneg = [];
-var twog = [];
-
-for(var i = 0; i < 100; i ++){
-  oneg.push(Math.floor(Math.random()*100));
-  twog.push(Math.floor(Math.random()*50));
-}
-
 function mapStateToProps (state) {
   return {
     exps: state.Experiments.toJS()
@@ -57,7 +47,6 @@ const Dashboard = React.createClass({
           <button className="add-new-exp" onClick={this.goToNewExp}>Add New Experiment</button>
           <button className="go-to-exps" onClick={this.goToAllExps}>View All Experiments</button>
         </div>
-        <HistogramWrapper datasets={{'oneg':oneg, 'twog': twog}} bins= {10} />
       </div>
     );
   }
