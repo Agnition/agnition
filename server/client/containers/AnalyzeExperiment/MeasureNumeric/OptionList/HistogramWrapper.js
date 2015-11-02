@@ -3,7 +3,7 @@ var React = require('react');
 var _ = require('underscore');
 var connect = require('react-redux').connect;
 var utils = require('../../../../utils/sampleUtils.js');
-var AreaChart = require("react-d3").AreaChart;
+var AreaChart = require('../../../../../../lib/react-d3').AreaChart;
 
 
 var HistogramWrapper = React.createClass({
