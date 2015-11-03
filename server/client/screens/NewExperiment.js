@@ -72,7 +72,7 @@ var NewExperiment = React.createClass({
     return (
       <div>
         <div className="row">
-          <section className="new-experiment col-md-6 col-sm-12">
+          <section className="section-inline col-md-6 col-sm-12">
             <h2>Create a new experiment</h2>
             {questions[this.props.questionIndex]}
             <div className="row back-next-row">
