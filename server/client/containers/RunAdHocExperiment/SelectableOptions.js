@@ -20,8 +20,8 @@ var mapDispatchToProps = function (dispatch) {
 var SelectableOption = React.createClass({
   render: function () {
     return (
-      <label>
-        <input type="radio" name={this.props.indVarId} value={this.props.optionValue} />
+      <label >
+        <input className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
         {this.props.optionValue}
       </label>
     );
@@ -30,7 +30,7 @@ var SelectableOption = React.createClass({
 
 var SelectableOptions = React.createClass({
   handleChange : function(event) {
-    // anytime the radio button is change, we write to the sample in the state
+    // anytime the radio button is changed, we write to the sample in the state
     this.props.actions.setIndVarOptionOnSample(this.props.sampleId,
                                                this.props.indVarId,
                                                event.target.value);
@@ -53,7 +53,7 @@ var SelectableOptions = React.createClass({
     var options = this.getOptions();
       return (
         <div>
-          <span>select an option for ind variable: {this.props.name}</span>
+          <span className='question'>Select a value for: {this.props.name}</span>
           <form onChange={this.handleChange}>
             {options}
           </form>

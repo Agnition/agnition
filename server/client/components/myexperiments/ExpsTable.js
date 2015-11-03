@@ -16,7 +16,7 @@ var ExpRow = React.createClass({
     return (
       <tr className={this.props.type}>
         <td><Link to={'/viewexp/' + this.props.exp._id}>{this.props.exp.name}</Link></td>
-        <td> {this.props.exp.hypothesis} </td>
+        <td>{this.props.exp.hypothesis}</td>
         <td>{link}</td>
       </tr>
     );

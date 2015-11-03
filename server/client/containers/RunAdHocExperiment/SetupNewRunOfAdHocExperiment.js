@@ -37,17 +37,17 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
   render: function () {
     var nonRandSpan = null;
     if (this.props.nonRandIndVars.length > 0) {
-     nonRandSpan = <span>enter the parameters for your new sample</span>;
+     nonRandSpan = <span className= 'guide'>enter the parameters for your new sample</span>;
     }
 
     var randSpan = null;
     if (this.props.randIndVars.length > 0) {
-      randSpan = <span>these are the parameters we have randomly assigned</span>;
+      randSpan = <span className = 'guide'>these are the parameters we have randomly assigned</span>;
     }
 
     return (
       <div>
-        {nonRandSpan}
+        <h2 class = 'section-title'>Cause</h2>
         <div>
           <SelectNonRandomOptions
             indVarIds = {this.props.nonRandIndVars}
@@ -60,7 +60,7 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
             expId = {this.props.expId}
             sampleId = {this.props.sampleId} />
         </div>
-        <button>
+        <button className='set-button'>
           <Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>
             Run Experiment
           </Link>
