@@ -10,6 +10,8 @@ var mockRequire = require('mockrequire');
 var utils = require('../../utils/utils');
 var sinon = require('sinon');
 
+var postCalled = false;
+
 var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/DepVars', {
   './DepVar': utils.mockDivComponent('depvar'),
   'jquery': (function(){
@@ -19,7 +21,14 @@ var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/
         serializeJSON: function() {}
       };
     };
-    $.post = function() {};
+    $.post = function(route, data, cb) {
+      cb([{
+        _id: 'ABCDEFG',
+        value: 3,
+        indVarStates: {}
+      }]);
+      postCalled = true;
+    };
     return $;
   })(),
   'jquery-serializejson': {}
@@ -33,54 +42,33 @@ describe('The DepVars sample component', function () {
 
   beforeEach(function () {
     var props = {};
-    var obj = {
-      Experiments : {
-        q : {
-          depVars : ['x', 'y', 'z']
-        }
-      },
-      Samples : {
-        s : {
-          indVarStates : [
-            {
-              _id : 'a',
-              value : 5,
-              name : 'beers'
-            },
-            {
-              _id : 'b',
-              value : 3,
-              name : 'meals'
-            }
-          ]
-        }
-      }
-    };
+    var obj = require('./DepVarsSampleData.json');
     props.store = mockStore(obj);
-    //also need to pass in keys
     props.params = {};
-    props.params.expid = 'q';
-    props.params.sampleid = 's';
+    props.params.expid = '562ebfa6a3b7183b57d3ed41';
+    props.params.sampleid = 'exampleSampleId';
 
     form = TestUtils.renderIntoDocument(React.createElement(DepVars, props), 'root');
-    
   });
 
   it('should render a depVar for each depVarId', function () {
     var vars = TestUtils.scryRenderedDOMComponentsWithClass(form, 'depvar');
-    expect(vars.length).to.eql(3);
+    expect(vars.length).to.eql(1);
   });
 
   it('should render an input field for each indDepVar', function () {
     var inputs = TestUtils.scryRenderedDOMComponentsWithTag(form, 'input');
-    expect(inputs.length).to.eql(2);
+    expect(inputs.length).to.eql(1);
   });
 
-  xit('go to next sample page', function () {
+  it('should post the created sample', function () {
     var button = TestUtils.findRenderedDOMComponentWithTag(form, 'button');
     TestUtils.Simulate.submit(button);
-    // server.respond();
+    expect(postCalled).to.equal(true);
   });
 
+  xit('should add the sample to the state', function (done) {
+
+  });
 
 });
