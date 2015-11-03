@@ -13,7 +13,7 @@ var HistogramWrapper = React.createClass({
   },
   genChartHistograms : function() {
     //concat all the samples to find the min and max for min sizing
-    var allSamples = _.reduce(this.props.datasets, function(memo, array){
+    var allSamples = _.reduce(this.props.samples, function(memo, array){
       return memo.concat(array);
     });
     var minValue = Math.floor(Math.min.apply(null, allSamples));
