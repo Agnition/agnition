@@ -8,6 +8,10 @@ function mapStatetoProps (state, ownProps) {
     kind: state.Measures.getIn([ownProps.measureId, 'kind']),
     unit: state.Measures.getIn([ownProps.measureId, 'unit']),
     list: state.Measures.get(ownProps.measureId).toJS().list,
+    scaleMin: state.Measures.getIn([ownProps.measureId, 'scaleDescriptionMin']),
+    scaleMid: state.Measures.getIn([ownProps.measureId, 'scaleDescriptionMiddle']),
+    scaleMax: state.Measures.getIn([ownProps.measureId, 'scaleDescriptionMax']),
+
     scale: _.range(1, 5, 0.5),
   };
 }
@@ -37,17 +41,23 @@ var Measure = React.createClass({
                 </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
-      return (<div>
-                <input
-                  type="range"
-                  max="5"
-                  min="1"
-                  step="0.5"
-                  ref="scale"
-                  name={'measures[' + this.props.measureId + '][value]'}
-                  onChange={this.scaleChanged}
-                  />
-                {this.state.scaleValue}
+      return (<div className="measure-slider">
+                <div>
+                  <input
+                    type="range"
+                    max="5"
+                    min="1"
+                    step="0.5"
+                    ref="scale"
+                    name={'measures[' + this.props.measureId + '][value]'}
+                    onChange={this.scaleChanged}
+                    />
+                </div>
+                <div>
+                  <label>{this.props.scaleMin}</label>
+                  <label>{this.props.scaleMid}</label>
+                  <label>{this.props.scaleMax}</label>
+                </div>
                </div>);
     }
     return (
