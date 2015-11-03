@@ -7,14 +7,14 @@ var AnovaResult = React.createClass({
   render: function() {
     var result = AnovaUtils.rejectNullHypothesis(this.props.samples);
     if (result) {
-      var message = (<div>We think there is likely a relationship in your data.</div>);
+      var message = (<div className='result-text-positive'>We think there is likely a relationship in your data.</div>);
     } else {
-      var message = (<div>Based on your results, we don't think that there is enough correlation to make any meaningful conclusions.</div>);
+      var message = (<div className='result-text-negative'>{"Based on your results, we don\'t think that there is enough correlation to make any meaningful conclusions."}</div>);
     }
     return (
       <div>
         {message}
-        <a href="https://www.youtube.com/watch?v=-yQb_ZJnFXw">More about one-way ANOVA</a>
+        <a className= 'guide-link' href="https://www.youtube.com/watch?v=-yQb_ZJnFXw">More about one-way ANOVA</a>
       </div>
     );
   }
