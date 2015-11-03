@@ -55,9 +55,9 @@ var ViewExp = React.createClass({
           <span className='definition'>{this.props.exp.hypothesis}</span>
         </div>
         <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
-        <h3 className='sub-section-title'>Dependent Variables</h3>
+        <h3 className='subsection-title'>Dependent Variables</h3>
         <DepVar depVarIds = {this.props.exp.depVars} />
-        <h3 className='sub-section-title'>Independent Variables</h3>
+        <h3 className='subsection-title'>Independent Variables</h3>
         <IndVar indVars = {this.props.exp.indVars} />
         <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
         <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
