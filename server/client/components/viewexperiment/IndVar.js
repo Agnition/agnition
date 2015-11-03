@@ -36,7 +36,7 @@ var IndVar = React.createClass({
       <div>
       <div className= 'definition-set'>
         <span className='definition-label'>Cause: </span>
-        <span className='definition'>{utils.capitalize(this.props.indVar.name)}</span>
+        <span className='definition'>{this.props.indVar.name}</span>
       </div>
         <Options options = {this.props.indVar.options}/>
       </div>

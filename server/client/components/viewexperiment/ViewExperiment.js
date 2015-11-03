@@ -49,7 +49,7 @@ var ViewExp = React.createClass({
     return (
       <div>
         {/* name as header */}
-        <span className='section-title'>{utils.capitalize(this.props.exp.name)}</span>
+        <span className='section-title'>{this.props.exp.name}</span>
         <div className='definition-set'>
           <span className='definition-label'>Hypothesis: </span>
           <span className='definition'>{this.props.exp.hypothesis}</span>

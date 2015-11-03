@@ -16,7 +16,7 @@ var DepVar = React.createClass({
       <div>
         <div className= 'definition-set'>
           <span className='definition-label'>Effect: </span>
-          <span className='definition'>{utils.capitalize(this.props.depVar.name)}</span>
+          <span className='definition'>{this.props.depVar.name}</span>
         </div>
           <Measure measureIds = {this.props.depVar.measures} />
       </div>

@@ -34,7 +34,7 @@ describe('indVarsComponent', function () {
 
   it('should properly map the ids and render the names to <h3s>', function () {
     var definitionSets = TestUtils.scryRenderedDOMComponentsWithClass(indVar,'definition-set');
-    expect(ReactDOM.findDOMNode(definitionSets[0]).textContent).to.contain('Weezy');
+    expect(ReactDOM.findDOMNode(definitionSets[0]).textContent).to.contain('weezy');
   });
 
 
