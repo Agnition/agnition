@@ -132,4 +132,25 @@ describe('Measures Reducer', function(){
     var state = Measures(state, action);
     expect(state.getIn(['a', 'list']).size).to.eql(1);
   });
+
+  it('should set Measure Names', function () {
+    var action = {};
+    action.measures = {
+      a: {
+        kind: 'list',
+        list: ['hi', 'world'],
+        name: null
+      }
+    };
+    action.type = 'SET_MEASURES';
+    var state = Measures(null, action);
+    expect(state.getIn(['a', 'name'])).to.eql(null);
+
+    var action = {};
+    action.name = 'porcupines';
+    action.measureId = 'a';
+    action.type = 'SET_MEASURE_NAME';
+    var state = Measures(state, action);
+    expect(state.getIn(['a', 'name'])).to.eql('porcupines');
+  });
 });

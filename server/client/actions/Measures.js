@@ -78,7 +78,6 @@ module.exports.removeListItem = function (item, measureId) {
 };
 
 module.exports.setMeasureName = function (name, measureId) {
-  console.log('%c--> setting name' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
   return {
     type: 'SET_MEASURE_NAME',
     name: name,
