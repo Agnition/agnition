@@ -84,8 +84,8 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
    return coordinates;
 };
 
+
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
 module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
-

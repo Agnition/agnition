@@ -13,11 +13,17 @@ function mapStateToProps (state, ownProps) {
 
 var Options = React.createClass({
   render: function() {
-    var options = this.props.options.map(function(option) {
-      return <span>{option}</span>;
+    var options = this.props.options.map(function(option, i) {
+      i++; //start at option 1
+      return(
+        <div className= 'definition-set'>
+          <span className='definition-label'>{"Option " + i + ": "}</span>
+          <span className='definition'>{option}</span>
+        </div>
+        )
     });
     return (
-      <div className="options">
+      <div>
         {options}
       </div>
     );
@@ -27,9 +33,11 @@ var Options = React.createClass({
 var IndVar = React.createClass({
   render: function() {
     return (
-      <div className="indvar">
-        <h3>{this.props.indVar.name}</h3>
-        <h4>Options</h4>
+      <div>
+      <div className= 'definition-set'>
+        <span className='definition-label'>Cause: </span>
+        <span className='definition'>{this.props.indVar.name}</span>
+      </div>
         <Options options = {this.props.indVar.options}/>
       </div>
     );

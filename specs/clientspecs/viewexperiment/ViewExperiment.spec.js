@@ -46,7 +46,7 @@ describe('View experiment container', function () {
   });
 
   it('should show progress', function () {
-    var ps = TestUtils.scryRenderedDOMComponentsWithTag(depVar, 'p');
+    var ps = TestUtils.scryRenderedDOMComponentsWithClass(depVar, 'guide');
     expect(ReactDOM.findDOMNode(ps[0]).textContent).to.eql('You have submitted 0 samples out of the required 2');
   });
 

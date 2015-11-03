@@ -8,6 +8,7 @@ var bindActionCreators = require('redux').bindActionCreators;
 var History = require('react-router').History;
 var Link = require('react-router').Link;
 var ChartWrapper = require('../../containers/AnalyzeExperiment/MeasureNumeric/OptionList/ChartWrapper.js');
+var utils = require('../../utils/componentUtils');
 
 function mapStateToProps (state, ownProps) {
   var exp = state.Experiments.get(ownProps.params.expid).toJS();
@@ -48,14 +49,15 @@ var ViewExp = React.createClass({
     return (
       <div>
         {/* name as header */}
-        <h2>{this.props.exp.name}</h2>
-        <span>{this.props.exp._id}</span>
-        <span>{this.props.exp.active}</span>
-        <span>{this.props.exp.hypothesis}</span>
-        <p>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</p>
-        <h2>Dep Variables</h2>
+        <span className='section-title'>{this.props.exp.name}</span>
+        <div className='definition-set'>
+          <span className='definition-label'>Hypothesis: </span>
+          <span className='definition'>{this.props.exp.hypothesis}</span>
+        </div>
+        <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
+        <span className='section-title'>Dependent Variables</span>
         <DepVar depVarIds = {this.props.exp.depVars} />
-        <h2>Ind Variables</h2>
+        <span className='section-title'>Independent Variables</span>
         <IndVar indVars = {this.props.exp.indVars} />
         <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
         <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />

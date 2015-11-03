@@ -6,7 +6,7 @@ var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var mockStore = require('../../utils/mockStore');
 var mockRequire = require('mockrequire');
-
+var _ = require('underscore');
 //mock out the sub-component
 var DepVar = mockRequire('../../../server/client/components/viewexperiment/DepVar', {
   './Measure': React.createClass({
@@ -25,8 +25,8 @@ describe('depVarsComponent', function () {
     //this is our mock of the DepVar state property
     var obj = {
       DepVars : {
-        a : {name: 'weezy'},
-        b : {name: 'steve'}
+        a : {name: 'Weezy'},
+        b : {name: 'Steve'}
       },
     };
     props.store = mockStore(obj);
@@ -38,9 +38,12 @@ describe('depVarsComponent', function () {
   });
 
   it('should properly map the ids and render the names to <h3s>', function () {
-    var h3s = TestUtils.scryRenderedDOMComponentsWithTag(depVar,'h3');
-    expect(ReactDOM.findDOMNode(h3s[0]).textContent).to.eql('weezy');
-    expect(ReactDOM.findDOMNode(h3s[1]).textContent).to.eql('steve');
+    var spans = TestUtils.scryRenderedDOMComponentsWithTag(depVar,'span');
+    var spanText = _.reduce(spans, function(memo, span){
+      return memo + " " + span.textContent
+    }, " ")
+    expect(spanText).to.contain('Weezy');
+    expect(spanText).to.contain('Steve');
   });
 
 

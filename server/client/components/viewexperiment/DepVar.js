@@ -14,9 +14,11 @@ var DepVar = React.createClass({
   render: function() {
     return (
       <div>
-      <h3>{this.props.depVar.name}</h3>
-      <h4>Measures</h4>
-      <Measure measureIds = {this.props.depVar.measures}/>
+        <div className= 'definition-set'>
+          <span className='definition-label'>Effect: </span>
+          <span className='definition'>{this.props.depVar.name}</span>
+        </div>
+          <Measure measureIds = {this.props.depVar.measures} />
       </div>
     );
   }
