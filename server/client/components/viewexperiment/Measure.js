@@ -13,12 +13,51 @@ function mapStateToProps (state, ownProps) {
   };
 }
 
-var BasisSpan = React.createClass({
-  render: function() {
-      return (
-        <span className="basis">{this.props.item}</span>
-      );
+
+
+var Basis = React.createClass({
+  elements: [],
+  componentWillMount: function() {
+    var kind = this.props.kind;
+    //set the correct label for the measure
+
+    
+    var label = "Unit";
+    if(kind === 'qualitative'){
+      label = "Scale";
+    } else if (kind === 'list'){
+      label = "Category";
     }
+
+    //build the spans
+    if(kind === 'numeric') {
+      //no iteration nessecary for numeric...
+     this.elements.push(
+        <div className='definition-set'>
+          <span className='definition-label'>{label + ": "} </span> 
+          <span className='definition'>{this.props.item}</span>
+        </div>
+      )
+     } else {
+      this.elements = _.map(this.props.item, function(definition, i) {
+        //start at item 1 not zero
+        i++;
+        return (
+          <div className='definition-set'>
+            <span className='definition-label'>{label + " " + i + ": "}</span>
+            <span className='definition'>{definition}</span>
+          </div> 
+        )
+      }, this);
+    }
+  },
+  render: function() {
+    return (
+      <div>
+        {this.elements}
+      </div>
+    )
+  }
 });
 
 var Measure = React.createClass({
@@ -33,12 +72,11 @@ var Measure = React.createClass({
   },
   render: function() {
     var basis = this.getBasis(this.props.measure);
-    var spans = <BasisSpan item={basis} />;
+    var basies = <Basis item={basis} kind={this.props.measure.kind}/>;
     return (
-      <div>
-        <h3>{this.props.measure.kind}</h3>
-        <span>{spans}</span>
-      </div>
+        <div>
+          {basies}
+        </div>
     );
   }
 });

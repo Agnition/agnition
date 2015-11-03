@@ -37,11 +37,11 @@ describe('Measures', function () {
     });
     it('should render the passed in properties', function () {
       var spans = TestUtils.scryRenderedDOMComponentsWithTag(measure,'span');
-      expect(ReactDOM.findDOMNode(spans[1]).textContent).to.eql('bestpokemonfriends');
-      expect(ReactDOM.findDOMNode(spans[2]).textContent).to.eql('pokemon');
+      expect(ReactDOM.findDOMNode(spans[1]).textContent).to.eql('best');
+      expect(ReactDOM.findDOMNode(spans[3]).textContent).to.eql('pokemon');
 
       // checking to see if it is appending the class name
-      expect(ReactDOM.findDOMNode(spans[1]).className).to.eql('basis');
+      expect(ReactDOM.findDOMNode(spans[1]).className).to.eql('definition');
       });
     });
   });
