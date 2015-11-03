@@ -24,7 +24,7 @@ var MyExps = React.createClass({
           <h2 className= 'section-title'>Open Experiments</h2>
           {openExps.length > 0
             ? <Exps exps = {openExps} active = {true}/>
-            : <p>You don't have any open experiments!</p>
+            : <p>{'You don\'t have any open experiments!'}</p>
           }
         </div>
         <div>

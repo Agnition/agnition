@@ -33,7 +33,7 @@
 				"name": "paper chaser",
 				"hypothesis": "added samples to this one",
 				"kind": "ad_hoc",
-				"active": true,
+				"active": false,
 				"__v": 0,
 				"indVars": [
 					"562ebfa6a3b7183b57d3ed54"

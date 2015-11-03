@@ -29,10 +29,7 @@ var unNormalize = require('./utils/un-normalize.js');
 
 //Import All View Experiments Routes
 import ViewExperiment from './components/viewexperiment/ViewExperiment';
-// import RunExperiment from './components/RunExperiment';
-// import EditExperiment from '../components/EditExperiment';
-// import NewUser from './components/NewUser';
-// import Documentation from './components/Documentation';
+import ClosedExperiment from './components/viewexperiment/ClosedExperiment';
 
 const store = configureStore();
 if (window.user && window.exps) {
@@ -53,17 +50,12 @@ render((
     <Router>
       <Route path='/' component={App}>
         <Route path='/dashboard' component={Dashboard} />
-          {/*<Route path='/view/:expid' component={ViewExperiment} />*/}
-          {/* <Route path='/run/:expid' component={RunExperiment} /> */}
-          {/*<Route path='/edit/:expid' component={EditExperiment} />*/}
         <Route path='/newexp' component={NewExperiment} />
-        {/*<Route path='/about' component={About} />*/}
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
+        <Route path='/closedexp/:expid' component={ClosedExperiment} /> 
         <Route path='/sample/:expid/adhoc' component = {SampleWrapper} />
         <Route path='/sample/:expid/:sampleid/adhoc/record' component = {RecordRunOfAdHocExperiment} />
-        {/* <Route path='/newuser' component={NewUser} />
-         <Route path='/documentation' component={Documentation} /> */}
       </Route>
     </Router>
   </Provider>

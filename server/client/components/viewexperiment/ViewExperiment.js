@@ -2,7 +2,6 @@ var React = require('react');
 var DepVar = require('./DepVar');
 var IndVar = require('./IndVar');
 var connect = require('react-redux').connect;
-var shortId = require('shortid');
 var Actions = require('../../actions/Samples');
 var bindActionCreators = require('redux').bindActionCreators;
 var History = require('react-router').History;
@@ -46,12 +45,11 @@ var ViewExp = React.createClass({
           <span className='definition'>{this.props.exp.hypothesis}</span>
         </div>
         <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
-        <h3 className='subsection-title'>Dependent Variables</h3>
+        <h3 className='subsection-title'>Dependent Variable</h3>
         <DepVar depVarIds = {this.props.exp.depVars} />
-        <h3 className='subsection-title'>Independent Variables</h3>
+        <h3 className='subsection-title'>Independent Variable</h3>
         <IndVar indVars = {this.props.exp.indVars} />
         <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
-        <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
       </div>
     );
   }
