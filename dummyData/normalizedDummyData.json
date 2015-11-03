@@ -191,6 +191,7 @@
     "563428ecf68a47f1dfbc8a09": {
         "_id": "563428ecf68a47f1dfbc8a09",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -204,6 +205,7 @@
     "56342906f68a47f1dfbc8a15": {
         "_id": "56342906f68a47f1dfbc8a15",
         "value": 4,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -217,6 +219,7 @@
     "563428d9f68a47f1dfbc89ff": {
         "_id": "563428d9f68a47f1dfbc89ff",
         "value": 3,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -230,6 +233,7 @@
     "563428e0f68a47f1dfbc8a03": {
         "_id": "563428e0f68a47f1dfbc8a03",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -243,6 +247,7 @@
     "563428faf68a47f1dfbc8a0f": {
         "_id": "563428faf68a47f1dfbc8a0f",
         "value": 4,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -256,6 +261,7 @@
     "56342911f68a47f1dfbc8a1b": {
         "_id": "56342911f68a47f1dfbc8a1b",
         "value": 3,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -269,6 +275,7 @@
     "563428e4f68a47f1dfbc8a05": {
         "_id": "563428e4f68a47f1dfbc8a05",
         "value": 8,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -282,6 +289,7 @@
     "56342915f68a47f1dfbc8a1d": {
         "_id": "56342915f68a47f1dfbc8a1d",
         "value": 3,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -295,6 +303,7 @@
     "5634290af68a47f1dfbc8a17": {
         "_id": "5634290af68a47f1dfbc8a17",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -308,6 +317,7 @@
     "563428e8f68a47f1dfbc8a07": {
         "_id": "563428e8f68a47f1dfbc8a07",
         "value": 4,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -321,6 +331,7 @@
     "563428f1f68a47f1dfbc8a0b": {
         "_id": "563428f1f68a47f1dfbc8a0b",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -334,6 +345,7 @@
     "5634290ef68a47f1dfbc8a19": {
         "_id": "5634290ef68a47f1dfbc8a19",
         "value": 4,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -347,6 +359,7 @@
     "563428fef68a47f1dfbc8a11": {
         "_id": "563428fef68a47f1dfbc8a11",
         "value": 4,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -360,6 +373,7 @@
     "563428dcf68a47f1dfbc8a01": {
         "_id": "563428dcf68a47f1dfbc8a01",
         "value": 3,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -373,6 +387,7 @@
     "563428f5f68a47f1dfbc8a0d": {
         "_id": "563428f5f68a47f1dfbc8a0d",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
@@ -386,6 +401,7 @@
     "56342901f68a47f1dfbc8a13": {
         "_id": "56342901f68a47f1dfbc8a13",
         "value": 5,
+        "valid": true,
         "__v": 0,
         "indVarStates": [
             {
