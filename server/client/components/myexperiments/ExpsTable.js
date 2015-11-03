@@ -11,7 +11,7 @@ var ExpRow = React.createClass({
     if(this.props.exp.active) {
       link = (<Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample Now</Link>);
     } else {
-      link = (<Link to={'/dashboard'}>View Results</Link>);
+      link = (<Link to={'/closedexp/'+ this.props.exp._id }>View Results</Link>);
     }
     return (
       <tr className={this.props.type}>
