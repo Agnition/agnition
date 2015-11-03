@@ -16,8 +16,16 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
+  var depVarName = state.DepVars.getIn([ownProps.depVarId, 'measures']);
+  if(depVarName){
+    depVarName = depVarName.toJS();
+  } else {
+    depVarName = null;
+  }
+
   return {
     measureIds: state.DepVars.getIn([ownProps.depVarId, 'measures']).toJS(),
+    name: depVarName
   };
 }
 

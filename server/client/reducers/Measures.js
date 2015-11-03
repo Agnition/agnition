@@ -62,5 +62,8 @@ module.exports = function(state = initialState, action) {
     }
     return state.setIn([action.measureId, 'list'], newList);
   }
+  if(action.type === 'SET_MEASURE_NAME') {
+    return state.setIn([action.measureId, 'name'], action.name);
+  }
   return state;
 };

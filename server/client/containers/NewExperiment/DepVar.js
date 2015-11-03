@@ -14,7 +14,8 @@ var Actions = _.extend(NewExperimentActions, MeasureActions, DepVarActions);
 
 function mapStatetoProps (state, ownProps) {
   return {
-    name: state.DepVars.getIn([ownProps.depVarId, 'name'])
+    name: state.DepVars.getIn([ownProps.depVarId, 'name']),
+    measures: state.DepVars.getIn([ownProps.depVarId, 'measures']).toJS()
   };
 }
 
@@ -28,6 +29,8 @@ var DepVar = React.createClass({
 
   setName: function () {
     this.props.actions.setDepVarName(this.refs.depVarName.value, this.props.depVarId);
+    // for now this just sets the measure name to the depvar name -- change once multi-measures per depvar
+    this.props.actions.setMeasureName(this.refs.depVarName.value, this.props.measures[0]);
   },
 
   render: function () {

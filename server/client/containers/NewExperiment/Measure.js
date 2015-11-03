@@ -25,7 +25,6 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var Measure = React.createClass({
-
   handleClick: function (event) {
     this.props.actions.setKind(event.target.value, this.props.measureId);
   },
