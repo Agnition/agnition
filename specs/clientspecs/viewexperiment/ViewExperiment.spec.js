@@ -15,6 +15,9 @@ var ViewExp = mockRequire('../../../server/client/components/viewexperiment/View
   }),
   './IndVar': React.createClass({
     render: function() {return (<div> </div>);}
+  }),
+  '../../containers/AnalyzeExperiment/MeasureNumeric/OptionList/ChartWrapper.js': React.createClass({
+    render: function() {return (<div> </div>);}
   })
 }, {jsx: true});
 
