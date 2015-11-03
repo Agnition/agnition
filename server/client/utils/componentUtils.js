@@ -85,6 +85,7 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
 };
 
 var capitalize = function(str){
+    str = str || '';
     return str.toLowerCase().replace( /\b\w/g, function (m) {
         return m.toUpperCase();
     });

@@ -13,42 +13,46 @@ function mapStateToProps (state, ownProps) {
   };
 }
 
-
-
 var Basis = React.createClass({
   elements: [],
   componentWillMount: function() {
-    var kind = this.props.kind;
-    //set the correct label for the measure
-
-    
-    var label = "Unit";
-    if(kind === 'qualitative'){
-      label = "Scale";
-    } else if (kind === 'list'){
-      label = "Category";
-    }
-
+    var kind = this.props.measure.kind;
     //build the spans
     if(kind === 'numeric') {
       //no iteration nessecary for numeric...
-     this.elements.push(
+      this.elements.push(
         <div className='definition-set'>
           <span className='definition-label'>{label + ": "} </span> 
           <span className='definition'>{this.props.item}</span>
-        </div>
-      )
-     } else {
-      this.elements = _.map(this.props.item, function(definition, i) {
-        //start at item 1 not zero
-        i++;
+        </div>)
+     } else if(kind === 'list') {
+      //iterate through list and add category labels
+      this.elements = _.map(this.props.item, function(definition, i) { 
+        i++; //start at item 1 not item 0
         return (
           <div className='definition-set'>
-            <span className='definition-label'>{label + " " + i + ": "}</span>
+            <span className='definition-label'>{"Category " + i + ": "}</span>
             <span className='definition'>{definition}</span>
           </div> 
         )
       }, this);
+    } else if (kind === 'qualitative') {
+      this.elements.push(
+          <div className='definition-set'>
+            <span className='definition-label'>{"1: "}</span>
+            <span className='definition'>{this.props.measure.scaleDescriptionMin}</span>
+          </div>)
+      this.elements.push( 
+          <div className='definition-set'>
+            <span className='definition-label'>{"3: "}</span>
+            <span className='definition'>{this.props.measure.scaleDescriptionMiddle}</span>
+          </div>)
+      this.elements.push(
+          <div className='definition-set'>
+            <span className='definition-label'>{"5: "}</span>
+            <span className='definition'>{this.props.measure.scaleDescriptionMax}</span>
+          </div> 
+        )
     }
   },
   render: function() {
@@ -72,7 +76,7 @@ var Measure = React.createClass({
   },
   render: function() {
     var basis = this.getBasis(this.props.measure);
-    var basies = <Basis item={basis} kind={this.props.measure.kind}/>;
+    var basies = <Basis item={basis} measure={this.props.measure}/>;
     return (
         <div>
           {basies}
