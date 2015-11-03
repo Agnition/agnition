@@ -7,6 +7,7 @@ var Actions = require('../../actions/Samples');
 var bindActionCreators = require('redux').bindActionCreators;
 var History = require('react-router').History;
 var Link = require('react-router').Link;
+var ChartWrapper = require('../../containers/AnalyzeExperiment/MeasureNumeric/OptionList/ChartWrapper.js');
 
 function mapStateToProps (state, ownProps) {
   var exp = state.Experiments.get(ownProps.params.expid).toJS();
@@ -19,6 +20,8 @@ function mapStateToProps (state, ownProps) {
   var samplesSubmitted = state.Measures.get(measureId).get('samples').length;
   return {
     exp: state.Experiments.get(ownProps.params.expid).toJS(),
+    indVarId: indVarId,
+    measureId: measureId,
     samplesSubmitted: samplesSubmitted,
     samplesNeeded: samplesNeeded
   };
@@ -55,6 +58,7 @@ var ViewExp = React.createClass({
         <h2>Ind Variables</h2>
         <IndVar indVars = {this.props.exp.indVars} />
         <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
+        <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
       </div>
     );
   }
