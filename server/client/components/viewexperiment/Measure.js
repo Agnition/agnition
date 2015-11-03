@@ -76,10 +76,10 @@ var Measure = React.createClass({
   },
   render: function() {
     var basis = this.getBasis(this.props.measure);
-    var basies = <Basis item={basis} measure={this.props.measure}/>;
+    var bases = <Basis item={basis} measure={this.props.measure}/>;
     return (
         <div>
-          {basies}
+          {bases}
         </div>
     );
   }
