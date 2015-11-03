@@ -22,7 +22,7 @@ var Basis = React.createClass({
       //no iteration nessecary for numeric...
       this.elements.push(
         <div className='definition-set'>
-          <span className='definition-label'>{label + ": "} </span> 
+          <span className='definition-label'>"Unit: "</span> 
           <span className='definition'>{this.props.item}</span>
         </div>)
      } else if(kind === 'list') {
