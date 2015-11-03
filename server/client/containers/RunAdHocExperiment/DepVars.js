@@ -34,11 +34,17 @@ var DepVars = React.createClass({
   handleSubmit: function (event) {
     event.preventDefault();
     var data = $(event.target).serializeJSON();
+    if (data.invalid === 'on') {
+      data.valid = false;
+      delete data.invalid;
+    } else {
+      data.valid = true;
+      delete data.invalid;
+    }
     $.post('/samples', data, function(samples) {
       var sample = samples[0];
       this.props.actions.insertSample(sample);
       this.props.actions.addSample(sample._id, this.props.measureId);
-
       this.history.pushState(null, '/viewexp/' + this.props.params.expid);
     }.bind(this));
   },
@@ -58,6 +64,7 @@ var DepVars = React.createClass({
         <form onSubmit={this.handleSubmit}>
           {indVars}
           {depVars}
+          <div><input type="checkbox" name="invalid" />Mark sample as invalid.</div>
           <button type="submit">Submit Sample</button>
         </form>
       </div>
