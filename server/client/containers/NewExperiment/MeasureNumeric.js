@@ -26,10 +26,12 @@ var MeasureNumeric = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="subsection-block">
+      <h4>Numeric Measure</h4>
+      <p className="question">What is the unit for this measure?</p>
         <label>
-          Choose Unit
-          <input ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
+          unit
+          <input className="input-number" ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
         </label>
       </div>
       );

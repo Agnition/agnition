@@ -29,9 +29,9 @@ var Name = React.createClass({
 
   render: function () {
     return (
-      <div className="new-experiment-container">
-        <label>Experiment Name</label>
-        <input ref="name" type="text" onChange={this.setName}/>
+      <div className="name-container">
+      <p>What will this experiment be called?</p>
+        <input size="40" ref="name" type="text" onChange={this.setName}/>
       </div>
       );
   }
