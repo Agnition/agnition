@@ -52,6 +52,9 @@ var sumOfSquaresBetweenGroups = function(data) {
 var rejectNullHypothesis = function(data) {
   var sampleDegreeOfFreedom = getSampleDegreesOfFreedom(data);
   var optionDegreeOfFreedom = getOptionDegreesOfFreedom(data);
+  if (sampleDegreeOfFreedom < 1 || optionDegreeOfFreedom < 1) {
+    return false;
+  }
   var fRatio = (sumOfSquaresBetweenGroups(data) / optionDegreeOfFreedom) /
                (sumOfSquaresWithinGroups(data) / sampleDegreeOfFreedom);
   return fRatio > getCriticalValue(sampleDegreeOfFreedom, optionDegreeOfFreedom);

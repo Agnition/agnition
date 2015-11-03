@@ -1,7 +1,11 @@
 var getMean = function(array) {
-  return array.reduce(function(a, b) {
-    return a + b;
-  }) / array.length;
+  if (array.length) {
+    return array.reduce(function(a, b) {
+      return a + b;
+    }) / array.length;
+  } else {
+    return null;
+  }
 };
 
 var getSumOfSquaresDeviation = function(array) {
