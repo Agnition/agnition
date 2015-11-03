@@ -32,7 +32,7 @@ var IndVar = React.createClass({
     this.props.actions.addOption(this.refs.option.value, this.props.indVarId);
     this.refs.option.value = '';
   },
-  removeOption: function() {
+  removeOption: function(event) {
     event.preventDefault();
     this.props.actions.removeOption(event.target.value, this.props.indVarId);
   },
