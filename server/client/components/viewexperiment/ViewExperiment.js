@@ -13,9 +13,13 @@ function mapStateToProps (state, ownProps) {
   var depVarId = exp.depVars[0];
   var indVarId = exp.indVars[0];
   var trialsEach = state.IndVars.get(indVarId).get('numTrials');
+  console.log('good so far 2');
   var optionsLength = state.IndVars.get(indVarId).get('options').toJS().length;
+  console.log('good so far 3');
   var measureId = state.DepVars.get(depVarId).get('measures').get(0);
+  console.log('good so far 4');
   var samplesNeeded = trialsEach * optionsLength;
+  console.log('good so far 5');
   var samplesSubmitted = state.Measures.get(measureId).get('samples').length;
   return {
     exp: state.Experiments.get(ownProps.params.expid).toJS(),
@@ -49,7 +53,7 @@ var ViewExp = React.createClass({
         <span>{this.props.exp._id}</span>
         <span>{this.props.exp.active}</span>
         <span>{this.props.exp.hypothesis}</span>
-        <p> You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</p>
+        <p>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</p>
         <h2>Dep Variables</h2>
         <DepVar depVarIds = {this.props.exp.depVars} />
         <h2>Ind Variables</h2>
