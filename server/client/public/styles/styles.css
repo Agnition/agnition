@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -23,7 +23,7 @@ time, mark, audio, video {
   color : hsla(0, 0%, 30%, 1.0);
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, section {
   display: block;
 }
@@ -218,11 +218,11 @@ a {
     text-decoration: none;
 }
 
-a:hover 
+a:hover
 {
-     color:#00A0C6; 
-     text-decoration:none; 
-     cursor:pointer;  
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
 }
 
 .new-experiment {
@@ -243,4 +243,33 @@ a:hover
 
 .cause {
   color: red;
+}
+
+
+
+
+
+
+
+
+
+
+.measure-slider {
+  /* Or whatever width we end up with... or inherited */
+  width: 300px;
+}
+
+.measure-slider div {
+  text-align: center;
+}
+
+.measure-slider input {
+  width: 66%;
+}
+
+.measure-slider label {
+  text-align: center;
+  display: inline-block;
+  width: 33%;
+  padding: 0 10px;
 }
