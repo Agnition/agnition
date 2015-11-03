@@ -1,6 +1,7 @@
 var React = require('react');
 var Component = require('react').Component;
 var TopNav = require('../components/TopNav');
+var Dashboard = require('./Dashboard');
 
 class App extends Component {
 
@@ -11,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <TopNav />
-        {React.cloneElement(this.props.children || <div />, { key: key })}
+        {React.cloneElement(this.props.children || <Dashboard />, { key: key })}
       </div>
     );
   }
