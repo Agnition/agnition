@@ -24,7 +24,7 @@ var StatsTable = React.createClass({
       return <StatsRow option={option} values={values} />;
     });
     return (
-      <table>
+      <table className = 'data-table'>
         <thead>
           <tr>
             <td>Option</td>
