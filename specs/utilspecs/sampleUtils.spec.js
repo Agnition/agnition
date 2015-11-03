@@ -3,25 +3,17 @@ var sampleUtils = require('../../server/client/utils/sampleUtils');
 
 describe('Sample utilities', function () {
   var samples = [{
-    value: 4,
-    indVars: [{
-      value: '1g'
-    }]
+    measureValue: 4,
+    indVarValue: '1g'
   }, {
-    value: 5,
-    indVars: [{
-      value: '1g'
-    }]
+    measureValue: 5,
+    indVarValue: '1g'
   }, {
-    value: 6,
-    indVars: [{
-      value: '2g'
-    }]
+    measureValue: 6,
+    indVarValue: '2g'
   }, {
-    value: 7,
-    indVars: [{
-      value: '2g'
-    }]
+    measureValue: 7,
+    indVarValue: '2g'
   }];
 
   it('should get the options in a set of samples', function () {

@@ -6,7 +6,7 @@ var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var mockRequire = require('mockrequire');
 var utils = require('../../../../utils/utils');
-var datasets = require('./histogramwrappermockstate.json');
+var samples = require('./histogramwrappermockstate.json');
 
 
 var HistogramWrapper = mockRequire('../../../../../server/client/containers/AnalyzeExperiment/MeasureNumeric/OptionList/HistogramWrapper', {
@@ -15,11 +15,11 @@ var HistogramWrapper = mockRequire('../../../../../server/client/containers/Anal
   },
   }, {jsx: true});
 
-describe('MeasureNumeric OptionList BarChart Component', function () {
+describe('MeasureNumeric OptionList Histogram Component', function () {
   var histograms;
   beforeEach(function () {
     var props = {};
-    props.datasets = datasets;
+    props.samples = samples;
     histograms = TestUtils.renderIntoDocument(React.createElement(HistogramWrapper, props), 'root');
   });
 

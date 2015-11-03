@@ -21,8 +21,10 @@ var HistogramWrapper = React.createClass({
 
     //set max freq
     var maxFreq = 0;
-    var chartData = _.map(this.props.datasets, function(values, key){
-      var histogram = utils.genHistogram(this.props.bins, values, minValue, maxValue);
+    var chartData = _.map(this.props.samples, function(values, key){
+      var histogram = utils.genHistogram(this.props.bins, values);
+      minValue = Math.min(histogram.min, minValue);
+      maxValue = Math.max(histogram.max, maxValue);
       maxFreq = Math.max(histogram.maxFreq, maxFreq);
       return  { data : {name: 'a name', values: histogram.coordinates}, label: key};
     }, this);

@@ -9,7 +9,7 @@ var mockDivComponent = function(className) {
           <div className={className}>{JSON.stringify(this.props)}</div>
         )
       }
-    });  
+    });
 };
 
 
