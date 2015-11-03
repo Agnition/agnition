@@ -76,3 +76,11 @@ module.exports.removeListItem = function (item, measureId) {
     measureId: measureId
   };
 };
+
+module.exports.setMeasureName = function (name, measureId) {
+  return {
+    type: 'SET_MEASURE_NAME',
+    name: name,
+    measureId: measureId
+  };
+};

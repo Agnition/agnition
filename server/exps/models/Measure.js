@@ -25,6 +25,7 @@ var mesUnitValidator = function (val) {
 // mesuare schema
 var measureSchema = new Schema({
   _id : {type: mongoose.Schema.ObjectId},
+  name: {type: String },
   kind : {
     type: String,
     required: true,
