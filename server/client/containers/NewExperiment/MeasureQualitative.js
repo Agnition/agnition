@@ -41,16 +41,23 @@ var MeasureQualitative = React.createClass({
 
   render: function () {
     return (
-      <div>
-        <p>
-        Scale from 1-5
-        </p>
-        Min description :
-        <input ref="minDescription" onChange={this.setMinDescription}/>
-        Middle description :
-        <input ref="middleDescription" onChange={this.setMiddleDescription}/>
-        Max description :
-        <input ref="maxDescription" onChange={this.setMaxDescription}/>
+      <div className="subsection-block">
+        <h4>Scale from 1-5</h4>
+        <div>
+          <label>min description
+            <input className="input-text" ref="minDescription" onChange={this.setMinDescription}/>
+          </label>
+        </div>
+        <div>
+          <label>mid description
+          <input className="input-text" ref="middleDescription" onChange={this.setMiddleDescription}/>
+          </label>
+        </div>
+        <div>
+          <label>max description
+          <input className="input-text" ref="maxDescription" onChange={this.setMaxDescription}/>
+          </label>
+        </div>
       </div>
       );
   }

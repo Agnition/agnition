@@ -42,10 +42,10 @@ var Measure = React.createClass({
              measureId={this.props.measureId} />)
     };
     return (
-      <div className="measure">
-        <button value="qualitative" onClick={this.handleClick}>Scale</button>
-        <button value="numeric" onClick={this.handleClick}>Number</button>
-        <button value="list" onClick={this.handleClick}>Categorical</button>
+      <div className="subsection-block">
+        <button className="select-button" value="qualitative" onClick={this.handleClick}>scale</button>
+        <button className="select-button" value="numeric" onClick={this.handleClick}>number</button>
+        <button className="select-button" value="list" onClick={this.handleClick}>categorical</button>
         {measureKinds[this.props.kind]}
       </div>
       );

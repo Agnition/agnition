@@ -43,26 +43,34 @@ var Hypothesis = React.createClass({
     var effect = this.props.effect;
 
     return (
-      <div className="new-experiment-container">
+      <div className="subsection-block">
         <section>
-          <div>
-            Please enter your hypothesis here.
+            <h3 className="subsection-title">Hypothesis and Overview</h3>
+            <p className="guide">
+              Let us begin creating your experiment. First, begin by defining the general outline.
+            </p>
+          <div className="subsection-block">
+            <p className="question">What is your hypothesis for this experiment?</p>
+            <label>hypothesis
+              <input className="input-text" ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
+            </label>
           </div>
-          <div className="padded">
-            <label>Hypothesis:</label>
-            <input ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
+          <div className="subsection-block">
+          <p className="question">What is the primary cause you are interested in?</p>
+          <label>cause
+            <input className="input-text" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
+          </label>
           </div>
-          <div className="padded">
-            <label>Cause:</label>
-            <input ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
-          </div>
-          <div className="padded">
-            <label>Effect:</label>
-            <input ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
+          <div className="subsection-block">
+          <p className="question">What is the effect you you are interested in?</p>
+          <label>effect
+            <input className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
+          </label>
           </div>
         </section>
-        <section>
-          Put another way, how does {this.props.cause} affect {this.props.effect} ? 
+        <section className="guide">
+          Put another way, how does {this.props.cause} affect {this.props.effect} ? If this sentence
+          doesn't make sense, edit your cause and effect. 
         </section>
       </div>
       );

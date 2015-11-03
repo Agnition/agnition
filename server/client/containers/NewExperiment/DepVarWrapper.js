@@ -45,7 +45,7 @@ var DepVarWrapper = React.createClass({
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
     return (
-      <div className="dep-var-wrapper new-experiment-container">
+      <div className="subsection-block">
         {depVars}
       </div>
     );

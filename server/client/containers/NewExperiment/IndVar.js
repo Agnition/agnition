@@ -5,7 +5,9 @@ var Actions = require('../../actions/IndVars');
 
 function mapStatetoProps (state, ownProps) {
   return {
-    options: state.IndVars.getIn([ownProps.indVarId, 'options']).toJS()
+    options: state.IndVars.getIn([ownProps.indVarId, 'options']).toJS(),
+    cause: state.Experiments.getIn([ownProps.expId, 'cause']),
+    effect: state.Experiments.getIn([ownProps.expId, 'effect'])
   };
 }
 
@@ -40,33 +42,34 @@ var IndVar = React.createClass({
   render: function() {
     return (
       <div>
-        <section className ="ind-var-input">
-          <div>
-              Please enter your Ind Variable here.
-          </div>
+        <section className ="subsection-block">
+          <h3>Independent Variable</h3>
 
-          <label>What should x be called?</label>
-          <input ref="name" type="text"  onChange={this.setName}/>
-
-          <label>How many times do you have to do x to see a change in y?</label>
-          <input ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
-
-          <label>How many times would you like to repeat each way you can do x?</label>
-          <input ref="numTrials" type="number" onChange={this.setNumTrials}/>
-
-          <label>Please randomize the events for me</label>
-          <input ref="randomized" type="checkbox" onChange={this.setRandomized}/>
-
-          <label>List Options For X</label>
+          <p className="guide">
+            What should <span className="cause"> {this.props.cause} </span> be called?
+          </p>
+          <label>independent variable
+            <input className="input-text" ref="name" type="text"  onChange={this.setName}/>
+          </label>
+          <p className="guide">
+            How many times do you have to do/change <span className="cause"> {this.props.cause} </span> 
+            to see a change in <span className="effect"> {this.props.effect}</span>?
+          </p>
+          <label>action/trial
+            <input className="input-number" ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
+          </label>
+          <p className="question">
+            List all of the options for <span className="cause"> {this.props.cause}</span>
+          </p>
           <input ref="option" type="text"/>
           <button onClick={this.addOption}>Add an option</button>
-          <div className="optionList">
+          <div className="subsection-block">
             {this.props.options.map(function (option) {
               return (
-                <div>
+                <div className="added-item">
                 {option}
                 <button
-                  className="remove-option"
+                  className="remove-button"
                   onClick={this.removeOption}
                   value={option}>
                   remove
@@ -75,6 +78,18 @@ var IndVar = React.createClass({
               );
             }.bind(this))}
           </div>
+
+          <p className="question">
+            How many times would you like to repeat each way you can do  
+            <span className="cause"> {this.props.cause}</span>?
+          </p>
+          <label>number of trials
+            <input className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
+          </label>
+
+          <label>Please randomize the events for me
+            <input className="input-checkbox" ref="randomized" type="checkbox" onChange={this.setRandomized}/>
+          </label>
         </section>
       </div>
     )

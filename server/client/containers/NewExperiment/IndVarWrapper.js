@@ -37,10 +37,10 @@ var IndVarWrapper = React.createClass({
 
   render: function() {
     var indVarEntries = this.props.indVarIds.map(function (indVarId) {
-          return <IndVar indVarId = {indVarId} key = {indVarId} />;
-        });
+          return <IndVar indVarId = {indVarId} key = {indVarId} expId = {this.props.expId}/>;
+        }.bind(this));
     return (
-      <div>
+      <div className="ind-var-wrapper">
         {indVarEntries}
       </div>
     );
