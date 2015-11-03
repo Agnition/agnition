@@ -22,21 +22,19 @@ describe('indVarsComponent', function () {
     var obj = {
       IndVars : {
         a : {name: 'weezy',options:[1,2,3]},
-        b : {name: 'steve',options:[3,2,1]}
       },
     };
     props.store = mockStore(obj);
 
     //also need to pass in keys
-    props.indVars = ['a','b'];
+    props.indVars = ['a'];
 
     indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
   });
 
   it('should properly map the ids and render the names to <h3s>', function () {
-    var h3s = TestUtils.scryRenderedDOMComponentsWithClass(indVar,'indvar');
-    expect(ReactDOM.findDOMNode(h3s[0]).textContent).to.contain('weezy');
-    expect(ReactDOM.findDOMNode(h3s[1]).textContent).to.contain('steve');
+    var definitionSets = TestUtils.scryRenderedDOMComponentsWithClass(indVar,'definition-set');
+    expect(ReactDOM.findDOMNode(definitionSets[0]).textContent).to.contain('Weezy');
   });
 
 

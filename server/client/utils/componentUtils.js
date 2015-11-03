@@ -84,8 +84,15 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
    return coordinates;
 };
 
+var capitalize = function(str){
+    str = str || '';
+    return str.toLowerCase().replace( /\b\w/g, function (m) {
+        return m.toUpperCase();
+    });
+};
+
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
 module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
-
+module.exports.capitalize = capitalize;
