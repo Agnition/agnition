@@ -45,11 +45,4 @@ describe('ExpsTable Component', function () {
     expect(ReactDOM.findDOMNode(trs[1]).children.length).to.eql(3);
     expect(ReactDOM.findDOMNode(trs[1]).children[0].textContent).to.eql('the dark');
   });
-
-  it('should properly append classes to rows based on exp state', function () {
-    var trs = TestUtils.scryRenderedDOMComponentsWithTag(expTable,'tr');
-    expect(ReactDOM.findDOMNode(trs[1]).className).to.eql('exp-row open');
-    expect(ReactDOM.findDOMNode(trs[2]).className).to.eql('exp-row closed');
-  });
-  
 });
