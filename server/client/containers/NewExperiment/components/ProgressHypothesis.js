@@ -14,9 +14,18 @@ var NewExperimentProgress = React.createClass({
   render: function() {
     return (
       <div>
-        <div>Hypothesis: {this.props.hypothesis}</div>
-        <div>Cause: {this.props.cause}</div>
-        <div>Effect: {this.props.effect}</div>
+        <div className = 'definition-set'>
+          <span className ='definition-label'>Hypothesis: </span> 
+          <span className = 'definition'>{this.props.hypothesis}</span>
+        </div>
+        <div className = 'definition-set'>
+          <span className ='definition-label'>Cause: </span> 
+          <span className = 'definition'>{this.props.cause}</span>
+        </div>
+        <div className = 'definition-set'>
+          <span className ='definition-label'>Effect: </span> 
+          <span className = 'definition'>{this.props.effect}</span>
+        </div>
       </div>
     );
   }

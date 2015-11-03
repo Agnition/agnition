@@ -16,7 +16,7 @@ var ExpRow = React.createClass({
     return (
       <tr className={this.props.type}>
         <td><Link to={'/viewexp/' + this.props.exp._id}>{this.props.exp.name}</Link></td>
-        <td> {this.props.exp.hypothesis} </td>
+        <td>{this.props.exp.hypothesis}</td>
         <td>{link}</td>
       </tr>
     );
@@ -28,13 +28,13 @@ var Exps = React.createClass({
     var rows = [];
     _.each(this.props.exps, function(exp) {
       if (exp.active) {
-        rows.push(<ExpRow exp={exp} type="exp-row open" active={true}/>);
+        rows.push(<ExpRow exp={exp} active={true} />);
       } else {
-        rows.push(<ExpRow exp={exp} type="exp-row closed" />);
+        rows.push(<ExpRow exp={exp} />);
       }
     });
       return (
-        <table className="exps-table">
+        <table className="nav-table">
           <thead>
             <tr>
               <th>Name</th>

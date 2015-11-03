@@ -64,15 +64,15 @@ var ChosenOption = React.createClass({
         }
       }.bind(this));
       if(options.length === 0) {
-        var span = <span>You have done all of the experiments.</span>;
+        var span = <span className = 'guide'>You have done all of the experiments.</span>;
       } else {
         var randOptionIndex = Math.floor(Math.random() * options.length);
         var randOption = options[randOptionIndex];
         this.setIndVarOptionOnSample(randOption);
-        var span = <span>{this.props.name}: {randOption}</span>;
+        var span = <span className = 'selection'>{this.props.name}: {randOption}</span>;
       }
     } else {
-      var span = <span>{this.props.name}: {this.props.indVarOption}</span>;
+      var span = <span className= 'selection'>{this.props.name}: {this.props.indVarOption}</span>;
     }
     return (
       <div>

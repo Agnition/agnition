@@ -28,12 +28,12 @@ var Measure = React.createClass({
   render: function () {
     var input;
     if (this.props.kind === 'numeric') {
-      input = (<span>
+      input = (<span className = 'input-button'>
                 <input type="number"  step="0.01" name={'measures[' + this.props.measureId + '][value]'} />
               </span>);
     } else if (this.props.kind === 'list') {
       input = this.props.list.map(function(item) {
-        return (<span>
+        return (<span className ='input-radio'>
                   <input
                     type="radio"
                     name={'measures[' + this.props.measureId + '][value]'}
@@ -41,7 +41,7 @@ var Measure = React.createClass({
                 </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
-      return (<div className="measure-slider">
+      return (<div className='input-slider'>
                 <div>
                   <input
                     type="range"

@@ -47,19 +47,19 @@ var ViewExp = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className = 'section-block'>
         {/* name as header */}
-        <span className='section-title'>{this.props.exp.name}</span>
+        <h2 className='section-title'>{this.props.exp.name}</h2>
         <div className='definition-set'>
           <span className='definition-label'>Hypothesis: </span>
           <span className='definition'>{this.props.exp.hypothesis}</span>
         </div>
         <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
-        <span className='section-title'>Dependent Variables</span>
+        <h3 className='subsection-title'>Dependent Variables</h3>
         <DepVar depVarIds = {this.props.exp.depVars} />
-        <span className='section-title'>Independent Variables</span>
+        <h3 className='subsection-title'>Independent Variables</h3>
         <IndVar indVars = {this.props.exp.indVars} />
-        <button><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
+        <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
         <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
       </div>
     );

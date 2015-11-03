@@ -47,7 +47,7 @@
 			"562ebfa6a3b7183b57d3ed42": {
 				"name": "weight",
 				"numTrials": 1,
-				"randomized": true,
+				"randomized": false,
 				"_id": "562ebfa6a3b7183b57d3ed42",
 				"reminders": [
 					"562ebfa6a3b7183b57d3ed43"
@@ -146,6 +146,7 @@
     },
     "562ebfa6a3b7183b57d3ed57": {
         "scaleDescriptionMin": null,
+        "name":"distance",
         "unit": "feet",
         "requests": [],
         "scaleDescriptionMiddle": null,
