@@ -61,6 +61,14 @@ module.exports.setScaleDescriptionMax = function (description, measureId) {
   };
 };
 
+module.exports.addSample = function (sampleId, measureId) {
+  return {
+    type: 'ADD_SAMPLE',
+    sampleId: sampleId,
+    measureId: measureId
+  };
+};
+
 module.exports.addListItem = function (item, measureId) {
   return {
     type: 'ADD_LIST_ITEM',

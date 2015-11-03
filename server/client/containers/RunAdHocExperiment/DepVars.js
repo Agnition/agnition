@@ -5,13 +5,27 @@ var _ = require('underscore');
 var $ = require('jquery');
 require('jquery-serializejson');
 var History = require('react-router').History;
+var bindActionCreators = require('redux').bindActionCreators;
+var measureActions = require('../../actions/Measures.js');
+var sampleActions = require('../../actions/Samples.js');
+var actions = _.extend(measureActions, sampleActions);
 
 var DepVar = require('./DepVar');
 
 function mapStatetoProps (state, ownProps) {
+  var depVars = state.Experiments.getIn([ownProps.params.expid, 'depVars']).toJS();
+  var depVarId = depVars[0];
+  var measureId = state.DepVars.getIn([depVarId, 'measures', 0]);
   return {
-    depVars: state.Experiments.getIn([ownProps.params.expid, 'depVars']).toJS(),
+    depVars: depVars,
+    measureId: measureId,
     indVars: state.Samples.getIn([ownProps.params.sampleid, 'indVarStates']).toJS()
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    actions : bindActionCreators(actions, dispatch)
   };
 }
 
@@ -19,10 +33,12 @@ var DepVars = React.createClass({
   mixins: [ History ],
   handleSubmit: function (event) {
     event.preventDefault();
-    console.log('buttonPushed!');
     var data = $(event.target).serializeJSON();
-    $.post('/samples', data, function(){
-      console.log('success!');
+    $.post('/samples', data, function(samples) {
+      var sample = samples[0];
+      this.props.actions.insertSample(sample);
+      this.props.actions.addSample(sample._id, this.props.measureId);
+
       this.history.pushState(null, '/viewexp/' + this.props.params.expid);
     }.bind(this));
   },
@@ -49,4 +65,4 @@ var DepVars = React.createClass({
   }
 });
 
-module.exports = connect(mapStatetoProps)(DepVars);
+module.exports = connect(mapStatetoProps, mapDispatchToProps)(DepVars);

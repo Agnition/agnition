@@ -36,15 +36,6 @@ function mapDispatchtoProps (dispatch) {
 
 var ViewExp = React.createClass({
   mixins: [ History ],
-  createSample: function(e){
-    var id = shortId.generate();
-
-    //instantiate a new sample with ID
-    this.props.actions.createSample(id);
-
-    //re-direct
-    this.history.pushState(null, '/sample/' + this.props.exp._id + '/' + id + '/adhoc/setup');
-  },
   render: function() {
     return (
       <div className = 'section-block'>

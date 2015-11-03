@@ -43,6 +43,11 @@ module.exports = function(state = initialState, action) {
   if (action.type === 'SET_SCALE_DESCRIPTION_MAX') {
     return state.setIn([action.measureId, 'scaleDescriptionMax'], action.description);
   }
+  if (action.type === 'ADD_SAMPLE') {
+    return state.updateIn([action.measureId, 'samples'], function(samples) {
+      return samples.push(action.sampleId);
+    });
+  }
   if (action.type === 'ADD_LIST_ITEM') {
     var newList = state.getIn([action.measureId, 'list']);
     // Only add unique items

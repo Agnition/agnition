@@ -14,6 +14,13 @@ module.exports.setIndVarOptionOnSample = function(sampleId, indVarId, optionValu
   };
 };
 
+module.exports.insertSample = function(sample) {
+  return {
+    type: 'INSERT_SAMPLE',
+    sample: sample
+  };
+};
+
 module.exports.createSample = function(sampleId) {
   return {
     type: 'CREATE_SAMPLE',

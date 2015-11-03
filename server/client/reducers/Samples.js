@@ -1,5 +1,5 @@
 var Immutable = require('immutable');
-const initialState = new Immutable.List();
+const initialState = new Immutable.Map();
 
 module.exports = function(state = initialState, action) {
   if (action.type === 'SET_SAMPLES') {
@@ -14,6 +14,9 @@ module.exports = function(state = initialState, action) {
      return state.set(action.sampleId, new Immutable.Map({
         indVarStates: new Immutable.Map()
       }));
+  }
+  if (action.type === 'INSERT_SAMPLE') {
+    return state.set(action.sample._id, Immutable.fromJS(action.sample));
   }
   return state;
 };
