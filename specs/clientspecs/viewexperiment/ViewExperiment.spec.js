@@ -27,8 +27,7 @@ describe('View experiment container', function () {
     var props = {};
 
     //this is our mock of the DepVar state property
-    var obj = require('../../../dummyData/normalizedDummyData.json');
-    console.log(obj);
+    var obj = require('./ViewExperimentSampleData.json');
     obj.Experiments = Immutable.fromJS(obj.experiments);
     obj.DepVars = Immutable.fromJS(obj.depVars);
     obj.IndVars = Immutable.fromJS(obj.indVars);
