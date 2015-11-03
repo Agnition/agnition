@@ -18,8 +18,8 @@ var DepVar = React.createClass({
     });
     return (
       <div>
-        <h2 className='section-title'>Effect</h2>
-        <span class='question'>Enter a value for: {this.props.name}</span>
+        <h2 className="section-title">Effect</h2>
+        <span class="question">Enter a value for: {this.props.name}</span>
         {measures}
       </div>
     );
