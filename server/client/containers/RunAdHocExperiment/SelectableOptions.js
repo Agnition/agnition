@@ -53,7 +53,7 @@ var SelectableOptions = React.createClass({
     var options = this.getOptions();
       return (
         <div>
-          <span className='question'>Select a value for: {this.props.name}</span>
+          <p className='question'>Select a value for: {this.props.name}</p>
           <form onChange={this.handleChange}>
             {options}
           </form>
