@@ -30,20 +30,22 @@ var HistogramWrapper = React.createClass({
     }, this);
 
     this.histograms = _.map(chartData, function(dataObj, index) {
-      return <AreaChart
-                data= {dataObj.data}
-                yScale = {[0, maxFreq]}
-                xScale = {[minValue, maxValue]}
-                width={500}
-                height={300}
-                viewBoxObject={{
-                  x: 0,
-                  y: 0,
-                  height: 400,
-                  width: 500
-                }}
-                xAxisTickInterval={{unit: 'frequency', interval: 1}}
-                title = {dataObj.label} />
+      return (<div className = "chart-container"> 
+        <AreaChart
+          data= {dataObj.data}
+          yScale = {[0, maxFreq]}
+          xScale = {[minValue, maxValue]}
+          width={500}
+          height={300}
+          viewBoxObject={{
+            x: 0,
+            y: 0,
+            height: 400,
+            width: 500
+          }}
+          xAxisTickInterval={{unit: 'frequency', interval: 1}}
+          title = {dataObj.label} />
+      </div>)
 
     }, this);
   },

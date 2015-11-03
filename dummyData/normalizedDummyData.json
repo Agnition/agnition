@@ -146,6 +146,7 @@
     },
     "562ebfa6a3b7183b57d3ed57": {
         "scaleDescriptionMin": null,
+        "name":"distance",
         "unit": "feet",
         "requests": [],
         "scaleDescriptionMiddle": null,
