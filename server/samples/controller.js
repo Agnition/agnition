@@ -1,5 +1,6 @@
 var Sample = require('../exps/models/Sample');
 var Measure = require('../exps/models/Measure');
+var Exp = require('../exps/controller');
 var utils = require('../utils');
 
 
@@ -50,7 +51,12 @@ var addSample = function (req, res) {
           if (errs.length !== 0) {
             return res.send(errs);
           }
-          res.send(savedSamples);
+          Exp.updateExpStatus(body.expId, body.indVarId, body.depVarId, function(err, active){
+            res.send({
+              samples: savedSamples,
+              active: active
+            });
+          })
         }
       });
     }
