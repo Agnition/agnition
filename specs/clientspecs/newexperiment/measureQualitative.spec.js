@@ -33,7 +33,7 @@ describe('New Experiment: Measure Input (Qualitative/Scale)', function () {
 
   it('should render the current scale correctly', function () {
     // var input = TestUtils.scryRenderedDOMComponentsWithTag(measureQualitative,'input');
-    var p     = TestUtils.scryRenderedDOMComponentsWithTag(measureQualitative, 'p');
-    expect(p[0].textContent).to.equal('Scale from 1-5');
+    var h4     = TestUtils.scryRenderedDOMComponentsWithTag(measureQualitative, 'h4');
+    expect(h4[0].textContent).to.equal('Scale from 1-5');
   });
 });

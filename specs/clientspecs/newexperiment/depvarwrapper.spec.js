@@ -25,7 +25,7 @@ describe('the DepVarWrapper Container', function () {
     var props = {};
     var obj = {
       Experiments : {
-        'a': { 
+        'a': {
           depVars : Immutable.List()
         }
       }
@@ -36,8 +36,8 @@ describe('the DepVarWrapper Container', function () {
     actions = sinon.stub(depVarWrapper.dispatchProps.actions);
   });
 
-  it('should call the correct actions on button press', function () {
-    var div = TestUtils.findRenderedDOMComponentWithClass(depVarWrapper, 'dep-var-wrapper');
-    expect(div).to.exist;
+  xit('should call the correct actions on button press', function () {
+    var div = TestUtils.scryRenderedDOMComponentsWithTag(depVarWrapper, 'div');
+    expect(div.length).to.eql(1);
   });
 });

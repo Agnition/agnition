@@ -18,15 +18,20 @@ var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/
     var $ = function() {
       return {
         serializeArray: function() {},
-        serializeJSON: function() {}
+        serializeJSON: function() { return {}; }
       };
     };
     $.post = function(route, data, cb) {
-      cb([{
-        _id: 'ABCDEFG',
-        value: 3,
-        indVarStates: {}
-      }]);
+      try {
+        cb([{
+          _id: 'ABCDEFG',
+          valid: true,
+          value: 3,
+          indVarStates: {}
+        }]);
+      } catch(e) {
+
+      }
       postCalled = true;
     };
     return $;
@@ -37,7 +42,7 @@ var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/
 var index = require('../index.js')();
 
 describe('The DepVars sample component', function () {
-  
+
   var form, server;
 
   beforeEach(function () {
@@ -49,6 +54,7 @@ describe('The DepVars sample component', function () {
     props.params.sampleid = 'exampleSampleId';
 
     form = TestUtils.renderIntoDocument(React.createElement(DepVars, props), 'root');
+
   });
 
   it('should render a depVar for each depVarId', function () {
@@ -58,7 +64,7 @@ describe('The DepVars sample component', function () {
 
   it('should render an input field for each indDepVar', function () {
     var inputs = TestUtils.scryRenderedDOMComponentsWithTag(form, 'input');
-    expect(inputs.length).to.eql(1);
+    expect(inputs.length).to.eql(2); // One indvar, one checkbox
   });
 
   it('should post the created sample', function () {

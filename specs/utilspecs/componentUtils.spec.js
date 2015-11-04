@@ -38,12 +38,13 @@ describe('getSamplesForMeasure', function () {
       Measures : {
         m1 : {
           kind : 'list',
-          samples : ['s1', 's2']
+          samples : ['s1', 's2', 's3']
         }
       },
       Samples : {
         s1 : {
           value : 'worked',
+          valid : true,
           indVarStates : [
             {
               indVar : 'iv1',
@@ -54,11 +55,23 @@ describe('getSamplesForMeasure', function () {
         },
         s2 : {
           value : 'didn\'t work',
+          valid : true,
           indVarStates : [
             {
               indVar : 'iv1',
               name : 'weight',
               value : '1b'
+            }
+          ]
+        },
+        s3 : {
+          value : 'didn\'t work',
+          valid : false,
+          indVarStates : [
+            {
+              indVar : 'iv1',
+              name : 'weight',
+              value : '1a'
             }
           ]
         }
@@ -77,10 +90,10 @@ describe('getSamplesForMeasure', function () {
     var measureId = 'm1';
 
     expect(JSON.stringify(testUtils.getSamplesForMeasure(state, measureId, indVarId)))
-      .to.eql('{"indVarName":"weight","measureKind":"list","samples":[{"indVarValue":"1a","measureValue":"worked"},{"indVarValue":"1b","measureValue":"didn\'t work"}]}');
+      .to.eql('{"indVarName":"weight","measureKind":"list","samples":[{"indVarValue":"1a","measureValue":"worked"},{"indVarValue":"1b","measureValue":"didn\'t work"}],"invalidSamples":[{"indVarValue":"1a","measureValue":"didn\'t work"}]}');
   });
 });
-  
+
 describe('genSingleSeriesBarChartValues', function () {
   it('should create the proper data shape for bar chart value', function () {
     var values = testUtils.genSingleSeriesBarChartValues(barChartValues.options, barChartValues.samples);

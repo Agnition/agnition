@@ -31,57 +31,70 @@ var getSamplesForMeasure = function(state, measureId, indVarId) {
   var measureKind = state.Measures.getIn([measureId, 'kind']);
   var indVarName = state.IndVars.getIn([indVarId, 'name']);
   var sampleIds = state.Measures.getIn([measureId, 'samples']).toJS();
-  var samples = _.map(sampleIds, function(sampleId) {
+  var invalidSamples = [];
+  var samples = [];
+  _.each(sampleIds, function(sampleId) {
     var sample = state.Samples.get(sampleId).toJS();
     var indVarValue = _.first(_.pluck(_.filter(sample.indVarStates, function(indVar) {
         return indVar.indVar === indVarId; // TODO: use when id is consistent
         // return indVar.name === indVarName; // until db is consistent
       }), 'value'));
-    return {
-      indVarValue: indVarValue,
-      measureValue: sample.value
-    };
+    if (sample.valid) {
+      samples.push({
+        indVarValue: indVarValue,
+        measureValue: sample.value
+      });
+    } else {
+      invalidSamples.push({
+        indVarValue: indVarValue,
+        measureValue: sample.value
+      });
+    }
   });
   return {
     indVarName: indVarName,
     measureKind: measureKind,
-    samples: samples
+    samples: samples,
+    invalidSamples: invalidSamples
   };
 };
 
 
 var genSingleSeriesBarChartValues = function (indVarValues, samples) {
-   if(indVarValues === undefined || samples === undefined) {
-       console.log("bad arguments to genSingleSeriesBarChart");
-       return;
-   }
+  if(indVarValues === undefined || samples === undefined) {
+    console.log("bad arguments to genSingleSeriesBarChart");
+    return;
+  }
 
-   var coordinates = []; //what we will return
-   var averages = {}; // to hold intermediate values
+  var coordinates = []; //what we will return
+  var averages = {}; // to hold intermediate values
 
-   //get each series we are looking for
-   _.each(indVarValues, function(value){
-       averages[value] = {
-           total: 0,
-           count: 0,
-           avg  : null,
-       };
-   });
+  //get each series we are looking for
+  _.each(indVarValues, function(value){
+    averages[value] = {
+      total: 0,
+      count: 0,
+      avg  : null,
+    };
+  });
 
 
-   //collapse samples into averages object
-   _.each(samples,function(sample){
-       averages[sample.indVarValue].total += sample.measureValue;
-       averages[sample.indVarValue].count ++;
-   });
+  //collapse samples into averages object
+  _.each(samples,function(sample){
+    averages[sample.indVarValue].total += sample.measureValue;
+    averages[sample.indVarValue].count ++;
+  });
 
-   // transform the averages object into a set of coordinates
-   coordinates = _.map(averages, function(result, key){
-       result.avg = result.total / result.count;
-       return {x: key, y: result.avg};
-   });
-   
-   return coordinates;
+  // transform the averages object into a set of coordinates
+  coordinates = _.map(averages, function(result, key){
+    if (result.count === 0) {
+      return {x: key, y: 0};
+    }
+    result.avg = result.total / result.count;
+    return {x: key, y: result.avg};
+  });
+
+  return coordinates;
 };
 
 
