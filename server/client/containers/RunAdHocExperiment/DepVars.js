@@ -8,7 +8,8 @@ var History = require('react-router').History;
 var bindActionCreators = require('redux').bindActionCreators;
 var measureActions = require('../../actions/Measures.js');
 var sampleActions = require('../../actions/Samples.js');
-var actions = _.extend(measureActions, sampleActions);
+var expActions = require('../../actions/Experiments.js');
+var actions = _.extend(measureActions, sampleActions, expActions);
 
 var DepVar = require('./DepVar');
 
@@ -48,6 +49,9 @@ var DepVars = React.createClass({
       var sample = data.samples[0];
       this.props.actions.insertSample(sample);
       this.props.actions.addSample(sample._id, this.props.measureId);
+      if(!sample.active) {
+        this.props.actions.setActive(false);
+      }
       this.history.pushState(null, '/viewexp/' + this.props.params.expid);
     }.bind(this));
   },
