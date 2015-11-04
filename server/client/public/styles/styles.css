@@ -333,6 +333,21 @@ a.guide-link {
     margin: 1em 0;
 }
 
+
+.result-text-negative > div {
+  float:left;
+  min-height: 100%;
+}
+
+
+.result-text-negative > div::before {
+    content: "\2717";
+    padding: 0 .25em;
+    font-size: 3em;
+    line-height: 1em;
+}
+
+
 .result-text-positive {
     color: white;
     font-weight: bold;
@@ -340,6 +355,19 @@ a.guide-link {
     border-radius: 5px;
     padding: .5em;
     margin: 1em 0;
+}
+
+
+.result-text-positive > div {
+  float:left;
+  min-height: 100%;
+}
+
+.result-text-positive > div::before{
+  content:"\2713";
+  padding: 0 .25em;
+  font-size: 3em;
+  line-height: 1em;
 }
 
 

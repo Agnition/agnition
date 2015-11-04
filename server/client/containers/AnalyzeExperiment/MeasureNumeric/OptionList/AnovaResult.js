@@ -18,6 +18,7 @@ var AnovaResult = React.createClass({
     return (
       <section className= 'section-h'>
         <div className={className}>
+          <div></div>
           <p>{message}</p>
           <a className="guide-link" href="https://www.youtube.com/watch?v=-yQb_ZJnFXw">More about how we determine this</a>
         </div>

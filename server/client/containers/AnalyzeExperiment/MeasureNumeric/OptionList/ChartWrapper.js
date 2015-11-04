@@ -27,8 +27,8 @@ var ChartWrapper = React.createClass({
     return (
       <div>
         <AnovaResult samples={samples} />
-        <BarChart samples={this.props.samples} indVar={this.props.indVar} measure={this.props.measure} />
-        <StatsTable samples={samples} />
+          <BarChart samples={this.props.samples} indVar={this.props.indVar} measure={this.props.measure} />
+          <StatsTable samples={samples} />
         <HistogramWrapper samples={samples} bins={10} />
       </div>
     );
