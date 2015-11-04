@@ -45,14 +45,16 @@ var DepVars = React.createClass({
       data.valid = true;
       delete data.invalid;
     }
-    $.post('/samples', data, function(data) {
-      var sample = data.samples[0];
+    $.post('/samples', data, function(resp) {
+      var sample = resp.samples[0];
       this.props.actions.insertSample(sample);
       this.props.actions.addSample(sample._id, this.props.measureId);
-      if(!sample.active) {
-        this.props.actions.setActive(false);
+      if(resp.active) {
+        this.history.pushState(null, '/viewexp/' + this.props.params.expid);
+      } else {
+        this.props.actions.setActive(false, this.props.params.expid);
+        this.history.pushState(null, '/dashboard');
       }
-      this.history.pushState(null, '/viewexp/' + this.props.params.expid);
     }.bind(this));
   },
 

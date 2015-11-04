@@ -35,10 +35,11 @@ module.exports.setName = function (name, expId) {
   };
 };
 
-module.exports.setActive = function (expId, active) {
+module.exports.setActive = function (active, expId) {
   return {
     type: 'SET_ACTIVE',
-    active: active
+    active: active,
+    expId: expId
   };
 };
 
