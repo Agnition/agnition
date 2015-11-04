@@ -36,13 +36,13 @@ if (window.user && window.exps) {
   store.dispatch(UserActions.setUser(window.user.username, window.user.googleId));
 
   var normData = normalize({ exps : window.exps });
-  store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments));
-  store.dispatch(DepVariableActions.setDepVars(normData.entities.depVars));
-  store.dispatch(IndVariableActions.setIndVars(normData.entities.indVars));
-  store.dispatch(MeasureActions.setMeasures(normData.entities.measures));
-  store.dispatch(RequestActions.setRequests(normData.entities.requests));
-  store.dispatch(ReminderActions.setReminders(normData.entities.reminders));
-  store.dispatch(SampleActions.setSamples(normData.entities.samples));
+  store.dispatch(ExperimentActions.setExperiments(normData.entities.experiments || {}));
+  store.dispatch(DepVariableActions.setDepVars(normData.entities.depVars || {}));
+  store.dispatch(IndVariableActions.setIndVars(normData.entities.indVars || {}));
+  store.dispatch(MeasureActions.setMeasures(normData.entities.measures || {}));
+  store.dispatch(RequestActions.setRequests(normData.entities.requests || {}));
+  store.dispatch(ReminderActions.setReminders(normData.entities.reminders || {}));
+  store.dispatch(SampleActions.setSamples(normData.entities.samples || {}));
 }
 window.store = store;
 render((

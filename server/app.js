@@ -61,18 +61,25 @@ else {
     Exp.find({}, function(err, exps) {
       User.findOne({googleId : req.user.googleId}, function(err, user) {
         var popExps = [];
-        _.each(exps, function(exp){
-          exp.deepPopulate(utils.expPopArray, function(err, exp){
-            popExps.push(exp);
-            //we iterate through the loop until we have populated all exps, then we send response..
-            if(popExps.length === exps.length){
-              res.render('index', {
-                user : JSON.stringify(user),
-                exps : JSON.stringify(popExps)
-              });
-            }
+        var renderWithExps = function(exps) {
+          res.render('index', {
+            user: JSON.stringify(user),
+            exps: JSON.stringify(exps)
           });
-        });
+        }
+        if (exps.length === 0) {
+          renderWithExps([]);
+        }
+        else {
+          _.each(exps, function(exp){
+            exp.deepPopulate(utils.expPopArray, function(err, exp){
+              popExps.push(exp);
+              if(popExps.length === exps.length){
+                renderWithExps(popExps);
+              }
+            });
+          });
+        }
       });
     });
   });
@@ -81,7 +88,6 @@ app.use(express.static(path.join(__dirname, './client/public')));
 app.use('/users', mock, userRouter);
 app.use('/samples', mock, sampleRouter);
 
-// start it up
 console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);
 
 module.exports = app;
