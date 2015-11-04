@@ -7,7 +7,8 @@ module.exports = function(state = initialState, action) {
   }
   if (action.type === 'CREATE_MEASURE') {
     return state.set(action.measureId, Immutable.Map({
-      list: new Immutable.List()
+      list: new Immutable.List(),
+      samples: new Immutable.List()
       }));
     }
 
