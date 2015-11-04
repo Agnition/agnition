@@ -16,6 +16,7 @@ var Actions = _.extend(ExpActions, DepVarActions);
 function mapStatetoProps (state, ownProps) {
   return {
     depVars: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS(),
+    effect: state.Experiments.getIn([ownProps.expId, 'effect'])
   };
 }
 
@@ -42,8 +43,8 @@ var DepVarWrapper = React.createClass({
 
   render: function () {
     var depVars = this.props.depVars.map(function(depVarId) {
-      return <DepVar key={depVarId} depVarId={depVarId} />;
-    });
+      return <DepVar key={depVarId} depVarId={depVarId} name={this.props.effect}/>;
+    }.bind(this));
     return (
       <div className="subsection-v new-exp-section">
         {depVars}

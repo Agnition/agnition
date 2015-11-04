@@ -250,6 +250,10 @@ h3.subsection-title {
   margin-bottom: 10px;
 }
 
+.section-title {
+  text-transform: capitalize;
+}
+
 /*****************************
 *                            *
 *      DEFINITIONS           *

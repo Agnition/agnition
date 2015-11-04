@@ -16,12 +16,7 @@ var NewExperimentActions = require('../../actions/NewExperiment');
 var Actions = _.extend(NewExperimentActions, ExpActions, DepVarActions, MeasureActions);
 
 function mapStatetoProps (state, ownProps) {
-  var depVarName = state.DepVars.getIn([ownProps.depVarId, 'measures']);
-  if(depVarName){
-    depVarName = depVarName.toJS();
-  } else {
-    depVarName = null;
-  }
+  var depVarName = state.DepVars.getIn([ownProps.depVarId, 'name']);
 
   return {
     measureIds: state.DepVars.getIn([ownProps.depVarId, 'measures']).toJS(),
@@ -55,7 +50,7 @@ var MeasureWrapper = React.createClass({
     });
     return (
       <div className="question-set">
-        <p className="question">How will measure this variable?</p>
+        <p className="question">How will you measure <span className="definition-inline">{this.props.name}</span>?</p>
         {components}
       </div>
     );

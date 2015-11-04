@@ -18,8 +18,8 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var IndVar = React.createClass({
-  setName: function() {
-    this.props.actions.setIndVarName(this.refs.name.value, this.props.indVarId);
+  componentWillMount: function () {
+    this.props.actions.setIndVarName(this.props.cause, this.props.indVarId);
   },
   setActionsPerTrial: function () {
     this.props.actions.setActionsPerTrial(this.refs.actionsPerTrial.value, this.props.indVarId);
@@ -43,14 +43,7 @@ var IndVar = React.createClass({
     return (
       <div>
         <h3 className="subsection-title">Independent Variable</h3>
-
-        <div className="question-set">
-          <p className="question">
-            What should <span className="definition-inline"> {this.props.cause} </span> be called?
-          </p>
-          <input className="input-text" ref="name" type="text"  onChange={this.setName}/>
-        </div>
-
+        <p className="guide">The independent variable is the cause you change.</p>
         <div className="question-set">
           <p className="question">
             How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span> 
