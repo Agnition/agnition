@@ -22,12 +22,16 @@ var DepVars = mockRequire('../../../server/client/containers/RunAdHocExperiment/
       };
     };
     $.post = function(route, data, cb) {
-      cb([{
-        _id: 'ABCDEFG',
-        valid: true,
-        value: 3,
-        indVarStates: {}
-      }]);
+      try {
+        cb([{
+          _id: 'ABCDEFG',
+          valid: true,
+          value: 3,
+          indVarStates: {}
+        }]);
+      } catch(e) {
+
+      }
       postCalled = true;
     };
     return $;
