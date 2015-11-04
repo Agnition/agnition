@@ -42,55 +42,59 @@ var IndVar = React.createClass({
   render: function() {
     return (
       <div>
-        <section className ="subsection-block">
-          <h3>Independent Variable</h3>
+        <h3 className="subsection-title">Independent Variable</h3>
 
-          <p className="guide">
-            What should <span className="cause"> {this.props.cause} </span> be called?
-          </p>
-          <label>independent variable
-            <input className="input-text" ref="name" type="text"  onChange={this.setName}/>
-          </label>
-          <p className="guide">
-            How many times do you have to do/change <span className="cause"> {this.props.cause} </span> 
-            to see a change in <span className="effect"> {this.props.effect}</span>?
-          </p>
-          <label>action/trial
-            <input className="input-number" ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
-          </label>
+        <div className="question-set">
           <p className="question">
-            List all of the options for <span className="cause"> {this.props.cause}</span>
+            What should <span className="definition-inline"> {this.props.cause} </span> be called?
+          </p>
+          <input className="input-text" ref="name" type="text"  onChange={this.setName}/>
+        </div>
+
+        <div className="question-set">
+          <p className="question">
+            How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span> 
+            to see a change in <span className="definition-inline"> {this.props.effect}</span>?
+          </p>
+          <input className="input-number" ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
+        </div>
+
+        <div className="question-set">
+          <p className="question">
+            List all of the options for <span className="definition-inline"> {this.props.cause}</span>
           </p>
           <input ref="option" type="text"/>
-          <button onClick={this.addOption}>Add an option</button>
-          <div className="subsection-block">
-            {this.props.options.map(function (option) {
-              return (
-                <div className="added-item">
-                {option}
-                <button
-                  className="remove-button"
-                  onClick={this.removeOption}
-                  value={option}>
-                  remove
-                  </button>
-                </div>
-              );
-            }.bind(this))}
-          </div>
+        <button className="set-button" onClick={this.addOption}>Add an option</button>
+        </div>
 
+        <div>
+          {this.props.options.map(function (option) {
+            return (
+              <div className="added-item">
+              {option}
+              <button
+                className="remove-button"
+                onClick={this.removeOption}
+                value={option}>
+                remove
+                </button>
+              </div>
+            );
+          }.bind(this))}
+        </div>
+
+        <div className="question-set">
           <p className="question">
             How many times would you like to repeat each way you can do  
             <span className="cause"> {this.props.cause}</span>?
           </p>
-          <label>number of trials
-            <input className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
-          </label>
+          <input className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
+        </div>
 
-          <label>Please randomize the events for me
-            <input className="input-checkbox" ref="randomized" type="checkbox" onChange={this.setRandomized}/>
-          </label>
-        </section>
+        <div className="question-set">
+          <p className="question">Please randomize the events for me</p>
+          <input className="input-checkbox" ref="randomized" type="checkbox" onChange={this.setRandomized}/>
+        </div>
       </div>
     )
   }

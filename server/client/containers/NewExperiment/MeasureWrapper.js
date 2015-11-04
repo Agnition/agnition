@@ -54,7 +54,7 @@ var MeasureWrapper = React.createClass({
       return <Measure key={measureId} measureId={measureId} />;
     });
     return (
-      <div className="subsection-block">
+      <div className="question-set">
         <p className="question">How will measure this variable?</p>
         {components}
       </div>

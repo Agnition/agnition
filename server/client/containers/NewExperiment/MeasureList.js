@@ -33,14 +33,17 @@ var MeasureList = React.createClass({
   render: function () {
     var categories = this.props.list.map(function(item) {
       return (<div>
+          <button className="remove-button" onClick={this.removeItem} value={item}>{'\u2326'}</button>
           {item}
-          <button className="remove-button" onClick={this.removeItem} value={item}>remove</button>
         </div>);
     }.bind(this));
 
     return (
-      <div className="subsection-block">
-        <h4>Categories</h4>
+      <div className="question-set">
+        <h4 className="subsection-title-sm">Categories</h4>
+        <p question="question">
+          What are your categories?
+        </p>
         <input className="input-text" ref="newItem" type="text" />
         <button className="set-button" onClick={this.addItem}>Add item</button>
         {categories}

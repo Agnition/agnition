@@ -23,12 +23,12 @@ var NewExperimentProgress = React.createClass({
                   (<IndVars indVars = {this.props.indVarIds} />)
                 ];
     return (
-      <div className ='section-inline'>
+      <section className ="col-md-6">
       <h2 clasName ='section-title'>Summary</h2>
       {progress.filter(function (component, i) {
         return i < this.props.questionIndex;
       }.bind(this))}
-      </div>
+      </section>
     );
   }
 });
