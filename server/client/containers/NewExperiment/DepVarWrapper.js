@@ -45,7 +45,7 @@ var DepVarWrapper = React.createClass({
       return <DepVar key={depVarId} depVarId={depVarId} />;
     });
     return (
-      <div className="subsection-block">
+      <div className="subsection-v new-exp-section">
         {depVars}
       </div>
     );

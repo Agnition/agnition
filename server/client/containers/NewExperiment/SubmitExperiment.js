@@ -48,9 +48,15 @@ var SubmitExperiment = React.createClass({
 
   render: function () {
     return (
-      <div className="new-experiment-container">
-        <button ref="submitExperiment" onClick={this.handleClick}>Save Experiment</button>
-      </div>
+      <section className="subsection-v new-exp-section">
+        <h3 className="subsection-title">Submit</h3>
+        <div className="question-set">
+          <p className="question">
+            Are you ready to submit your experiment?
+          </p>
+          <button className="submit-button" ref="submitExperiment" onClick={this.handleClick}>Save Experiment</button>
+        </div>
+      </section>
     );
   }
 });

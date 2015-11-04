@@ -35,11 +35,14 @@ var DepVar = React.createClass({
 
   render: function () {
     return (
-      <div className="subsection-block">
-        <p className="guide">Pick your dependent variable. This is the outcome you will measure, and it 
+      <div>
+        <h3 className="subsection-title">Dependent Variable</h3>
+        <p className="guide">The dependent variable is the outcome you will measure, and it 
         may be as simple as your effect, but it needs to be related.</p>
-        <label className="definition-label">name
-        <input className="input-text" type="text" ref="depVarName" onChange={this.setName} value = {this.props.name} /></label>
+        <div className="question-set">
+          <p className="question">What is your dependent variable?</p> 
+          <input className="input-text" type="text" ref="depVarName" onChange={this.setName} value = {this.props.name} />
+        </div>
         <MeasureWrapper key={this.props.depVarId} depVarId={this.props.depVarId} />
       </div>
       );

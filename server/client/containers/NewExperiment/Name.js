@@ -29,10 +29,13 @@ var Name = React.createClass({
 
   render: function () {
     return (
-      <div className="name-container">
-      <p>What will this experiment be called?</p>
+      <section className="subsection-v new-exp-section">
+      <h3 className="subsection-title">Name</h3>
+      <div className="question-set">
+        <p>What will this experiment be called?</p>
         <input size="40" ref="name" type="text" onChange={this.setName}/>
       </div>
+      </section>
       );
   }
 });

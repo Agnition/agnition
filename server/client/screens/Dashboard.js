@@ -34,18 +34,18 @@ const Dashboard = React.createClass({
     });
     
     return (
-      <div className="section-block">
-        <h2 className='section-title'>Open Experiments</h2>
-        <div className="open-exps-container">
-          <div>
+      <div className="container">
+        <div className="row">
+          <h2 className='section-title'>Open Experiments</h2>
+          <div className="section-block">
             {openExps.length > 0
             ? <Exps exps = {openExps} active = {true} />
             : <p>No open experiments, add some!</p>}
           </div>
-        </div>
-        <div className="dashboard-buttons">
-          <button className="set-button" onClick={this.goToNewExp}>Add New Experiment</button>
-          <button className="set-button" onClick={this.goToAllExps}>View All Experiments</button>
+          <div className="dashboard-buttons">
+            <button className="set-button" onClick={this.goToNewExp}>Add New Experiment</button>
+            <button className="set-button" onClick={this.goToAllExps}>View All Experiments</button>
+          </div>
         </div>
       </div>
     );

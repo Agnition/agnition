@@ -40,9 +40,9 @@ var IndVarWrapper = React.createClass({
           return <IndVar indVarId = {indVarId} key = {indVarId} expId = {this.props.expId}/>;
         }.bind(this));
     return (
-      <div className="ind-var-wrapper">
+      <section className="subsection-v new-exp-section">
         {indVarEntries}
-      </div>
+      </section>
     );
   }
 });
