@@ -16,10 +16,13 @@ function mapStatetoProps (state, ownProps) {
   var depVars = state.Experiments.getIn([ownProps.params.expid, 'depVars']).toJS();
   var depVarId = depVars[0];
   var measureId = state.DepVars.getIn([depVarId, 'measures', 0]);
+  var indVars = state.Samples.getIn([ownProps.params.sampleid, 'indVarStates']).toJS();
   return {
+    depVarId: depVarId,
+    indVarId: state.Experiments.getIn([ownProps.params.expid, 'indVars']).toJS()[0],
     depVars: depVars,
     measureId: measureId,
-    indVars: state.Samples.getIn([ownProps.params.sampleid, 'indVarStates']).toJS()
+    indVars: indVars
   };
 }
 
@@ -41,8 +44,8 @@ var DepVars = React.createClass({
       data.valid = true;
       delete data.invalid;
     }
-    $.post('/samples', data, function(samples) {
-      var sample = samples[0];
+    $.post('/samples', data, function(data) {
+      var sample = data.samples[0];
       this.props.actions.insertSample(sample);
       this.props.actions.addSample(sample._id, this.props.measureId);
       this.history.pushState(null, '/viewexp/' + this.props.params.expid);
@@ -62,6 +65,18 @@ var DepVars = React.createClass({
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <input
+            name={'expId'}
+            type="hidden"
+            value={this.props.params.expid} />
+          <input
+            name={'indVarId'}
+            type="hidden"
+            value={this.props.indVarId} />
+          <input
+            name={'depVarId'}
+            type="hidden"
+            value={this.props.depVarId} />
           {indVars}
           {depVars}
           <div><input type="checkbox" name="invalid" />Mark sample as invalid.</div>
