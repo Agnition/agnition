@@ -98,6 +98,37 @@ var addExp = function (req, res) {
   });
 };
 
+var updateExpStatus = function(expId, indVarId, depVarId, callback) {
+  IndVar.findOne({_id: indVarId}, function(err, indVar) {
+    DepVar.findOne({_id: depVarId}, function(err, depVar) {
+      var measureId = depVar.measures[0];
+      Measure.findOne({_id: measureId}, function(err, measure) {
+        var sampleIds = measure.samples;
+        Sample.find({_id: {$in: sampleIds} }, function(err, samples) {
+          var sampleCount = {};
+          indVar.options.forEach(function(option) {
+            sampleCount[option] = indVar.numTrials * indVar.actionsPerTrial;
+          });
+          samples.filter(function(sample) {
+            return sample.valid;
+          }).forEach(function(sample) {
+            sampleCount[sample.indVarStates[0].value]--;
+          });
+          for (var sampleId in sampleCount) {
+            if (sampleCount[sampleId] > 0) {
+              callback(null, true);
+              return;
+            }
+          }
+          Exp.update({_id: expId}, {$set: {active: false}}, {}, function(err, exp) {
+            callback(null, false);
+          });
+        });
+      });
+    });
+  });
+};
+
 var deleteExp = function (req, res) {
   //TODO: dosen't remove it from user...
   Exp.remove({_id: req.params.exp_id }, function(err) {
@@ -115,3 +146,4 @@ module.exports.getExp = getExp;
 module.exports.getAllExps = getAllExps;
 module.exports.addExp = addExp;
 module.exports.deleteExp = deleteExp;
+module.exports.updateExpStatus = updateExpStatus;
