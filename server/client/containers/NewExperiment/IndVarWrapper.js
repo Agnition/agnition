@@ -12,6 +12,7 @@ var IndVar = require('./IndVar');
 
 function mapStateToProps (state, ownProps) {
   return {
+    cause: state.Experiments.getIn([ownProps.expId, 'cause']),
     indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars']).toJS()
   };
 }
@@ -37,7 +38,7 @@ var IndVarWrapper = React.createClass({
 
   render: function() {
     var indVarEntries = this.props.indVarIds.map(function (indVarId) {
-          return <IndVar indVarId = {indVarId} key = {indVarId} expId = {this.props.expId}/>;
+          return <IndVar indVarId = {indVarId} key = {indVarId} expId = {this.props.expId} />;
         }.bind(this));
     return (
       <section className="subsection-v new-exp-section">
