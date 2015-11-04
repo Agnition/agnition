@@ -39,7 +39,7 @@ var ViewExp = React.createClass({
     return (
       <div className="container">
         <div className="row">
-          <section className="subsection-v col-md-4 col-md-offset-4">
+          <section className="subsection-v col-md-6 col-md-offset-3">
             {/* name as header */}
             <h2 className='section-title'>{this.props.exp.name}</h2>
             <p className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</p>
