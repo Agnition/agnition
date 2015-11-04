@@ -17,17 +17,19 @@ function mapStatetoProps (state, ownProps) {
 var NewExperimentProgress = React.createClass({
 
   render: function() {
-    var progress = [(<ProgressName expId={this.props.expId} />),
-                  (<ProgressHypothesis expId={this.props.expId}/>),
-                  (<DepVars depVarIds = {this.props.depVarIds}/>),
-                  (<IndVars indVars = {this.props.indVarIds} />)
+    var progress = [(<div><h4 className="subsection-title-sm">Name</h4><ProgressName expId={this.props.expId} /></div>),
+                  (<div><h4 className="subsection-title-sm">Hypothesis</h4><ProgressHypothesis expId={this.props.expId}/></div>),
+                  (<div><h4 className="subsection-title-sm">Dependent Variable</h4><DepVars depVarIds = {this.props.depVarIds}/></div>),
+                  (<div><h4 className="subsection-title-sm">Independent Variable</h4><IndVars indVars = {this.props.indVarIds} /></div>)
                 ];
     return (
       <section className ="col-md-6">
       <h2 clasName ='section-title'>Summary</h2>
-      {progress.filter(function (component, i) {
-        return i < this.props.questionIndex;
-      }.bind(this))}
+      <section className="subsection-v new-exp-section">
+        {progress.filter(function (component, i) {
+          return i < this.props.questionIndex;
+        }.bind(this))}
+      </section>
       </section>
     );
   }

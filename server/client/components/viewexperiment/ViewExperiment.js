@@ -37,19 +37,23 @@ var ViewExp = React.createClass({
   mixins: [ History ],
   render: function() {
     return (
-      <div className = 'section-block'>
-        {/* name as header */}
-        <h2 className='section-title'>{this.props.exp.name}</h2>
-        <div className='definition-set'>
-          <span className='definition-label'>Hypothesis: </span>
-          <span className='definition'>{this.props.exp.hypothesis}</span>
+      <div className="container">
+        <div className="row">
+          <section className="subsection-v col-md-12">
+            {/* name as header */}
+            <h2 className='section-title'>{this.props.exp.name}</h2>
+            <div className='definition-set'>
+              <span className='definition-label'>Hypothesis: </span>
+              <span className='definition'>{this.props.exp.hypothesis}</span>
+            </div>
+            <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
+            <h3 className='subsection-title'>Dependent Variable</h3>
+            <DepVar depVarIds = {this.props.exp.depVars} />
+            <h3 className='subsection-title'>Independent Variable</h3>
+            <IndVar indVars = {this.props.exp.indVars} />
+            <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
+          </section>
         </div>
-        <span className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</span>
-        <h3 className='subsection-title'>Dependent Variable</h3>
-        <DepVar depVarIds = {this.props.exp.depVars} />
-        <h3 className='subsection-title'>Independent Variable</h3>
-        <IndVar indVars = {this.props.exp.indVars} />
-        <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
       </div>
     );
   }

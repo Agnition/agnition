@@ -17,7 +17,7 @@ var DepVarWrapper = require('../containers/NewExperiment/DepVarWrapper');
 var IndVarWrapper = require('../containers/NewExperiment/IndVarWrapper');
 var SubmitExperiment = require('../containers/NewExperiment/SubmitExperiment');
 
-var NewExperimentProgress = require('../containers/NewExperiment/components/ProgressWrapper');
+var ProgressWrapper = require('../containers/NewExperiment/components/ProgressWrapper');
 
 const QUESTION_COUNT = 4;
 
@@ -84,7 +84,7 @@ var NewExperiment = React.createClass({
                 : null}
             </section>
           </section>
-            <NewExperimentProgress expId={this.expId} />
+            <ProgressWrapper expId={this.expId} />
         </div>
       </div>
     );

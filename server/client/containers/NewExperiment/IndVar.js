@@ -71,13 +71,13 @@ var IndVar = React.createClass({
           {this.props.options.map(function (option) {
             return (
               <div className="added-item">
-              {option}
               <button
                 className="remove-button"
                 onClick={this.removeOption}
                 value={option}>
-                remove
+                {'\u2326'}
                 </button>
+              {option}
               </div>
             );
           }.bind(this))}

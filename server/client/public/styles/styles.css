@@ -28,6 +28,7 @@ button:focus {
 .set-button {
   background-color: hsla(0, 0%, 90%, 1.0) !important;
   border-radius: 4px;
+  align-self: baseline;
 }
 .set-button:hover {
   background-color : hsla(0, 0%, 80%, 1.0) !important;
@@ -265,6 +266,13 @@ h3.subsection-title {
   text-align: center;
 }
 
+span.definition-label {
+    display: inline-block;
+    font-size: 1.1em;
+    width: 7em;
+    text-align: left;
+}
+
 /*****************************
 *                            *
 *          GUIDE             *
@@ -277,6 +285,7 @@ h3.subsection-title {
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
   border: 1px solid #F8ECA7;
+  align-self: baseline;
 }
 
 
