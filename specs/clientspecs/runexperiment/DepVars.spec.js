@@ -64,7 +64,7 @@ describe('The DepVars sample component', function () {
 
   it('should render an input field for each indDepVar', function () {
     var inputs = TestUtils.scryRenderedDOMComponentsWithTag(form, 'input');
-    expect(inputs.length).to.eql(2); // One indvar, one checkbox
+    expect(inputs.length).to.eql(5); // One indvar, 4 hidden inputs
   });
 
   it('should post the created sample', function () {
