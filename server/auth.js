@@ -3,9 +3,9 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var User = require('./users/model.js');
 
-var GOOGLE_CLIENT_ID = '856288792446-meq4vh55g23locbvru0f6oj23n2hbvm0.apps.googleusercontent.com';
-var GOOGLE_CLIENT_SECRET = '9SMPjAEi3MHIirClQrp2chSN';
-var GOOGLE_CALLBACK = 'http://localhost:3000/auth/google/callback';
+var GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '856288792446-meq4vh55g23locbvru0f6oj23n2hbvm0.apps.googleusercontent.com';
+var GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || '9SMPjAEi3MHIirClQrp2chSN';
+var GOOGLE_CALLBACK = process.env.GOOGLE_CALLBACK || 'http://localhost:3000/auth/google/callback';
 
 module.exports = function(app) {
   passport.serializeUser(function(user, done) {
