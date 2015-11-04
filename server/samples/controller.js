@@ -51,12 +51,16 @@ var addSample = function (req, res) {
           if (errs.length !== 0) {
             return res.send(errs);
           }
-          Exp.updateExpStatus(body.expId, body.indVarId, body.depVarId, function(err, active){
-            res.send({
-              samples: savedSamples,
-              active: active
-            });
-          })
+          Exp.updateExpStatus(body.expId, body.indVarId, body.depVarId, function(err, active) {
+            if (err) {
+              res.sendStatus(400);
+            } else {
+              res.send({
+                samples: savedSamples,
+                active: active
+              });
+            }
+          });
         }
       });
     }
