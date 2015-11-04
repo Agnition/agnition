@@ -23,13 +23,10 @@ var NewExperimentProgress = React.createClass({
                   (<div><h4 className="subsection-title-sm">Independent Variable</h4><IndVars indVars = {this.props.indVarIds} /></div>)
                 ];
     return (
-      <section className ="col-md-6">
-      <h2 clasName ='section-title'>Summary</h2>
       <section className="subsection-v new-exp-section">
         {progress.filter(function (component, i) {
           return i < this.props.questionIndex;
         }.bind(this))}
-      </section>
       </section>
     );
   }

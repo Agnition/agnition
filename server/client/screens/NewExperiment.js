@@ -84,7 +84,10 @@ var NewExperiment = React.createClass({
                 : null}
             </section>
           </section>
+          <section className="col-md-6">
+            <h2 className="section-title">Summary</h2>
             <ProgressWrapper expId={this.expId} />
+          </section>
         </div>
       </div>
     );

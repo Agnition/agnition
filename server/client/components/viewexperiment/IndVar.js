@@ -17,7 +17,7 @@ var Options = React.createClass({
       i++; //start at option 1
       return(
         <div className= 'definition-set'>
-          <span className='definition-label'>{"Option " + i + ": "}</span>
+          <span className='definition-label'>{i}</span>
           <span className='definition'>{option}</span>
         </div>
         )
@@ -34,10 +34,7 @@ var IndVar = React.createClass({
   render: function() {
     return (
       <div>
-      <div className= 'definition-set'>
-        <span className='definition-label'>Cause: </span>
-        <span className='definition'>{this.props.indVar.name}</span>
-      </div>
+        <p className="guide">Your options for changing the cause.</p>
         <Options options = {this.props.indVar.options}/>
       </div>
     );

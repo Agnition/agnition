@@ -252,6 +252,7 @@ h3.subsection-title {
 
 .section-title {
   text-transform: capitalize;
+  margin-bottom: 1em;
 }
 
 /*****************************
@@ -261,20 +262,22 @@ h3.subsection-title {
 *****************************/
 
 .definition-inline {  
-  color: white;
-  margin: 0 .2em;
-  background-color: #3888DF;
-  padding: .2em .3em;
-  border-radius: 4px;
-  font-weight: 400;
-  text-align: center;
+ color: #3888DF;
+ font-style: italic;
+ font-weight: 400;
+ text-align: center;
 }
 
 span.definition-label {
     display: inline-block;
     font-size: 1.1em;
-    width: 7em;
+    font-weight: bold;
+    padding-right: 1em;
     text-align: left;
+}
+
+.definition-set {
+  margin-left: 2em;
 }
 
 /*****************************
@@ -283,13 +286,24 @@ span.definition-label {
 *                            *
 *****************************/
 
-.guide {
+/*.guide {
   font-style: italic;
   padding: 0.5em 0.5em;
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
   border: 1px solid #F8ECA7;
   align-self: baseline;
+}*/
+
+.guide{
+  color: #302505;
+  font-style: italic;
+  padding: 0.5em 0.5em;
+  background-color: rgb(185, 216, 233);
+  border-radius: 8px;
+  align-self: baseline;
+  box-shadow: 1px 1px 5px #AEB6BE;
+  display: inline-block;
 }
 
 
@@ -356,6 +370,11 @@ span.definition-label {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  margin-top: 1em;
+  padding: 5px;
+  background-color: #F2F2F3;
+  box-shadow: 1px 1px 5px #E0E0E0;
+  border-radius: 5px;
 }
 
 .new-exp-section {
