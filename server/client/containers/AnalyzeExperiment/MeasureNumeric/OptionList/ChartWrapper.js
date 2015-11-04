@@ -25,7 +25,7 @@ var ChartWrapper = React.createClass({
   render: function() {
     var samples = sampleUtils.getValues(this.props.samples.samples);
     return (
-      <div className="section-block">
+      <div>
         <AnovaResult samples={samples} />
         <BarChart samples={this.props.samples} indVar={this.props.indVar} measure={this.props.measure} />
         <StatsTable samples={samples} />

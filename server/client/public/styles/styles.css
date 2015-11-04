@@ -317,6 +317,31 @@ span.definition-label {
   display: inline-block;
 }
 
+a.guide-link {
+    display: block;
+    font-size: x-small;
+    color: white;
+    text-align: right;
+}
+
+.result-text-negative {
+    color: white;
+    font-weight: bold;
+    background-color: #E45B5B;
+    border-radius: 5px;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+.result-text-positive {
+    color: white;
+    font-weight: bold;
+    background-color: #5AC45E;
+    border-radius: 5px;
+    padding: .5em;
+    margin: 1em 0;
+}
+
 
 /*****************************
 *                            *
