@@ -20,6 +20,22 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureList = React.createClass({
 
+  componentDidUpdate: function() {
+    this.checkValidity();
+  },
+
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
+  checkValidity: function() {
+    if (this.props.list.size > 0) {
+      this.props.actions.setValidity(true);
+    } else {
+      this.props.actions.setValidity(false);
+    }
+  },
+
   addItem: function () {
     this.props.actions.addListItem(this.refs.newItem.value, this.props.measureId);
     this.refs.newItem.value = '';

@@ -23,9 +23,16 @@ module.exports = function(state = initialState, action) {
       return state.setIn([action.indVarId, 'randomized'], action.randomized);
   }
   if (action.type === 'ADD_INDVAR_OPTION') {
-      return state.updateIn([action.indVarId, 'options'], function(list) {
-        return list.push(action.option);
-      });
+      action.option = action.option.trim();
+      if (action.option.length === 0) {
+        return state;
+      }
+      var newList = state.getIn([action.measureId, 'list']);
+      // Only add unique items
+      if (newList.indexOf(action.option) === -1) {
+        newList = newList.push(action.option);
+      }
+      return state.setIn([action.measureId, 'list'], newList);
   }
   if (action.type === 'REMOVE_INDVAR_OPTION') {
       var newOptions = state.get(action.indVarId).get('options');

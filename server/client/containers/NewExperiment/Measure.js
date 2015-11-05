@@ -26,8 +26,14 @@ function mapDispatchtoProps (dispatch) {
 
 var Measure = React.createClass({
 
-  componentWillMount: function() {
-    this.props.actions.setValidity(false);
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
+  checkValidity: function() {
+    if (this.props.kind !== 'qualitative' && this.props.kind !== 'list' && this.props.kind !== 'numeric') {
+      this.props.actions.setValidity(false);
+    }
   },
 
   handleClick: function (event) {
