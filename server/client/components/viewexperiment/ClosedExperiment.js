@@ -28,11 +28,21 @@ var ClosedExp = React.createClass({
   render: function(){
     return( 
       <div>
-        <h2 className='section-title'> {this.props.exp.name + " Results"}</h2>
-        <h3 className= 'subsection-title'>Initial Hypothesis</h3>
-        <ExpBasics expId={this.props.exp._id} />
-        <h3 className= 'subsection-title'>Final Results</h3>
-        <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
+        <div className="container">
+          <div className="row">
+            <section className = "subsection-v col-md-8 col-md-offset-2">
+              <h2 className='section-title'> {this.props.exp.name + " Summary"} </h2>
+              <section className = "subsection-v">
+                <h3 className= 'subsection-title'>Initial Hypothesis</h3>
+                <ExpBasics expId={this.props.exp._id} />
+              </section>
+              <section className = "subsection-v">
+                <h3 clasName='subsection-title'>Final Results</h3>
+                <ChartWrapper measureId={this.props.measureId} indVarId={this.props.indVarId} />
+              </section>
+            </section>
+          </div>
+        </div>
       </div>
       )
   }

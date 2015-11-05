@@ -115,6 +115,40 @@ table {
   padding: 3px;
 }
 
+.data-table thead {
+}
+
+.data-table thead tr {
+ text-align: center;
+ font-weight: bold;
+ border-bottom: 2px solid black;
+ vertical-align: bottom;
+}
+
+.data-table thead tr td {
+  padding-bottom: .25em;
+
+}
+
+.data-table tbody tr {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody tr td:first-child {
+  font-weight: bold;
+}
+
+.data-table td {
+  padding: .5em 1em;
+  width: 15%;
+}
+
+
 /*****************************
 *                            *
 *          NAV BAR           *
@@ -266,6 +300,11 @@ h3.subsection-title {
   margin-bottom: 1em;
 }
 
+.rd3-chart-title {
+  text-transform: capitalize;
+  text-align: center;
+}
+
 /*****************************
 *                            *
 *      DEFINITIONS           *
@@ -315,6 +354,59 @@ span.definition-label {
   align-self: baseline;
   box-shadow: 1px 1px 5px #AEB6BE;
   display: inline-block;
+}
+
+a.guide-link {
+    display: block;
+    font-size: x-small;
+    color: white;
+    text-align: right;
+}
+
+.result-text-negative {
+    color: white;
+    font-weight: bold;
+    background-color: #E45B5B;
+    border-radius: 5px;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+
+.result-text-negative > div {
+  float:left;
+  min-height: 100%;
+}
+
+
+.result-text-negative > div::before {
+    content: "\2717";
+    padding: 0 .25em;
+    font-size: 3em;
+    line-height: 1em;
+}
+
+
+.result-text-positive {
+    color: white;
+    font-weight: bold;
+    background-color: #5AC45E;
+    border-radius: 5px;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+
+.result-text-positive > div {
+  float:left;
+  min-height: 100%;
+}
+
+.result-text-positive > div::before{
+  content:"\2713";
+  padding: 0 .25em;
+  font-size: 3em;
+  line-height: 1em;
 }
 
 
@@ -409,3 +501,33 @@ span.definition-label {
   padding: 3px;
 }
 
+/*****************************
+*                            *
+*      ChartContainer        *
+*                            *
+*****************************/
+
+div.chart-container-bar {
+  margin: 3em 0em;
+  display: block;
+}
+
+
+div.chart-container-histogram {
+  margin: 3em 0em;
+  display: inline;
+}
+
+div.rd3-basic-chart {
+  margin: 3em 0em;
+  display: flex;
+  flex-direction: column;
+}
+
+.rd3-chart {
+  align-self:center;
+}
+
+.rd3-basic-chart text {
+  text-transform: capitalize;
+}

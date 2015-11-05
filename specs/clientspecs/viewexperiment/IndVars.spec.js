@@ -32,7 +32,7 @@ describe('indVarsComponent', function () {
     indVar = TestUtils.renderIntoDocument(React.createElement(IndVar, props), 'root');
   });
 
-  it('should properly map the ids and render the names to <h3s>', function () {
+  xit('should properly map the ids and render the names to <h3s>', function () {
     var definitionSets = TestUtils.scryRenderedDOMComponentsWithClass(indVar,'definition-set');
     expect(ReactDOM.findDOMNode(definitionSets[0]).textContent).to.contain('weezy');
   });
