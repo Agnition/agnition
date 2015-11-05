@@ -68,6 +68,17 @@ button:focus {
 *                            *
 *****************************/
 
+table.nav-table td {
+  padding: 0.5em 2em;
+}
+
+table.nav-table th {
+  text-align: left;
+  padding: 0 2em;
+}
+
+
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
