@@ -83,7 +83,7 @@ var NewExperiment = React.createClass({
                 ? <button className="back-button" onClick={this.handleBack}>Back</button>
                 : null}
               {this.props.questionIndex < 4
-                ? <button className="next-button" onClick={this.handleNext}>Next</button>
+                ? <button className={this.props.valid ? 'next-button' : ' next-button disabled'} onClick={this.handleNext}>Next</button>
                 : null}
             </section>
           </section>

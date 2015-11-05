@@ -29,7 +29,7 @@ var MeasureList = React.createClass({
   },
 
   checkValidity: function() {
-    if (this.props.list.size > 0) {
+    if (this.props.list.size >= 2) {
       this.props.actions.setValidity(true);
     } else {
       this.props.actions.setValidity(false);

@@ -27,12 +27,12 @@ module.exports = function(state = initialState, action) {
       if (action.option.length === 0) {
         return state;
       }
-      var newList = state.getIn([action.measureId, 'list']);
+      var newOptions = state.get(action.indVarId).get('options');
       // Only add unique items
-      if (newList.indexOf(action.option) === -1) {
-        newList = newList.push(action.option);
+      if (newOptions.indexOf(action.option) === -1) {
+        newOptions = newOptions.push(action.option);
       }
-      return state.setIn([action.measureId, 'list'], newList);
+      return state.setIn([action.indVarId, 'options'], newOptions);
   }
   if (action.type === 'REMOVE_INDVAR_OPTION') {
       var newOptions = state.get(action.indVarId).get('options');
