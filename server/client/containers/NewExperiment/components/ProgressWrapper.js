@@ -8,7 +8,7 @@ var IndVars = require('../../../components/viewexperiment/IndVar');
 
 function mapStatetoProps (state, ownProps) {
   return {
-    questionIndex: state.NewExperiment,
+    questionIndex: state.NewExperiment.get('question'),
     depVarIds: state.Experiments.getIn([ownProps.expId, 'depVars']).toJS(),
     indVarIds: state.Experiments.getIn([ownProps.expId, 'indVars']).toJS(),
   };
