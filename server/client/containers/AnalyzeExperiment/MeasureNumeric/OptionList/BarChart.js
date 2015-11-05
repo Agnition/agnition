@@ -13,8 +13,8 @@ var Chart = React.createClass({
     },
     render: function() {
         return (
-            <div className='chart-container'>
-                <BarChart data={this.genChartData()} width={500} height={300} title="Bar Chart" yAxisLabel={this.props.measure.name} xAxisLabel={this.props.indVar.name} />
+            <div className='chart-container-bar'>
+                <BarChart data={this.genChartData()} width={600} height={300} title={"Average " + this.props.indVar.name} yAxisLabel={this.props.measure.name} xAxisLabel={this.props.indVar.name} />
             </div>
         );
     }

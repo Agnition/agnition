@@ -104,6 +104,40 @@ table {
   padding: 3px;
 }
 
+.data-table thead {
+}
+
+.data-table thead tr {
+ text-align: center;
+ font-weight: bold;
+ border-bottom: 2px solid black;
+ vertical-align: bottom;
+}
+
+.data-table thead tr td {
+  padding-bottom: .25em;
+
+}
+
+.data-table tbody tr {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody tr td:first-child {
+  font-weight: bold;
+}
+
+.data-table td {
+  padding: .5em 1em;
+  width: 15%;
+}
+
+
 /*****************************
 *                            *
 *          NAV BAR           *
@@ -253,6 +287,11 @@ h3.subsection-title {
 .section-title {
   text-transform: capitalize;
   margin-bottom: 1em;
+}
+
+.rd3-chart-title {
+  text-transform: capitalize;
+  text-align: center;
 }
 
 /*****************************
@@ -451,3 +490,33 @@ a.guide-link {
   padding: 3px;
 }
 
+/*****************************
+*                            *
+*      ChartContainer        *
+*                            *
+*****************************/
+
+div.chart-container-bar {
+  margin: 3em 0em;
+  display: block;
+}
+
+
+div.chart-container-histogram {
+  margin: 3em 0em;
+  display: inline;
+}
+
+div.rd3-basic-chart {
+  margin: 3em 0em;
+  display: flex;
+  flex-direction: column;
+}
+
+.rd3-chart {
+  align-self:center;
+}
+
+.rd3-basic-chart text {
+  text-transform: capitalize;
+}

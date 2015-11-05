@@ -24,21 +24,24 @@ var StatsTable = React.createClass({
       return <StatsRow option={option} values={values} />;
     });
     return (
-      <table className = 'data-table'>
-        <thead>
-          <tr>
-            <td>Option</td>
-            <td>Min</td>
-            <td>Max</td>
-            <td>Average</td>
-            <td>Standard Deviation</td>
-            <td>Number of Samples</td>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
-        </tbody>
-      </table>
+      <div className="chart-container">
+      <h4 className='subsection-title-sm'>Summary Table</h4>
+        <table className = 'data-table'>
+          <thead>
+            <tr>
+              <td>Option</td>
+              <td>Min</td>
+              <td>Max</td>
+              <td>Average</td>
+              <td>Std. Dev.</td>
+              <td>Sample Size</td>
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </table>
+      </div>
     );
   }
 });
