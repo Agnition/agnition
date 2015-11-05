@@ -17,6 +17,7 @@ var Basis = React.createClass({
   elements: [],
   componentWillMount: function() {
     var kind = this.props.measure.kind;
+    this.elements = [];
     //build the spans
     if(kind === 'numeric') {
       //no iteration nessecary for numeric...
