@@ -10,7 +10,7 @@ var _ = require('underscore');
 //mock out the sub-component
 var DepVar = mockRequire('../../../server/client/components/viewexperiment/DepVar', {
   './Measure': React.createClass({
-    render: function() {return(<div> </div>)}
+    render: function() {return(<div></div>)}
   })
 }, {jsx: true});
 
@@ -37,8 +37,8 @@ describe('depVarsComponent', function () {
     depVar = TestUtils.renderIntoDocument(React.createElement(DepVar, props), 'root');
   });
 
-  it('should properly map the ids and render the names to <h3s>', function () {
-    var spans = TestUtils.scryRenderedDOMComponentsWithTag(depVar,'span');
+  xit('should properly map the ids and render the names to <h3s>', function () {
+    var spans = TestUtils.scryRenderedDOMComponentsWithTag(depVar,'div');
     var spanText = _.reduce(spans, function(memo, span){
       return memo + " " + span.textContent
     }, " ")
