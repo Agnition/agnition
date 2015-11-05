@@ -7,12 +7,45 @@
 *                            *
 *****************************/
 
+button {
+  transition: 0.3s;
+}
+
 button.submit-button {
+  border: 1px solid transparent;
   color: white;
   background-color: #5AC45E;
   padding: .5em 1em;
   border-radius: 4px;
   align-self: baseline;
+}
+
+button.back-button {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+  border-radius: 4px;
+  align-self: baseline;
+}
+button.back-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
+}
+
+button.next-button {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: hsla(0, 0%, 90%, 1.0) !important;
+  border-radius: 4px;
+  align-self: baseline;
+}
+button.next-button:hover {
+  background-color : hsla(0, 0%, 80%, 1.0) !important;
+}
+
+button.submit-button:hover {
+  color: #5AC45E;
+  border: 1px solid #5AC45E;
+  background-color: transparent;
 }
 
 button {
@@ -60,6 +93,16 @@ button:focus {
 .back-next-row div button {
   margin : 20px !important;
   padding : 5px 10px;
+}
+
+button.select-button {
+    background-color: #D2BCA1;
+    padding: .5em 1em;
+    border-radius: 5px;
+}
+
+button.select-button:hover {
+    background-color: #AF9B83;
 }
 
 /*****************************

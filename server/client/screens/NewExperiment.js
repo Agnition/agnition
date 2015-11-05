@@ -77,10 +77,10 @@ var NewExperiment = React.createClass({
             {questions[this.props.questionIndex]}
             <section className="subsection-h">
               {this.props.questionIndex > 0
-                ? <button className="set-button" onClick={this.handleBack}>Back</button>
+                ? <button className="back-button" onClick={this.handleBack}>Back</button>
                 : null}
               {this.props.questionIndex < 4
-                ? <button className="set-button" onClick={this.handleNext}>Next</button>
+                ? <button className="next-button" onClick={this.handleNext}>Next</button>
                 : null}
             </section>
           </section>
