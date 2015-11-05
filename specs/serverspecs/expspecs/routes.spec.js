@@ -137,7 +137,7 @@ describe('The Experiment Router', function () {
      //ask for fake exp
      request
      .get('/users/'+ userId + '/experiments/'+mongoose.Types.ObjectId())
-     .expect(204, done);
+     .expect(404, done);
     });
   });
 });

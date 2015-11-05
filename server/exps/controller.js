@@ -13,17 +13,19 @@ var utils = require('../utils');
 
 var getExp = function (req, res) {
   // does not check the exp belongs to the user
-  Exp.findOne({_id: req.params.exp_id}).then(function(exp){
-    if(exp === null) {
-      throw "exp is undefined";
+  Exp.findOne({_id: req.params.exp_id}).then(function(exp) {
+    if (exp === null) {
+      res.status(404);
+      res.send('Not found');
     }
-    return exp.deepPopulate(utils.expPopArray, function(err, exp){
-        if(err) {
+    return exp.deepPopulate(utils.expPopArray, function(err, exp) {
+        if (err) {
           throw err;
         }
         res.send(exp);
       });
-  }).catch(function(err){
+  }).catch(function(err) {
+    // TODO : What is this?
     if(err === "exp is undefined"){
       res.sendStatus(204);
     } else {
@@ -52,50 +54,60 @@ var addExp = function (req, res) {
   User.findOne({googleId: req.params.user_id}).exec()
     .then(function(user) {
       if (user === undefined) {
-        res.sendStatus(204);
-        throw 'user not defined';
-      } else return user;
+        res.status(400);
+        res.send('User not found');
+      }
+      else {
+        return user;
+      }
     })
-    .then(function(user){
-      _.each(req.body.experiments, function(experiment) {
-        new Exp(experiment).save();
-      });
+    .then(function() {
+      var promises = [].concat(
+        _.map(req.body.experiments, function(experiment) {
+          return Exp.remove({_id : experiment._id}).exec().then(function() {
+            return new Exp(experiment).save();
+          });
+        }),
+        _.map(req.body.depVars, function(depVar) {
+          return DepVar.remove({_id : depVar._id}).exec().then(function() {
+            return new DepVar(depVar).save();
+          });
+        }),
+        _.map(req.body.indVars, function(indVar) {
+          return IndVar.remove({_id : indVar._id}).exec().then(function() {
+            return new IndVar(indVar).save();
+          });
+        }),
+        _.map(req.body.measures, function(measure) {
+          return Measure.remove({_id : measure._id}).exec().then(function() {
+            return new Measure(measure).save();
+          });
+        }),
+        _.map(req.body.reminders, function(remind) {
+          return Remind.remove({_id : remind._id}).exec().then(function() {
+            return new Remind(remind).save();
+          });
+        }),
+        _.map(req.body.requests, function(request) {
+          return Request.remove({_id : request._id}).exec().then(function() {
+            return new Request(request).save();
+          });
+        }),
+        _.map(req.body.samples, function(sample) {
+          return Sample.remove({_id : sample._id}).exec().then(function() {
+            return new Sample(sample).save();
+          });
+        })
+      );
+      return Promise.all(promises);
     })
-    .then(function (exp){
-      _.each(req.body.depVars, function(depVar) {
-        new DepVar(depVar).save();
-      });
-    })
-    .then(function (){
-      _.each(req.body.indVars, function(indVar) {
-        new IndVar(indVar).save();
-      });
-    })
-    .then(function (){
-      _.each(req.body.measures, function(measure) {
-        new Measure(measure).save();
-      });
-    })
-    .then(function (){
-      _.each(req.body.reminders, function(remind) {
-        new Remind(remind).save();
-      });
-    })
-    .then(function (){
-      _.each(req.body.requests, function(request) {
-        new Request(request).save();
-      });
-    })
-    .then(function (){
-      _.each(req.body.samples, function(sample) {
-        new Sample(sample).save();
-      });
-    }).then(function (exp){
+    .then(function(exp) {
       res.send(exp);
-    }).catch(function(err){
-      res.send(500);
-      console.log(err);
-  });
+    })
+    .catch(function(err) {
+      res.status(400);
+      res.send(err);
+    });
 };
 
 var updateExpStatus = function(expId, indVarId, depVarId, callback) {
