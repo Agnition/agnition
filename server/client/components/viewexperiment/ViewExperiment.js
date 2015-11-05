@@ -8,18 +8,18 @@ var History = require('react-router').History;
 var Link = require('react-router').Link;
 var ChartWrapper = require('../../containers/AnalyzeExperiment/MeasureNumeric/OptionList/ChartWrapper.js');
 var utils = require('../../utils/componentUtils');
+var dataTransforms = require('../../utils/dataTransforms.js');
 
 function mapStateToProps (state, ownProps) {
-  var exp = state.Experiments.get(ownProps.params.expid).toJS();
+  var expId = ownProps.params.expid;
+  var samplesSubmitted = dataTransforms.getValidSamplesSubmitted(expId, state);
+  var samplesNeeded = dataTransforms.getSamplesNeeded(expId, state);
+  var exp = state.Experiments.get(expId).toJS();
   var depVarId = exp.depVars[0];
   var indVarId = exp.indVars[0];
-  var trialsEach = state.IndVars.get(indVarId).get('numTrials');
-  var optionsLength = state.IndVars.get(indVarId).get('options').toJS().length;
   var measureId = state.DepVars.get(depVarId).get('measures').get(0);
-  var samplesNeeded = trialsEach * optionsLength;
-  var samplesSubmitted = state.Measures.get(measureId).get('samples').length;
   return {
-    exp: state.Experiments.get(ownProps.params.expid).toJS(),
+    exp: exp,
     indVarId: indVarId,
     measureId: measureId,
     samplesSubmitted: samplesSubmitted,
