@@ -23,7 +23,8 @@ const QUESTION_COUNT = 4;
 
 function mapStatetoProps (state) {
   return {
-    questionIndex: state.NewExperiment.get('question')
+    questionIndex: state.NewExperiment.get('question'),
+    valid: state.NewExperiment.get('valid')
   };
 }
 
@@ -58,7 +59,9 @@ var NewExperiment = React.createClass({
   },
 
   handleNext: function () {
-    this.props.actions.goToNextQuestion();
+    if (this.props.valid) {
+      this.props.actions.goToNextQuestion();
+    }
   },
 
   render: function () {

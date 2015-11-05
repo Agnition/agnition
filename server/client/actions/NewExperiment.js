@@ -15,3 +15,10 @@ module.exports.resetQuestionIndex = function () {
     type: 'RESET_QUESTION_INDEX'
   };
 };
+
+module.exports.setValidity = function (valid) {
+  return {
+    type: 'SET_VALIDITY',
+    valid: valid
+  }
+};
