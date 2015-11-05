@@ -23,7 +23,7 @@ const QUESTION_COUNT = 4;
 
 function mapStatetoProps (state) {
   return {
-    questionIndex: state.NewExperiment
+    questionIndex: state.NewExperiment.get('question')
   };
 }
 
