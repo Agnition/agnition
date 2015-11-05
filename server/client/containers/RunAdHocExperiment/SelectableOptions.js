@@ -3,11 +3,31 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require('../../actions/Samples');
+var utils = require('../../utils/componentUtils');
 
 var mapStateToProps = function (state, ownProps) {
+  var depVarIds = state.Experiments.getIn([ownProps.expId, 'depVars']).toJS();
+  var measureIds = _.reduce(depVarIds, function(measureIds, depVarId) {
+    return measureIds.concat(state.DepVars.getIn([depVarId, 'measures']).toJS());
+  }, []);
+  var sampleIds = _.reduce(measureIds, function(sampleIds, measureId) {
+    return sampleIds.concat(state.Measures.getIn([measureId, 'samples']).toJS());
+  }, []);
+  var samples = _.map(sampleIds, function(sampleId) {
+    return state.Samples.get(sampleId).toJS();
+  });
+  var options = state.IndVars.get(ownProps.indVarId).toJS().options;
+  var samplesTaken = utils.countSampleOptions(samples, ownProps.indVarId, ownProps.options);
+  var numTrials = state.IndVars.get(ownProps.indVarId).toJS().numTrials;
   return {
-    options : state.IndVars.get(ownProps.indVarId).toJS().options,
-    name : state.IndVars.get(ownProps.indVarId).toJS().name
+    indVarOption : state.Samples.getIn([ownProps.sampleId, ownProps.indVarId, 'value']),
+    samples : samples,
+    options : options,
+    name : state.IndVars.get(ownProps.indVarId).toJS().name,
+    numMeasures : measureIds.length,
+    numTrials : numTrials,
+    samplesTaken: samplesTaken,
+    numSamplesPerOption : measureIds.length
   };
 };
 
@@ -19,10 +39,15 @@ var mapDispatchToProps = function (dispatch) {
 
 var SelectableOption = React.createClass({
   render: function () {
+    // returns undefined if sample has never been taken...
+    var taken = this.props.taken || 0;
+    //disables button if no more added
+    var noneRemaining = (this.props.needed - taken) <= 0;
     return (
       <label >
-        <input className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
+        <input disabled = {noneRemaining} className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
         {this.props.optionValue}
+      <span>{taken + '/' + this.props.needed}</span>
       </label>
     );
   }
@@ -43,6 +68,8 @@ var SelectableOptions = React.createClass({
         optionValue : optionValue,
         optionIndex : index,
         indVarId  : this.props.indVarId,
+        taken : this.props.samplesTaken[optionValue],
+        needed: this.props.numSamplesPerOption
       };
       selectableOptions.push(<SelectableOption {...props}/>);
     }, this);

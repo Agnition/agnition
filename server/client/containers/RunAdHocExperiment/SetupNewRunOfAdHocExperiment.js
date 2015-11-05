@@ -51,6 +51,7 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
         <div>
           <SelectNonRandomOptions
             indVarIds = {this.props.nonRandIndVars}
+            expId = {this.props.expId}
             sampleId = {this.props.sampleId} />
         </div>
         {randSpan}

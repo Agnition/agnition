@@ -97,8 +97,27 @@ var genSingleSeriesBarChartValues = function (indVarValues, samples) {
   return coordinates;
 };
 
+var countSampleOptions = function (samples, indVarId, options) {
+  var states = _.pluck(_.filter(samples, function (sample) {
+    return sample.valid;
+  }), 'indVarStates');
+  var options = _.map(states, function(indVars) {
+    return _.first(_.pluck(_.filter(indVars, function(indVar) {
+      return indVar.indVar === indVarId;
+    }), 'value'));
+  });
+  var optionCount = {};
+  _.each(options, function(option) {
+    optionCount[option] = 0;
+  });
+  _.each(options, function(option) {
+    optionCount[option]++;
+  });
+  return optionCount;
+}
 
 module.exports.mapIdsToObjs = mapIdsToObjs;
 module.exports.divCollection = divCollection;
 module.exports.getSamplesForMeasure = getSamplesForMeasure;
 module.exports.genSingleSeriesBarChartValues = genSingleSeriesBarChartValues;
+module.exports.countSampleOptions = countSampleOptions;
