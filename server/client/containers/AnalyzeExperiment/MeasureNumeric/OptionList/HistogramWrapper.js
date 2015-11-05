@@ -28,7 +28,7 @@ var HistogramWrapper = React.createClass({
     }, this);
 
     this.histograms = _.map(chartData, function(dataObj, index) {
-      return (<div className = "chart-container">
+      return (<div className = "chart-container-histogram">
         <AreaChart
           data= {dataObj.data}
           yScale = {[0, maxFreq]}
