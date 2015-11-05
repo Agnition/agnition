@@ -113,8 +113,6 @@ var countSampleOptions = function (samples, indVarId, options) {
   _.each(options, function(option) {
     optionCount[option]++;
   });
-  console.log('%c--> here !!!' , 'font-size:15px; padding-right:20px; color:white; background-color: black');﻿
-  console.dir(optionCount);
   return optionCount;
 }
 
