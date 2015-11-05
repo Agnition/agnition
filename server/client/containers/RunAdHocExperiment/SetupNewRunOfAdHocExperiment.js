@@ -65,6 +65,11 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
             Run Experiment
           </Link>
         </button>
+        <button className='nav-button'>
+          <Link to={'/viewexp/' + this.props.expId}>
+            Back to Experiment
+          </Link>
+        </button>
       </div>
     );
   }
