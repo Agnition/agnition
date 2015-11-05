@@ -6,6 +6,8 @@ module.exports = function(state = initialState, action) {
     return Immutable.fromJS(action.samples);
   }
   if (action.type === 'SET_IND_VAR_OPTION_ON_SAMPLE') {
+    console.log("-------------------------------------------",action);
+    console.dir(action);
     return state.updateIn([action.sampleId, 'indVarStates'], function(map) {
       return map.set(action.indVarId, action.optionValue);
     });

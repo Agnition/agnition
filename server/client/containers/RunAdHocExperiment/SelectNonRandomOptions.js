@@ -8,6 +8,7 @@ var SelectNonRandomOptions = React.createClass({
     _.each(this.props.indVarIds, function(indVarId) {
       var props = {
         indVarId: indVarId,
+        expId: this.props.expId,
         sampleId: this.props.sampleId
       };
       selectableOptions.push(<SelectableOptions {...props}/>);

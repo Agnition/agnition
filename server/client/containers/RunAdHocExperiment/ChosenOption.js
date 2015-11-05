@@ -3,6 +3,7 @@ var connect = require('react-redux').connect;
 var _ = require('underscore');
 var bindActionCreators = require('redux').bindActionCreators;
 var Actions = require('../../actions/Samples');
+var utils = require('../../utils/componentUtils');
 
 var mapStateToProps = function (state, ownProps) {
   var depVarIds = state.Experiments.getIn([ownProps.expId, 'depVars']).toJS();
@@ -35,30 +36,10 @@ var ChosenOption = React.createClass({
   setIndVarOptionOnSample: function (value) {
     this.props.actions.setIndVarOptionOnSample(this.props.sampleId, this.props.indVarId, value);
   },
-  countSampleOptions: function () {
-    var states = _.pluck(this.props.samples, 'indVarStates');
-    var ownProps = this.props;
-    var options = _.map(states, function(indVars) {
-      return _.first(_.pluck(_.filter(indVars, function(indVar) {
-        // return indVar._id === this.props.indVarId; // TODO: use when id is consistent
-        // until db is consistent
-        return indVar.name === ownProps.name;
-      }), 'value'));
-    });
-    var optionCount = {};
-    _.each(this.props.options, function(option) {
-      optionCount[option] = 0;
-    });
-    _.each(options, function(option) {
-      optionCount[option]++;
-    });
-    return optionCount;
-  },
-
   render: function() {
     if(this.props.indVarOption === undefined) {
       var options = [];
-      _.each(this.countSampleOptions(), function(count, option){
+      _.each(utils.countSampleOptions(this.props.samples, this.props.indVarId, this.props.options), function(count, option){
         if(count < this.props.numTrials * this.props.numMeasures) {
           options.push(option);
         }
