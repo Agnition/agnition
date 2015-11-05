@@ -58,7 +58,7 @@ var Hypothesis = React.createClass({
             <input className="input-text" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
           </div>
           <div className="question-set">
-          <p className="question">What is the effect you you are interested in?</p>
+          <p className="question">What is the effect you are interested in?</p>
             <input className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
           </div>
         </section>
