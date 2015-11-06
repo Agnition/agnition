@@ -1,6 +1,5 @@
 var combineReducers = require('redux').combineReducers;
 var User = require('./User');
-var Dashboard = require('./Dashboard');
 var Experiments = require('./Experiments');
 var DepVars = require('./DepVars');
 var IndVars = require('./IndVars');
@@ -14,7 +13,6 @@ var Router = require('redux-router').routerStateReducer;
 module.exports = combineReducers({
   Router: Router,
   User: User,
-  Dashboard: Dashboard,
   NewExperiment: NewExperiment,
   Experiments : Experiments,
   DepVars : DepVars,
