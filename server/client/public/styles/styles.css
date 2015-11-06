@@ -7,15 +7,9 @@
 *                            *
 *****************************/
 
-/* button { */
-  /* transition: 0.3s; */
-/* } */
-
-body {
-  /* background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_grid.png); */*/;
-  /* background-size: cover; */
-  background-color: hsla(200, 50%, 90%, 1.0);
-}
+button { 
+  transition: 0.3s; 
+} 
 
 body {}
 
@@ -31,31 +25,36 @@ button.submit-button {
 }
 
 button.back-button {
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: hsla(0, 0%, 100%, 1.0) !important;
-  border: 1px solid hsla(0, 0%, 20%, 1.0);
-  border-radius: 4px;
-  padding: 5px 20px !important;
-  font-size: 24px;
+  background-color : hsla(0, 0%, 95%, 1.0);
+  color: hsla(0, 0%, 20%, 1.0);
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  font-size: 1em;
   align-self: baseline;
 }
 button.back-button:hover {
-  background-color : hsla(0, 0%, 95%, 1.0) !important;
+  background-color: hsla(0, 0%, 20%, 1.0);
+  color: white;
 }
 
 button.next-button {
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: hsla(0, 0%, 100%, 1.0) !important;
-  border: 1px solid hsla(0, 0%, 20%, 1.0);
-  border-radius: 4px;
-  padding: 5px 20px !important;
-  font-size: 24px;
+  background-color : hsla(0, 0%, 95%, 1.0);
+  color: hsla(0, 0%, 20%, 1.0);
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  font-size: 1em;
   align-self: baseline;
 }
 button.next-button:hover {
-  background-color : hsla(0, 0%, 95%, 1.0) !important;
+  background-color: hsla(0, 0%, 20%, 1.0);
+  color: white;
+}
+
+button.next-button.disabled {
+  background-color: hsla(0, 0%, 95%, 1.0);
+  color: hsla(0, 0%, 65%, 1.0);
+  border: 1px solid transparent;
+  cursor:default;
 }
 
 button.submit-button:hover {
