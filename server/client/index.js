@@ -49,7 +49,6 @@ render((
   <Provider store={store}>
     <Router>
       <Route path='/' component={App}>
-        <Route path='/dashboard' component={Dashboard} />
         <Route path='/newexp' component={NewExperiment} />
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />
