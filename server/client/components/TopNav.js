@@ -21,7 +21,8 @@ var TopNav = React.createClass({
     var links = [];
     // links.push(<span className="nav-link"><Link key="documentation" to="/documentation">Documentation</Link></span>);
     if (this.props.username !== undefined) {
-      links.push(<span className="nav-link"><Link key="dashboard" to="/dashboard">Dashboard</Link></span>);
+      links.push(<span className="nav-link"><Link key="View Experiments" to="/myexps">View Experiments</Link></span>);
+      links.push(<span className="nav-link"><Link key="Add Experiment" to="/newexp">Add Experiment</Link></span>);
       // links.push(<span className="nav-link"><Link key="profile" to="/profile">{this.props.username}</Link></span>);
       links.push(<span className="nav-link"><Logout key="logout"/></span>);
     } else {

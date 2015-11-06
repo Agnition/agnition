@@ -1,7 +1,7 @@
 var React = require('react');
 var Component = require('react').Component;
 var TopNav = require('../components/TopNav');
-var Dashboard = require('./Dashboard');
+var MyExps = require('../components/myexperiments/MyExperiments.js')
 
 class App extends Component {
 
@@ -12,20 +12,10 @@ class App extends Component {
     return (
       <div>
         <TopNav />
-        {React.cloneElement(this.props.children || <Dashboard />, { key: key })}
+        {React.cloneElement(this.props.children || < MyExps/>, { key: key })}
       </div>
     );
   }
 }
-
-// App.propTypes = {
-//   // Injected by React Redux
-//   errorMessage: PropTypes.string,
-//   resetErrorMessage: PropTypes.func.isRequired,
-//   pushState: PropTypes.func.isRequired,
-//   inputValue: PropTypes.string.isRequired,
-//   // Injected by React Router
-//   children: PropTypes.node
-// };
 
 module.exports = App;

@@ -6,7 +6,6 @@ import configureStore from './store/configureStore';
 
 //Import All Non-Auth Routes
 import App from './screens/App';
-import Dashboard from './screens/Dashboard';
 // import About from './components/About';
 
 // Import All New Experiment Routes
@@ -49,7 +48,6 @@ render((
   <Provider store={store}>
     <Router>
       <Route path='/' component={App}>
-        <Route path='/dashboard' component={Dashboard} />
         <Route path='/newexp' component={NewExperiment} />
         <Route path='/myexps' component={MyExps} />
         <Route path='/viewexp/:expid' component={ViewExperiment} />

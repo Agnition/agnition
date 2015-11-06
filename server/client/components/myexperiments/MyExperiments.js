@@ -19,7 +19,7 @@ var MyExps = React.createClass({
       return !exp.active;
     });
     return (
-      <div className="section-block">
+      <div className="subsection-v">
         <div>
           <h2 className= 'section-title'>Open Experiments</h2>
           {openExps.length > 0
