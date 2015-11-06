@@ -72,7 +72,7 @@ button {
   background-color: hsla(0, 0%, 100%, 1.0);
   border: 1px solid hsla(0, 0%, 20%, 1.0);
   border-radius: 4px;
-  padding: 5px 20px !important;
+  padding: 5px 20px ;
   font-size: 24px;
   align-self: baseline;
 }
@@ -81,27 +81,16 @@ button:focus {
   outline : none;
 }
 
-.set-button {
-  /* background-color: hsla(0, 0%, 90%, 1.0) !important; */
+button.set-button {
   border-radius: 4px;
   align-self: baseline;
   font-size: 14px;
-}
-.set-button:hover {
-  background-color : hsla(0, 0%, 90%, 1.0) !important;
-}
-
-.remove-button {
-  margin-left: 10px !important;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 14px;
-  /*background-color: hsla(0, 50%, 70%, 1.0);*/
-}
-
-.add-buton {
-  margin-left: 10px !important;
+  margin-left: 10px ;
   background-color: hsla(0, 0%, 95%, 1.0);
+}
+button.set-button:hover{
+  background-color : hsla(0, 0%, 20%, 1.0);
+  color: hsla(0, 0%, 100%, 1.0);
 }
 
 .dashboard-buttons {
@@ -117,24 +106,36 @@ button:focus {
 }
 
 .back-next-row div button {
-  margin : 20px !important;
+  margin : 20px ;
   padding : 5px 10px;
 }
 
 button.select-button {
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: hsla(0, 0%, 100%, 1.0) !important;
+  background-color: hsla(0, 0%, 100%, 1.0) ;
   border: 1px solid hsla(0, 0%, 20%, 1.0);
   border-radius: 4px;
-  padding: 5px 20px !important;
+  padding: 5px 20px ;
   font-size: 14px;
   align-self: baseline;
 }
 
 button.select-button.active {
-  background-color: hsla(0, 0%, 20%, 1.0) !important;
+  background-color: hsla(0, 0%, 20%, 1.0) ;
   color: white;
+}
+
+button.remove-button {
+    background-color: #FE875B;
+    font-size: 1em;
+    padding: 0.1em .5em;
+    color: white;
+    border: none;
+}
+
+button.remove-button:hover {
+  background-color: #FE6E38;
 }
 
 /*****************************
@@ -234,7 +235,7 @@ nav {
   padding: 10px;
   width:100%;
   background-color: hsla(0, 0%, 20%, 1.0);
-  display: flex !important;
+  display: flex ;
   flex-direction: row;
   justify-content: center;
   /* padding : 0 300px; */
@@ -294,8 +295,8 @@ li a {
 *****************************/
 
 input {
-  margin-left : 10px !important;
-  margin-top : 10px !important;
+  margin-left : 10px ;
+  margin-top : 10px ;
 }
 
 .dep-var-wrapper {
@@ -318,6 +319,11 @@ input {
   display: block;
 }
 .add-option {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-category {
   display: flex;
   flex-direction: row;
 }
@@ -351,6 +357,14 @@ input.options {
   display: inline-block;
   width: 33%;
   padding: 0 10px;
+}
+
+input.input-text {
+  margin-right: 1em;
+}
+
+.add-category {
+  margin-bottom: 2em;
 }
 
 /*****************************
@@ -531,9 +545,20 @@ a.guide-link {
 *****************************/
 
 .question-set {
-  margin: 2em 0 2em;
   display: flex;
   flex-direction: column;
+}
+
+div.indvar-question {
+  margin: 2em 0 2em;
+  display: flex;
+  align-items: baseline;
+  margin: 2em 0 2em;
+
+}
+
+input.input-checkbox {
+  margin-right: 1em;
 }
 
 .question-set input {
@@ -557,6 +582,10 @@ a.guide-link {
 .question {
   /* font-weight: bold; */
   margin-bottom: 0px;
+}
+
+div.add-option {
+  margin-bottom: 2em;
 }
 
 
@@ -641,6 +670,12 @@ a.guide-link {
 
 .run-open-exps-container {
   padding: 3px;
+}
+
+.categories, .added-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 /*****************************
