@@ -1,146 +1,144 @@
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
-
-
-/*
- * Base structure
- */
-
-html,
-body {
-/*css for full size background image*/
-  background: url(../assets/coverphoto.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
+html, body {
   height: 100%;
-  background-color: #222;
-  color: #fff;
+}
+body {
+  font-family: "Helvetica" sans-serif;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  outline: none;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 0px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 1.5;
+}
+
+
+@media screen and (min-width: 500px) {
+  .container, .icons {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container, .icons {
+    width: 50%;
+  }
+}
+
+.section {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background-color: hsla(0, 0%, 10%, 1.0);
+  color: white;
+  min-height: 90%;
+}
+
+.header .container {
+  height: 100%;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+.header a {
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
- 
-}
-
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-}
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-}
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Padding for spacing */
-.inner {
-  padding: 30px;
-}
-
-
-/*
- * Header
- */
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.masthead-nav > li {
   display: inline-block;
 }
-.masthead-nav > li + li {
-  margin-left: 20px;
-}
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.95);
-  border-bottom: 2px solid transparent;
+
+.header button {
+  outline: none;
+  border: none;
+  padding: 10px;
+  background-color: hsla(200, 70%, 40%, 1.0);
+  border-radius: 4px;
+  color: white; 
+  font-size: 24px;
 }
 
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
-
-.cover {
-  padding: 0 20px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 5px;
+.header button:hover {
+  cursor: pointer;
 }
 
 
-/*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+.header h1 {
+  text-align: center;
 }
 
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+.header p {
+  text-align: center;
+  font-size: 20px;
 }
 
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }
+.header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ABOUT */
+
+.section.about {
+  background-color: hsla(0, 0%, 80%, 1.0);
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.icons img {
+  height: 50px;
+  width: auto;
+}
+
+/* TIMELINE */
+
+.timeline {
+  text-align: center;
+
+}
+
+.timeline .container {
+}
+
+.timeline img {
+  height: 100px;
+  width: auto;
+  margin: 20px;
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: hsla(0, 0%, 10%, 1.0);
+}
+
+.footer p {
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
