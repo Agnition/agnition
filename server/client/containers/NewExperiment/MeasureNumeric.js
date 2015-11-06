@@ -42,7 +42,7 @@ var MeasureNumeric = React.createClass({
       <div className="question-set">
         <h4 className="subsection-title-sm">Unit</h4>
         <p className="question">What unit will your measure this in?</p>
-        <input placeholder="e.g. Feet" className="input-number" ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} required />
+        <input placeholder="Minutes Spent Focusing per Hour" className="input-number" ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} required />
       </div>
       );
   }

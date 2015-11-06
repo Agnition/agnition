@@ -70,7 +70,7 @@ var IndVar = React.createClass({
             List all of the options for <span className="definition-inline"> {this.props.cause}</span>
           </p>
           <div className="add-option">
-            <input placeholder="e.g. 2g" ref="option" type="text" className="options"/>
+            <input placeholder="1 Cup" ref="option" type="text" className="options"/>
             <button className="set-button options" onClick={this.addOption}>Add an option</button>
           </div>
         </div>
@@ -96,7 +96,7 @@ var IndVar = React.createClass({
             How many times would you like to repeat each way you can do
             <span className="cause"> {this.props.cause}</span>?
           </p>
-          <input placeholder="e.g. 1" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials} min={1} step={1} onChange={this.setNumTrials} required  />
+          <input placeholder="4" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials} min={1} step={1} onChange={this.setNumTrials} required  />
         </div>
 
         <div className="indvar-question">

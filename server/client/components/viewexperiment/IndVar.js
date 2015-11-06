@@ -34,7 +34,6 @@ var IndVar = React.createClass({
   render: function() {
     return (
       <div>
-        <p className="guide">Your options for changing the cause.</p>
         <Options options = {this.props.indVar.options}/>
       </div>
     );

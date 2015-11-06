@@ -69,16 +69,16 @@ var Hypothesis = React.createClass({
             </p>
           <div className="question-set">
             <p className="question">What is your hypothesis for this experiment?</p>
-              <input placeholder="e.g. 4g is the perfect weight for paper airplanes" className="input-text" ref="hypothesisInput" type="text" value={hypothesis} required onChange={this.handleChange}/>
+              <input placeholder="I focus best during the day when I have two cups of coffee in the morning" className="input-text" ref="hypothesisInput" type="text" value={hypothesis} required onChange={this.handleChange}/>
           </div>
           <div className="question-set">
           <p className="question">What is the primary cause you are interested in?</p>
-            <input placeholder="e.g. Plane weight" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
+            <input placeholder="Morning Coffee Consumption" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
 
           </div>
           <div className="question-set">
           <p className="question">What is the effect you are interested in?</p>
-            <input placeholder="e.g. Flight distance" className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange} required/>
+            <input placeholder="Focus at Work" className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange} required/>
           </div>
         </section>
         <section className="guide">

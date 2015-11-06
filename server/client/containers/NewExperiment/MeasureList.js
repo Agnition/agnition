@@ -61,7 +61,7 @@ var MeasureList = React.createClass({
           What are your categories?
         </p>
         <div className="add-category">
-          <input placeholder="e.g. Really far" className="input-text" ref="newItem" type="text" />
+          <input placeholder="Mad / Glad / Focused" className="input-text" ref="newItem" type="text" />
           <button className="set-button" onClick={this.addItem}>Add item</button>
         </div>
         {categories}
