@@ -143,13 +143,12 @@ button.select-button.active {
 *                            *
 *****************************/
 
-table.nav-table td {
-  padding: 0.5em 2em;
+table.nav-table td, table.nav-table th {
+  padding: 5px 10px;
 }
 
 table.nav-table th {
   text-align: left;
-  padding: 0 2em;
 }
 
 
@@ -571,9 +570,6 @@ a.guide-link {
   text-align: center;
 }
 
-.my-exps {
-  text-align: center;
-}
 
 .my-exps p {
   font-size: 20px;
@@ -595,6 +591,30 @@ a.guide-link {
   border-radius: 5px;
   background-color: hsla(0, 0%, 100%, 0.8);
 }
+
+.subsection-v.my-exps {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 1em;
+  box-shadow: 0px 4px 10px hsla(0, 0%, 0%, 0.3);
+  border-radius: 5px;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  padding: 30px;
+}
+
+.my-exps thead {
+  border-bottom: 1px solid black;
+  /* padding-bottom: 10px; */
+  /* line-height: 3em; */
+}
+
+.my-exps table {
+  width: 100%;
+}
+
+
+
 
 .new-exp-section {
   min-height: 50vh;

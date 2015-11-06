@@ -19,20 +19,24 @@ var MyExps = React.createClass({
       return !exp.active;
     });
     return (
-      <div className="subsection-v">
-        <div>
-          <h2 className= 'section-title'>Open Experiments</h2>
-          {openExps.length > 0
-            ? <Exps exps = {openExps} active = {true}/>
-            : <p>{'You don\'t have any open experiments!'}</p>
-          }
-        </div>
-        <div>
-          <h2 className= 'section-title'>Closed Experiments</h2>
-          {closedExps.length > 0
-            ? <Exps exps = {closedExps} active = {false}/>
-            : <p> You don't have any finished experiments!</p>
-          }
+      <div className="container">
+        <div className="row">
+          <div className="subsection-v my-exps col-sm-12 col-md-offset-2 col-md-8">
+            <div>
+              <h2 className= 'section-title'>Open Experiments</h2>
+              {openExps.length > 0
+                ? <Exps exps = {openExps} active = {true}/>
+                : <p>{'You don\'t have any open experiments!'}</p>
+              }
+            </div>
+            <div>
+              <h2 className= 'section-title'>Closed Experiments</h2>
+              {closedExps.length > 0
+                ? <Exps exps = {closedExps} active = {false}/>
+                : <p> You don't have any finished experiments!</p>
+              }
+            </div>
+          </div>
         </div>
       </div>
     );
