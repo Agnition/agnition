@@ -7,9 +7,9 @@
 *                            *
 *****************************/
 
-button { 
-  transition: 0.3s; 
-} 
+button {
+  transition: 0.3s;
+}
 
 body {}
 
@@ -437,7 +437,7 @@ h3.subsection-title {
 *                            *
 *****************************/
 
-.definition-inline {  
+.definition-inline {
  color: #3888DF;
  /* font-style: italic; */
  font-weight: 400;
@@ -707,4 +707,26 @@ div.rd3-basic-chart {
 
 .rd3-basic-chart text {
   text-transform: capitalize;
+}
+
+
+/*****************************
+*                            *
+*         HELP TEXT          *
+*                            *
+*****************************/
+
+.help-text {
+  display: block;
+  position: absolute;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.help-glyph::before {
+  content: '\1F6C8';
+  color: #008E9E;
+  font-size: 1.2em;
 }
