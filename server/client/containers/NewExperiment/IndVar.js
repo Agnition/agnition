@@ -22,13 +22,15 @@ var IndVar = React.createClass({
     this.checkValidity();
   },
   componentDidMount: function () {
+    // setting default actions per trial
+    this.setActionsPerTrial();
     this.checkValidity();
   },
   componentWillMount: function () {
     this.props.actions.setIndVarName(this.props.cause, this.props.indVarId);
   },
   checkValidity: function () {
-    var refs = ['actionsPerTrial', 'numTrials'];
+    var refs = ['numTrials'];
     if (refs.map(function(ref) {
       return this.refs[ref].validity.valid;
     }.bind(this)).every(function(valid) {
@@ -40,7 +42,8 @@ var IndVar = React.createClass({
     }
   },
   setActionsPerTrial: function () {
-    this.props.actions.setActionsPerTrial(this.refs.actionsPerTrial.value, this.props.indVarId);
+    //sets a default
+    this.props.actions.setActionsPerTrial(1, this.props.indVarId);
   },
   setNumTrials: function() {
       this.props.actions.setNumTrials(this.refs.numTrials.value, this.props.indVarId);
@@ -62,14 +65,6 @@ var IndVar = React.createClass({
       <div>
         <h3 className="subsection-title">Independent Variable</h3>
         <p className="guide">The independent variable is the cause you change.</p>
-        <div className="question-set">
-          <p className="question">
-            How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span>
-            to see a change in <span className="definition-inline"> {this.props.effect}</span>?
-          </p>
-          <input placeholder="e.g. 1" className="input-number" ref="actionsPerTrial" type="number" min={1} step={1} onChange={this.setActionsPerTrial} required />
-        </div>
-
         <div className="question-set options-list">
           <p className="question">
             List all of the options for <span className="definition-inline"> {this.props.cause}</span>
