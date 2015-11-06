@@ -19,6 +19,11 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var MeasureList = React.createClass({
+  onKey : function (event) {
+    if(event.which === 13) {
+      this.addItem();
+    }
+  },
 
   componentDidUpdate: function() {
     this.checkValidity();
@@ -61,7 +66,7 @@ var MeasureList = React.createClass({
           What are your categories?
         </p>
         <div className="add-category">
-          <input placeholder="Mad / Glad / Focused" className="input-text" ref="newItem" type="text" />
+          <input placeholder="Mad / Glad / Focused" className="input-text" ref="newItem" type="text" onKeyDown={this.onKey}/>
           <button className="set-button" onClick={this.addItem}>Add item</button>
         </div>
         {categories}

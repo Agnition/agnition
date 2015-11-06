@@ -18,6 +18,11 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var IndVar = React.createClass({
+  onKey : function (event) {
+    if(event.which === 13) {
+      this.addOption();
+    }
+  },
   componentDidUpdate: function () {
     this.checkValidity();
   },
@@ -70,7 +75,7 @@ var IndVar = React.createClass({
             List all of the options for <span className="definition-inline"> {this.props.cause}</span>
           </p>
           <div className="add-option">
-            <input placeholder="1 Cup" ref="option" type="text" className="options"/>
+            <input placeholder="1 Cup" ref="option" type="text" className="options" onKeyDown={this.onKey}/>
             <button className="set-button options" onClick={this.addOption}>Add an option</button>
           </div>
         </div>
