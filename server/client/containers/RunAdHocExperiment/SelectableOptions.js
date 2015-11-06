@@ -14,7 +14,6 @@ var mapStateToProps = function (state, ownProps) {
     return sampleIds.concat(state.Measures.getIn([measureId, 'samples']).toJS());
   }, []);
   var samples = _.map(sampleIds, function(sampleId) {
-    debugger;
     return state.Samples.get(sampleId).toJS();
   });
   var options = state.IndVars.get(ownProps.indVarId).toJS().options;
