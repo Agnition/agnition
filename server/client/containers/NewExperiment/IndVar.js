@@ -99,9 +99,9 @@ var IndVar = React.createClass({
           <input placeholder="e.g. 1" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials} min={1} step={1} onChange={this.setNumTrials} required  />
         </div>
 
-        <div className="question-set">
-          <p className="question">Please randomize the events for me</p>
+        <div className="indvar-question">
           <input className="input-checkbox" ref="randomized" type="checkbox" onChange={this.setRandomized}/>
+          <p className="question">Please randomize the events for me</p>
         </div>
       </div>
     )
