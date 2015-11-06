@@ -2,50 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="styles/cover.css">
 </head>
 <body>
-<div class="site-wrapper">
 
-     <div class="site-wrapper-inner">
+  <div class="section header">
+    <div class="container">
+      <h1>Agnition</h1>
+      <p>Agnition is a platform for making informed decisions through experimentation.</p>
+      <a href="/auth/google/">
+        <button>Sign Up</button>
+      </a>
+      <!-- <img src="/images/arrow2.png" alt="flask"> -->
+    </div>
+  </div>
 
-       <div class="cover-container">
+  <div class="section about">
+    <div class="icons">
+      <div class="icon-container">
+        <img src="/images/flask.png" alt="flask">
+        <p>Easy Experiment Creation</p>
+      </div>
+      <div class="icon-container">
+        <img src="/images/shuffle.png" alt="shuffle">
+        <p>Randomized Runs</p>
+      </div>
+      <div class="icon-container">
+        <img src="/images/stats.png" alt="sigma">
+        <p>Statistical Analysis</p>
+      </div>
+    </div>
+  </div>
 
-         <div class="masthead clearfix">
-           <div class="inner">
-             <nav>
-               <ul class="nav masthead-nav">
-                 <li><a href="/auth/google">Sign In</a></li>
-               </ul>
-             </nav>
-           </div>
-         </div>
-
-         <div class="inner cover">
-           <h1 class="cover-heading">Agnition</h1>
-           <p class="lead">Agnition is a platform for making informed decisions
-            by running experiments in your life.</p>
-           <p class="lead">
-             <a href="#" class="btn btn-lg btn-default">Learn more</a>
-           </p>
-         </div>
-
-         <div class="mastfoot">
-           <div class="inner">
-             <p>An app built by <a href="https://github.com/agnition/agnition">Agnition</a>.</p>
-           </div>
-         </div>
-
-       </div>
-
-     </div>
-
-   </div>
-<!-- <script src="./scripts/landingPage.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <div class="section timeline">
+    <div class="container">
+      <div>
+        <h1>Create</h1>
+        <p>We make the experiment creation process easy and fast by walking you through the steps to create any experiment you wish to run. With our streamlined interface you’ll have an experiment in minutes.</p>
+      </div>
+      <img src="/images/arrow.png">
+      <div>
+        <h1>Run</h1>
+        <p>When you want to run your experiment, we’ll randomize your variables for you. You run the experiment, and tell us what happened. </p>
+      </div>
+      <img src="/images/arrow.png">
+      <div>
+        <h1>Analyze</h1>
+        <p>When you're done with an experiment, we'll provide statistical analysis and charts of your data for you to make a more informed decision based on the results. We perform an analysis of variance (ANOVA) on the data to let you know whether the results of your experiment are statistically significant.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>
+    Created by Agnition
+    </p>
+  </div>
 </body>
 </html>
