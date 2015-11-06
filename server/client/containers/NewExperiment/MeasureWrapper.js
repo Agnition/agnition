@@ -50,7 +50,7 @@ var MeasureWrapper = React.createClass({
     });
     return (
       <div className="question-set">
-        <p className="question">How will you measure <span className="definition-inline">{this.props.name}</span>?</p>
+        <p className="question">What is the best way to measure <span className="definition-inline">{this.props.name}</span>?</p>
         {components}
       </div>
     );

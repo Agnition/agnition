@@ -50,7 +50,7 @@ var Name = React.createClass({
         size="40"
         ref="name"
         type="text"
-        placeholder="e.g. Paper Chaser"
+        placeholder="Morning Coffee"
         onChange={this.setName}
         required
         />

@@ -68,15 +68,15 @@ var MeasureQualitative = React.createClass({
         </p>
         <div className="question-set">
           <p className="question">What is a 1 on your scale?</p>
-          <input placeholder="e.g. The plane went backwards" className="input-text" ref="minDescription" onChange={this.setMinDescription} required />
+          <input placeholder="can't focus at all" className="input-text" ref="minDescription" onChange={this.setMinDescription} required />
         </div>
         <div className="question-set">
           <p className="question">What is a 3 on your scale?</p>
-          <input placeholder="e.g. The plane flew 10 meters" className="input-text" ref="middleDescription" onChange={this.setMiddleDescription} required />
+          <input placeholder="workin' hard" className="input-text" ref="middleDescription" onChange={this.setMiddleDescription} required />
         </div>
         <div className="question-set">
           <p className="question">What is a 5 on your scale?</p>
-          <input placeholder="e.g. The plane is still flying" className="input-text" ref="maxDescription" onChange={this.setMaxDescription} required />
+          <input placeholder="lightspeed" className="input-text" ref="maxDescription" onChange={this.setMaxDescription} required />
         </div>
       </div>
       );
