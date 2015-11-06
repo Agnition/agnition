@@ -742,7 +742,9 @@ div.rd3-basic-chart {
 *****************************/
 
 .help-text {
-  display: block;
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 12px;
   position: absolute;
   background: white;
   padding: 5px;
@@ -753,7 +755,7 @@ div.rd3-basic-chart {
 .help-glyph::before {
   content: '\1F6C8';
   color: #008E9E;
-  font-size: 1.2em;
+  margin-left: 5px;
 }
 /*****************************
 *                            *

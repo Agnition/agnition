@@ -16,7 +16,7 @@ var HelpText = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <span>
         <div className={this.state.hidden ? 'help-text hidden' : 'help-text'}
           onMouseEnter={this.showText}
           onMouseLeave={this.hideText}>
@@ -25,7 +25,7 @@ var HelpText = React.createClass({
         <span className="help-glyph"
           onMouseEnter={this.showText}
           onMouseLeave={this.hideText} ></span>
-      </div>
+      </span>
     );
   }
 });
