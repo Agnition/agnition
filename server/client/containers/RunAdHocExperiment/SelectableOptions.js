@@ -44,11 +44,13 @@ var SelectableOption = React.createClass({
     //disables button if no more added
     var noneRemaining = (this.props.needed - taken) <= 0;
     return (
-      <label >
-        <input disabled = {noneRemaining} className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
-        {this.props.optionValue}
-      <span>{taken + '/' + this.props.needed}</span>
-      </label>
+      <div className="sample-option-container">
+        <label >
+          <input disabled = {noneRemaining} className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
+          <span className="sample-option">{this.props.optionValue}</span>
+        <span className="samples-taken">{taken + '/' + this.props.needed}</span>
+        </label>
+      </div>
     );
   }
 });
@@ -79,8 +81,8 @@ var SelectableOptions = React.createClass({
     // displays a form composed of radio buttons tied to sample and indVarId
     var options = this.getOptions();
       return (
-        <div>
-          <p className='question'>Select a value for: {this.props.name}</p>
+        <div className="sample-container">
+          <p className='sample-prompt'>Select a value for: <span className="option-name">{this.props.name}</span></p>
           <form onChange={this.handleChange}>
             {options}
           </form>

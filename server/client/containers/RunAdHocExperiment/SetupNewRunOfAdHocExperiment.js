@@ -42,12 +42,13 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
 
     var randSpan = null;
     if (this.props.randIndVars.length > 0) {
-      randSpan = <span className = 'guide'>these are the parameters we have randomly assigned</span>;
+      randSpan = <span className='guide'>these are the parameters we have randomly assigned</span>;
     }
 
     return (
       <div>
         <h2 class = 'section-title'>Cause</h2>
+        <div className="run-exp-container">
         <div>
           <SelectNonRandomOptions
             indVarIds = {this.props.nonRandIndVars}
@@ -55,22 +56,23 @@ var SetupNewRunOfAdHocExperiment = React.createClass({
             sampleId = {this.props.sampleId} />
         </div>
         {randSpan}
-        <div>
           <SelectRandomOptions
             indVarIds = {this.props.randIndVars}
             expId = {this.props.expId}
             sampleId = {this.props.sampleId} />
+          <button className='set-button'>
+            <Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>
+              Run Experiment
+            </Link>
+          </button>
         </div>
-        <button className='set-button'>
-          <Link to={'/sample/' + this.props.expId + '/' + this.props.sampleId + '/adhoc/record'}>
-            Run Experiment
-          </Link>
-        </button>
-        <button className='nav-button'>
-          <Link to={'/viewexp/' + this.props.expId}>
-            Back to Experiment
-          </Link>
-        </button>
+        <div className="run-exp-button-container">
+          <button className='nav-button'>
+            <Link to={'/viewexp/' + this.props.expId}>
+              Back to Experiment
+            </Link>
+          </button>
+        </div>
       </div>
     );
   }
