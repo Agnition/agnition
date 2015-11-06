@@ -41,8 +41,6 @@ var Measure = React.createClass({
   },
 
   render: function () {
-    console.log("==================")
-    console.log(this.props.kind);
     var measureKinds = {
       qualitative: (<MeasureQualitative
                     key={this.props.measureId}

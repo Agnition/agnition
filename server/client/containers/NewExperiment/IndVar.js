@@ -101,11 +101,7 @@ var IndVar = React.createClass({
             How many times would you like to repeat each way you can do
             <span className="cause"> {this.props.cause}</span>?
           </p>
-<<<<<<< HEAD
-          <input className="input-number" ref="numTrials" type="number" min={1} step={1} onChange={this.setNumTrials} required />
-=======
-          <input placeholder="e.g. 1" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
->>>>>>> We stylin'
+          <input placeholder="e.g. 1" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials} min={1} step={1} onChange={this.setNumTrials} required  />
         </div>
 
         <div className="question-set">
