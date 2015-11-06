@@ -30,15 +30,17 @@ function mapStateToProps (state, ownProps) {
 // Made choice to keep rows and table in same file given tight linking..
 var ExpRow = React.createClass({
   render: function() {
-    var link;
+    var link, expName;
     if (this.props.exp.active) {
+      expName = (<Link to={'/viewexp/' + this.props.exp._id}>{this.props.exp.name}</Link>);
       link = (<Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample Now</Link>);
     } else {
+      expName = this.props.exp.name
       link = (<Link to={'/closedexp/' + this.props.exp._id }>View Results</Link>);
     }
     return (
       <tr className={this.props.type}>
-        <td><Link to={'/viewexp/' + this.props.exp._id}>{this.props.exp.name}</Link></td>
+        <td>{expName}</td>
         <td>{this.props.exp.hypothesis}</td>
         <td>{link}</td>
         <td>You've submitted {this.props.samplesSubmitted} out of {this.props.samplesNeeded} samples</td>
