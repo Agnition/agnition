@@ -20,8 +20,21 @@ function mapDispatchtoProps (dispatch) {
 
 var MeasureNumeric = React.createClass({
 
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
+  checkValidity: function() {
+    if (this.refs.unit.validity.valid) {
+      this.props.actions.setValidity(true);
+    } else {
+      this.props.actions.setValidity(false);
+    }
+  },
+
   setUnit: function () {
     this.props.actions.setUnit(this.refs.unit.value, this.props.measureId);
+    this.checkValidity();
   },
 
   render: function () {
@@ -29,7 +42,7 @@ var MeasureNumeric = React.createClass({
       <div className="question-set">
         <h4 className="subsection-title-sm">Unit</h4>
         <p className="question">What unit will your measure this in?</p>
-        <input className="input-number" ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} />
+        <input className="input-number" ref="unit" type="text" value={this.props.unit} onChange={this.setUnit} required />
       </div>
       );
   }

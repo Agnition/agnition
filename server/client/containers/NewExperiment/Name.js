@@ -23,8 +23,21 @@ function mapDispatchtoProps (dispatch) {
 
 var Name = React.createClass({
 
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
+  checkValidity: function() {
+    if (this.refs.name.validity.valid) {
+      this.props.actions.setValidity(true);
+    } else {
+      this.props.actions.setValidity(false);
+    }
+  },
+
   setName: function () {
     this.props.actions.setName(this.refs.name.value, this.props.expId);
+    this.checkValidity();
   },
 
   render: function () {
@@ -33,7 +46,7 @@ var Name = React.createClass({
       <h3 className="subsection-title">Name</h3>
       <div className="question-set">
         <p>What will this experiment be called?</p>
-        <input size="40" ref="name" type="text" onChange={this.setName}/>
+        <input size="40" ref="name" type="text" onChange={this.setName} required />
       </div>
       </section>
       );

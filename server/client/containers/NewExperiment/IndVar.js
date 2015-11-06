@@ -18,8 +18,26 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var IndVar = React.createClass({
+  componentDidUpdate: function () {
+    this.checkValidity();
+  },
+  componentDidMount: function () {
+    this.checkValidity();
+  },
   componentWillMount: function () {
     this.props.actions.setIndVarName(this.props.cause, this.props.indVarId);
+  },
+  checkValidity: function () {
+    var refs = ['actionsPerTrial', 'numTrials'];
+    if (refs.map(function(ref) {
+      return this.refs[ref].validity.valid;
+    }.bind(this)).every(function(valid) {
+      return valid;
+    }) && this.props.options.length >= 2) {
+      this.props.actions.setValidity(true);
+    } else {
+      this.props.actions.setValidity(false);
+    }
   },
   setActionsPerTrial: function () {
     this.props.actions.setActionsPerTrial(this.refs.actionsPerTrial.value, this.props.indVarId);
@@ -46,10 +64,10 @@ var IndVar = React.createClass({
         <p className="guide">The independent variable is the cause you change.</p>
         <div className="question-set">
           <p className="question">
-            How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span> 
+            How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span>
             to see a change in <span className="definition-inline"> {this.props.effect}</span>?
           </p>
-          <input className="input-number" ref="actionsPerTrial" type="number" onChange={this.setActionsPerTrial}/>
+          <input className="input-number" ref="actionsPerTrial" type="number" min={1} step={1} onChange={this.setActionsPerTrial} required />
         </div>
 
         <div className="question-set">
@@ -78,10 +96,10 @@ var IndVar = React.createClass({
 
         <div className="question-set">
           <p className="question">
-            How many times would you like to repeat each way you can do  
+            How many times would you like to repeat each way you can do
             <span className="cause"> {this.props.cause}</span>?
           </p>
-          <input className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
+          <input className="input-number" ref="numTrials" type="number" min={1} step={1} onChange={this.setNumTrials} required />
         </div>
 
         <div className="question-set">

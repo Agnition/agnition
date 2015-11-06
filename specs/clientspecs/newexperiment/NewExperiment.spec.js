@@ -38,7 +38,10 @@ describe('Submit Experiment', function () {
 
     // this is our mock of the store
     props.store = mockStore({
-      NewExperiment : 0
+      NewExperiment : {
+        question: 0,
+        valid: false
+      }
     });
 
     newExperiment = TestUtils.renderIntoDocument(React.createElement(NewExperiment, props), root);

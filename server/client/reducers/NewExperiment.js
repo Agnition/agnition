@@ -1,18 +1,29 @@
-module.exports = function(state = 0, action) {
+var Immutable = require('immutable');
+const initialState = new Immutable.Map({
+  question: 0,
+  valid: false
+});
+
+module.exports = function(state = initialState, action) {
   if (action.type === 'GO_TO_NEXT_QUESTION') {
-    if (state < 5) {
-      return state + 1;
+    var question = state.get('question');
+    if (question < 5) {
+      question++;
+      state = state.set('question', question);
     }
-    return state;
   }
   if (action.type === 'GO_TO_PREV_QUESTION') {
-    if (state > 0) {
-      return state - 1;
+    var question = state.get('question');
+    if (question > 0) {
+      question--;
+      state = state.set('question', question);
     }
-    return state;
   }
   if (action.type === 'RESET_QUESTION_INDEX') {
-    return 0;
+    state = state.set('question', 0);
+  }
+  if (action.type === 'SET_VALIDITY') {
+    state = state.set('valid', action.valid);
   }
   return state;
 };

@@ -24,6 +24,10 @@ function mapDispatchtoProps (dispatch) {
 
 var Hypothesis = React.createClass({
 
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
   setOverview: function () {
     var hypothesis = this.refs.hypothesisInput.value;
     var cause = this.refs.causeInput.value;
@@ -35,6 +39,20 @@ var Hypothesis = React.createClass({
 
   handleChange: function () {
     this.setOverview();
+    this.checkValidity();
+  },
+
+  checkValidity: function () {
+    var refs = ['hypothesisInput', 'causeInput', 'effectInput'];
+    if (refs.map(function(ref) {
+      return this.refs[ref].validity.valid;
+    }.bind(this)).every(function(valid) {
+      return valid;
+    })) {
+      this.props.actions.setValidity(true);
+    } else {
+      this.props.actions.setValidity(false);
+    }
   },
 
   render: function () {
@@ -51,22 +69,22 @@ var Hypothesis = React.createClass({
             </p>
           <div className="question-set">
             <p className="question">What is your hypothesis for this experiment?</p>
-              <input className="input-text" ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange}/>
+              <input className="input-text" ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange} required />
           </div>
           <div className="question-set">
           <p className="question">What is the primary cause you are interested in?</p>
-            <input className="input-text" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
+            <input className="input-text" ref="causeInput" type="text" value={cause} onChange={this.handleChange} required />
           </div>
           <div className="question-set">
           <p className="question">What is the effect you are interested in?</p>
-            <input className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange}/>
+            <input className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange} required />
           </div>
         </section>
         <section className="guide">
-          Put another way, how does 
-          <span className="definition-inline">{this.props.cause}</span> 
-          affect <span className="definition-inline">{this.props.effect}</span>? 
-          If this sentence doesn't make sense, edit your cause and effect. 
+          Put another way, how does
+          <span className="definition-inline">{this.props.cause}</span>
+          affect <span className="definition-inline">{this.props.effect}</span>?
+          If this sentence doesn't make sense, edit your cause and effect.
         </section>
       </section>
       );

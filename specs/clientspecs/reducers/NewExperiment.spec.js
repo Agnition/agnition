@@ -11,31 +11,43 @@ describe('New Experiment Reducer', function(){
     var action = {
       type: "GO_TO_NEXT_QUESTION",
     };
-    var state = NewExperiment(5, action);
-    expect(state).to.eql(5);
+    var state = new Immutable.Map({
+      question: 5
+    });
+    state = NewExperiment(state, action);
+    expect(state.get('question')).to.eql(5);
   });
 
     it('should count up one', function () {
     var action = {
       type: 'GO_TO_NEXT_QUESTION'
     };
-    var state = NewExperiment(0, action);
-    expect(state).to.eql(1);
+    var state = new Immutable.Map({
+      question: 0
+    });
+    state = NewExperiment(state, action);
+    expect(state.get('question')).to.eql(1);
   });
 
   it('should count down one', function () {
     var action = {
       type: 'GO_TO_PREV_QUESTION'
     };
-    var state = NewExperiment(4, action);
-    expect(state).to.eql(3);
+    var state = new Immutable.Map({
+      question: 4
+    });
+    state = NewExperiment(state, action);
+    expect(state.get('question')).to.eql(3);
   });
 
   it('should not count into negative numbers', function () {
     var action = {
       type: 'GO_TO_PREV_QUESTION'
     };
-    var state = NewExperiment(0, action);
-    expect(state).to.eql(0);
+    var state = new Immutable.Map({
+      question: 0
+    });
+    state = NewExperiment(state, action);
+    expect(state.get('question')).to.eql(0);
   });
 });

@@ -28,7 +28,6 @@ function mapDispatchToProps (dispatch) {
 
 var DepVarWrapper = React.createClass({
 
-
   genComponent: function () {
     var depVarId = mongooseId.ObjectId().toString();
     this.props.actions.createDepVar(depVarId);

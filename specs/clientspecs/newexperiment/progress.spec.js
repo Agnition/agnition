@@ -28,7 +28,10 @@ describe('New Experiment: Progress Component', function () {
 
     //this is our mock of the DepVar state property
     var obj = {
-      NewExperiment: 5,
+      NewExperiment: {
+        question: 5,
+        valid: false
+      },
       Experiments : {
         a: {
           name: 'Name : Test Name',

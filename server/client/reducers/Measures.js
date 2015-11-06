@@ -51,12 +51,15 @@ module.exports = function(state = initialState, action) {
     });
   }
   if (action.type === 'ADD_LIST_ITEM') {
+    action.item = action.item.trim();
+    if (action.item.length === 0) {
+      return state;
+    }
     var newList = state.getIn([action.measureId, 'list']);
     // Only add unique items
     if (newList.indexOf(action.item) === -1) {
       newList = newList.push(action.item);
     }
-    console.log('new list new list', newList);
     return state.setIn([action.measureId, 'list'], newList);
   }
   if (action.type === 'REMOVE_LIST_ITEM') {
@@ -69,7 +72,7 @@ module.exports = function(state = initialState, action) {
     }
     return state.setIn([action.measureId, 'list'], newList);
   }
-  if(action.type === 'SET_MEASURE_NAME') {
+  if (action.type === 'SET_MEASURE_NAME') {
     return state.setIn([action.measureId, 'name'], action.name);
   }
   return state;

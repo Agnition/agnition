@@ -25,6 +25,17 @@ function mapDispatchtoProps (dispatch) {
 }
 
 var Measure = React.createClass({
+
+  componentDidMount: function() {
+    this.checkValidity();
+  },
+
+  checkValidity: function() {
+    if (this.props.kind !== 'qualitative' && this.props.kind !== 'list' && this.props.kind !== 'numeric') {
+      this.props.actions.setValidity(false);
+    }
+  },
+
   handleClick: function (event) {
     this.props.actions.setKind(event.target.value, this.props.measureId);
   },
