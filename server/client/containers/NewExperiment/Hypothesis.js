@@ -84,7 +84,7 @@ var Hypothesis = React.createClass({
         <section className="guide">
           Put another way, how does
           <span className="definition-inline"> {this.props.cause} </span>
-          affect <span className="definition-inline">{this.props.effect}?</span>?
+          affect <span className="definition-inline">{this.props.effect}</span>?
           If this sentence doesn't make sense, edit your cause and effect.
         </section>
       </section>
