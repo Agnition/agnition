@@ -28,6 +28,9 @@ describe('New Experiment: Hypothesis Input Component', function () {
           cause: 'correct code',
           effect: 'a nice green check mark'
         }
+      },
+      NewExperiment: {
+        valid: false
       }
     };
 

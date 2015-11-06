@@ -23,7 +23,12 @@ describe('New Experiment: Name Component', function () {
     var props = {};
 
     //this is our mock of the DepVar state property
-    var obj = {};
+    var obj = {
+      NewExperiment: {
+        question: 0,
+        valid: false
+      }
+    };
 
 
     props.store = mockStore(obj);

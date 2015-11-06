@@ -23,6 +23,9 @@ describe('New Experiment: Measure Input (Qualitative/Scale)', function () {
       Measures : {
         a: {
         }
+      },
+      NewExperiment : {
+        valid : false
       }
     };
 
