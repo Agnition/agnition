@@ -11,7 +11,11 @@ button {
   transition: 0.3s;
 }
 
-body {}
+body {
+  background: url("/images/pattern.png");
+  background-size: 90px;
+  background-repeat: repeat;
+}
 
 button.submit-button {
   border: 1px solid transparent;
