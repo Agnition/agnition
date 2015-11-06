@@ -67,28 +67,30 @@ var IndVar = React.createClass({
             How many times do you have to do/change <span className="definition-inline"> {this.props.cause} </span>
             to see a change in <span className="definition-inline"> {this.props.effect}</span>?
           </p>
-          <input className="input-number" ref="actionsPerTrial" type="number" min={1} step={1} onChange={this.setActionsPerTrial} required />
+          <input placeholder="e.g. 1" className="input-number" ref="actionsPerTrial" type="number" min={1} step={1} onChange={this.setActionsPerTrial} required />
         </div>
 
-        <div className="question-set">
+        <div className="question-set options-list">
           <p className="question">
             List all of the options for <span className="definition-inline"> {this.props.cause}</span>
           </p>
-          <input ref="option" type="text"/>
-        <button className="set-button" onClick={this.addOption}>Add an option</button>
+          <div className="add-option">
+            <input placeholder="e.g. 2g" ref="option" type="text" className="options"/>
+            <button className="set-button options" onClick={this.addOption}>Add an option</button>
+          </div>
         </div>
 
         <div>
           {this.props.options.map(function (option) {
             return (
               <div className="added-item">
+              {option}
               <button
                 className="remove-button"
                 onClick={this.removeOption}
                 value={option}>
-                {'\u2326'}
+                Remove
                 </button>
-              {option}
               </div>
             );
           }.bind(this))}
@@ -99,7 +101,11 @@ var IndVar = React.createClass({
             How many times would you like to repeat each way you can do
             <span className="cause"> {this.props.cause}</span>?
           </p>
+<<<<<<< HEAD
           <input className="input-number" ref="numTrials" type="number" min={1} step={1} onChange={this.setNumTrials} required />
+=======
+          <input placeholder="e.g. 1" className="input-number" ref="numTrials" type="number" onChange={this.setNumTrials}/>
+>>>>>>> We stylin'
         </div>
 
         <div className="question-set">

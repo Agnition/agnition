@@ -69,21 +69,22 @@ var Hypothesis = React.createClass({
             </p>
           <div className="question-set">
             <p className="question">What is your hypothesis for this experiment?</p>
-              <input className="input-text" ref="hypothesisInput" type="text" value={hypothesis} onChange={this.handleChange} required />
+              <input placeholder="e.g. 4g is the perfect weight for paper airplanes" className="input-text" ref="hypothesisInput" type="text" value={hypothesis} required onChange={this.handleChange}/>
           </div>
           <div className="question-set">
           <p className="question">What is the primary cause you are interested in?</p>
-            <input className="input-text" ref="causeInput" type="text" value={cause} onChange={this.handleChange} required />
+            <input placeholder="e.g. Plane weight" ref="causeInput" type="text" value={cause} onChange={this.handleChange}/>
+
           </div>
           <div className="question-set">
           <p className="question">What is the effect you are interested in?</p>
-            <input className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange} required />
+            <input placeholder="e.g. Flight distance" className="input-text" ref="effectInput" type="text" value={effect} onChange={this.handleChange} required/>
           </div>
         </section>
         <section className="guide">
           Put another way, how does
-          <span className="definition-inline">{this.props.cause}</span>
-          affect <span className="definition-inline">{this.props.effect}</span>?
+          <span className="definition-inline"> {this.props.cause} </span>
+          affect <span className="definition-inline">{this.props.effect}?</span>?
           If this sentence doesn't make sense, edit your cause and effect.
         </section>
       </section>

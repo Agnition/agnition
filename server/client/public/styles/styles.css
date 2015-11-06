@@ -7,39 +7,51 @@
 *                            *
 *****************************/
 
-button {
-  transition: 0.3s;
+/* button { */
+  /* transition: 0.3s; */
+/* } */
+
+body {
+  background-color: hsla(100, 50%, 50%, 1.0);
 }
 
 button.submit-button {
   border: 1px solid transparent;
+  margin: 20px;
   color: white;
   background-color: #5AC45E;
   padding: .5em 1em;
+  font-size: 24px;
   border-radius: 4px;
   align-self: baseline;
 }
 
 button.back-button {
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
-  background-color: hsla(0, 0%, 90%, 1.0) !important;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: hsla(0, 0%, 100%, 1.0) !important;
+  border: 1px solid hsla(0, 0%, 20%, 1.0);
   border-radius: 4px;
+  padding: 5px 20px !important;
+  font-size: 24px;
   align-self: baseline;
 }
 button.back-button:hover {
-  background-color : hsla(0, 0%, 80%, 1.0) !important;
+  background-color : hsla(0, 0%, 95%, 1.0) !important;
 }
 
 button.next-button {
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: hsla(0, 0%, 90%, 1.0) !important;
+  background-color: hsla(0, 0%, 100%, 1.0) !important;
+  border: 1px solid hsla(0, 0%, 20%, 1.0);
   border-radius: 4px;
+  padding: 5px 20px !important;
+  font-size: 24px;
   align-self: baseline;
 }
 button.next-button:hover {
-  background-color : hsla(0, 0%, 80%, 1.0) !important;
+  background-color : hsla(0, 0%, 95%, 1.0) !important;
 }
 
 button.submit-button:hover {
@@ -50,8 +62,16 @@ button.submit-button:hover {
 
 button {
   border : none;
-  margin: 10px 10px 0px 0px !important;
-  background-color: hsla(0, 0%, 95%, 1.0);
+  margin: 10px 10px 0px 0px;
+  /* background-color: hsla(0, 0%, 95%, 1.0); */
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: hsla(0, 0%, 100%, 1.0);
+  border: 1px solid hsla(0, 0%, 20%, 1.0);
+  border-radius: 4px;
+  padding: 5px 20px !important;
+  font-size: 24px;
+  align-self: baseline;
 }
 
 button:focus {
@@ -59,17 +79,20 @@ button:focus {
 }
 
 .set-button {
-  background-color: hsla(0, 0%, 90%, 1.0) !important;
+  /* background-color: hsla(0, 0%, 90%, 1.0) !important; */
   border-radius: 4px;
   align-self: baseline;
+  font-size: 14px;
 }
 .set-button:hover {
-  background-color : hsla(0, 0%, 80%, 1.0) !important;
+  background-color : hsla(0, 0%, 90%, 1.0) !important;
 }
 
 .remove-button {
   margin-left: 10px !important;
   border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
   /*background-color: hsla(0, 50%, 70%, 1.0);*/
 }
 
@@ -96,13 +119,19 @@ button:focus {
 }
 
 button.select-button {
-    background-color: #D2BCA1;
-    padding: .5em 1em;
-    border-radius: 5px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: hsla(0, 0%, 100%, 1.0) !important;
+  border: 1px solid hsla(0, 0%, 20%, 1.0);
+  border-radius: 4px;
+  padding: 5px 20px !important;
+  font-size: 14px;
+  align-self: baseline;
 }
 
-button.select-button:hover {
-    background-color: #AF9B83;
+button.select-button.active {
+  background-color: hsla(0, 0%, 20%, 1.0) !important;
+  color: white;
 }
 
 /*****************************
@@ -200,20 +229,39 @@ table {
 
 nav {
   margin-bottom : 10px;
-  padding: 3px;
+  padding: 10px;
   width:100%;
-  background-color: hsla(0, 0%, 95%, 1.0);
+  background-color: hsla(0, 0%, 20%, 1.0);
   display: flex !important;
   flex-direction: row;
-  justify-content: space-between;
-  padding : 0 300px;
+  justify-content: center;
+  /* padding : 0 300px; */
+  /* border-bottom: 2px solid black; */
 }
 
 nav a {
-  margin: 10px 5px;
-  color : hsla(0, 0%, 30%, 1.0);
-  font-size: 20px;
-  font-weight: bold;
+  margin: 10px 15px;
+  color : white;
+  font-size: 24px;
+  font-weight: normal;
+  /* font-weight: bold; */
+  /* align-self: left; */
+}
+
+nav a:hover {
+  /* color : hsla(210, 100%, 70%, 1); */
+  /* font-weight: bold; */
+  /* align-self: left; */
+  color: white;
+  text-decoration: underline;
+}
+
+nav a:active {
+  /* color : hsla(210, 100%, 70%, 1); */
+  /* font-weight: bold; */
+  /* align-self: left; */
+  color: white;
+  text-decoration: underline;
 }
 
 /*****************************
@@ -245,6 +293,7 @@ li a {
 
 input {
   margin-left : 10px !important;
+  margin-top : 10px !important;
 }
 
 .dep-var-wrapper {
@@ -265,6 +314,21 @@ input {
 
 .ind-var-input input {
   display: block;
+}
+.add-option {
+  display: flex;
+  flex-direction: row;
+}
+
+input.options {
+  width: 50%;
+  /* display: inline-block; */
+}
+
+.set-button.options {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 14px;
 }
 
 .measure-slider {
@@ -336,6 +400,9 @@ h2 {
 h3.subsection-title {
   margin-top: 0;
   margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: normal;
+  /* text-align: center; */
 }
 
 .section-title {
@@ -356,7 +423,7 @@ h3.subsection-title {
 
 .definition-inline {  
  color: #3888DF;
- font-style: italic;
+ /* font-style: italic; */
  font-weight: 400;
  text-align: center;
 }
@@ -389,14 +456,16 @@ span.definition-label {
 }*/
 
 .guide{
-  color: #302505;
-  font-style: italic;
-  padding: 0.5em 0.5em;
-  background-color: rgb(185, 216, 233);
+  color: hsla(0, 0%, 20%, 1.0);
+  font-weight: bold;
+  /* padding: 0.5em 0.5em; */
+  /* background-color: rgb(185, 216, 233); */
+  /* font-size: larger; */
   border-radius: 8px;
   align-self: baseline;
-  box-shadow: 1px 1px 5px #AEB6BE;
+  /* box-shadow: 1px 1px 5px #E0E0E0; */
   display: inline-block;
+  margin: 0;
 }
 
 a.guide-link {
@@ -460,13 +529,13 @@ a.guide-link {
 *****************************/
 
 .question-set {
-  margin: 0 0 1em;
+  margin: 2em 0 2em;
   display: flex;
   flex-direction: column;
 }
 
 .question-set input {
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: solid 2px #c9c9c9;
@@ -484,9 +553,10 @@ a.guide-link {
 }
 
 .question {
-  font-weight: bold;
-  margin-bottom: 0.2em;
+  /* font-weight: bold; */
+  margin-bottom: 0px;
 }
+
 
 /*****************************
 *                            *
@@ -518,17 +588,23 @@ a.guide-link {
   justify-content: start;
   margin-top: 1em;
   padding: 5px;
-  background-color: #F2F2F3;
-  box-shadow: 1px 1px 5px #E0E0E0;
+  box-shadow: 0px 1px 10px hsla(0, 0%, 30%, 1.0);
   border-radius: 5px;
+  background-color: white;
 }
 
 .new-exp-section {
   min-height: 50vh;
-  padding: 10px 20px;
-  background-color: #F3F3F3;
-  border-radius: 20px;
-  border: 2px solid #3888DF
+  padding: 20px;
+  /* border-radius: 20px; */
+  /* border: 2px solid #3888DF */
+}
+
+.progress-section h2 {
+  font-size: 40px;
+  font-weight: normal;
+  text-align: left;
+  margin-top: 0px;
 }
 
 .subsection-h {

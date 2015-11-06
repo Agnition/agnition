@@ -14,7 +14,6 @@ var DepVar = React.createClass({
   render: function() {
     return (
       <div>
-        <p className="guide">How you are measuring the effect.</p>
           <Measure measureIds = {this.props.depVar.measures} />
       </div>
     );

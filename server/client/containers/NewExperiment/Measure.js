@@ -41,6 +41,8 @@ var Measure = React.createClass({
   },
 
   render: function () {
+    console.log("==================")
+    console.log(this.props.kind);
     var measureKinds = {
       qualitative: (<MeasureQualitative
                     key={this.props.measureId}
@@ -54,10 +56,22 @@ var Measure = React.createClass({
     };
     return (
       <div>
-        <button className="select-button" value="qualitative" onClick={this.handleClick}>scale</button>
-        <button className="select-button" value="numeric" onClick={this.handleClick}>number</button>
-        <button className="select-button" value="list" onClick={this.handleClick}>categorical</button>
-        {measureKinds[this.props.kind]}
+        {this.props.kind === 'qualitative'
+        ? <button className="select-button active" value="qualitative" onClick={this.handleClick}>scale</button>
+        : <button className="select-button" value="qualitative" onClick={this.handleClick}>scale</button>
+        }
+        {this.props.kind === 'numeric'
+        ? <button className="select-button active" value="numeric" onClick={this.handleClick}>number</button>
+        : <button className="select-button" value="numeric" onClick={this.handleClick}>number</button>
+        }
+        {this.props.kind === 'list'
+        ? <button className="select-button active" value="list" onClick={this.handleClick}>categorical</button>
+        : <button className="select-button" value="list" onClick={this.handleClick}>categorical</button>
+        }
+        {this.props.kind !== undefined
+        ? measureKinds[this.props.kind]
+        : null
+        }
       </div>
       );
   }
