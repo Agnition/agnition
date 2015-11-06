@@ -76,7 +76,6 @@ var NewExperiment = React.createClass({
       <div className="container">
         <div className="row">
           <section className="col-md-6">
-            <h2 className="section-title">Create a new experiment</h2>
             {questions[this.props.questionIndex]}
             <section className="subsection-h">
               {this.props.questionIndex > 0
@@ -88,7 +87,6 @@ var NewExperiment = React.createClass({
             </section>
           </section>
           <section className="col-md-6">
-            <h2 className="section-title">Summary</h2>
             <ProgressWrapper expId={this.expId} />
           </section>
         </div>
