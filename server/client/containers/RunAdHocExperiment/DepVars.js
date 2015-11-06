@@ -53,7 +53,7 @@ var DepVars = React.createClass({
         this.history.pushState(null, '/viewexp/' + this.props.params.expid);
       } else {
         this.props.actions.setActive(false, this.props.params.expid);
-        this.history.pushState(null, '/dashboard');
+        this.history.pushState(null, '/myexps');
       }
     }.bind(this));
   },

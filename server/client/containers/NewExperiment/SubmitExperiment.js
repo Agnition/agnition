@@ -37,7 +37,7 @@ var SubmitExperiment = React.createClass({
       contentType: 'application/json',
       data: data,
       success: function () {
-        this.history.pushState(null, '/dashboard');
+        this.history.pushState(null, '/myexps');
         this.props.actions.resetQuestionIndex();
       }.bind(this),
       error: function (err) {
