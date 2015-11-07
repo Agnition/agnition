@@ -58,7 +58,8 @@ var addExp = function (req, res) {
         res.send('User not found');
       }
       else {
-        return user;
+        user.exps.push(Object.keys(req.body.experiments)[0]);
+        return user.save();
       }
     })
     .then(function() {

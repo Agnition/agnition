@@ -766,7 +766,7 @@ div.rd3-basic-chart {
 }
 
 .help-glyph::before {
-  content: '\1F6C8';
+  content: '\2139';
   color: #008E9E;
   margin-left: 5px;
 }
