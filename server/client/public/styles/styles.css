@@ -796,9 +796,14 @@ span.sample-taken, span.sample-option {
   display: inline-block;
 }
 
+span.sample-option {
+  align-self: flex-end;
+}
+
 div.sample-option-container {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   margin: 20px 0;
 }
 
