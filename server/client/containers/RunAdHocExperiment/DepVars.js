@@ -69,7 +69,8 @@ var DepVars = React.createClass({
                 value={value} />);
     });
     return (
-      <div>
+      <div className="row">
+      <div className="sample-measure-container col-md-6 col-md-offset-3">
         <form onSubmit={this.handleSubmit}>
           <input
             name={'expId'}
@@ -85,9 +86,14 @@ var DepVars = React.createClass({
             value={this.props.depVarId} />
           {indVars}
           {depVars}
-          <div><input type="checkbox" name="invalid" />Mark sample as invalid.</div>
-          <button type="submit">Submit Sample</button>
+          <div className="sample-measure-submit-container">
+            <div className="sample-measure-submit-inner-container">
+              <div><input type="checkbox" name="invalid" />Mark sample as invalid.</div>
+              <button className="sample-submit-button" type="submit">Submit Sample</button>
+            </div>
+          </div>
         </form>
+      </div>
       </div>
     );
   }

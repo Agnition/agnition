@@ -17,10 +17,12 @@ var DepVar = React.createClass({
       return <Measure key={measureId} measureId={measureId} />;
     });
     return (
-      <div>
+      <div className="sample-measure-input-container">
         <h2 className="section-title">Effect</h2>
-        <span class="question">Enter a value for: {this.props.name}</span>
-        {measures}
+        <div>
+          <p className="sample-depvar-question">Enter a value for: <span className="sample-depvar-name">{this.props.name}</span></p>
+          {measures}
+        </div>
       </div>
     );
   }

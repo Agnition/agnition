@@ -138,8 +138,13 @@ button.remove-button:hover {
   background-color: #FE6E38;
 }
 
-button.nav-button {
+button.nav-button, .sample-submit-button {
+  font-size: 1em;
   background-color: hsla(0, 0%, 95%, 1.0);
+}
+.sample-submit-button:hover {
+  background-color: hsla(0, 0%, 20%, 1.0);
+  color: white;
 }
 
 button.nav-button:hover {
@@ -160,6 +165,11 @@ button.nav-button:hover a {
 
 button.nav-button a {
   color: rgb(51, 51, 51);
+}
+
+button.sample-submit-button {
+  font-size: 1em;
+  align-self: flex-end;
 }
 
 /*****************************
@@ -370,20 +380,7 @@ input.options {
   width: 300px;
 }
 
-.measure-slider div {
-  text-align: center;
-}
 
-.measure-slider input {
-  width: 66%;
-}
-
-.measure-slider label {
-  text-align: center;
-  display: inline-block;
-  width: 33%;
-  padding: 0 10px;
-}
 
 input.input-text {
   margin-right: 1em;
@@ -621,6 +618,20 @@ div.add-option {
 *                            *
 *****************************/
 
+.subsection-v .subsection-v {
+  box-shadow: none;
+}
+
+.subsection-v.view-exp {
+  border-radius: 16px;
+  padding-bottom: 40px;
+}
+
+.view-exp-container {
+  box-shadow:none;
+  margin-left:40px;
+}
+
 .my-exps h1 {
   text-align: center;
 }
@@ -643,7 +654,7 @@ div.add-option {
   margin-top: 1em;
   padding: 5px;
   box-shadow: 0px 4px 10px hsla(0, 0%, 0%, 0.3);
-  border-radius: 5px;
+  border-radius: 16px;
   background-color: hsla(0, 0%, 100%, 0.8);
 }
 
@@ -653,7 +664,7 @@ div.add-option {
   justify-content: start;
   margin-top: 1em;
   box-shadow: 0px 4px 10px hsla(0, 0%, 0%, 0.3);
-  border-radius: 5px;
+  border-radius: 16px;
   background-color: hsla(0, 0%, 100%, 0.8);
   padding: 30px;
 }
@@ -668,8 +679,13 @@ div.add-option {
   width: 100%;
 }
 
+section.guide {
+  margin: 2em 0;
+}
 
-
+div.question-set {
+  margin: 2em 0;
+}
 
 .new-exp-section {
   min-height: 50vh;
@@ -765,7 +781,7 @@ div.rd3-basic-chart {
 
 .run-exp-container {
   padding: 20px 20px;
-  background-color: #EFEDEA;
+  background-color: hsla(0, 0%, 95%, 1.0);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -791,7 +807,7 @@ div.sample-option-container {
 
 p.sample-prompt {
   margin: 40px 0;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 span.option-name {
@@ -799,9 +815,9 @@ span.option-name {
 }
 
 input.input-radio {
-  height: 24px;
-  font-size: 2em;
-  width: 24px;
+  height: 16px;
+  font-size: 1em;
+  width: 16px;
   margin-right: 8px;
   display: inline-block;
 }
@@ -819,14 +835,14 @@ input.input-radio:first {
 }
 
 span.sample-option {
-  font-size:2em;
+  font-size:1em;
 }
 
 span.samples-taken {
-  font-size: 2em;
+  font-size: 1em;
   margin-left: 1em;
   background-color: hsla(0, 0%, 20%, 1.0);
-  padding: 10px 20px;
+  padding: 3px 8px;
   border-radius: 5px;
   color: white;
   display: inline-block;
@@ -836,4 +852,68 @@ span.samples-taken {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+input[type=range] {
+  width:400px;
+}
+
+.sample-measure-container {
+  border-radius: 16px;
+  background-color: hsla(0, 0%, 95%, 1.0);
+  padding-bottom: 40px;
+}
+
+.measure-slider div {
+  text-align: center;
+}
+
+.measure-slider input {
+  width: 66%;
+}
+
+.measure-slider label {
+  text-align: center;
+  display: inline-block;
+  width: 33%;
+  padding: 0 10px;
+}
+
+div.scale-defs {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sample-depvar-question {
+  font-size: 1.5em;
+}
+
+.sample-depvar-name {
+  color: #3888DF;
+}
+
+div.scale-defs > label {
+  font-size: 1em;
+}
+
+.sample-measure-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sample-measure-submit-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sample-measure-submit-inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sample-measure-submit-inner-container span {
+  margin-left: 10px;
 }

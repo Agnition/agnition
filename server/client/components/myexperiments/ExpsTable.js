@@ -43,7 +43,7 @@ var ExpRow = React.createClass({
         <td>{expName}</td>
         <td>{this.props.exp.hypothesis}</td>
         <td>{link}</td>
-        <td>You've submitted {this.props.samplesSubmitted} out of {this.props.samplesNeeded} samples</td>
+        <td>{this.props.samplesSubmitted} / {this.props.samplesNeeded} Samples</td>
       </tr>
     );
   }
