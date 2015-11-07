@@ -15,6 +15,22 @@
                 "563d3a239f413a000008837e"
             ],
             "hypothesis": "What I eat for lunch affects how tired I feel"
+        },
+        "563d50c65275ae000039c667": {
+            "active": true,
+            "cause": "Chewing gum",
+            "name": "Chewin' and Jugglin'",
+            "indVars": [
+                "563d51305275ae000039c66a"
+            ],
+            "effect": "Length of juggling",
+            "kind": "ad_hoc",
+            "__v": 0,
+            "_id": "563d50c65275ae000039c667",
+            "depVars": [
+                "563d51275275ae000039c668"
+            ],
+            "hypothesis": "Steve can juggle longer while chewing gum"
         }
     },
     "depVars": {
@@ -25,7 +41,15 @@
             "measures": [
                 "563d3a239f413a000008837f"
             ]
-        }        
+        },
+        "563d51275275ae000039c668": {
+            "_id": "563d51275275ae000039c668",
+            "name": "Length of juggling",
+            "__v": 0,
+            "measures": [
+                "563d51275275ae000039c669"
+            ]
+        }
     },
     "indVars": {
         "563d3a309f413a0000088380": {
@@ -36,11 +60,25 @@
             "reminders": [],
             "actionsPerTrial": 1,
             "options": [
-                "Clean Burrito (Chipotle)",
-                "Dirty Burrito (Castillo)",
+                "Chipotle",
+                "Castillo",
                 "Protein Bar",
                 "Salad",
                 "Staff Lunch (Morty's)"
+            ]
+        },
+        "563d51305275ae000039c66a": {
+            "_id": "563d51305275ae000039c66a",
+            "name": "Chewing gum",
+            "numTrials": 4,
+            "__v": 0,
+            "reminders": [],
+            "actionsPerTrial": 1,
+            "options": [
+                "no gum",
+                "1 piece of gum",
+                "2 pieces of gum",
+                "3 pieces of gum"
             ]
         }
     },
@@ -52,7 +90,6 @@
             "scaleDescriptionMiddle": "normal",
             "samples": [
                 "563d3a7dbf1378a46ae5659f",
-                "563d3a82bf1378a46ae565a1",
                 "563d3a88bf1378a46ae565a3",
                 "563d3a8dbf1378a46ae565a5",
                 "563d3a96bf1378a46ae565a7",
@@ -81,12 +118,52 @@
             "name": "Tiredness",
             "scaleDescriptionMax": "energetic",
             "kind": "qualitative",
-            "__v": 25,
+            "__v": 0,
             "_id": "563d3a239f413a000008837f",
+            "list": null
+        },
+        "563d51275275ae000039c669": {
+            "_id": "563d51275275ae000039c669",
+            "name": "Length of juggling",
+            "kind": "numeric",
+            "unit": "Seconds",
+            "__v": 15,
+            "requests": [],
+            "samples": [
+                "563d51ddd81723ea7568bddc",
+                "563d5205d81723ea7568bdde",
+                "563d521dd81723ea7568bde0",
+                "563d5244d81723ea7568bde2",
+                "563d5253d81723ea7568bde4",
+                "563d5263d81723ea7568bde6",
+                "563d528fd81723ea7568bde8",
+                "563d52a4d81723ea7568bdea",
+                "563d52bfd81723ea7568bdec",
+                "563d531bd81723ea7568bdee",
+                "563d5332d81723ea7568bdf0",
+                "563d534ad81723ea7568bdf2",
+                "563d535cd81723ea7568bdf4",
+                "563d5459d81723ea7568bdf6",
+                "563d546cd81723ea7568bdf8"
+            ],
             "list": null
         }
     },
     "samples": {
+        "563d534ad81723ea7568bdf2": {
+            "_id": "563d534ad81723ea7568bdf2",
+            "value": 4,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "1 piece of gum",
+                    "_id": "563d534ad81723ea7568bdf3"
+                }
+            ],
+            "time": "2015-11-07T01:26:34.570Z"
+        },
         "563d3af1bf1378a46ae565bf": {
             "_id": "563d3af1bf1378a46ae565bf",
             "value": 3,
@@ -115,6 +192,20 @@
             ],
             "time": "2015-11-06T23:42:55.908Z"
         },
+        "563d535cd81723ea7568bdf4": {
+            "_id": "563d535cd81723ea7568bdf4",
+            "value": 7,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "1 piece of gum",
+                    "_id": "563d535cd81723ea7568bdf5"
+                }
+            ],
+            "time": "2015-11-07T01:26:52.413Z"
+        },
         "563d3abdbf1378a46ae565b1": {
             "_id": "563d3abdbf1378a46ae565b1",
             "value": 1,
@@ -123,11 +214,25 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Dirty Burrito (Castillo)",
+                    "value": "Castillo",
                     "_id": "563d3abdbf1378a46ae565b2"
                 }
             ],
             "time": "2015-11-06T23:41:49.162Z"
+        },
+        "563d521dd81723ea7568bde0": {
+            "_id": "563d521dd81723ea7568bde0",
+            "value": 15,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "no gum",
+                    "_id": "563d521dd81723ea7568bde1"
+                }
+            ],
+            "time": "2015-11-07T01:21:33.102Z"
         },
         "563d3b2bbf1378a46ae565cd": {
             "_id": "563d3b2bbf1378a46ae565cd",
@@ -143,6 +248,20 @@
             ],
             "time": "2015-11-06T23:43:39.552Z"
         },
+        "563d51ddd81723ea7568bddc": {
+            "_id": "563d51ddd81723ea7568bddc",
+            "value": 7,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "2 pieces of gum",
+                    "_id": "563d51ddd81723ea7568bddd"
+                }
+            ],
+            "time": "2015-11-07T01:20:29.692Z"
+        },
         "563d3a88bf1378a46ae565a3": {
             "_id": "563d3a88bf1378a46ae565a3",
             "value": 2.5,
@@ -151,7 +270,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
+                    "value": "Chipotle",
                     "_id": "563d3a88bf1378a46ae565a4"
                 }
             ],
@@ -165,7 +284,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
+                    "value": "Chipotle",
                     "_id": "563d3a96bf1378a46ae565a8"
                 }
             ],
@@ -184,6 +303,48 @@
                 }
             ],
             "time": "2015-11-06T23:42:18.824Z"
+        },
+        "563d546cd81723ea7568bdf8": {
+            "_id": "563d546cd81723ea7568bdf8",
+            "value": 4,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "no gum",
+                    "_id": "563d546cd81723ea7568bdf9"
+                }
+            ],
+            "time": "2015-11-07T01:31:24.609Z"
+        },
+        "563d528fd81723ea7568bde8": {
+            "_id": "563d528fd81723ea7568bde8",
+            "value": 16,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "3 pieces of gum",
+                    "_id": "563d528fd81723ea7568bde9"
+                }
+            ],
+            "time": "2015-11-07T01:23:27.091Z"
+        },
+        "563d52bfd81723ea7568bdec": {
+            "_id": "563d52bfd81723ea7568bdec",
+            "value": 9,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "3 pieces of gum",
+                    "_id": "563d52bfd81723ea7568bded"
+                }
+            ],
+            "time": "2015-11-07T01:24:15.771Z"
         },
         "563d3ae9bf1378a46ae565bd": {
             "_id": "563d3ae9bf1378a46ae565bd",
@@ -221,7 +382,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Dirty Burrito (Castillo)",
+                    "value": "Castillo",
                     "_id": "563d3aa7bf1378a46ae565ac"
                 }
             ],
@@ -235,7 +396,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Dirty Burrito (Castillo)",
+                    "value": "Castillo",
                     "_id": "563d3ab4bf1378a46ae565b0"
                 }
             ],
@@ -277,11 +438,25 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
+                    "value": "Chipotle",
                     "_id": "563d3a7dbf1378a46ae565a0"
                 }
             ],
             "time": "2015-11-06T23:40:45.105Z"
+        },
+        "563d5205d81723ea7568bdde": {
+            "_id": "563d5205d81723ea7568bdde",
+            "value": 5.85,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "no gum",
+                    "_id": "563d5205d81723ea7568bddf"
+                }
+            ],
+            "time": "2015-11-07T01:21:09.045Z"
         },
         "563d3af6bf1378a46ae565c1": {
             "_id": "563d3af6bf1378a46ae565c1",
@@ -297,6 +472,20 @@
             ],
             "time": "2015-11-06T23:42:46.790Z"
         },
+        "563d5332d81723ea7568bdf0": {
+            "_id": "563d5332d81723ea7568bdf0",
+            "value": 14,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "1 piece of gum",
+                    "_id": "563d5332d81723ea7568bdf1"
+                }
+            ],
+            "time": "2015-11-07T01:26:10.371Z"
+        },
         "563d3ac2bf1378a46ae565b3": {
             "_id": "563d3ac2bf1378a46ae565b3",
             "value": 2.5,
@@ -305,7 +494,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Dirty Burrito (Castillo)",
+                    "value": "Castillo",
                     "_id": "563d3ac2bf1378a46ae565b4"
                 }
             ],
@@ -319,7 +508,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
+                    "value": "Chipotle",
                     "_id": "563d3a8dbf1378a46ae565a6"
                 }
             ],
@@ -339,6 +528,34 @@
             ],
             "time": "2015-11-06T23:42:08.497Z"
         },
+        "563d5244d81723ea7568bde2": {
+            "_id": "563d5244d81723ea7568bde2",
+            "value": 13,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "2 pieces of gum",
+                    "_id": "563d5244d81723ea7568bde3"
+                }
+            ],
+            "time": "2015-11-07T01:22:12.727Z"
+        },
+        "563d5253d81723ea7568bde4": {
+            "_id": "563d5253d81723ea7568bde4",
+            "value": 7,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "2 pieces of gum",
+                    "_id": "563d5253d81723ea7568bde5"
+                }
+            ],
+            "time": "2015-11-07T01:22:27.707Z"
+        },
         "563d3b23bf1378a46ae565cb": {
             "_id": "563d3b23bf1378a46ae565cb",
             "value": 1,
@@ -353,11 +570,25 @@
             ],
             "time": "2015-11-06T23:43:31.861Z"
         },
+        "563d5263d81723ea7568bde6": {
+            "_id": "563d5263d81723ea7568bde6",
+            "value": 6,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "2 pieces of gum",
+                    "_id": "563d5263d81723ea7568bde7"
+                }
+            ],
+            "time": "2015-11-07T01:22:43.189Z"
+        },
         "563d3ba5bf1378a46ae565d1": {
+            "_id": "563d3ba5bf1378a46ae565d1",
             "__v": 0,
             "value": 3,
             "valid": true,
-            "_id": "563d3ba5bf1378a46ae565d1",
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
@@ -367,6 +598,34 @@
             ],
             "time": "2015-11-06T23:45:41.061Z"
         },
+        "563d52a4d81723ea7568bdea": {
+            "_id": "563d52a4d81723ea7568bdea",
+            "value": 4,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "3 pieces of gum",
+                    "_id": "563d52a4d81723ea7568bdeb"
+                }
+            ],
+            "time": "2015-11-07T01:23:48.198Z"
+        },
+        "563d531bd81723ea7568bdee": {
+            "_id": "563d531bd81723ea7568bdee",
+            "value": 8,
+            "valid": true,
+            "__v": 0,
+            "indVarStates": [
+                {
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "1 piece of gum",
+                    "_id": "563d531bd81723ea7568bdef"
+                }
+            ],
+            "time": "2015-11-07T01:25:47.390Z"
+        },
         "563d3aadbf1378a46ae565ad": {
             "_id": "563d3aadbf1378a46ae565ad",
             "value": 2,
@@ -375,7 +634,7 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Dirty Burrito (Castillo)",
+                    "value": "Castillo",
                     "_id": "563d3aadbf1378a46ae565ae"
                 }
             ],
@@ -417,25 +676,25 @@
             "indVarStates": [
                 {
                     "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
+                    "value": "Chipotle",
                     "_id": "563d3aa2bf1378a46ae565aa"
                 }
             ],
             "time": "2015-11-06T23:41:22.504Z"
         },
-        "563d3a82bf1378a46ae565a1": {
-            "_id": "563d3a82bf1378a46ae565a1",
-            "value": 2.5,
+        "563d5459d81723ea7568bdf6": {
+            "_id": "563d5459d81723ea7568bdf6",
+            "value": 5,
             "valid": true,
             "__v": 0,
             "indVarStates": [
                 {
-                    "indVar": "563d3a309f413a0000088380",
-                    "value": "Clean Burrito (Chipotle)",
-                    "_id": "563d3a82bf1378a46ae565a2"
+                    "indVar": "563d51305275ae000039c66a",
+                    "value": "no gum",
+                    "_id": "563d5459d81723ea7568bdf7"
                 }
             ],
-            "time": "2015-11-06T23:40:50.640Z"
+            "time": "2015-11-07T01:31:05.662Z"
         },
         "563d3ae0bf1378a46ae565bb": {
             "_id": "563d3ae0bf1378a46ae565bb",
@@ -452,25 +711,6 @@
             "time": "2015-11-06T23:42:24.325Z"
         }
     },
-    "reminders": {
-        "562ebfa6a3b7183b57d3ed43": {
-            "_id": "562ebfa6a3b7183b57d3ed43",
-            "freq": "everyday2",
-            "reminder": "do something here2",
-            "__v": 0
-        },
-        "562ebfa6a3b7183b57d3ed4c": {
-            "_id": "562ebfa6a3b7183b57d3ed4c",
-            "freq": "everyday",
-            "reminder": "do something here",
-            "__v": 0
-        },
-        "562ebfa6a3b7183b57d3ed55": {
-            "_id": "562ebfa6a3b7183b57d3ed55",
-            "freq": null,
-            "reminder": null,
-            "__v": 0
-        }
-    },
+    "reminders": {},
     "requests": {}
 }
