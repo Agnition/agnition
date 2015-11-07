@@ -42,6 +42,7 @@ var MeasureWrapper = React.createClass({
     this.measureId = mongooseId.Types.ObjectId().toString();
     this.props.actions.createMeasure(this.measureId);
     this.props.actions.addMeasure(this.measureId, this.props.depVarId);
+    this.props.actions.setMeasureName(this.props.name, this.measureId);
   },
 
   render: function () {

@@ -24,7 +24,7 @@ var HistogramWrapper = React.createClass({
     var chartData = _.map(this.props.samples, function(values, key){
       var histogram = utils.genHistogram(this.props.bins, values, minValue, maxValue);
       maxFreq = Math.max(histogram.maxFreq, maxFreq);
-      return  { data : {name: 'a name', values: histogram.coordinates}, label: key};
+      return  { data : {name: 'a name', values: histogram.coordinates}, label: this.props.indVar.name + ": " + key, };
     }, this);
 
     this.histograms = _.map(chartData, function(dataObj, index) {
@@ -38,9 +38,11 @@ var HistogramWrapper = React.createClass({
           viewBoxObject={{
             x: 0,
             y: 0,
-            height: 400,
-            width: 500
+            width: 600,
+            height: 300
           }}
+          yAxisLabel = {"Frequency"}
+          xAxisLabel = {this.props.measure.name}
           xAxisTickInterval={{unit: 'frequency', interval: 1}}
           title = {dataObj.label} />
       </div>)
