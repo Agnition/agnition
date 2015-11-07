@@ -900,3 +900,9 @@ span.samples-taken {
 .sample-measure-submit-inner-container span {
   margin-left: 10px;
 }
+
+span.measure-unit {
+    font-size: 1.5em;
+    margin-left: .5em;
+    color: #3888DF;
+}
