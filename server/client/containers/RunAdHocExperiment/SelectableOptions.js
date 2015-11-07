@@ -17,7 +17,7 @@ var mapStateToProps = function (state, ownProps) {
     return state.Samples.get(sampleId).toJS();
   });
   var options = state.IndVars.get(ownProps.indVarId).toJS().options;
-  var samplesTaken = utils.countSampleOptions(samples, ownProps.indVarId, ownProps.options);
+  var samplesTaken = utils.countSampleOptions(samples, ownProps.indVarId, options);
   var numTrials = state.IndVars.get(ownProps.indVarId).toJS().numTrials;
   return {
     indVarOption : state.Samples.getIn([ownProps.sampleId, ownProps.indVarId, 'value']),
@@ -27,7 +27,7 @@ var mapStateToProps = function (state, ownProps) {
     numMeasures : measureIds.length,
     numTrials : numTrials,
     samplesTaken: samplesTaken,
-    numSamplesPerOption : measureIds.length
+    numSamplesPerOption : numTrials
   };
 };
 

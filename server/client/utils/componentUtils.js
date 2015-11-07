@@ -101,18 +101,21 @@ var countSampleOptions = function (samples, indVarId, options) {
   var states = _.pluck(_.filter(samples, function (sample) {
     return sample.valid;
   }), 'indVarStates');
-  var options = _.map(states, function(indVars) {
+  var optionValues = _.map(states, function(indVars) {
     return _.first(_.pluck(_.filter(indVars, function(indVar) {
       return indVar.indVar === indVarId;
     }), 'value'));
   });
+  
   var optionCount = {};
   _.each(options, function(option) {
     optionCount[option] = 0;
   });
-  _.each(options, function(option) {
+
+  _.each(optionValues, function(option) {
     optionCount[option]++;
   });
+  
   return optionCount;
 }
 
