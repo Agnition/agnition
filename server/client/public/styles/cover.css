@@ -43,8 +43,14 @@ p {
 
 .header {
   background-color: hsla(0, 0%, 10%, 1.0);
+  background: url("/images/tesla.jpg");
+  background-size: cover;
   color: white;
-  min-height: 90%;
+  min-height: 80%;
+  /* background-size: 100% 100%; */
+  /* background  */
+  background-size: cover;
+  background-position: left bottom;
 }
 
 .header .container {
@@ -54,6 +60,7 @@ p {
 .header h1 {
   font-size: 50px;
 }
+
 
 .header a {
   text-align: center;
@@ -88,6 +95,10 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: HSLA(0, 0%, 13%, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+
 }
 
 /* ABOUT */
