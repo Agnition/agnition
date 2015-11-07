@@ -380,20 +380,7 @@ input.options {
   width: 300px;
 }
 
-.measure-slider div {
-  text-align: center;
-}
 
-.measure-slider input {
-  width: 66%;
-}
-
-.measure-slider label {
-  text-align: center;
-  display: inline-block;
-  width: 33%;
-  padding: 0 10px;
-}
 
 input.input-text {
   margin-right: 1em;
@@ -875,6 +862,21 @@ input[type=range] {
   border-radius: 16px;
   background-color: hsla(0, 0%, 95%, 1.0);
   padding-bottom: 40px;
+}
+
+.measure-slider div {
+  text-align: center;
+}
+
+.measure-slider input {
+  width: 66%;
+}
+
+.measure-slider label {
+  text-align: center;
+  display: inline-block;
+  width: 33%;
+  padding: 0 10px;
 }
 
 div.scale-defs {
