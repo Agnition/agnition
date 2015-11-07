@@ -48,8 +48,8 @@ var SelectableOption = React.createClass({
         <label >
           <input disabled = {noneRemaining} className='input-radio' type='radio' name={this.props.indVarId} value={this.props.optionValue} />
           <span className="sample-option">{this.props.optionValue}</span>
-          <span className="samples-taken">{taken + '/' + this.props.needed}</span>
         </label>
+          <span className="samples-taken">{taken + '/' + this.props.needed}</span>
       </div>
     );
   }
