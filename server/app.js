@@ -62,7 +62,6 @@ else {
       var exps = _.map(user.exps.toObject(), function(exp){
         return exp + '';
       });
-      console.log("----------------------EXPS---------------------",exps);
       var popExps = [];
       var renderWithExps = function(exps) {
         res.render('index', {
