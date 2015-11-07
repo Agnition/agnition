@@ -58,20 +58,24 @@ if (process.env.ENV === undefined && config.autoSignin) {
 }
 else {
   app.get('/', verify, function(req, res) {
-    Exp.find({}, function(err, exps) {
-      User.findOne({googleId : req.user.googleId}, function(err, user) {
-        var popExps = [];
-        var renderWithExps = function(exps) {
-          res.render('index', {
-            user: JSON.stringify(user),
-            exps: JSON.stringify(exps)
-          });
-        }
-        if (exps.length === 0) {
-          renderWithExps([]);
-        }
-        else {
-          _.each(exps, function(exp){
+    User.findOne({googleId : req.user.googleId}, function(err, user) {
+      var exps = _.map(user.exps.toObject(), function(exp){
+        return exp + '';
+      });
+      console.log("----------------------EXPS---------------------",exps);
+      var popExps = [];
+      var renderWithExps = function(exps) {
+        res.render('index', {
+          user: JSON.stringify(user),
+          exps: JSON.stringify(exps)
+        });
+      };
+
+      if (exps.length === 0) {
+        renderWithExps([]);
+      } else {
+        _.each(exps, function(exp){
+          Exp.findOne({_id:exp}, function(err, exp) {
             exp.deepPopulate(utils.expPopArray, function(err, exp){
               popExps.push(exp);
               if(popExps.length === exps.length){
@@ -79,14 +83,14 @@ else {
               }
             });
           });
-        }
-      });
+        });
+      }
     });
   });
 }
 app.use(express.static(path.join(__dirname, './client/public')));
-app.use('/users', mock, userRouter);
-app.use('/samples', mock, sampleRouter);
+app.use('/users', userRouter);
+app.use('/samples', sampleRouter);
 
 console.log('agnition is listening on port ' + config.port + " " + process.env.ENV);
 

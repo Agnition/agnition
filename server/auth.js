@@ -46,7 +46,7 @@ module.exports = function(app) {
           username : profile.displayName,
           googleId : profile.id
         });
-        User.findOne(newUser, function(err, user) {
+        User.findOne({googleId:profile.id}, function(err, user) {
           if (err) {
             done(err, null);
           } 

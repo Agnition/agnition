@@ -15,4 +15,4 @@ if(process.env.ENV === 'DEVELOPMENT') {
 
 module.exports.port = port;
 module.exports.dbPath = dbPath;
-module.exports.autoSignin = true;
+module.exports.autoSignin = false;

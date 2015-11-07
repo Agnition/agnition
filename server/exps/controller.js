@@ -51,14 +51,22 @@ var getAllExps = function (req, res) {
 };
 
 var addExp = function (req, res) {
+  console.log("-----------------------------------------PARAMS--");
+  console.dir(req.params);
+  console.log("---------------------------------------BODY.EXP----");
+  console.dir(req.body.experiments);
+  console.log("---------------------------------------BODY.EXP.KEYS----");
+  console.dir(Object.keys(req.body.experiments));
   User.findOne({googleId: req.params.user_id}).exec()
     .then(function(user) {
+      console.log("------------------USER-------------------------",user);
       if (user === undefined) {
         res.status(400);
         res.send('User not found');
       }
       else {
-        return user;
+        user.exps.push(Object.keys(req.body.experiments)[0]);
+        return user.save();
       }
     })
     .then(function() {
