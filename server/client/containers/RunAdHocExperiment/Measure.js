@@ -30,7 +30,7 @@ var Measure = React.createClass({
     if (this.props.kind === 'numeric') {
       input = (<span className = 'input-button'>
                 <input type="number"  step="0.01" name={'measures[' + this.props.measureId + '][value]'} />
-              </span>);
+              <span className="measure-unit">{this.props.unit}</span></span>);
     } else if (this.props.kind === 'list') {
       input = this.props.list.map(function(item) {
         return (<span className ='input-radio'>
