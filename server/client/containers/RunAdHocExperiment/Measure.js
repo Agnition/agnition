@@ -53,7 +53,7 @@ var Measure = React.createClass({
                     onChange={this.scaleChanged}
                     />
                 </div>
-                <div>
+                <div className="scale-defs">
                   <label>{this.props.scaleMin}</label>
                   <label>{this.props.scaleMid}</label>
                   <label>{this.props.scaleMax}</label>

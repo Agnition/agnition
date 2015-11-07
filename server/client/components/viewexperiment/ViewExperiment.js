@@ -39,9 +39,10 @@ var ViewExp = React.createClass({
     return (
       <div className="container">
         <div className="row">
-          <section className="subsection-v col-md-6 col-md-offset-3">
+          <section className="subsection-v view-exp col-md-6 col-md-offset-3">
             {/* name as header */}
             <h2 className='section-title'>{this.props.exp.name}</h2>
+            <div className="view-exp-container">
             <p className='guide'>You have submitted {this.props.samplesSubmitted} samples out of the required {this.props.samplesNeeded}</p>
             <h3 className="subsection-title">Hypothesis:</h3>
             <div className='definition-set'>
@@ -56,6 +57,7 @@ var ViewExp = React.createClass({
               <DepVar depVarIds = {this.props.exp.depVars} />
             </div>
             <button className='set-button'><Link to={'/sample/' + this.props.exp._id + '/adhoc'}>Add Sample</Link></button>
+            </div>
           </section>
         </div>
       </div>
