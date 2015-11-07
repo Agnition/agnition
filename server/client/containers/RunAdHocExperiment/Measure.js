@@ -41,7 +41,7 @@ var Measure = React.createClass({
                 </span>);
       }.bind(this));
     } else if (this.props.kind === 'qualitative') {
-      return (<div className='input-slider'>
+      return (<div className="input-slider">
                 <div>
                   <input
                     type="range"
@@ -53,7 +53,7 @@ var Measure = React.createClass({
                     onChange={this.scaleChanged}
                     />
                 </div>
-                <div className="scale-defs">
+                <div>
                   <label>{this.props.scaleMin}</label>
                   <label>{this.props.scaleMid}</label>
                   <label>{this.props.scaleMax}</label>

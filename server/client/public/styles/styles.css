@@ -375,13 +375,6 @@ input.options {
   font-size: 14px;
 }
 
-.measure-slider {
-  /* Or whatever width we end up with... or inherited */
-  width: 300px;
-}
-
-
-
 input.input-text {
   margin-right: 1em;
 }
@@ -854,35 +847,25 @@ span.samples-taken {
   justify-content: center;
 }
 
-input[type=range] {
-  width:400px;
-}
-
 .sample-measure-container {
   border-radius: 16px;
   background-color: hsla(0, 0%, 95%, 1.0);
   padding-bottom: 40px;
 }
 
-.measure-slider div {
+.input-slider div {
   text-align: center;
 }
 
-.measure-slider input {
+.input-slider input {
   width: 66%;
 }
 
-.measure-slider label {
+.input-slider label {
   text-align: center;
   display: inline-block;
   width: 33%;
   padding: 0 10px;
-}
-
-div.scale-defs {
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .sample-depvar-question {
@@ -891,10 +874,6 @@ div.scale-defs {
 
 .sample-depvar-name {
   color: #3888DF;
-}
-
-div.scale-defs > label {
-  font-size: 1em;
 }
 
 .sample-measure-input-container {
